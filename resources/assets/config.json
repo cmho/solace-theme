@@ -8,7 +8,7 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": "/wp-content/themes/solace",
+  "publicPath": "/wp-content/themes/solace-theme",
   "devUrl": "http://solacelarp.loc",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
