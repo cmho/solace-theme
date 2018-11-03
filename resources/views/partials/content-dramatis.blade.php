@@ -1,8 +1,8 @@
 @php
   global $post;
 @endphp
-@if(App\Characters::list())
-  @foreach(App\Characters::list() as $post)
+@if(App\Characters::activeList())
+  @foreach(App\Characters::activeList() as $post)
     @php(setup_postdata($post))
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="box">
