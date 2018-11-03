@@ -1,12 +1,10 @@
 <section class="grey">
   <div class="wrapper">
-    <div class="row center-xs">
-      <div class="col-xs-12">
+    <div class="row">
+      <div class="col-md-4 col-xs-12">
         <h2>Merit: {{ get_the_title() }} ({{ App\Merit::dots() }})</h2>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-8 col-xs-12">
         <div class="box">
           <div class="content">
             @if(get_field('prerequisites'))
