@@ -3,7 +3,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12 center">
       <h2>Character: {{ get_the_title() }}</h2>
       @if(get_field('family') != "other")
-        <p class="family">{{ get_field('family') }} Family</p>
+        <p class="family">{{ get_field('family') }}</p>
       @endif
       @if(!get_field('is_npc'))
         <p class="played-by">Played by {{ get_the_author() }}</p>
@@ -27,6 +27,23 @@
             <dd>{{ get_field('vice') }}</dd>
           </dl>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Attributes</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h4>Mental</h4>
+        <div class="row">
+
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h4>Physical</h4>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h4>Social</h4>
       </div>
     </div>
 </div>

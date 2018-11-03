@@ -103,6 +103,7 @@
   },
   "dependencies": {
     "flexboxgrid-sass": "^8.0.5",
+    "fontawesome": "^4.7.2",
     "jquery": "^3.3.1"
   }
 }
