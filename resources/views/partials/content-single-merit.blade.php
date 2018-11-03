@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>Merit: {{ get_the_title() }} {{ join(', ', get_field('allowed_ratings')) }}</h2>
+        <h2>Merit: {{ get_the_title() }} ({{ App\Merit::dots() }})</h2>
       </div>
     </div>
     <div class="row">
