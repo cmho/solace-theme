@@ -61,6 +61,16 @@
             </div>
           </div>
         </div>
+      </section>
+    @elseif(get_row_layout() == 'two_column_text')
+      <section class="yellow">
+        <div class="wrapper">
+          <h2>{{ get_sub_field('heading') }}</h2>
+          <div class="twocols">
+            {{ get_sub_field('content') }}
+          </div>
+        </div>
+      </section>
     @endif
     @php
       $count++;
