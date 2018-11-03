@@ -29,6 +29,7 @@ class Merit extends Controller
             }
 
             $last = $rating;
+            $count++;
         }
 
         return $out;
