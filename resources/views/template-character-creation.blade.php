@@ -2,6 +2,10 @@
   Template Name: Character Creation Template
 --}}
 
+@php
+  $is_admin = in_array('administrator', $user->roles);
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
