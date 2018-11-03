@@ -27,6 +27,11 @@
       <section id="section-{{ $count }}" class="{{ get_sub_field('color') }}">
         <div class="wrapper">
           <div class="row top-xs">
+            @if(get_sub_field('image_position') == 'left')
+              <div class="col-md-5 col-xs-12 side-image">
+                <img src="{{ get_sub_field('image')['sizes']['large'] }}" />
+              </div>
+            @endif
             <div class="col-md-7 col-xs-12">
                 <div class="box">
                   <div class="content">
@@ -35,9 +40,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-5 col-xs-12 side-image">
-                <img src="{{ get_sub_field('image')['sizes']['large'] }}" />
-              </div>
+              @if(get_sub_field('image_position') == 'right')
+                <div class="col-md-5 col-xs-12 side-image">
+                  <img src="{{ get_sub_field('image')['sizes']['large'] }}" />
+                </div>
+              @endif
             </div>
           </div>
         </div>
