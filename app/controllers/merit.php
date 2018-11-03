@@ -11,8 +11,9 @@ class Merit extends Controller
         $allowed = get_field('allowed_ratings');
         $out = "";
         $last;
-        $count = 1;
+        $count = 0;
         foreach ($allowed as $rating) {
+            $count++;
             if ($last && $last+1 == $rating && $count != count($allowed)) {
                 continue;
             } elseif ($last && $last+1 != $rating && $count != count($allowed)) {
@@ -31,7 +32,6 @@ class Merit extends Controller
             }
 
             $last = $rating;
-            $count++;
         }
 
         return $out;
