@@ -1,12 +1,12 @@
 @php
   function printDots($amt) {
-    @for($i = 1; $i <= 5; $i++)
-      @if($i > $amt)
-        <i class="far fa-circle"></i>
-      @else
-        <i class="fas fa-circle"></i>
-      @endif
-    @endfor
+    for($i = 1; $i <= 5; $i++) {
+      if($i > $amt) {
+        echo '<i class="far fa-circle"></i>';
+      } else {
+        echo '<i class="fas fa-circle"></i>';
+      }
+    }
   }
 @endphp
 
