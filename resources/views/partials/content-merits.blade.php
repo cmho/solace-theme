@@ -1,4 +1,4 @@
-<article @php post_class('content') @endphp>
+<article>
   @if(App\Merits::list())
     @foreach(App\Merits::list() as $post)
       <h3>{{ get_the_title() }} {{ join(", ", get_field('allowed_ratings')) }}</h3>
