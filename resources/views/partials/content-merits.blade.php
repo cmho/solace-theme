@@ -5,9 +5,9 @@
   @if(App\Merits::list())
     @foreach(App\Merits::list() as $post)
       @php(setup_postdata($post))
-      <h3>{{ get_the_title() }} {{ App\Merit::dots() }}</h3>
+      <h3>{{ get_the_title() }} ({{ App\Merit::dots() }})</h3>
       {!! get_field('prerequisites') ? '<strong>Prerequisites:</strong> '.get_field('prerequisites') : '' !!}
-      {{ get_the_content() }}
+      {{ get_field('description') }}
     @endforeach
     @php(wp_reset_postdata())
   @endif
