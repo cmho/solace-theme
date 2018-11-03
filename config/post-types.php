@@ -48,5 +48,5 @@ use Roots\Sage\Container;
     'label' => 'Equipment',
     'menu_icon' => 'dashicons-hammer',
     'public' => true,
-    'supports' => array('title', 'page-attributes')
+    'supports' => array('title', 'page-attributes', 'editor')
 ));
