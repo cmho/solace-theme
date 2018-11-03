@@ -1,3 +1,6 @@
+@php
+  global $post;
+@endphp
 <article>
   @if(App\Merits::list())
     @foreach(App\Merits::list() as $post)
