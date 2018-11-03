@@ -1,3 +1,15 @@
+@php
+  function printDots($amt) {
+    @for($i = 1; $i <= 5; $i++)
+      @if($i > $amt)
+        <i class="far fa-circle"></i>
+      @else
+        <i class="fas fa-circle"></i>
+      @endif
+    @endfor
+  }
+@endphp
+
 <section id="character-sheet" class="grey">
   <div class="row">
     <div class="col-md-4 col-sm-6 col-xs-12 center">
@@ -36,7 +48,10 @@
       <div class="col-md-4 col-xs-12">
         <h4>Mental</h4>
         <div class="row">
-
+          <label>Intelligence</label>
+          <div class="dots">
+            @php(printDots(get_field('intelligence')))
+          </div>
         </div>
       </div>
       <div class="col-md-4 col-xs-12">
