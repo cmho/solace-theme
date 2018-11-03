@@ -21,9 +21,12 @@ class Merit extends Controller
                     $out .= "●";
                 }
             }
+
             for ($i = 0; $i < $rating; $i++) {
                 $out .= "●";
             }
+
+            $last = $rating;
         }
 
         return $out;
