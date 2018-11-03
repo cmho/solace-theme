@@ -15,7 +15,7 @@ class Merit extends Controller
         foreach ($allowed as $rating) {
             if ($last && $last+1 == $rating && $count != count($allowed)) {
                 continue;
-            } elseif ($last && $count != count($allowed)) {
+            } elseif ($last && $last+1 != $rating && $count != count($allowed)) {
                 $out .= "a-";
                 for ($i = 0; $i < $last; $i++) {
                     $out .= "●";
