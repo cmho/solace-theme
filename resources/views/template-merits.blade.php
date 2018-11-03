@@ -1,5 +1,5 @@
 {{--
-  Template Name: Custom Template
+  Template Name: Merits Template
 --}}
 
 @extends('layouts.app')
