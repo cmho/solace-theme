@@ -102,8 +102,8 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0",
     "flexboxgrid-sass": "^8.0.5",
-    "fontawesome": "^4.7.2",
     "jquery": "^3.3.1"
   }
 }
