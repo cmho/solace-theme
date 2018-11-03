@@ -1,0 +1,16 @@
+article.post {
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  time {
+    text-transform: uppercase;
+  }
+}
+
+.end-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 96px;
+}

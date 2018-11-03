@@ -1,0 +1,83 @@
+// TODO: .banner .nav li {}
+// TODO: .banner .nav a {}
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    justify-content: center;
+    li {
+      margin: 0 10px;
+      position: relative;
+      &.menu-item-has-children {
+        > a:after {
+          content: " +"
+        }
+      }
+      ul {
+        position: absolute;
+        top: 100%;
+        min-width: 100%;
+        max-width: 300px;
+        text-align: left;
+        left: 0;
+        background-color: $yellow;
+        color: $grey;
+        display: none;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        text-transform: none;
+        li {
+          line-height: 1;
+          margin: 10px;
+        }
+        a {
+          color: $grey;
+        }
+      }
+      &:hover {
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    ul {
+      font-size: 36px;
+      li {
+        ul {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 568px) {
+    ul {
+      font-size: 30px;
+      li {
+        ul {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+#header-img {
+  width: 100%;
+  margin: 20px 0;
+  height: 400px;
+  object-fit: cover;
+  filter: url(#duochrome);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
