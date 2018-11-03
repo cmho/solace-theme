@@ -11,7 +11,9 @@
  */
 // @import "~some-node-module";
 @import "~flexboxgrid-sass";
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
 /** Import theme styles */
 @import "common/fonts";
