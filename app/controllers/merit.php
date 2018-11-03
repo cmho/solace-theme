@@ -26,6 +26,7 @@ class Merit extends Controller
             } elseif ($last) {
                 $out .= ", ";
             }
+            $out .= $count.",".count($allowed);
 
             for ($j = 0; $j < $rating; $j++) {
                 $out .= "●";
