@@ -8,9 +8,22 @@ class Merits extends Controller
 {
     public static function list()
     {
-        return \get_posts(array(
+        $args = array(
             'posts_per_page' => -1,
-            'post_type' => 'merit'
-        ));
+            'post_type' => 'merit',
+            'orderby' => 'title',
+            'order' => 'ASC'
+        );
+
+        if (get_field('category_to_show')) {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'merit_category',
+                    'terms' => get_field('category_to_show')
+                )
+            );
+        }
+
+        return \get_posts($args);
     }
 }
