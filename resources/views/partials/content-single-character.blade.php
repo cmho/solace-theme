@@ -7,6 +7,7 @@
         echo '<i class="fas fa-circle"></i>';
       }
     }
+    echo '<span class="sr-only">'.$amt.'</span>';
   }
 @endphp
 
@@ -53,9 +54,39 @@
             @php(printDots(get_field('intelligence')))
           </div>
         </div>
+        <div class="row">
+          <label>Wits</label>
+          <div class="dots">
+            @php(printDots(get_field('wits')))
+          </div>
+        </div>
+        <div class="row">
+          <label>Resolve</label>
+          <div class="dots">
+            @php(printDots(get_field('resolve')))
+          </div>
+        </div>
       </div>
       <div class="col-md-4 col-xs-12">
         <h4>Physical</h4>
+        <div class="row">
+          <label>Strength</label>
+          <div class="dots">
+            @php(printDots(get_field('strength')))
+          </div>
+        </div>
+        <div class="row">
+          <label>Dexterity</label>
+          <div class="dots">
+            @php(printDots(get_field('dexterity')))
+          </div>
+        </div>
+        <div class="row">
+          <label>Stamina</label>
+          <div class="dots">
+            @php(printDots(get_field('stamina')))
+          </div>
+        </div>
       </div>
       <div class="col-md-4 col-xs-12">
         <h4>Social</h4>
