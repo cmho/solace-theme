@@ -20,11 +20,13 @@ class Merit extends Controller
                 for ($i = 0; $i < $last; $i++) {
                     $out .= "●";
                 }
-            } elseif ($last) {
+            } elseif ($last && $last+1 == $rating) {
                 $out .= "-";
+            } elseif ($last) {
+                $out .= ", ";
             }
 
-            for ($i = 0; $i < $rating; $i++) {
+            for ($j = 0; $j < $rating; $j++) {
                 $out .= "●";
             }
 
