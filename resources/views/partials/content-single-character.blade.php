@@ -22,7 +22,7 @@
   }
 
   function printSquares($amt) {
-    for($i = 1; $i <= 5; $i++) {
+    for($i = 1; $i <= $amt; $i++) {
       echo '<i class="far fa-square"></i>';
     }
     echo '<span class="sr-only">'.$amt.'</span>';
