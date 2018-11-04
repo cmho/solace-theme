@@ -67,19 +67,19 @@
     </div>
     <div class="col-md-4 col-xs-12">
       <h4>Mental</h4>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Intelligence</label>
         <div class="dots">
           @php(printDots(get_field('intelligence')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Wits</label>
         <div class="dots">
           @php(printDots(get_field('wits')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Resolve</label>
         <div class="dots">
           @php(printDots(get_field('resolve')))
@@ -88,19 +88,19 @@
     </div>
     <div class="col-md-4 col-xs-12">
       <h4>Physical</h4>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Strength</label>
         <div class="dots">
           @php(printDots(get_field('strength')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Dexterity</label>
         <div class="dots">
           @php(printDots(get_field('dexterity')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Stamina</label>
         <div class="dots">
           @php(printDots(get_field('stamina')))
@@ -109,19 +109,19 @@
     </div>
     <div class="col-md-4 col-xs-12">
       <h4>Social</h4>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Presence</label>
         <div class="dots">
           @php(printDots(get_field('presence')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Manipulation</label>
         <div class="dots">
           @php(printDots(get_field('manipulation')))
         </div>
       </div>
-      <div class="row">
+      <div class="row between-xs middle-xs">
         <label>Composure</label>
         <div class="dots">
           @php(printDots(get_field('composure')))
@@ -133,11 +133,11 @@
       <div class="col-md-4 col-xs-12">
         <h3>Skills</h3>
         <h4>Mental</h4>
-        <div class="row">
-        <label>Academics</label>
-        <div class="dots">
-          @php(printDots(get_field('academics')))
-        </div>
+        <div class="row between-xs middle-xs">
+          <label>Academics</label>
+          <div class="dots">
+            @php(printDots(get_field('academics')))
+          </div>
       </div>
       </div>
       <div class="col-md-4 col-xs-12">
