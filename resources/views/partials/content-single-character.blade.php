@@ -9,6 +9,28 @@
     }
     echo '<span class="sr-only">'.$amt.'</span>';
   }
+
+  function printDotsTen($amt) {
+    for($i = 1; $i <= 10; $i++) {
+      if($i > $amt) {
+        echo '<i class="far fa-circle"></i>';
+      } else {
+        echo '<i class="fas fa-circle"></i>';
+      }
+    }
+    echo '<span class="sr-only">'.$amt.'</span>';
+  }
+
+  function printSquares($amt) {
+    for($i = 1; $i <= 5; $i++) {
+      if($i > $amt) {
+        echo '<i class="far fa-square"></i>';
+      } else {
+        echo '<i class="fas fa-square"></i>';
+      }
+    }
+    echo '<span class="sr-only">'.$amt.'</span>';
+  }
 @endphp
 
 <section id="character-sheet" class="grey">
@@ -90,6 +112,43 @@
       </div>
       <div class="col-md-4 col-xs-12">
         <h4>Social</h4>
+        <div class="row">
+          <label>Presence</label>
+          <div class="dots">
+            @php(printDots(get_field('presence')))
+          </div>
+        </div>
+        <div class="row">
+          <label>Manipulation</label>
+          <div class="dots">
+            @php(printDots(get_field('manipulation')))
+          </div>
+        </div>
+        <div class="row">
+          <label>Composure</label>
+          <div class="dots">
+            @php(printDots(get_field('composure')))
+          </div>
+        </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <h3>Skills</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>Merits</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>Health</h3>
+        @php(printDots(get_field('stamina')+get_field('size')))
+
+        <h3>Willpower</h3>
+        @php(printDots(get_field('composure')+get_field('resolve')))
+
+        <h3>Integrity</h3>
+        @php(printDotsTen(get_field('integrity')))
+      </div>
+    </div>
+  </div>
 </div>
