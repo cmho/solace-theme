@@ -50,3 +50,9 @@ use Roots\Sage\Container;
     'public' => true,
     'supports' => array('title', 'page-attributes', 'editor')
 ));
+
+\register_post_type('experience', array(
+    'label' => 'Experience',
+    'public' => true,
+    'supports' => array('title')
+));
