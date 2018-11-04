@@ -128,7 +128,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
+  </div>
+  <div class="row">
       <div class="col-md-4 col-xs-12">
         <h3>Skills</h3>
         <h4>Mental</h4>
@@ -157,5 +158,4 @@
         @php(printDotsTen(get_field('integrity')))
       </div>
     </div>
-  </div>
 </div>
