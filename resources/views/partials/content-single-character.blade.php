@@ -131,9 +131,20 @@
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <h3>Skills</h3>
+        <h4>Mental</h4>
+        <div class="row">
+        <label>Academics</label>
+        <div class="dots">
+          @php(printDots(get_field('academics')))
+        </div>
+      </div>
       </div>
       <div class="col-md-4 col-xs-12">
         <h3>Merits</h3>
+        <ul class="merits">
+          @foreach(get_field('merits') as $merit)
+            <li>{{ get_the_title($merit['merit']) }}{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}</li>
+          @endforeach
       </div>
       <div class="col-md-4 col-xs-12">
         <h3>Health</h3>
