@@ -138,6 +138,49 @@
           <div class="dots">
             @php(printDots(get_field('academics')))
           </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Computer</label>
+          <div class="dots">
+            @php(printDots(get_field('computer')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Crafts</label>
+          <div class="dots">
+            @php(printDots(get_field('crafts')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Investigation</label>
+          <div class="dots">
+            @php(printDots(get_field('investigation')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Medicine</label>
+          <div class="dots">
+            @php(printDots(get_field('medicine')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Occult</label>
+          <div class="dots">
+            @php(printDots(get_field('occult')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Politics</label>
+          <div class="dots">
+            @php(printDots(get_field('politics')))
+          </div>
+        </div>
+        <div class="row between-xs middle-xs">
+          <label>Science</label>
+          <div class="dots">
+            @php(printDots(get_field('science')))
+          </div>
+        </div>
       </div>
       </div>
       <div class="col-md-4 col-xs-12">
@@ -149,13 +192,19 @@
       </div>
       <div class="col-md-4 col-xs-12">
         <h3>Health</h3>
-        @php(printSquares(get_field('stamina')+get_field('size')))
+        <div class="dots center">
+          @php(printSquares(get_field('stamina')+get_field('size')))
+        </div>
 
         <h3>Willpower</h3>
-        @php(printSquares(get_field('composure')+get_field('resolve')))
+        <div class="dots center">
+          @php(printSquares(get_field('composure')+get_field('resolve')))
+        </div>
 
         <h3>Integrity</h3>
-        @php(printDotsTen(get_field('integrity')))
+        <div class="dots center">
+          @php(printDotsTen(get_field('integrity')))
+        </div>
       </div>
     </div>
 </div>
