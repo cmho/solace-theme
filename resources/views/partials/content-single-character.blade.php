@@ -340,8 +340,8 @@
             <li>{{ get_the_title() }}: {{ get_field('amount') }}</li>
           @endforeach
           @php(wp_reset_postdata())
-          <p><strong>Current Total:</strong> {{ App\Character::sumExperience() }}</p>
         </ul>
+        <p><strong>Current Total:</strong> {{ App\Character::sumExperience() }}</p>
       </div>
     </div>
   </div>
