@@ -329,3 +329,20 @@
     </div>
   </div>
 </section>
+<section id="experience" class="grey">
+  <div class="wrapper">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Experience</h3>
+        <ul>
+          @foreach(App\Character::experienceRecords() as $post)
+            @php(setup_postdata($post))
+            <li>{{ get_the_title() }}: {{ get_field('amount') }}</li>
+          @endforeach
+          @php(wp_reset_postdata())
+          <p><strong>Current Total:</strong> {{ App\Character::sumExperience() }}</p>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
