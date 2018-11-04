@@ -23,11 +23,7 @@
 
   function printSquares($amt) {
     for($i = 1; $i <= 5; $i++) {
-      if($i > $amt) {
-        echo '<i class="far fa-square"></i>';
-      } else {
-        echo '<i class="fas fa-square"></i>';
-      }
+      echo '<i class="far fa-square"></i>';
     }
     echo '<span class="sr-only">'.$amt.'</span>';
   }
@@ -141,10 +137,10 @@
       </div>
       <div class="col-md-4 col-xs-12">
         <h3>Health</h3>
-        @php(printDots(get_field('stamina')+get_field('size')))
+        @php(printSquares(get_field('stamina')+get_field('size')))
 
         <h3>Willpower</h3>
-        @php(printDots(get_field('composure')+get_field('resolve')))
+        @php(printSquares(get_field('composure')+get_field('resolve')))
 
         <h3>Integrity</h3>
         @php(printDotsTen(get_field('integrity')))
