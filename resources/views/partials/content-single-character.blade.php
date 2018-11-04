@@ -44,10 +44,10 @@
       <div class="box">
         <div class="content">
           @if(get_field('quote'))
-            <p><em>{{ get_field('quote') }}</em></p>
+            <p class="quote">{{ get_field('quote') }}</p>
           @endif
           @if(get_field('public_blurb'))
-            {{ get_field('public_blurb') }}
+            {!! get_field('public_blurb') !!}
           @endif
           <dl>
             <dt>Status</dt>
