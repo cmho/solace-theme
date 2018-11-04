@@ -64,90 +64,72 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <h3>Attributes</h3>
-      </div>
-      <div class="col-md-4 col-xs-12">
-        <h4>Mental</h4>
-        <div class="row">
-          <label>Intelligence</label>
-          <div class="dots">
-            @php(printDots(get_field('intelligence')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Wits</label>
-          <div class="dots">
-            @php(printDots(get_field('wits')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Resolve</label>
-          <div class="dots">
-            @php(printDots(get_field('resolve')))
-          </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Attributes</h3>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <h4>Mental</h4>
+      <div class="row">
+        <label>Intelligence</label>
+        <div class="dots">
+          @php(printDots(get_field('intelligence')))
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <h4>Physical</h4>
-        <div class="row">
-          <label>Strength</label>
-          <div class="dots">
-            @php(printDots(get_field('strength')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Dexterity</label>
-          <div class="dots">
-            @php(printDots(get_field('dexterity')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Stamina</label>
-          <div class="dots">
-            @php(printDots(get_field('stamina')))
-          </div>
+      <div class="row">
+        <label>Wits</label>
+        <div class="dots">
+          @php(printDots(get_field('wits')))
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <h4>Social</h4>
-        <div class="row">
-          <label>Presence</label>
-          <div class="dots">
-            @php(printDots(get_field('presence')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Manipulation</label>
-          <div class="dots">
-            @php(printDots(get_field('manipulation')))
-          </div>
-        </div>
-        <div class="row">
-          <label>Composure</label>
-          <div class="dots">
-            @php(printDots(get_field('composure')))
-          </div>
+      <div class="row">
+        <label>Resolve</label>
+        <div class="dots">
+          @php(printDots(get_field('resolve')))
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-xs-12">
-        <h3>Skills</h3>
+    <div class="col-md-4 col-xs-12">
+      <h4>Physical</h4>
+      <div class="row">
+        <label>Strength</label>
+        <div class="dots">
+          @php(printDots(get_field('strength')))
+        </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <h3>Merits</h3>
+      <div class="row">
+        <label>Dexterity</label>
+        <div class="dots">
+          @php(printDots(get_field('dexterity')))
+        </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <h3>Health</h3>
-        @php(printDots(get_field('stamina')+get_field('size')))
-
-        <h3>Willpower</h3>
-        @php(printDots(get_field('composure')+get_field('resolve')))
-
-        <h3>Integrity</h3>
-        @php(printDotsTen(get_field('integrity')))
+      <div class="row">
+        <label>Stamina</label>
+        <div class="dots">
+          @php(printDots(get_field('stamina')))
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <h4>Social</h4>
+      <div class="row">
+        <label>Presence</label>
+        <div class="dots">
+          @php(printDots(get_field('presence')))
+        </div>
+      </div>
+      <div class="row">
+        <label>Manipulation</label>
+        <div class="dots">
+          @php(printDots(get_field('manipulation')))
+        </div>
+      </div>
+      <div class="row">
+        <label>Composure</label>
+        <div class="dots">
+          @php(printDots(get_field('composure')))
+        </div>
       </div>
     </div>
   </div>
