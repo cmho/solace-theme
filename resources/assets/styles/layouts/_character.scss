@@ -39,6 +39,12 @@
       float: left;
       min-width: 1px;
     }
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
   }
 
   label {
