@@ -11,7 +11,7 @@
           @if(get_field('quote'))
             <p class="quote">{{ get_field('quote') }}</p>
           @endif
-          {{ get_field('public_blurb') }}
+          {!! get_field('public_blurb') !!}
         </div>
       </div>
     </div>
