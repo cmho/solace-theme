@@ -1,5 +1,6 @@
 // import external dependencies
 import 'jquery';
+import 'datatables.net-dt';
 
 // Import everything from autoload
 import "./autoload/**/*"

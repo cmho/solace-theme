@@ -33,6 +33,7 @@ class Characters extends Controller
             'orderby' => 'title',
             'order' => 'ASC',
             'meta_query' => array(
+                'relation' => 'AND',
                 array(
                     'key' => 'is_secret',
                     'value' => true,
@@ -40,7 +41,8 @@ class Characters extends Controller
                 ),
                 array(
                     'key' => 'status',
-                    'value' => 'active'
+                    'value' => 'active',
+                    'compare' => '='
                 )
             )
         );
