@@ -6,7 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
-    <section class="grey">
+    <section class="grey" id="dramatis">
       <div class="wrapper">
         <div class="row center-xs">
           <div class="col-xs-12">
