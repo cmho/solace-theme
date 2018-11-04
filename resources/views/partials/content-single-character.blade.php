@@ -32,7 +32,7 @@
 <section id="character-sheet" class="grey">
   <div class="row">
     <div class="col-md-4 col-sm-6 col-xs-12 center">
-      <h2>Character: {{ get_the_title() }}</h2>
+      <h2>{{ get_the_title() }}</h2>
       @if(get_field('family') != "other")
         <p class="family">{{ get_field('family') }}</p>
       @endif
