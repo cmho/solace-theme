@@ -1,4 +1,13 @@
 #character-sheet {
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  h3, h4 {
+    margin-bottom: 0;
+  }
+
   .family {
     text-align: center;
     text-transform: uppercase;
