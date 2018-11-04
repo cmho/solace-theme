@@ -44,7 +44,7 @@ class Character extends Controller
         return $sum;
     }
 
-    public static function printDots($amt)
+    public static function printDots($amt = 0)
     {
         for ($i = 1; $i <= 5; $i++) {
             if ($i > $amt) {
@@ -56,7 +56,7 @@ class Character extends Controller
         echo '<span class="sr-only">'.$amt.'</span>';
     }
 
-    public static function printDotsTen($amt)
+    public static function printDotsTen($amt = 0)
     {
         for ($i = 1; $i <= 10; $i++) {
             if($i > $amt) {
