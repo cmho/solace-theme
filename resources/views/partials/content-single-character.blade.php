@@ -132,5 +132,23 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <h3>Skills</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>Merits</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>Health</h3>
+        @php(printDots(get_field('stamina')+get_field('size')))
+
+        <h3>Willpower</h3>
+        @php(printDots(get_field('composure')+get_field('resolve')))
+
+        <h3>Integrity</h3>
+        @php(printDotsTen(get_field('integrity')))
+      </div>
+    </div>
   </div>
 </div>
