@@ -43,4 +43,36 @@ class Character extends Controller
         }
         return $sum;
     }
+
+    public static function printDots($amt)
+    {
+        for ($i = 1; $i <= 5; $i++) {
+            if ($i > $amt) {
+                echo '<i class="far fa-circle"></i>';
+            } else {
+                echo '<i class="fas fa-circle"></i>';
+            }
+        }
+        echo '<span class="sr-only">'.$amt.'</span>';
+    }
+
+    public static function printDotsTen($amt)
+    {
+        for ($i = 1; $i <= 10; $i++) {
+            if($i > $amt) {
+                echo '<i class="far fa-circle"></i>';
+            } else {
+                echo '<i class="fas fa-circle"></i>';
+            }
+        }
+        echo '<span class="sr-only">'.$amt.'</span>';
+    }
+
+    public static function printSquares($amt)
+    {
+        for ($i = 1; $i <= $amt; $i++) {
+            echo '<i class="far fa-square"></i>';
+        }
+        echo '<span class="sr-only">'.$amt.'</span>';
+    }
 }
