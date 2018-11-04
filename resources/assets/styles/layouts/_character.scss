@@ -1,4 +1,17 @@
 #character-sheet {
+  .family {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .played-by {
+    text-align: center;
+    margin: 0;
+  }
+
   label {
     font-size: 14px;
     margin: 0 10px 0 0;
