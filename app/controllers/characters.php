@@ -32,19 +32,6 @@ class Characters extends Controller
             'post_type' => 'character',
             'orderby' => 'title',
             'order' => 'ASC',
-            'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                    'key' => 'is_secret',
-                    'value' => true,
-                    'compare' => '!='
-                ),
-                array(
-                    'key' => 'status',
-                    'value' => 'active',
-                    'compare' => '='
-                )
-            )
         );
 
         return \get_posts($args);
