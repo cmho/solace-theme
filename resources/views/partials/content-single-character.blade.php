@@ -215,7 +215,7 @@
           <dt>Armor</dt>
           <dd>{{ get_field('armor') }}</dd>
           <dt>Initiative Mod</dt>
-          <dd>{{ get_field('initiative_mod') }}</dd>
+          <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
       </div>
     </div>
 </div>
