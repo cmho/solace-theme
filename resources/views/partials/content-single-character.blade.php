@@ -306,7 +306,7 @@
         <ul>
           @foreach(App\Character::experienceRecords() as $post)
             @php(setup_postdata($post))
-            <li>{{ get_the_title() }}: {{ get_field('amount') }}</li>
+            <li>{{ get_the_title() }}: {{ get_field('amount', $post) }}</li>
           @endforeach
           @php(wp_reset_postdata())
         </ul>
