@@ -73,7 +73,7 @@ function update_character()
 {
     $post_content = array(
         'post_title' => htmlspecialchars($_POST['post_title']),
-        'post_author' => wp_current_user()->ID,
+        'post_author' => \wp_current_user()->ID,
         'meta_input' => array(
             'intelligence' => htmlspecialchars($_POST['intelligence']),
             'wits' => htmlspecialchars($_POST['wits']),
@@ -117,7 +117,7 @@ function update_character()
         $post_content['ID'] = htmlspecialchars($_POST['id']);
     }
 
-    $post = wp_insert_post($post_content);
+    $post = \wp_insert_post($post_content);
     header('Location:'.get_the_permalink($post));
     die(1);
 }
