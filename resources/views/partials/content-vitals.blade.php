@@ -1,16 +1,16 @@
 <h3>Health</h3>
 <div class="dots center">
-  @php(App\Character::printSquares(get_field('stamina')+get_field('size')))
+  @php(App\Character::printSquares((get_field('stamina') || get_field('size') ? get_field('stamina')+get_field('size') : 6)))
 </div>
 
 <h3>Willpower</h3>
 <div class="dots center">
-  @php(App\Character::printSquares(get_field('composure')+get_field('resolve')))
+  @php(App\Character::printSquares((get_field('composure') || get_field('resolve') ? get_field('composure')+get_field('resolve') : 2)))
 </div>
 
 <h3>Integrity</h3>
 <div class="dots center">
-  @php(App\Character::printDotsTen(get_field('integrity')))
+  @php(App\Character::printDotsTen((get_field('integrity') ? get_field('integrity') : 7)))
 </div>
 
 <div class="form-row">
