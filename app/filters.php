@@ -72,8 +72,27 @@ add_filter('comments_template', function ($comments_template) {
 function new_character()
 {
     $post_content = array(
-        'post_title' => $_POST['post_title']
+        'post_title' => htmlspecialchars($_POST['post_title']),
+        'post_author' => wp_current_user()->ID,
+        'meta_input' => array(
+            'intelligence' => htmlspecialchars($_POST['intelligence']),
+            'wits' => htmlspecialchars($_POST['wits']),
+            'resolve' => htmlspecialchars($_POST['resolve']),
+            'strength' => htmlspecialchars($_POST['strength']),
+            'dexterity' => htmlspecialchars($_POST['dexterity']),
+            'stamina' => htmlspecialchars($_POST['stamina']),
+            'presence' => htmlspecialchars($_POST['presence']),
+            'manipulation' => htmlspecialchars($_POST['manipulation']),
+            'composure' => htmlspecialchars($_POST['composure']),
+            'family' => htmlspecialchars($_POST['family']),
+            'status' => htmlspecialchars($_POST['status']),
+            'virtue' => htmlspecialchars($_POST['virtue']),
+            'vice' => htmlspecialchars($_POST['vice'])
+        )
     );
+    $post = wp_insert_post($post_content);
+    header('Location:'.get_the_permalink($post));
+    die(1);
 }
 
 add_action('admin_post_new_character', __NAMESPACE__.'\\new_character');
