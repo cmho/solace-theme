@@ -92,7 +92,7 @@ export default {
         success: function(data) {
           var newItem = "<li>"+data.name+" <i class='fas fa-pencil'></i><i class='fas fa-trash'></i><input type='hidden' name='merits[][\"merit\"]' value='"+data.id+"' /><input type='hidden' name='merits[][\"rating\"]' value='"+data.ratings[0]+"' /><input type='hidden' name='merits[][\"specification\"]' value='' /><input type='hidden' name='merits[][\"description\"]' value='' /></li>";
           $('ul.merits').append(newItem);
-        }
+        },
       })
     });
   },
