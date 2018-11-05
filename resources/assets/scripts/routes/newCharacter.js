@@ -34,17 +34,17 @@ export default {
     }
 
     function updateSpeed() {
-      var spd = parseInt($('input[name="dexterity"]')) + parseInt($('input[name="strength"]')) + 5;
+      var spd = parseInt($('input[name="dexterity"]').val()) + parseInt($('input[name="strength"]').val()) + 5;
       $('input[name="speed"]').val(spd);
     }
 
     function updateInitiative() {
-      var ini = parseInt($('input[name="dexterity"]')) + parseInt($('input[name="composure"]'));
+      var ini = parseInt($('input[name="dexterity"]').val()) + parseInt($('input[name="composure"]').val());
       $('input[name="initiative"]').val(ini);
     }
 
     function updateDefense() {
-      var def = Math.min(parseInt($('input[name="wits"]')), parseInt($('input[name="dexterity"]'))) + parseInt($('input[name="athletics"]'));
+      var def = Math.min(parseInt($('input[name="wits"]').val()), parseInt($('input[name="dexterity"]').val())) + parseInt($('input[name="athletics"]').val());
       $('input[name="defense"]').val(def);
     }
 
