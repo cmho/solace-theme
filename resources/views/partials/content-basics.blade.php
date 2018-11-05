@@ -9,7 +9,6 @@
         <div class="form-row">
           <label for="family">Family</label>
           <select name="family">
-            @php(print_r(get_field_object('field_5bdcf10d1a80b')))
             @foreach(get_field_object('field_5bdcf10d1a80b')['choices'] as $value=>$label)
               <option value="{{ $value }}">{{ $label }}</option>
             @endforeach
@@ -35,14 +34,32 @@
               <label for="public_blurb">Public Blurb</label>
               <textarea name="public_blurb" rows="8"></textarea>
             </div>
-            <dl>
-              <dt>Status</dt>
-              <dd>{{ get_field('status') }}</dd>
-              <dt>Virtue</dt>
-              <dd>{{ get_field('virtue') }}</dd>
-              <dt>Vice</dt>
-              <dd>{{ get_field('vice') }}</dd>
-            </dl>
+            <div class="form-row">
+              <label for="virtue">Virtue</label>
+              <select name="virtue">
+                @foreach(get_field_object('field_5bdcf0c71a809')['choices'] as $value=>$label)
+                  <option value="{{ $value }}">{{ $label }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="vice">Vice</label>
+              <select name="vice">
+                @foreach(get_field_object('field_5bdcf1081a80a')['choices'] as $value=>$label)
+                  <option value="{{ $value }}">{{ $label }}</option>
+                @endforeach
+              </select>
+            </div>
+            @if($is_admin)
+              <div class="form-row">
+                <label for="status">Status</label>
+                @foreach(get_field_object('field_5bdd389ba91cf')['choices'] as $value=>$label)
+                  <option value="{{ $value }}">{{ $label }}</option>
+                @endforeach
+              </div>
+            @else
+              <input type="hidden" name="status" value="in_progress" />
+            @endif
           </div>
         </div>
       </div>
