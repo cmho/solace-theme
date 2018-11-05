@@ -68,3 +68,12 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+function new_character()
+{
+    $post_content = array(
+        'post_title' => $_POST['post_title']
+    );
+}
+
+add_action('admin_post_new_character', __NAMESPACE__.'\\new_character');
