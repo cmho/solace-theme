@@ -41,7 +41,7 @@ class Character extends Controller
         foreach ($exp as $e) {
             $sum += get_field('amount', $e);
         }
-        return $character;
+        return $sum;
     }
 
     public static function printDots($amt = 0)
