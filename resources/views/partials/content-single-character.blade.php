@@ -315,19 +315,3 @@
     </div>
   </div>
 </section>
-@php
-  $character = $post->ID;
-  $args = array(
-      'posts_per_page' => -1,
-      'post_type' => 'experience',
-      'meta_query' => array(
-          array(
-              'key' => 'character',
-              'value' => $character
-          )
-      )
-  );
-
-  $exp = \get_posts($args);
-  print_r($exp);
-@endphp
