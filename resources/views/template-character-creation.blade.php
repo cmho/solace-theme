@@ -46,7 +46,7 @@
             <div class="wrapper">
               <div class="row">
                 <div class="col-xs-12">
-                  <input type="hidden" name="author" value="{{ wp_current_user()->ID }}" />
+                  <input type="hidden" name="author" value="{{ wp_get_current_user()->ID }}" />
                   <input type="hidden" name="action" value="update_character" />
                   <input type="submit" value="Save Character" />
                 </div>
