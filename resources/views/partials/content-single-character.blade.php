@@ -312,20 +312,7 @@
         </ul>
         <p><strong>Current Total:</strong> {{ App\Character::sumExperience() }}</p>
         @php
-          $character = $post->ID;
-          $args = array(
-              'posts_per_page' => -1,
-              'post_type' => 'experience',
-              'meta_query' => array(
-                  array(
-                      'key' => 'character',
-                      'value' => $character
-                  )
-              )
-          );
-
-          $exp = \get_posts($args);
-          print_r($exp);
+          echo $post->ID;
         @endphp
       </div>
     </div>
