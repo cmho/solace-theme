@@ -6,7 +6,7 @@
     letter-spacing: 1px;
   }
 
-  input,
+  input:not([type="checkbox"]):not([type="submit"]):not([type="radio"]),
   textarea {
     width: 100%;
   }

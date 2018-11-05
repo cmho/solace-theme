@@ -53,9 +53,11 @@
             @if($is_admin)
               <div class="form-row">
                 <label for="status">Status</label>
-                @foreach(get_field_object('field_5bdd389ba91cf')['choices'] as $value=>$label)
-                  <option value="{{ $value }}">{{ $label }}</option>
-                @endforeach
+                <select name="status">
+                  @foreach(get_field_object('field_5bdd389ba91cf')['choices'] as $value=>$label)
+                    <option value="{{ $value }}">{{ $label }}</option>
+                  @endforeach
+                </select>
               </div>
             @else
               <input type="hidden" name="status" value="in_progress" />
