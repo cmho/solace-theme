@@ -1,10 +1,10 @@
 <h3>Health</h3>
-<div class="dots center">
+<div class="dots center" id="health">
   @php(App\Character::printSquares((get_field('stamina') || get_field('size') ? get_field('stamina')+get_field('size') : 6)))
 </div>
 
 <h3>Willpower</h3>
-<div class="dots center">
+<div class="dots center" id="willpower">
   @php(App\Character::printSquares((get_field('composure') || get_field('resolve') ? get_field('composure')+get_field('resolve') : 2)))
 </div>
 
