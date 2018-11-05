@@ -26,6 +26,7 @@
       @else
         <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
           @include('partials.content-basics')
+          @include('partials.content-attributes')
           <input type="hidden" name="action" value="new_character" />
           <input type="submit" value="Save Character" />
         </form>
