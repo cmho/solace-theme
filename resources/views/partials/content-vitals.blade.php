@@ -13,15 +13,23 @@
   @php(App\Character::printDotsTen(get_field('integrity')))
 </div>
 
-<dl>
-  <dt>Size</dt>
-  <dd>{{ get_field('size') }}</dd>
-  <dt>Speed</dt>
-  <dd>{{ get_field('strength')+get_field('dexterity')+5 }}</dd>
-  <dt>Defense</dt>
-  <dd>{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</dd>
-  <dt>Armor</dt>
-  <dd>{{ get_field('armor') }}</dd>
-  <dt>Initiative Mod</dt>
-  <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
-</dl>
+<div class="form-row">
+  <label for="size">Size</label>
+  <input type="number" min="0" max="10" value="{{ get_field('size') ? get_field('size') : 5 }}" />
+</div>
+<div class="form-row">
+  <label for="speed">Speed</label>
+  <input type="number" disabled name="speed" value="{{ get_field('strength')+get_field('dexterity')+5 }}" />
+</div>
+<div class="form-row">
+  <label for="defense">Defense</label>
+  <input type="number" disabled name="defense" value="{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}" />
+</div>
+<div class="form-row">
+  <label for="armor">Armor</label>
+  <input type="text" name="armor" value="{{ get_field('armor') }}" />
+</div>
+<div class="form-row">
+  <label for="initiative_mod">Initiative Modifier</label>
+  <input type="number" name="initiative_mod" value="{{ get_field('dexterity')+get_field('composure') }}" />
+</div>
