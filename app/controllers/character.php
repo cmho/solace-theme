@@ -39,7 +39,7 @@ class Character extends Controller
         $exp = \get_posts($args);
         $sum = 0;
         foreach ($exp as $e) {
-            $sum += \get_field('amount', $e);
+            $sum += get_field('amount', $e);
         }
         return $sum;
     }
