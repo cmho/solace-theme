@@ -98,6 +98,17 @@ function update_character()
             'occult' => htmlspecialchars($_POST['occult']),
             'politics' => htmlspecialchars($_POST['politics']),
             'science' => htmlspecialchars($_POST['science']),
+            'athletics' => htmlspecialchars($_POST['athletics']),
+            'brawl' => htmlspecialchars($_POST['brawl']),
+            'drive' => htmlspecialchars($_POST['drive']),
+            'firearms' => htmlspecialchars($_POST['firearms']),
+            'larceny' => htmlspecialchars($_POST['larceny']),
+            'stealth' => htmlspecialchars($_POST['stealth']),
+            'survival' => htmlspecialchars($_POST['survival']),
+            'weaponry' => htmlspecialchars($_POST['weaponry']),
+            'merits' => $_POST['merits'],
+            'size' => htmlspecialchars($_POST['size']),
+            'armor' => htmlspecialchars($_POST['armor'])
         )
     );
 
