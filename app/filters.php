@@ -108,7 +108,8 @@ function update_character()
             'weaponry' => htmlspecialchars($_POST['weaponry']),
             'merits' => $_POST['merits'],
             'size' => htmlspecialchars($_POST['size']),
-            'armor' => htmlspecialchars($_POST['armor'])
+            'armor' => htmlspecialchars($_POST['armor']),
+            'integrity' => htmlspecialchars($_POST['integrity'])
         )
     );
 
