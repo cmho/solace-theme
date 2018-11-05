@@ -74,6 +74,7 @@ function update_character()
     $post_content = array(
         'post_title' => htmlspecialchars($_POST['post_title']),
         'post_author' => htmlspecialchars($_POST['author']),
+        'post_type' => 'character',
         'meta_input' => array(
             'intelligence' => htmlspecialchars($_POST['intelligence']),
             'wits' => htmlspecialchars($_POST['wits']),
