@@ -59,7 +59,7 @@ class Character extends Controller
     public static function printDotsTen($amt = 0)
     {
         for ($i = 1; $i <= 10; $i++) {
-            if($i > $amt) {
+            if ($i > $amt) {
                 echo '<i class="far fa-circle"></i>';
             } else {
                 echo '<i class="fas fa-circle"></i>';
