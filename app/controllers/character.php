@@ -8,7 +8,7 @@ class Character extends Controller
 {
     public static function experienceRecords()
     {
-        $character = $post->ID;
+        $character = get_the_ID();
         $args = array(
             'posts_per_page' => -1,
             'post_type' => 'experience',
