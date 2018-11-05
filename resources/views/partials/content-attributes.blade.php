@@ -9,19 +9,19 @@
         <div class="row between-xs middle-xs">
           <label>Intelligence</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('intelligence')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Wits</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('wits')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Resolve</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('resolve')))
+            @php(App\Character:printDots())
           </div>
         </div>
       </div>
@@ -30,19 +30,19 @@
         <div class="row between-xs middle-xs">
           <label>Strength</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('strength')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Dexterity</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('dexterity')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Stamina</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('stamina')))
+            @php(App\Character:printDots())
           </div>
         </div>
       </div>
@@ -51,19 +51,19 @@
         <div class="row between-xs middle-xs">
           <label>Presence</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('presence')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Manipulation</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('manipulation')))
+            @php(App\Character:printDots())
           </div>
         </div>
         <div class="row between-xs middle-xs">
           <label>Composure</label>
           <div class="dots">
-            @php(App\Character:printDots(get_field('composure')))
+            @php(App\Character:printDots())
           </div>
         </div>
       </div>
