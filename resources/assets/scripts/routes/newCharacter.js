@@ -1,5 +1,7 @@
 export default {
   init() {
+    var ajaxurl;
+
     $('.dots i.fa-circle').on('click', function() {
       $(this).nextAll('i.fa-circle').removeClass('fas').addClass('far');
       if ($(this).hasClass('far')) {
@@ -77,6 +79,21 @@ export default {
 
     $('input[name="athletics"]').on('change', function() {
       updateDefense();
+    });
+
+    $('#add-merit').on('click', function() {
+      var merit = parseInt($('#merits option:selected').first().val());
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          id: merit,
+        },
+        success: function(data) {
+          var newItem = "<li>"+data.name+" <i class='fas fa-pencil'></i><i class='fas fa-trash'></i><input type='hidden' name='merits[][\"merit\"]' value='"+data.id+"' /><input type='hidden' name='merits[][\"rating\"]' value='"+data.ratings[0]+"' /><input type='hidden' name='merits[][\"specification\"]' value='' /><input type='hidden' name='merits[][\"description\"]' value='' /></li>";
+          $('ul.merits').append(newItem);
+        }
+      })
     });
   },
   finalize() {
