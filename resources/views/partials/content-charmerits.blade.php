@@ -1,7 +1,11 @@
 <h3>Merits</h3>
 <select id="merits">
   @foreach(App\Merits::listGrouped() as $group=>$merits)
-
+    <optgroup label="{{ $group }}">
+      @foreach($merits as $merit)
+        <option value="{{ $merit->ID }}" data-ratings="{{ get_field('allowed_ratings', $merit) }}" data-specification="{{ get_field('requires_specification', $merit) }}" data-description="{{ get_field('requires_description') }}">{{ get_the_title($merit) }}</option>
+      @endforeach
+    </optgroup>
   @endforeach
 </select>
 <ul class="merits">
