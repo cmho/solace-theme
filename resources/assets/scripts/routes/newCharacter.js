@@ -12,6 +12,7 @@ export default {
       }
       var count = $(this).parent('.dots').find('.fas').length;
       $(this).parent('.dots').find('input').val(count);
+      $(this).parent('.dots').find('input').change();
     });
 
     function updateWillpower() {
