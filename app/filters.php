@@ -69,7 +69,7 @@ add_filter('comments_template', function ($comments_template) {
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
 
-function new_character()
+function update_character()
 {
     $post_content = array(
         'post_title' => htmlspecialchars($_POST['post_title']),
@@ -90,9 +90,14 @@ function new_character()
             'vice' => htmlspecialchars($_POST['vice'])
         )
     );
+
+    if (isset($_POST['id'])) {
+        $post_content['ID'] = htmlspecialchars($_POST['id']);
+    }
+
     $post = wp_insert_post($post_content);
     header('Location:'.get_the_permalink($post));
     die(1);
 }
 
-add_action('admin_post_new_character', __NAMESPACE__.'\\new_character');
+add_action('admin_post_update_character', __NAMESPACE__.'\\update_character');
