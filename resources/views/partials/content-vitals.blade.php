@@ -31,5 +31,5 @@
 </div>
 <div class="form-row">
   <label for="initiative_mod">Initiative Modifier</label>
-  <input type="number" name="initiative_mod" value="{{ get_field('dexterity')+get_field('composure') }}" />
+  <input type="number" disabled name="initiative_mod" value="{{ get_field('dexterity')+get_field('composure') }}" />
 </div>

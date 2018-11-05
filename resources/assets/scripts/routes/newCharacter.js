@@ -40,7 +40,7 @@ export default {
 
     function updateInitiative() {
       var ini = parseInt($('input[name="dexterity"]').val()) + parseInt($('input[name="composure"]').val());
-      $('input[name="initiative"]').val(ini);
+      $('input[name="initiative_mod"]').val(ini);
     }
 
     function updateDefense() {
