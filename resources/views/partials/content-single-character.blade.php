@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="row">
       <div class="col-md-4 col-sm-6 col-xs-12 center">
-        <h2>{{ get_the_title() }}</h2>
+        <h2>{!! get_the_title() !!}</h2>
         @if(get_field('family') != "other")
           <p class="family">{{ get_field('family') }}</p>
         @endif
@@ -14,7 +14,7 @@
         <div class="box">
           <div class="content">
             @if(get_field('quote'))
-              <p class="quote">{{ get_field('quote') }}</p>
+              <p class="quote">{!! get_field('quote') !!}</p>
             @endif
             @if(get_field('public_blurb'))
               {!! get_field('public_blurb') !!}
