@@ -43,3 +43,12 @@ button {
 .nf-before-form-content {
   margin-bottom: 30px;
 }
+
+select {
+  background-color: $grey;
+  border: 3px white solid;
+  border-radius: 0;
+  color: $yellow;
+  padding: 4px 10px;
+  font-size: 18px;
+}
