@@ -25,9 +25,15 @@
 
       @else
         <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
-          @include('partials.content-basics')
-          @include('partials.content-attributes')
-          <section id="controls" class="">
+          <section id="character-sheet" class="grey">
+            @include('partials.content-basics')
+            @include('partials.content-attributes')
+            @include('partials.content-skills-merits-misc')
+          </section>
+          <section id="questionnaire" class="yellow">
+
+          </section>
+          <section id="controls" class="grey">
             <div class="wrapper">
               <div class="row">
                 <div class="col-xs-12">
