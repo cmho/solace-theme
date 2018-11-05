@@ -87,7 +87,17 @@ function update_character()
             'family' => htmlspecialchars($_POST['family']),
             'status' => htmlspecialchars($_POST['status']),
             'virtue' => htmlspecialchars($_POST['virtue']),
-            'vice' => htmlspecialchars($_POST['vice'])
+            'vice' => htmlspecialchars($_POST['vice']),
+            'quote' => htmlspecialchars($_POST['quote']),
+            'public_blurb' => htmlspecialchars($_POST['public_blurb']),
+            'academics' => htmlspecialchars($_POST['academics']),
+            'computer' => htmlspecialchars($_POST['computer']),
+            'crafts' => htmlspecialchars($_POST['crafts']),
+            'investigation' => htmlspecialchars($_POST['investigation']),
+            'medicine' => htmlspecialchars($_POST['medicine']),
+            'occult' => htmlspecialchars($_POST['occult']),
+            'politics' => htmlspecialchars($_POST['politics']),
+            'science' => htmlspecialchars($_POST['science']),
         )
     );
 
