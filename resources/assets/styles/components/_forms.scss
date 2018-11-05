@@ -52,3 +52,11 @@ select {
   padding: 4px 10px;
   font-size: 18px;
 }
+
+.form-row {
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
