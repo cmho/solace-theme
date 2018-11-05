@@ -2,10 +2,17 @@
   <div class="wrapper">
     <div class="row">
       <div class="col-md-4 col-sm-6 col-xs-12 center">
-        <h2>{{ get_the_title() }}</h2>
-        @if(get_field('family') != "other")
-          <p class="family">{{ get_field('family') }}</p>
-        @endif
+        <div class="form-row">
+          <label>Character Name</label>
+          <input type="text" name="post_title" value="" />
+        </div>
+        <div class="form-row">
+          <label>Family</label>
+          <select name="family">
+            @foreach(get_field_object('family')['choices'] as $value=>$label)
+              <option value="{{ $value }}">{{ $label }}</option>
+            @endforeach
+          </select>
         @if(!get_field('is_npc'))
           <p class="played-by">Played by {{ get_the_author() }}</p>
         @endif
