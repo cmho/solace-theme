@@ -132,12 +132,12 @@ function get_merit_info()
     $post = \get_post($id);
     \setup_postdata($post);
     $obj = array(
-        'ratings' => get_field('allowed_ratings'),
-        'name' => get_the_title(),
-        'requires_specification' => get_field('requires_specification'),
-        'requires_description' => get_field('requires_description'),
-        'description' => get_field('description'),
-        'prerequisites' => get_field('prerequisites')
+        'ratings' => get_field('allowed_ratings', $post),
+        'name' => get_the_title($post),
+        'requires_specification' => get_field('requires_specification', $post),
+        'requires_description' => get_field('requires_description', $post),
+        'description' => get_field('description', $post),
+        'prerequisites' => get_field('prerequisites', $post)
     );
     header('Content-type: application/json');
     echo json_encode($obj);
