@@ -25,6 +25,18 @@ dialog {
   right: auto;
   top: 15%;
   width: 50%;
-  background: #fff;
+  background: $yellow;
+  color: $grey;
+  border: 3px $grey solid;
   z-index: 667;
+
+  button {
+    font-size: 14px;
+    border: 3px $grey solid;
+    color: $grey;
+    padding: 3px 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
 }
