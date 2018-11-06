@@ -1,5 +1,5 @@
 @if(true)
-  @include('partial.content-character-form')
+  @include('partials.content-character-form')
 @else
   <section id="character-sheet" class="grey">
     <div class="wrapper">
