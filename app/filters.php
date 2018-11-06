@@ -129,9 +129,18 @@ add_action('admin_post_update_character', __NAMESPACE__.'\\update_character');
 function get_merit_info()
 {
     $id = intval($_POST['id']);
-    $merit = \get_post($id);
+    $post = \get_post($id);
+    \setup_postdata($post);
+    $obj = array(
+        'ratings' => get_field('allowed_ratings'),
+        'name' => get_the_title(),
+        'requires_specification' => get_field('requires_specification'),
+        'requires_description' => get_field('requires_description'),
+        'description' => get_field('description'),
+        'prerequisites' => get_field('prerequisites')
+    );
     header('Content-type: application/json');
-    echo json_encode($merit);
+    echo json_encode($obj);
     die(1);
 }
 
