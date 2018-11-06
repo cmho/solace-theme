@@ -142,8 +142,8 @@ function get_merit_info()
         'id' => $id,
         'ratings' => get_field('allowed_ratings', $post),
         'name' => get_the_title($post),
-        'requires_specification' => get_field('requires_specification', $post),
-        'requires_description' => get_field('requires_description', $post),
+        'has_specification' => get_field('requires_specification', $post),
+        'has_description' => get_field('requires_description', $post),
         'description' => get_field('description', $post),
         'prerequisites' => get_field('prerequisites', $post)
     );

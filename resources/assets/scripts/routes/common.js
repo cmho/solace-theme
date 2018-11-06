@@ -134,7 +134,7 @@ export default {
             option = '<option value="'+data.ratings[i]+'"'+((currentVal === data.ratings[i]) ? ' selected="selected"' : '')+'>'+data.ratings[i]+'</option>';
             $('#modal-content select').append(option);
           }
-          if (data.ratings.length === 0) {
+          if (data.ratings.length === 1) {
             $('#modal-content select').prop("disabled", "disabled");
           }
         },
