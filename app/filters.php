@@ -108,12 +108,19 @@ function update_character()
             'stealth' => htmlspecialchars($_POST['stealth']),
             'survival' => htmlspecialchars($_POST['survival']),
             'weaponry' => htmlspecialchars($_POST['weaponry']),
-            'merits' => $_POST['merits'],
+            'merits' => intval(htmlspecialchars($_POST['merits'])),
             'size' => htmlspecialchars($_POST['size']),
             'armor' => htmlspecialchars($_POST['armor']),
             'integrity' => htmlspecialchars($_POST['integrity'])
         )
     );
+
+    for ($i = 0; $i < intval(htmlspecialchars($_POST['merits'])); $i++) {
+        $post_content['meta_input']['merits_'.$i.'_merit'] = htmlspecialchars($_POST['merits_'.$i.'_merit']);
+        $post_content['meta_input']['merits_'.$i.'_rating'] = htmlspecialchars($_POST['merits_'.$i.'_rating']);
+        $post_content['meta_input']['merits_'.$i.'_specification'] = htmlspecialchars($_POST['merits_'.$i.'_specification']);
+        $post_content['meta_input']['merits_'.$i.'_description'] = htmlspecialchars($_POST['merits_'.$i.'_description']);
+    }
 
     if (isset($_POST['id'])) {
         $post_content['ID'] = htmlspecialchars($_POST['id']);
