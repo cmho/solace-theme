@@ -106,6 +106,8 @@ export default {
     $('.merits').on('click', '.edit', function () {
       var merit = $(this).parent('li').find('.merit-id').val();
       var currentVal = $(this).parent('li').find('.merit-rating').val();
+      var currentSpec = $(this).parent('li').find('.merit-spec').val();
+      var currentDesc = $(this).parent('li').find('.merit-desc').val();
       $.ajax({
         url: ajaxurl,
         method: 'POST',
@@ -121,11 +123,13 @@ export default {
           $('#modal-content .prerequisites').html('<strong>Prerequsites:</strong> '+data.prerequisites);
           if (data.has_specification) {
             $('#modal-content #specification-row').show();
+            $('#modal-content #specification').val(currentSpec);
           } else {
             $('#modal-content #specification-row').hide();
           }
           if (data.has_description) {
             $('#modal-content #description-row').show();
+            $('#modal-content #description').val(currentDesc)
           } else {
             $('#modal-content #description-row').hide();
           }
@@ -139,6 +143,10 @@ export default {
           }
         },
       });
+    });
+
+    $('.modal').on('click', '#save-merit', function() {
+
     });
 
     $('.merits').on('click', '.delete', function () {
