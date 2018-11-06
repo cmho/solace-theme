@@ -4339,7 +4339,13 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-jquery@>=1.7, jquery@^3.3.1:
+jquery-accessible-modal-window-aria@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/jquery-accessible-modal-window-aria/-/jquery-accessible-modal-window-aria-1.10.0.tgz#b9992c70df671a7731bdbb6cb3651cb6021ae1b2"
+  dependencies:
+    jquery ">=1.0.0"
+
+jquery@>=1.0.0, jquery@>=1.7, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 

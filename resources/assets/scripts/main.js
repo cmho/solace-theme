@@ -1,6 +1,7 @@
 // import external dependencies
 import 'jquery';
 import 'datatables.net-dt';
+import 'jquery-accessible-modal-window-aria';
 
 // Import everything from autoload
 import "./autoload/**/*"

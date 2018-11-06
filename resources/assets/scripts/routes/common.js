@@ -96,18 +96,18 @@ export default {
           } else {
             newNum = 0;
           }
-          var newItem = "<li>" + data.name + " <i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i><div class='description'></div><input type='hidden' name='merits_" + newNum + "_merit' value='" + data.id + "' /><input type='hidden' name='merits_" + newNum + "_rating' value='" + data.ratings[0] + "' /><input type='hidden' name='merits_" + newNum + "_specification' value='' /><input type='hidden' name='merits_" + newNum + "_description' value='' /></li>";
+          var newItem = "<li>" + data.name + " <button class='js-modal edit'><i class='fas fa-pencil-alt'></i></button> <button class='js-modal delete'><i class='fas fa-trash'></i></button><div class='description'></div><input type='hidden' name='merits_" + newNum + "_merit' value='" + data.id + "' /><input type='hidden' name='merits_" + newNum + "_rating' value='" + data.ratings[0] + "' /><input type='hidden' name='merits_" + newNum + "_specification' value='' /><input type='hidden' name='merits_" + newNum + "_description' value='' /></li>";
           $('ul.merits').append(newItem);
           $('[name="merits"]').val($('ul.merits li').length);
         },
       })
     });
 
-    $('.merits').on('click', '.fa-pencil-alt', function () {
+    $('.merits').on('click', '.edit', function () {
 
     });
 
-    $('.merits').on('click', '.fa-trash', function () {
+    $('.merits').on('click', '.delete', function () {
       var yn = confirm('Are you sure you want to delete this merit?');
       if (yn) {
         $(this).parents('li').detach();
