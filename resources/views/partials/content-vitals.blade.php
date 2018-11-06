@@ -16,7 +16,7 @@
 
 <div class="form-row">
   <label for="size">Size</label>
-  <input type="number" min="0" max="10" value="{{ get_field('size') ? get_field('size') : 5 }}" />
+  <input type="number" name="size" min="0" max="10" value="{{ get_field('size') ? get_field('size') : 5 }}" />
 </div>
 <div class="form-row">
   <label for="speed">Speed</label>
