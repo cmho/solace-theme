@@ -30,6 +30,12 @@ dialog {
   border: 3px $grey solid;
   z-index: 667;
 
+  label {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
   button#js-modal-close {
     font-size: 14px;
     padding: 3px 10px;
