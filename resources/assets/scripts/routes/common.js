@@ -97,7 +97,7 @@ export default {
           } else {
             newNum = 0;
           }
-          var newItem = "<li>" + data.name + " <i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i><div class='description'></div><input type='hidden' name='merits[" + newNum + "][\"merit\"]' value='" + data.id + "' /><input type='hidden' name='merits[" + newNum + "][\"rating\"]' value='" + data.ratings[0] + "' /><input type='hidden' name='merits[" + newNum + "][\"specification\"]' value='' /><input type='hidden' name='merits[" + newNum + "][\"description\"]' value='' /></li>";
+          var newItem = "<li>" + data.name + " <i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i><div class='description'></div><input type='hidden' name='merits_" + newNum + "_merit' value='" + data.id + "' /><input type='hidden' name='merits_" + newNum + "_rating' value='" + data.ratings[0] + "' /><input type='hidden' name='merits_" + newNum + "_specification' value='' /><input type='hidden' name='merits_" + newNum + "_description' value='' /></li>";
           $('ul.merits').append(newItem);
           $('[name="merits"]').val($('ul.merits li').length);
         },
