@@ -90,6 +90,13 @@ export default {
           action: 'get_merit_info',
         },
         success: function (data) {
+          var newNum;
+          if ($('ul.merits li').length > 0) {
+            var matches = $('ul.merits li').last().attr('name').match(/merits\[([0-9]+)\]/);
+            newNum = parseInt(matches)+1;
+          } else {
+            newNum = 0;
+          }
           var newItem = "<li>" + data.name + " <i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i><input type='hidden' name='merits[][\"merit\"]' value='" + data.id + "' /><input type='hidden' name='merits[][\"rating\"]' value='" + data.ratings[0] + "' /><input type='hidden' name='merits[][\"specification\"]' value='' /><input type='hidden' name='merits[][\"description\"]' value='' /></li>";
           $('ul.merits').append(newItem);
         },

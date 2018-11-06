@@ -16,7 +16,7 @@
 </select>
 <button type="button" id="add-merit">Add</button>
 <ul class="merits">
-  @foreach(get_field('merits') as $merit)
-    <li>{{ get_the_title($merit['merit']) }}{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}<i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i>{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}<input type='hidden' name='merits[]["merit"]' value='{{ $merit['id'] }}' /><input type='hidden' name='merits[]["rating"]' value='{{ $merit['rating'] }}' /><input type='hidden' name='merits[]["specification"]' value='{{ $merit['specification'] }}' /><input type='hidden' name='merits[]["description"]' value='{{ $merit['description'] }}' /></li>
+  @foreach(get_field('merits') as $i=>$merit)
+    <li>{{ get_the_title($merit['merit']) }}{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}<i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i>{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}<input type='hidden' name='merits[{{ $i }}]["merit"]' value='{{ $merit['id'] }}' /><input type='hidden' name='merits[{{ $i }}]["rating"]' value='{{ $merit['rating'] }}' /><input type='hidden' name='merits[{{ $i }}]["specification"]' value='{{ $merit['specification'] }}' /><input type='hidden' name='merits[{{ $i }}]["description"]' value='{{ $merit['description'] }}' /></li>
   @endforeach
 </ul>
