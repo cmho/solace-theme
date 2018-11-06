@@ -11,6 +11,7 @@
 <h3>Integrity</h3>
 <div class="dots center">
   @php(App\Character::printDotsTen((get_field('integrity') ? get_field('integrity') : 7)))
+  <input type="hidden" name="integrity" value="{{ (get_field('integrity') ? get_field('integrity') : 7) }}" />
 </div>
 
 <div class="form-row">
