@@ -125,3 +125,14 @@ function update_character()
 }
 
 add_action('admin_post_update_character', __NAMESPACE__.'\\update_character');
+
+function get_merit_info()
+{
+    $id = intval($_POST['id']);
+    $merit = \get_post($id);
+    header('Content-type: application/json');
+    echo json_encode($merit);
+    die(1);
+}
+
+add_action('admin_ajax_get_merit_info', __NAMESPACE__.'\\get_merit_info');
