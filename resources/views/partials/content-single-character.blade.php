@@ -1,5 +1,8 @@
 @if($_GET['mode'] !== null && $_GET['mode'] == 'edit'))
-  @include('partials.content-character-form')
+  <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
+    <input type="hidden" name="id" value="{{ get_the_ID() }}" />
+    @include('partials.content-character-form')
+  </form>
 @else
   <section id="character-sheet" class="grey">
     <div class="wrapper">
