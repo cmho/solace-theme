@@ -99,6 +99,7 @@ export default {
           }
           var newItem = "<li>" + data.name + " <i class='fas fa-pencil-alt'></i><i class='fas fa-trash'></i><div class='description'></div><input type='hidden' name='merits[" + newNum + "][\"merit\"]' value='" + data.id + "' /><input type='hidden' name='merits[" + newNum + "][\"rating\"]' value='" + data.ratings[0] + "' /><input type='hidden' name='merits[" + newNum + "][\"specification\"]' value='' /><input type='hidden' name='merits[" + newNum + "][\"description\"]' value='' /></li>";
           $('ul.merits').append(newItem);
+          $('[name="merits"]').val($('ul.merits li').length);
         },
       })
     });
@@ -111,6 +112,7 @@ export default {
       var yn = confirm('Are you sure you want to delete this merit?');
       if (yn) {
         $(this).parents('li').detach();
+        $('[name="merits"]').val($('ul.merits li').length);
       }
     });
   },
