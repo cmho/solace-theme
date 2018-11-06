@@ -132,6 +132,7 @@ function get_merit_info()
     $post = \get_post($id);
     \setup_postdata($post);
     $obj = array(
+        'id' => $id,
         'ratings' => get_field('allowed_ratings', $post),
         'name' => get_the_title($post),
         'requires_specification' => get_field('requires_specification', $post),
