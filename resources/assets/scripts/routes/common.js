@@ -92,8 +92,7 @@ export default {
         success: function (data) {
           var newNum;
           if ($('ul.merits li').length > 0) {
-            var matches = $('ul.merits li').last().attr('name').match(/merits\[([0-9]+)\]/);
-            newNum = parseInt(matches)+1;
+            newNum = $('ul.merits li').length;
           } else {
             newNum = 0;
           }
