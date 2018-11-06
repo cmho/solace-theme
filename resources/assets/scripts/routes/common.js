@@ -105,6 +105,7 @@ export default {
 
     $('.merits').on('click', '.edit', function () {
       var merit = $(this).parent('li').find('.merit-id').val();
+      var currentVal = $(this).parent('li').find('.merit-rating').val();
       $.ajax({
         url: ajaxurl,
         method: 'POST',
@@ -127,6 +128,14 @@ export default {
             $('#modal-content #description-row').show();
           } else {
             $('#modal-content #description-row').hide();
+          }
+          var option;
+          for (var i = 0; i < data.ratings.length; i++) {
+            option = '<option value="'+data.ratings[i]+'"'+((currentVal === data.ratings[i]) ? ' selected="selected"' : '')+'>'+data.ratings[i]+'</option>';
+            $('#modal-content select').append(option);
+          }
+          if (data.ratings.length === 0) {
+            $('#modal-content select').prop("disabled", "disabled");
           }
         },
       });
