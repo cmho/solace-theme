@@ -20,8 +20,6 @@ const routes = new Router({
   home,
   // About Us page, note the change from about-us to aboutUs.
   aboutUs,
-
-  newCharacter,
 });
 
 // Load Events
