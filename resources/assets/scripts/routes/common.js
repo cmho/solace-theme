@@ -104,7 +104,30 @@ export default {
     });
 
     $('.merits').on('click', '.edit', function () {
-
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          id: merit,
+          action: 'get_merit_info',
+        },
+        success: function(data) {
+          $('#merits-modal input, #merits-modal textarea').val("");
+          $('#merits-modal select').empty();
+          $('#merits-modal h4').text(data.name);
+          $('#merits-modal description').html(data.description);
+          if (data.has_specification) {
+            $('#merits-modal #specification-row').show();
+          } else {
+            $('#merits-modal #specification-row').hide();
+          }
+          if (data.has_description) {
+            $('#merits-modal #description-row').show();
+          } else {
+            $('#merits-modal #description-row').hide();
+          }
+        }
+      });
     });
 
     $('.merits').on('click', '.delete', function () {
