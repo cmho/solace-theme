@@ -25,7 +25,9 @@
       @if($_GET['method'] == 'wizard')
 
       @else
-        @include('partials.content-character-form')
+        <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
+          @include('partials.content-character-form')
+        </form>
       @endif
     </div>
   @endwhile
