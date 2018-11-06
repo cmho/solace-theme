@@ -1,4 +1,4 @@
-@if(isset($_GET['mode'] && $_GET['mode'] == 'edit'))
+@if($_GET['mode'] !== null && $_GET['mode'] == 'edit'))
   @include('partials.content-character-form')
 @else
   <section id="character-sheet" class="grey">
