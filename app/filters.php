@@ -144,4 +144,5 @@ function get_merit_info()
     die(1);
 }
 
-add_action('admin_ajax_get_merit_info', __NAMESPACE__.'\\get_merit_info');
+add_action('wp_ajax_get_merit_info', __NAMESPACE__.'\\get_merit_info');
+add_action('wp_ajax_nopriv_get_merit_info', __NAMESPACE__.'\\get_merit_info');
