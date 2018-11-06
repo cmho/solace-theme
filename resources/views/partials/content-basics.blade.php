@@ -36,7 +36,7 @@
           <label for="virtue">Virtue</label>
           <select name="virtue">
             @foreach(get_field_object('field_5bdcf0c71a809')['choices'] as $value=>$label)
-              <option value="{{ $value }}">{{ $label }}</option>
+              <option value="{{ $value }}"{{ get_field('virtue') == $value ? ' selected="selected"' : '' }}>{{ $label }}</option>
             @endforeach
           </select>
         </div>
@@ -44,7 +44,7 @@
           <label for="vice">Vice</label>
           <select name="vice">
             @foreach(get_field_object('field_5bdcf1081a80a')['choices'] as $value=>$label)
-              <option value="{{ $value }}">{{ $label }}</option>
+              <option value="{{ $value }}"{{ get_field('vice') == $value ? ' selected="selected"' : '' }}>{{ $label }}</option>
             @endforeach
           </select>
         </div>
@@ -53,7 +53,7 @@
             <label for="status">Status</label>
             <select name="status">
               @foreach(get_field_object('field_5bdd389ba91cf')['choices'] as $value=>$label)
-                <option value="{{ $value }}">{{ $label }}</option>
+                <option value="{{ $value }}"{{ get_field('status') == $value ? ' selected="selected"' : '' }}>{{ $label }}</option>
               @endforeach
             </select>
           </div>
