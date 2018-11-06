@@ -112,19 +112,19 @@ export default {
           action: 'get_merit_info',
         },
         success: function(data) {
-          $('#merits-modal input, #merits-modal textarea').val("");
-          $('#merits-modal select').empty();
-          $('#merits-modal h4').text(data.name);
-          $('#merits-modal description').html(data.description);
+          $('#modal-content input, #modal-content textarea').val("");
+          $('#modal-content select').empty();
+          $('#modal-content h4').text(data.name);
+          $('#modal-content description').html(data.description);
           if (data.has_specification) {
-            $('#merits-modal #specification-row').show();
+            $('#modal-content #specification-row').show();
           } else {
-            $('#merits-modal #specification-row').hide();
+            $('#modal-content #specification-row').hide();
           }
           if (data.has_description) {
-            $('#merits-modal #description-row').show();
+            $('#modal-content #description-row').show();
           } else {
-            $('#merits-modal #description-row').hide();
+            $('#modal-content #description-row').hide();
           }
         },
       });

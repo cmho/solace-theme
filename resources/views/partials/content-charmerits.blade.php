@@ -22,7 +22,7 @@
   @endforeach
 </ul>
 <div id="merits-modal" class="hidden">
-  <div class="content">
+  <div class="content" id="modal-content">
     <h4></h4>
     <div class="description"></div>
     <div class="form-row" id="ratings-row">
