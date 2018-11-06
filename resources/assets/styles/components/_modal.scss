@@ -32,20 +32,29 @@ dialog {
 
   button#js-modal-close {
     font-size: 14px;
-    border: 3px $grey solid;
-    color: $grey;
     padding: 3px 10px;
     position: absolute;
     top: 20px;
     right: 20px;
+  }
+
+  button {
+    color: $grey;
     background-color: $yellow;
+    border: 3px $grey solid;
   }
 
   input {
     border-color: $grey;
   }
 
-  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+  select {
+    border-color: $grey;
+    background-color: $yellow;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+  textarea {
     width: 100%;
   }
 }
