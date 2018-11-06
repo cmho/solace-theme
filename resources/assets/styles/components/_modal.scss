@@ -30,7 +30,7 @@ dialog {
   border: 3px $grey solid;
   z-index: 667;
 
-  button {
+  button#js-modal-close {
     font-size: 14px;
     border: 3px $grey solid;
     color: $grey;
@@ -39,5 +39,13 @@ dialog {
     top: 20px;
     right: 20px;
     background-color: $yellow;
+  }
+
+  input {
+    border-color: $grey;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+    width: 100%;
   }
 }
