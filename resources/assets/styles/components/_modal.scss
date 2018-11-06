@@ -51,6 +51,11 @@ dialog {
   select {
     border-color: $grey;
     background-color: $yellow;
+    color: $grey;
+  }
+
+  textarea {
+    color: $grey;
   }
 
   input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
