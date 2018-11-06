@@ -116,7 +116,8 @@ export default {
           $('#modal-content input, #modal-content textarea').val("");
           $('#modal-content select').empty();
           $('#modal-content h4').text(data.name);
-          $('#modal-content description').html(data.description);
+          $('#modal-content .description').html(data.description);
+          $('#modal-content .prerequisites').html('<strong>Prerequsites:</strong> '+data.prerequisites);
           if (data.has_specification) {
             $('#modal-content #specification-row').show();
           } else {

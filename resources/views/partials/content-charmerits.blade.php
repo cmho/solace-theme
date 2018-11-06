@@ -25,6 +25,7 @@
   <div class="content" id="modal-content">
     <h4></h4>
     <div class="description"></div>
+    <div class="prerequisites"></div>
     <div class="form-row" id="ratings-row">
       <label for="ratings">Rating</label>
       <select id="ratings" name="ratings">
