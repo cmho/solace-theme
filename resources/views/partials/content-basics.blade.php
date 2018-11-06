@@ -2,22 +2,22 @@
   <div class="col-md-4 col-sm-6 col-xs-12 center">
     <div class="form-row">
       <label for="post_title">Character Name</label>
-      <input type="text" name="post_title" value="" />
+      <input type="text" name="post_title" value="{{ get_the_title() }}" />
     </div>
     <div class="form-row">
       <label for="family">Family</label>
       <select name="family">
         @foreach(get_field_object('field_5bdcf10d1a80b')['choices'] as $value=>$label)
-          <option value="{{ $value }}">{{ $label }}</option>
+          <option value="{{ $value }}"{{ get_field('family') == $value ? ' selected="selected"' : '' }}>{{ $label }}</option>
         @endforeach
       </select>
     </div>
     @if($is_admin)
       <div class="form-row">
-        <label for="is_npc"><input type="checkbox" name="is_npc" value="true" /> Is NPC?</label>
+        <label for="is_npc"><input type="checkbox" name="is_npc" value="true"{{ get_field('is_npc') ? ' checked="checked"' : '' }} /> Is NPC?</label>
       </div>
       <div class="form-row">
-        <label for="is_secret"><input type="checkbox" name="is_secret" value="true" /> Is Secret?</label>
+        <label for="is_secret"><input type="checkbox" name="is_secret" value="true"{{ get_field('is_secret') ? ' checked="checked"' : '' }} /> Is Secret?</label>
       </div>
     @endif
   </div>
