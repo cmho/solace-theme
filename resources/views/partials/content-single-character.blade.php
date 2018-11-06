@@ -1,5 +1,5 @@
 @if(isset($_GET['mode'] && $_GET['mode'] == 'edit'))
-  @include('partial.content-character-form')
+
 @else
   <section id="character-sheet" class="grey">
     <div class="wrapper">
