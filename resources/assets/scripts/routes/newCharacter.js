@@ -94,6 +94,17 @@ export default {
         },
       })
     });
+
+    $('.merits').on('click', '.fa-pencil-alt', function() {
+
+    });
+
+    $('.merits').on('click', '.fa-trash', function() {
+      var yn = confirm('Are you sure you want to delete this merit?');
+      if (yn) {
+        $(this).parents('li').detach();
+      }
+    });
   },
   finalize() {
 
