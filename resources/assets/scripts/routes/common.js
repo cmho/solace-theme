@@ -126,7 +126,7 @@ export default {
           } else {
             $('#merits-modal #description-row').hide();
           }
-        }
+        },
       });
     });
 
