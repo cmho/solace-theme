@@ -22,7 +22,7 @@
               @php(setup_postdata($post))
               <tr>
                 <td>
-                  <div class="name"><a href="{{ get_the_permalink() }}">{{ get_the_title() }}</a></div>
+                  <div class="name"><a href="{{ get_the_permalink() }}">{!! get_the_title() !!}</a></div>
                   <div class="controls">
                     <a href="{{ get_the_permalink() }}?mode=edit">Edit</a>
                     @if(get_field('status') == 'Active')
