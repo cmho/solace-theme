@@ -44,4 +44,24 @@ class Downtimes extends Controller
 
         return $actions;
     }
+
+    public static function listDowntimesForGame($game) {
+        $downtimes = get_posts(array(
+            'post_type' => 'downtime',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                'game' => $game,
+            )
+        ));
+
+        $grouped = array();
+        foreach ($downtimes as $downtime) {
+            if ($grouped[$downtime->post_author] == null) {
+                $grouped[$downtime->post_author] = array();
+            }
+            array_push($grouped[$downtimes->post_author], $downtime);
+        }
+
+        return $grouped;
+    }
 }
