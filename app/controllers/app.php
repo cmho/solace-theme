@@ -35,7 +35,7 @@ class App extends Controller
     {
         $posts = \get_posts(array(
             'post_type' => 'page',
-            'posts_per_page' => -1,
+            'posts_per_page' => 1,
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
@@ -55,7 +55,7 @@ class App extends Controller
     {
         $posts = \get_posts(array(
             'post_type' => 'page',
-            'posts_per_page' => -1,
+            'posts_per_page' => 1,
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
@@ -75,7 +75,7 @@ class App extends Controller
     {
         $posts = \get_posts(array(
             'post_type' => 'page',
-            'posts_per_page' => -1,
+            'posts_per_page' => 1,
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
