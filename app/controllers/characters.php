@@ -47,7 +47,7 @@ class Characters extends Controller
                 ),
                 array(
                     'key' => 'status',
-                    'value' => 'active',
+                    'value' => 'Active',
                     'compare' => '='
                 )
             )
