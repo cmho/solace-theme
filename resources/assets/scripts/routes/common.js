@@ -165,9 +165,9 @@ export default {
       $('[name="merit_'+(idx-1)+'_rating').val(rating);
       $('[name="merit_' +(idx-1)+ "_specification").val(specification);
       $('[name="merit_' +(idx-1)+ "_description").val(description);
-      $(".merits li:nth-child(idx) .description").html(description);
-      $('.merits li:nth-child(idx) .rating').text(rating);
-      $('.merits li:nth-child(idx) .specification').text("("+specification+")");
+      $(".merits li:nth-child("+idx+") .description").html(description);
+      $('.merits li:nth-child('+idx+') .rating').text(rating);
+      $('.merits li:nth-child('+idx+') .specification').text("("+specification+")");
       $('.modal #js-modal-close').click();
     });
 
