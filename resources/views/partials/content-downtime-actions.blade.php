@@ -67,6 +67,8 @@
                     </div>
                 @endforeach
             @endforeach
+        @else
+            <p style="text-align: center">No downtimes for this game yet.</p>
         @endif
     @endif
 @endif
