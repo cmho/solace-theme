@@ -1,6 +1,5 @@
 @if(have_rows('sections'))
-  @while(have_rows('sections'))
-    @php(the_row())
+  @php(while(have_rows('sections')): the_row())
     @if(get_row_layout() == 'single_text_column')
       <section class="{{ get_sub_field('color') }}">
         <div class="wrapper">
@@ -69,5 +68,5 @@
         </div>
       </section>
     @endif
-  @endwhile
+  @php(endwhile);
 @endif
