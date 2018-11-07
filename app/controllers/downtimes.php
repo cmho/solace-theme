@@ -20,22 +20,25 @@ class Downtimes extends Controller
         $actions = array();
 
         foreach ($games as $game) {
-            $act = get_posts(array(
+            $args = array(
                 'post_type' => 'downtime',
                 'posts_per_page' => -1,
                 'order_by' => 'date_modified',
                 'order' => 'ASC',
                 'meta_query' => array(
                     array(
-                        'key' => 'character',
-                        'value' => $character
-                    ),
-                    array(
                         'key' => 'game',
                         'value' => $game->ID
                     )
                 )
-            ));
+            );
+            if (!App\App::isAdmin()) {
+                array_push($args['meta_query'], array(
+                    'key' => 'character',
+                    'value' => $character
+                ));
+            }
+            $act = get_posts();
             $actions[$game->ID] = $act;
         }
 

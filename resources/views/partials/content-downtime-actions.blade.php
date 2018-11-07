@@ -1,4 +1,4 @@
-@if($_GET['character'] != 'null'  && $_GET['character'])
+@if(($_GET['character'] != 'null' && $_GET['character']))
     @php
         // redirect if not an appropriate user
         $char = get_post(intval($_GET['character']));
@@ -37,4 +37,10 @@
             </div>
         @endforeach
     @endforeach
+@elseif(App\App::isAdmin())
+    @if($_GET['game'] == null)
+        no game specified
+    @else
+        game {{ $_GET['game'] }}
+    @endif
 @endif
