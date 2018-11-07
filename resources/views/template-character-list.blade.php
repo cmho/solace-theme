@@ -16,10 +16,10 @@
         <div class="row center-xs">
           <div class="col-xs-12">
             @include('partials.page-header')
+            @include('partials.content-character-list')
           </div>
         </div>
       </div>
     </section>
-    @include('partials.content-character-list')
   @endwhile
 @endsection
