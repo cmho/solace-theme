@@ -1,8 +1,6 @@
 table {
   width: 100%;
-  thead tr {
-    border-bottom: 1px $yellow dashed;
-  }
+  
   th {
     text-transform: uppercase;
     font-size: 36px;
@@ -14,6 +12,10 @@ table {
     vertical-align: top;
     padding-bottom: 1em;
     text-align: left;
+  }
+
+  tbody td {
+    border-bottom: 1px $yellow dashed;
   }
 
   .name {
@@ -41,6 +43,7 @@ table {
   .dataTables_paginate {
     .paginate_button {
       font-size: 24px;
+      margin-right: 5px;
 
       &.current {
         font-weight: bold;
@@ -48,7 +51,6 @@ table {
 
       &.disabled {
         text-decoration: line-through;
-        margin-right: 5px;
       }
     }
   }
