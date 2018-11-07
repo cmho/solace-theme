@@ -14,19 +14,7 @@ class Characters extends Controller
             'posts_per_page' => -1,
             'post_type' => 'character',
             'orderby' => 'title',
-            'order' => 'ASC',
-            'meta_query' => array(
-                'relation' => 'OR',
-                array(
-                    'key' => 'is_secret',
-                    'value' => true,
-                    'compare' => '!='
-                ),
-                array(
-                    'key' => 'is_secret',
-                    'compare' => 'NOT EXISTS'
-                )
-            )
+            'order' => 'ASC'
         );
 
         if (!$is_admin) {

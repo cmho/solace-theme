@@ -154,3 +154,97 @@ function get_merit_info()
 
 add_action('wp_ajax_get_merit_info', __NAMESPACE__.'\\get_merit_info');
 add_action('wp_ajax_nopriv_get_merit_info', __NAMESPACE__.'\\get_merit_info');
+
+function mass_add_experience()
+{
+    $characters = get_posts(array(
+        'posts_per_page' => -1,
+        'post_type' => 'character',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'is_npc',
+                'compare' => 'NOT EXISTS'
+            ),
+            array(
+                'key' => 'status',
+                'value' => 'Active',
+                'compare' => '='
+            )
+        )
+    ));
+
+    foreach ($characters as $character) {
+        wp_insert_post(array(
+            'post_type' => 'experience',
+            'post_title' => htmlspecialchars($_POST['reason']),
+            'meta_input' => array(
+                'character' => $character->ID,
+                'amount' => intval(htmlspecialchars($_POST['amount']))
+            )
+        ));
+    }
+    die(1);
+}
+
+function add_experience()
+{
+    wp_insert_post(array(
+        'post_type' => 'experience',
+        'post_title' => htmlspecialchars($_POST['reason']),
+        'meta_input' => array(
+            'character' => intval(htmlspecialchars($_POST['character'])),
+            'amount' => intval(htmlspecialchars($_POST['amount']))
+        )
+    ));
+
+    die(1);
+}
+
+function update_downtime()
+{
+    $args = array(
+        'post_type' => 'downtime',
+        'ID' => intval(htmlspecialchars($_POST['id'])),
+        'post_author' => htmlspecialchars($_POST['author']),
+        'post_title' => htmlspecialchars($_POST['post_title']),
+        'meta_input' => array(
+            'character' => intval(htmlspecialchars($_POST['character'])),
+            'game' => intval(htmlspecialchars($_POST['game'])),
+            'goal' => htmlspecialchars($_POST['goal']),
+            'assets' => htmlspecialchars($_POST['assets']),
+            'action_type' => htmlspecialchars($_POST['action_type'])
+        )
+    );
+
+    $action = wp_insert_post($args);
+    header('Location:'.get_permalink($action));
+    die(1);
+}
+
+function respond_to_downtime()
+{
+    $args = array(
+        'post_type' => 'downtime',
+        'ID' => intval(htmlspecialchars($_POST['id'])),
+        'meta_input' => array(
+            'response' => htmlspecialchars($_POST['response'])
+        )
+    );
+    $action = wp_insert_post($args);
+    header('Location:'.get_permalink($action));
+    die(1);
+}
+
+function delete_character()
+{
+    wp_delete_post($_POST['id'], false);
+    header('Location:'.home_url('/')."dashboard/");
+    die(1);
+}
+
+function delete_downtime()
+{
+    wp_delete_post($_POST['id'], false);
+    header('Location:'.home_url('/')."downtimes/");
+}
