@@ -5,7 +5,7 @@
   <a href="{{ App\App::newCharacterLink() }}" class="button">New Character</a>
 </div>
 
-{{ get_post_meta($post->ID, '_wp_page_template') }}
+<div class="debug">{{ get_post_meta($post->ID, '_wp_page_template', true) }}</div>
 
 <table id="character-table" class="datatable">
   <thead>
