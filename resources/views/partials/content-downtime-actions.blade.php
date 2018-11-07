@@ -40,7 +40,7 @@
 @elseif(App\App::isAdmin())
     @if($_GET['game'] == null)
         no game specified
-    @else
+    @elseif($_GET['game'])
         @php($game = get_post($_GET['game']))
         <h3>Downtimes for {{ get_the_title($game) }}</h3>
         @if(App\Downtimes::listDowntimesForGame($_GET['game']))
