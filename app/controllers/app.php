@@ -39,7 +39,7 @@ class App extends Controller
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
-                    'value' => 'template-character-creation.blade.php'
+                    'value' => 'views/template-character-creation.blade.php'
                 )
             )
         ));
@@ -59,7 +59,7 @@ class App extends Controller
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
-                    'value' => 'template-downtime-actions.php'
+                    'value' => 'views/template-downtime-actions.blade.php'
                 )
             )
         ));
@@ -79,7 +79,7 @@ class App extends Controller
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
-                    'value' => 'template-character-list.php'
+                    'value' => 'views/template-character-list.blade.php'
                 )
             )
         ));
