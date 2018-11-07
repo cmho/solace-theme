@@ -15,6 +15,7 @@
           </thead>
           <tbody>
             @foreach(App\Characters::list() as $post)
+              @php(setup_postdata($post))
               <tr>
                 <td>
                   <div class="name"><a href="{{ get_the_permalink() }}">{{ get_the_title() }}</a></div>
@@ -33,6 +34,7 @@
                 <td>{{ get_field('status') }}</td>
               </tr>
             @endforeach
+            @php(wp_reset_postdata())
           </tbody>
         </table>
       </div>
