@@ -13,7 +13,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="content">
-                  {{ get_sub_field('content') }}
+                  {!! get_sub_field('content') !!}
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="box">
                   <div class="content">
                     <h2>{{ get_sub_field('heading') }}</h2>
-                    {{ get_sub_field('content') }}
+                    {!! get_sub_field('content') !!}
                   </div>
                 </div>
               </div>
@@ -53,7 +53,7 @@
             <div class="col-xs-12">
               <h2>{{ get_sub_field('heading') }}</h2>
               <div class="center">
-                {{ get_sub_field('content') }}
+                {!! get_sub_field('content') !!}
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
         <div class="wrapper">
           <h2>{{ get_sub_field('heading') }}</h2>
           <div class="twocols">
-            {{ get_sub_field('content') }}
+            {!! get_sub_field('content') !!}
           </div>
         </div>
       </section>
