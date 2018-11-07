@@ -96,7 +96,15 @@ export default {
           } else {
             newNum = 0;
           }
-          var newItem = "<li>" + data.name + " <button class='js-modal edit' data-modal-content-id='merits-modal'><i class='fas fa-pencil-alt'></i></button> <button class='delete'><i class='fas fa-trash'></i></button><div class='description'></div><input type='hidden' name='merits_" + newNum + "_merit' value='" + data.id + "' class='merit-id' /><input type='hidden' name='merits_" + newNum + "_rating' value='" + data.ratings[0] + "' /><input type='hidden' name='merits_" + newNum + "_specification' value='' /><input type='hidden' name='merits_" + newNum + "_description' value='' /></li>";
+          var ratingstr;
+          var specstr;
+          if (data.ratings.length > 1) {
+            ratingstr = ' <span class="rating">'+data.ratings[0]+'</span>';
+          }
+          if (data.has_specification) {
+            specstr = ' <span class="specification">()</span>';
+          }
+          var newItem = "<li><span class='label'><span class='meritname'>" + data.name + "</span>"+specstr+ratingstr+" <button class='js-modal edit' data-modal-content-id='merits-modal'><i class='fas fa-pencil-alt'></i></button> <button class='delete'><i class='fas fa-trash'></i></button><div class='description'></div><input type='hidden' name='merits_" + newNum + "_merit' value='" + data.id + "' class='merit-id' /><input type='hidden' name='merits_" + newNum + "_rating' value='" + data.ratings[0] + "' /><input type='hidden' name='merits_" + newNum + "_specification' value='' /><input type='hidden' name='merits_" + newNum + "_description' value='' /></li>";
           $('ul.merits').append(newItem);
           $('[name="merits"]').val($('ul.merits li').length);
         },
