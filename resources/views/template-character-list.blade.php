@@ -16,6 +16,10 @@
         <div class="row center-xs">
           <div class="col-xs-12">
             @include('partials.page-header')
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
             @include('partials.content-character-list')
           </div>
         </div>
