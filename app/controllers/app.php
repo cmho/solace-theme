@@ -30,4 +30,64 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public static function newCharacterLink()
+    {
+        $posts = \get_posts(array(
+            'post_type' => 'page',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => '_wp_page_template',
+                    'value' => 'template-character-creation.php'
+                )
+            )
+        ));
+
+        if ($posts && count($posts) > 0) {
+            return \get_permalink($posts[0]);
+        }
+
+        return;
+    }
+
+    public static function downtimesLink()
+    {
+        $posts = \get_posts(array(
+            'post_type' => 'page',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => '_wp_page_template',
+                    'value' => 'template-downtime-actions.php'
+                )
+            )
+        ));
+
+        if ($posts && count($posts) > 0) {
+            return \get_permalink($posts[0]);
+        }
+
+        return;
+    }
+
+    public static function dashboardLink()
+    {
+        $posts = \get_posts(array(
+            'post_type' => 'page',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => '_wp_page_template',
+                    'value' => 'template-character-list.php'
+                )
+            )
+        ));
+
+        if ($posts && count($posts) > 0) {
+            return \get_permalink($posts[0]);
+        }
+
+        return;
+    }
 }

@@ -1,6 +1,9 @@
 @php
   global $post;
 @endphp
+<div class="button-row right">
+  <a href="{{ App::newCharacterLink() }}" class="button">New Character</a>
+</div>
 
 <table id="character-table" class="datatable">
   <thead>
