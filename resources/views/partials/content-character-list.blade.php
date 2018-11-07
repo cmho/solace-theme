@@ -1,3 +1,7 @@
+@php
+  global $post;
+@endphp
+
 <section id="character-list" class="grey">
   <div class="wrapper">
     <div class="row">
