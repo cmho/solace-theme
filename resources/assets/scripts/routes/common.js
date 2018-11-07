@@ -155,12 +155,12 @@ export default {
       });
     });
 
-    $('.modal').on('click', '#save-merit', function() {
+    $('body').on('click', '#save-merit', function() {
       console.log('function triggered');
       var rating = $('.modal #ratings option:selected').val();
       var specification = $('.modal #specification').val();
       var description = $('.modal #description').val();
-      var idx = $('.modal #modal-content').data('index');
+      var idx = $('.modal #modal-content').data('index')+1;
       console.log(idx);
       $('[name="merit_'+(idx-1)+'_rating').val(rating);
       $('[name="merit_' +(idx-1)+ "_specification").val(specification);
