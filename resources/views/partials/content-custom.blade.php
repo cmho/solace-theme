@@ -1,12 +1,8 @@
-@php
-  $count = 1;
-@endphp
-
 @if(have_rows('sections'))
   @while(have_rows('sections'))
     @php(the_row())
     @if(get_row_layout() == 'single_text_column')
-      <section id="section-{{ $count }}" class="{{ get_sub_field('color') }}">
+      <section class="{{ get_sub_field('color') }}">
         <div class="wrapper">
           <div class="row center-xs">
             <div class="col-xs-12">
@@ -73,6 +69,5 @@
         </div>
       </section>
     @endif
-    @php($count++;)
   @endwhile
 @endif
