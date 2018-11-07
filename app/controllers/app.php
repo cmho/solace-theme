@@ -31,6 +31,13 @@ class App extends Controller
         return get_the_title();
     }
 
+    public static function isAdmin()
+    {
+        $user = wp_get_current_user();
+        $is_admin = in_array('administrator', $user->roles);
+        return $is_admin;
+    }
+
     public static function newCharacterLink()
     {
         $posts = \get_posts(array(
