@@ -150,6 +150,8 @@ export default {
           }
           if (data.ratings.length === 1) {
             $('#modal-content select').prop("disabled", "disabled");
+          } else {
+            $('#modal-content select').removeProp("disabled");
           }
         },
       });
