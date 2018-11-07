@@ -96,8 +96,8 @@ export default {
           } else {
             newNum = 0;
           }
-          var ratingstr;
-          var specstr;
+          var ratingstr = "";
+          var specstr = "";
           if (data.ratings.length > 1) {
             ratingstr = ' <span class="rating">'+data.ratings[0]+'</span>';
           }
@@ -113,6 +113,8 @@ export default {
 
     $('.merits').on('click', '.edit', function () {
       var merit = $(this).parent('li').find('.merit-id').val();
+      console.log($(this).parent("li"));
+      console.log(merit);
       var currentVal = $(this).parent('li').find('.merit-rating').val();
       var currentSpec = $(this).parent('li').find('.merit-spec').val();
       var currentDesc = $(this).parent('li').find('.merit-desc').val();
