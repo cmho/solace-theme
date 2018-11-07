@@ -81,3 +81,14 @@ nav {
   left: 0;
   z-index: -1;
 }
+
+header.splash-header {
+  h1 {
+    font-size: 60px;
+  }
+
+  .desc {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}

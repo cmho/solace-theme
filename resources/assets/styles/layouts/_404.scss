@@ -1,0 +1,47 @@
+.error404 {
+    .background {
+        position: absolute;
+        top: 80px;
+        left: 10%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: radial-gradient(transparent, transparent 50%, #333 70%, #333);
+          z-index: 9;
+        }
+
+        img {
+          height: auto;
+          max-width: 100%;
+          width: 100%;
+          object-fit: cover;
+          filter: url(#duochrome);
+          max-height: 450px;
+        }
+    }
+
+    .content {
+        position: absolute;
+        width: 60%;
+        top: 160px;
+        left: 20%;
+
+        h2 {
+            font-size: 160px;
+        }
+
+        .explanation {
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    }
+}
