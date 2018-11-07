@@ -39,7 +39,7 @@ class App extends Controller
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
-                    'value' => 'template-character-creation.php'
+                    'value' => 'template-character-creation.blade.php'
                 )
             )
         ));
