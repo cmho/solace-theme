@@ -10,7 +10,7 @@
           <thead>
             <tr>
               <th>Name</th>
-              @if(!$is_admin)
+              @if($is_admin)
                 <th>Player</th>
               @endif
               <th>Family</th>
@@ -31,7 +31,7 @@
                     <a href="#" class="delete-link">Delete</a>
                   </div>
                 </td>
-                @if(!$is_admin)
+                @if($is_admin)
                   <td>{{ get_the_author() }}</td>
                 @endif
                 <td>{{ get_field('family') }}</td>
