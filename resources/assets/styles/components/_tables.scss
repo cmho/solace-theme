@@ -1,9 +1,9 @@
-table {
+table.datatable {
   width: 100%;
   border-bottom: 1px $yellow solid;
   margin-bottom: 5px;
 
-  thead {
+  thead th {
     border-bottom: 3px $yellow solid;
   }
 
@@ -12,6 +12,7 @@ table {
     font-size: 36px;
     text-align: left;
     padding-bottom: 5px;
+    margin: 0;
   }
 
   td {
