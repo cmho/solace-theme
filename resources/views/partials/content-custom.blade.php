@@ -21,7 +21,7 @@
         </div>
       </section>
     @elseif(get_row_layout() == 'image_and_text')
-      <section id="section-{{ $count }}" class="{{ get_sub_field('color') }}">
+      <section class="{{ get_sub_field('color') }}">
         <div class="wrapper">
           <div class="row top-xs">
             @if(get_sub_field('image_position') == 'left')
@@ -47,7 +47,7 @@
         </div>
       </section>
     @elseif(get_row_layout() == 'centered_content')
-      <section id="section-{{ $count }}" class="{{ get_sub_field('color') }}">
+      <section class="{{ get_sub_field('color') }}">
         <div class="wrapper">
           <div class="row center-xs">
             <div class="col-xs-12">
