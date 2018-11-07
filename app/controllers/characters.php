@@ -8,6 +8,8 @@ class Characters extends Controller
 {
     public static function list()
     {
+        $user = wp_get_current_user();
+        $is_admin = in_array('administrator', $user->roles);
         $args = array(
             'posts_per_page' => -1,
             'post_type' => 'character',
@@ -21,6 +23,10 @@ class Characters extends Controller
                 )
             )
         );
+
+        if (!$is_admin) {
+            $args['post_author'] = $user->ID;
+        }
 
         return \get_posts($args);
     }

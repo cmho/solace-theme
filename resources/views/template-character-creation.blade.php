@@ -4,7 +4,9 @@
 
 @php
   $user = wp_get_current_user();
-  // TODO: redirect if no current user
+  if (!$user) {
+    header('Location:'.home_url('/'));
+  }
   $is_admin = in_array('administrator', $user->roles);
 @endphp
 
