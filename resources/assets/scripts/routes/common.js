@@ -112,13 +112,11 @@ export default {
     });
 
     $('.merits').on('click', '.edit', function () {
-      var merit = $(this).parent('li').find('.merit-id').val();
-      console.log($(this).parent("li"));
-      console.log(merit);
-      var currentVal = $(this).parent('li').find('.merit-rating').val();
-      var currentSpec = $(this).parent('li').find('.merit-spec').val();
-      var currentDesc = $(this).parent('li').find('.merit-desc').val();
-      var idx = $(this).parent('li').index();
+      var merit = $(this).parents('li').find('.merit-id').val();
+      var currentVal = $(this).parents('li').find('.merit-rating').val();
+      var currentSpec = $(this).parents('li').find('.merit-spec').val();
+      var currentDesc = $(this).parents('li').find('.merit-desc').val();
+      var idx = $(this).parents('li').index();
       $.ajax({
         url: ajaxurl,
         method: 'POST',
