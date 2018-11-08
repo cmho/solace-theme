@@ -206,6 +206,7 @@ function update_downtime()
     $args = array(
         'post_type' => 'downtime',
         'ID' => intval(htmlspecialchars($_POST['id'])),
+        'post_status' => 'publish',
         'post_author' => htmlspecialchars($_POST['author']),
         'post_title' => htmlspecialchars($_POST['post_title']),
         'post_content' => htmlspecialchars($_POST['post_content']),
