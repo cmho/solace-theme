@@ -31,7 +31,7 @@ class Downtimes extends Controller
                     )
                 )
             );
-            $act = get_posts();
+            $act = get_posts($args);
             $actions[$game->ID] = $act;
         }
 
