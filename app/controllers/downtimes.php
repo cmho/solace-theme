@@ -38,7 +38,8 @@ class Downtimes extends Controller
         return $actions;
     }
 
-    public static function listDowntimesForGame($game) {
+    public static function listDowntimesForGame($game)
+    {
         $downtimes = get_posts(array(
             'post_type' => 'downtime',
             'posts_per_page' => -1,

@@ -21,13 +21,13 @@
   @php
       $gamepost = get_post($game->ID)
   @endphp
-  <h3>{{ get_the_title($gamepost) }}</h3>
+  <h3>{{ $gamepost->post_title }}</h3>
   @if(date('Ymd') >= get_field('downtimes_open', $game) && date('Ymd') <= get_field('downtimes_close', $game))
       <p class="downtime-status">Downtimes are currently <strong>open</strong>. They will close at 11:59 PM on {{ date('m/d/y', strtotime(get_field('downtimes_close', $game))) }}.</p>
   @endif
   @foreach($downtimes as $downtime)
     <div class="downtime">
-      <h4>{{ get_the_title($downtime) }}</h4>
+      <h4>{{ $downtime->post_title }}</h4>
       <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
       <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
       <div class="description">
