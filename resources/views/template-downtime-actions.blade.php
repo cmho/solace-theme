@@ -18,11 +18,11 @@
       )
     ));
     if (count($characters) > 0) {
-      header('Location:'.App\App::downtimesLink().'?character='.$characters[0]->ID);
+      //header('Location:'.App\App::downtimesLink().'?character='.$characters[0]->ID);
     } else {
-      header('Location:'.App\App::dashboardLink());
+      //header('Location:'.App\App::dashboardLink());
     }
-    die(1);
+    //die(1);
   }
 @endphp
 
