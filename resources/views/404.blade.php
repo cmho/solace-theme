@@ -1,4 +1,4 @@
-@extends('splash.app')
+@extends('layouts.splash')
 
 @section('content')
   <div class="background">
