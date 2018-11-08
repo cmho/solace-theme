@@ -36,10 +36,12 @@
         left: 20%;
         z-index: 2;
         text-align: center;
+        text-shadow: 0 0 10px rgba($background, 0.75);
 
         h2 {
             font-size: 180px;
             font-family: 'Boycott', sans-serif;
+            font-weight: normal;
         }
 
         .explanation {
