@@ -16,7 +16,6 @@ class Downtimes extends Controller
             'order' => 'DESC'
         ));
 
-        $user = \wp_current_user();
         $actions = array();
 
         foreach ($games as $game) {
@@ -32,12 +31,6 @@ class Downtimes extends Controller
                     )
                 )
             );
-            if (!App\App::isAdmin()) {
-                array_push($args['meta_query'], array(
-                    'key' => 'character',
-                    'value' => $character
-                ));
-            }
             $act = get_posts();
             $actions[$game->ID] = $act;
         }
