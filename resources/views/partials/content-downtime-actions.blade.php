@@ -2,9 +2,9 @@
   @php
     // redirect if not an appropriate user
     $char = get_post(intval($_GET['character']));
-    //if ($char->post_author != wp_get_current_user()->ID && !App\App::isAdmin()) {
-    //  header('Location'.App\App::dashboardLink());
-    //}
+    if ($char->post_author != wp_get_current_user()->ID && !App\App::isAdmin()) {
+      header('Location'.App\App::dashboardLink());
+    }
   @endphp
   <div class="button-row right">
       <a href="#" class="button">New Action</a>
