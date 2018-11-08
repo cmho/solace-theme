@@ -13,10 +13,10 @@
       ));
     @endphp
     <div class="form-row">
-      <label for="character">Character</label>
+      <label for="character">Act as Character</label>
       <select name="character">
         @foreach($characters as $character)
-          <option value="{{ $character->ID }}">{{ $character->post_title }}</option>
+          <option value="{{ $character->ID }}">{!! $character->post_title !!}</option>
         @endforeach
       </select>
     </div>
@@ -57,7 +57,7 @@
   </div>
   <div class="form-row">
     <label for="post_content">Description</label>
-    <textarea name="description"></textarea>
+    <textarea name="description" rows="8"></textarea>
   </div>
   <div class="form-row">
     @php
