@@ -37,8 +37,4 @@
             </div>
         @endforeach
     @endforeach
-@elseif(App\App::isAdmin() && $_GET['game'] != null)
-  game
-@else
-  no game specified
 @endif
