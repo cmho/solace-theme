@@ -38,35 +38,10 @@
         @endforeach
     @endforeach
 @elseif(App\App::isAdmin() && $_GET['game'] != null)
-    @php($game = get_post($_GET['game']))
-    <h3>Downtimes for {{ get_the_title($game) }}</h3>
-    @if(App\Downtimes::listDowntimesForGame($_GET['game']))
-        @foreach(App\Downtimes::listDowntimesForGame($_GET['game']) as $character=>$downtimes)
-            @php($character = get_post($character->ID))
-            <h4>{!! get_the_title($character) !!}</h4>
-            @foreach($downtimes as $downtime)
-                <div class="downtime">
-                    <h4>{{ get_the_title($downtime) }}</h4>
-                    <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
-                    <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
-                    <div class="description">
-                        {!! get_field('description', $downtime) !!}
-                    </div>
-                    @if(get_field('response', $downtime))
-                        <hr />
-                        <div class="response">
-                            {!! get_field('response', $downtime) !!}
-                        </div>
-                    @endif
-                    <a href="{{ get_the_permalink($downtime) }}/?mode=respond">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
-                </div>
-            @endforeach
-        @endforeach
-    @else
-        <p style="text-align: center">No downtimes for this game yet.</p>
-    @endif
+    @php
+      $game = get_post($_GET['game'])
+    @endphp
+    test
 @else
   no game specified
 @endif
-
-test test test
