@@ -60,9 +60,7 @@
                             {!! get_field('response', $downtime) !!}
                         </div>
                     @endif
-                    @if(App\App::isAdmin())
-                        <a href="{{ get_the_permalink($downtime) }}/?mode=respond">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
-                    @endif
+                    <a href="{{ get_the_permalink($downtime) }}/?mode=respond">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
                 </div>
             @endforeach
         @endforeach
