@@ -19,7 +19,7 @@
 </div>
 @foreach(App\Downtimes::listDowntimes($character->ID) as $game=>$downtimes)
   @php
-      $gamepost = get_post($game->ID)
+      $gamepost = get_post($game)
   @endphp
   <h3>{{ $gamepost->post_title }}</h3>
   @if(date('Ymd') >= get_field('downtimes_open', $game) && date('Ymd') <= get_field('downtimes_close', $game))
