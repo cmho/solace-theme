@@ -37,9 +37,7 @@
             </div>
         @endforeach
     @endforeach
-@elseif(App\App::isAdmin() && $_GET['game'] == null)
-    no game specified
-@else
+@elseif(App\App::isAdmin() && $_GET['game'] != null)
     @php($game = get_post($_GET['game']))
     <h3>Downtimes for {{ get_the_title($game) }}</h3>
     @if(App\Downtimes::listDowntimesForGame($_GET['game']))
@@ -67,6 +65,8 @@
     @else
         <p style="text-align: center">No downtimes for this game yet.</p>
     @endif
+@else
+  no game specified
 @endif
 
 test test test
