@@ -208,6 +208,7 @@ function update_downtime()
         'ID' => intval(htmlspecialchars($_POST['id'])),
         'post_author' => htmlspecialchars($_POST['author']),
         'post_title' => htmlspecialchars($_POST['post_title']),
+        'post_content' => htmlspecialchars($_POST['post_content']),
         'meta_input' => array(
             'character' => intval(htmlspecialchars($_POST['character'])),
             'game' => intval(htmlspecialchars($_POST['game'])),
@@ -221,6 +222,8 @@ function update_downtime()
     header('Location:'.get_permalink($action));
     die(1);
 }
+
+add_action('admin_post_update_downtime', __NAMESPACE__.'\\update_downtime');
 
 function respond_to_downtime()
 {
