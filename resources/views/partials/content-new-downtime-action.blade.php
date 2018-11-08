@@ -57,7 +57,7 @@
   </div>
   <div class="form-row">
     <label for="post_content">Description</label>
-    <textarea name="description" rows="8"></textarea>
+    <textarea name="post_content" rows="8"></textarea>
   </div>
   <div class="form-row">
     @php
