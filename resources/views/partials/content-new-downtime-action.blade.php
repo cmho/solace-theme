@@ -65,7 +65,7 @@
         'post_type' => 'game',
         'posts_per_page' => 1,
         'meta_query' => array(
-          'relation' => 'AND'
+          'relation' => 'AND',
           array(
             'key' => 'downtimes_open',
             'value' => date('Ymd'),
