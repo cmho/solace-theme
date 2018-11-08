@@ -38,10 +38,7 @@
         @endforeach
     @endforeach
 @elseif(App\App::isAdmin() && $_GET['game'] != null)
-    @php
-      $game = get_post($_GET['game'])
-    @endphp
-    test
+  game
 @else
   no game specified
 @endif
