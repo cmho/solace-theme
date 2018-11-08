@@ -69,13 +69,13 @@
           array(
             'key' => 'downtimes_open',
             'value' => date('Ymd'),
-            'compare' => '>=',
+            'compare' => '<=',
             'type' => 'DATE'
           ),
           array(
             'key' => 'downtimes_close',
             'value' => date('Ymd'),
-            'compare' => '<=',
+            'compare' => '>=',
             'type' => 'DATE'
           )
         )
