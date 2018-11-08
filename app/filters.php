@@ -248,3 +248,12 @@ function delete_downtime()
     wp_delete_post($_POST['id'], false);
     header('Location:'.home_url('/')."downtimes/");
 }
+
+function add_query_vars_filter($vars)
+{
+    $vars[] = "character";
+    $vars[] = "game";
+    return $vars;
+}
+
+add_filter('query_vars', 'add_query_vars_filter');
