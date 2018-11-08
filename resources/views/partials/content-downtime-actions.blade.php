@@ -1,4 +1,4 @@
-@if(($_GET['character'] != null && $_GET['character']))
+@if($_GET['character'] != null)
   @php
     // redirect if not an appropriate user
     $char = get_post(intval($_GET['character']));
