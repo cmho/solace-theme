@@ -83,12 +83,15 @@ nav {
 }
 
 header.splash-header {
+  text-align: center;
+
   h1 {
     font-size: 60px;
   }
 
-  .desc {
+  .subtitle {
     font-size: 12px;
     letter-spacing: 1px;
+    text-transform: uppercase;
   }
 }

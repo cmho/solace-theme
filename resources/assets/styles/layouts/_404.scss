@@ -5,7 +5,8 @@
         left: 10%;
         width: 80%;
         height: calc(100vh - 80px);
-        
+        z-index: 1;
+
         &:before {
           content: "";
           display: block;
@@ -33,6 +34,7 @@
         width: 60%;
         top: 160px;
         left: 20%;
+        z-index: 2;
 
         h2 {
             font-size: 160px;
