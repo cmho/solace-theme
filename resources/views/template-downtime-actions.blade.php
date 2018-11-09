@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-md-8 col-md-offset-1 col-xs-12">
             @include('partials.content-downtime-actions')
           </div>
         </div>
