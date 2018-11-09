@@ -33,7 +33,8 @@ textarea {
   }
 }
 
-form.wppb-user-forms {
+form.wppb-user-forms,
+form#loginform {
   input[type="text"],
   input[type="email"],
   input[type="phone"],
