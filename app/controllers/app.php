@@ -86,7 +86,7 @@ class App extends Controller
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
-                    'value' => 'views/template-new-downtime-action.blade.php'
+                    'value' => 'views/template-new-downtime.blade.php'
                 )
             )
         ));
