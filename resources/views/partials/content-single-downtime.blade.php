@@ -3,17 +3,13 @@
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <h2>{!! get_the_title() !!}</h2>
-        <dl>
-          <dt>Action Type</dt>
-          <dd>{{ get_field('action_type') }}</dd>
-          <dt>Assets</dt>
-          <dd>{{ get_field('assets') }}</dd>
-          <dt>Goal</dt>
-          <dd>{{ get_field('goal') }}</dd>
+        <p class="action-type"><strong>Action Type:</strong> {{ get_field('action_type') }}</p>
       </div>
       <div class="col-md-8 col-xs-12">
         <div class="box">
           <div class="content">
+            <p class="assets"><strong>Assets:</strong> {{ get_field('assets') }}</p>
+            <p class="goal"><strong>Goal:</strong> {{ get_field('goal') }}</p>
             @php(the_content())
           </div>
         </div>
