@@ -27,11 +27,41 @@ textarea {
   font-size: 16px;
   color: $yellow;
   box-shadow: 3px 3px 0 $yellow solid;
-  width: 100%;
 
   &[disabled] {
     border: 4px rgba(white, 0.5) solid;
   }
+}
+
+.wppb-user-forms {
+  input[type="text"],
+  input[type="email"],
+  input[type="phone"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  textarea {
+    background-color: transparent;
+    border: 3px white solid;
+    padding: 10px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    color: $yellow;
+    box-shadow: 3px 3px 0 $yellow solid;
+
+    &[disabled] {
+      border: 4px rgba(white, 0.5) solid;
+    }
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="password"],
+input[type="number"],
+textarea {
+  width: 100%;
 }
 
 .button,
