@@ -15,7 +15,7 @@
   $character = $char[0];
 @endphp
 <div class="button-row right">
-    <a href="#" class="button">New Action</a>
+  <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
 </div>
 @foreach(App\Downtimes::listDowntimes($character->ID) as $game=>$downtimes)
   @php
