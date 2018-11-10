@@ -257,5 +257,12 @@ function custom_rewrite_tag()
 {
     add_rewrite_tag('%game%', '([^&]+)');
     add_rewrite_tag('%character%', '([^&]+)');
+    add_rewrite_tag('%mode%', '([^&]+)');
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrite_tag', 10, 0);
+
+function custom_rewrite_basic()
+{
+    add_rewrite_rule('^characters/([0-9a-zA-Z\-]+)/edit/?', 'index.php?character=$matches[1]&mode=edit', 'top');
+}
+add_action('init', __NAMESPACE__.'\\custom_rewrite_basic');
