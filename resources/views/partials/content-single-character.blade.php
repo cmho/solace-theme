@@ -1,4 +1,4 @@
-@if($_GET['mode'] !== null && $_GET['mode'] == 'edit'))
+@if($_GET['mode'] !== null && $_GET['mode'] == 'edit')
   <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
     <input type="hidden" name="id" value="{{ get_the_ID() }}" />
     @include('partials.content-character-form')
