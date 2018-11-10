@@ -166,6 +166,12 @@ select {
         color: $yellow;
         background-color: $grey;
         font-weight: bold;
+
+        &.select2-results__option--highlighted {
+          color: $grey;
+          background-color: $yellow;
+          font-weight: bold;
+        }
       }
     }
   }
