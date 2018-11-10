@@ -31,10 +31,16 @@ textarea {
   &[disabled] {
     border: 4px rgba(white, 0.5) solid;
   }
+
+  &:focus {
+    color: $yellow;
+  }
 }
 
 form.wppb-user-forms,
 form#loginform {
+  max-width: none;
+
   input[type="text"],
   input[type="email"],
   input[type="phone"],
@@ -114,5 +120,46 @@ select {
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.select2-container {
+  .select2-selection.select2-selection--single {
+    border: 3px white solid;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 10px;
+    height: auto;
+
+    .select2-selection__rendered {
+      color: $yellow;
+      line-height: 1.4;
+    }
+
+    .select2-selection__arrow {
+      height: 48px;
+
+      b {
+        border-color: $yellow transparent transparent transparent;
+      }
+    }
+  }
+
+  .select2-dropdown {
+    background-color: $gray;
+    border: 3px white solid;
+    border-radius: 0;
+
+    .select2-search__field {
+      border: 1px white solid;
+    }
+
+    .select2-results {
+      .select2-results__option--highlighted {
+        color: $grey;
+        background-color: $yellow;
+        font-weight: bold;
+      }
+    }
   }
 }
