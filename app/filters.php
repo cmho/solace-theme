@@ -263,8 +263,8 @@ add_action('init', __NAMESPACE__.'\\custom_rewrite_tag', 10, 0);
 
 function custom_rewrites()
 {
-    add_rewrite_rule('characters/([^/]+)/edit/?$', 'index.php?character=$matches[1]&mode=edit', 'top');
-    add_rewrite_rule('downtimes/game/([^/]+)/?$', 'index.php?p=189&game=$matches[1]', 'top');
-    add_rewrite_rule('downtimes/character/([^/]+)/?$', 'index.php?p=189&character=$matches[1]', 'top');
+    add_rewrite_rule('character/([^/]+)/edit/?$', 'index.php?character=$matches[1]&mode=edit', 'top');
+    add_rewrite_rule('downtime/game/([^/]+)/?$', 'index.php?p=189&game=$matches[1]', 'top');
+    add_rewrite_rule('downtime/character/([^/]+)/?$', 'index.php?p=189&character=$matches[1]', 'top');
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
