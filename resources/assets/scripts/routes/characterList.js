@@ -14,12 +14,12 @@ export default {
           method: 'POST',
           data: {
             action: 'delete_character',
-            id: id
+            id: id,
           },
           success: function(data) {
             charRow.fadeOut();
             charRow.detach();
-          }
+          },
         });
       }
       return;
