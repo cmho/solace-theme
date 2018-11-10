@@ -1,23 +1,10 @@
 @php
   $user = wp_get_current_user();
-  $char = get_posts(array(
-    'post_type' => 'character',
-    'posts_per_page' => 1,
-    'orderby' => 'date_modified',
-    'order' => 'DESC',
-    'meta_input' => array(
-      array(
-        'key' => 'status',
-        'value' => 'Active'
-      )
-    )
-  ));
-  $character = $char[0];
 @endphp
 <div class="button-row right">
   <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
 </div>
-@foreach(App\Downtimes::listDowntimes($character->ID) as $game=>$downtimes)
+@foreach(App\Downtimes::listDowntimes() as $game=>$downtimes)
   @php
       $gamepost = get_post($game);
   @endphp
@@ -28,7 +15,11 @@
   @if($downtimes)
     @foreach($downtimes as $downtime)
       <div class="downtime">
+        @php
+          $char = get_post(get_field['character']);
+        @endphp
         <h4>{{ $downtime->post_title }}</h4>
+        <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
         <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
         <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
         <div class="description">

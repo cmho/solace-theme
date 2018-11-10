@@ -252,3 +252,10 @@ function delete_downtime()
     wp_delete_post($_POST['id'], false);
     header('Location:'.home_url('/')."downtimes/");
 }
+
+function custom_rewrite_tag()
+{
+    add_rewrite_tag('%game%', '([^&]+)');
+    add_rewrite_tag('%character%', '([^&]+)');
+}
+add_action('init', 'custom_rewrite_tag', 10, 0);

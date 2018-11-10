@@ -6,7 +6,7 @@ use Sober\Controller\Controller;
 
 class Downtimes extends Controller
 {
-    public static function listDowntimes($character)
+    public static function listDowntimes()
     {
         $games = \get_posts(array(
             'post_type' => 'game',
@@ -31,6 +31,9 @@ class Downtimes extends Controller
                     )
                 )
             );
+            if (!App\App::isAdmin()) {
+                $args['post_author'] = wp_get_current_user();
+            }
             $act = get_posts($args);
             $actions[$game->ID] = $act;
         }
