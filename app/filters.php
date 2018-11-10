@@ -261,8 +261,10 @@ function custom_rewrite_tag()
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrite_tag', 10, 0);
 
-function custom_rewrite_basic()
+function custom_rewrites()
 {
     add_rewrite_rule('^characters\/([0-9a-zA-Z\-]+)\/edit\/?', 'index.php?character=$matches[1]&mode=edit', 'top');
+    add_rewrite_rule('^downtimes\/game\/([0-9a-zA-Z\-]+)\/?', 'index.php?p=189&game=$matches[1]', 'top');
+    add_rewrite_rule('^downtimes\/character\/([0-9a-zA-Z\-]+)\/?', 'index.php?p=189&character=$matches[1]', 'top');
 }
-add_action('init', __NAMESPACE__.'\\custom_rewrite_basic', 10, 0);
+add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
