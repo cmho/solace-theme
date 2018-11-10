@@ -258,4 +258,4 @@ function custom_rewrite_tag()
     add_rewrite_tag('%game%', '([^&]+)');
     add_rewrite_tag('%character%', '([^&]+)');
 }
-add_action('init', 'custom_rewrite_tag', 10, 0);
+add_action('init', __NAMESPACE__.'\\custom_rewrite_tag', 10, 0);
