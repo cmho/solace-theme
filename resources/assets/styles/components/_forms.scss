@@ -162,6 +162,11 @@ select {
         background-color: $yellow;
         font-weight: bold;
       }
+      [aria-selected="true"] {
+        color: $yellow;
+        background-color: $grey;
+        font-weight: bold;
+      }
     }
   }
 }
