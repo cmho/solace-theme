@@ -2,7 +2,7 @@
   <div class="col-md-4 col-sm-6 col-xs-12 center">
     <div class="form-row">
       <label for="post_title">Character Name</label>
-      <input type="text" name="post_title" value="{{ get_the_title() }}" />
+      <input type="text" name="post_title" value="{!! get_the_title() !!}" />
     </div>
     <div class="form-row">
       <label for="family">Family</label>
