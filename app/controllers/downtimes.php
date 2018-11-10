@@ -31,7 +31,7 @@ class Downtimes extends Controller
                     )
                 )
             );
-            if (!App\App::isAdmin()) {
+            if (!App::isAdmin()) {
                 $args['post_author'] = wp_get_current_user();
             }
             $act = get_posts($args);
