@@ -25,7 +25,7 @@
         <div class="description">
           {!! get_field('description', $downtime) !!}
         </div>
-        @if(get_field('response', $downtime))
+        @if(get_field('response', $downtime) && get_field('downtimes_visible', $gamepost))
           <hr />
           <div class="response">
               {!! get_field('response', $downtime) !!}
