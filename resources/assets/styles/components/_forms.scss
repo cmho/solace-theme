@@ -39,7 +39,9 @@ textarea {
 
 form.wppb-user-forms,
 form#loginform {
-  max-width: none !important;
+  ul {
+    max-width: none !important;
+  }
 
   input[type="text"],
   input[type="email"],
