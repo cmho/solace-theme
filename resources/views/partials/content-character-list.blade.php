@@ -23,11 +23,11 @@
         <td>
           <div class="name"><a href="{{ get_the_permalink() }}">{!! get_the_title() !!}</a></div>
           <div class="controls">
-            <a href="{{ get_the_permalink() }}?mode=edit">Edit</a>
+            <a href="{{ get_the_permalink() }}edit">Edit</a>
             @if(get_field('status') == 'Active')
-              <a href="#">Downtime Actions</a>
+              <a href="{{ App\App::downtimesLink() }}character/{{ $post->post_name }}">Downtime Actions</a>
             @endif
-            <a href="#" class="delete-link">Delete</a>
+            <a href="#" class="delete-link" data-id="{{ get_the_ID() }}">Delete</a>
           </div>
         </td>
         @if($is_admin)

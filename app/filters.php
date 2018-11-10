@@ -247,6 +247,9 @@ function delete_character()
     die(1);
 }
 
+add_action('wp_ajax_delete_character', __NAMESPACE__.'\\delete_character');
+add_action('wp_ajax_nopriv_delete_character', __NAMESPACE__.'\\delete_character');
+
 function delete_downtime()
 {
     wp_delete_post($_POST['id'], false);
