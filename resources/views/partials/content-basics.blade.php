@@ -26,7 +26,7 @@
       <div class="content">
         <div class="form-row">
           <label for="quote">Quote</label>
-          <input type="text" name="quote" value="{!! get_field('quote') !!}" />
+          <input type="text" name="quote" value="{!! addslashes(get_field('quote')) !!}" />
         </div>
         <div class="form-row">
           <label for="public_blurb">Public Blurb</label>
