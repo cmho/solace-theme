@@ -125,7 +125,8 @@ function update_character()
     if (isset($_POST['id'])) {
         if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id'])) {
             // create revision for approval if it's a PC and the person saving it is not an admin
-            $post_content['post_status'] = 'auto-draft';
+            $post_content['post_type'] = 'revision';
+            $post_content['status'] = 'inherit';
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
             // initiate experience expenditure as draft
@@ -149,14 +150,14 @@ function update_character()
             foreach ($admins as $admin) {
                 wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
             }
+            header('Location:'.get_the_permalink($char));
         } else {
             $post_content['ID'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
+            header('Location:'.get_the_permalink($post));
         }
     }
 
-
-    header('Location:'.get_the_permalink($post));
     die(1);
 }
 
