@@ -135,10 +135,20 @@ function update_character()
                 'post_status' => 'draft',
                 'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
                 'meta_input' => array(
-                    'amount' => (App\Character::getExperienceCost($char) - App\Character::getExperienceCost($post)), // update this later
+                    'amount' => (App\Character::getExperienceCost($post) - App\Character::getExperienceCost($char)), // update this later
                     'character' => htmlspecialchars($_POST['id'])
                 )
             ));
+            add_post_meta($post->ID, 'experience_expenditure', $exp);
+            $admins = get_users(array(
+                'role' => 'administrator'
+            ));
+            $message =
+                "There's a new experience expenditure for ".$post->post_title.". To see and approve it, go here:
+                    <a href='https://solacelarp.com/wp-admin/revision.php?revision=".$post;
+            foreach ($admins as $admin) {
+                wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
+            }
         } else {
             $post_content['ID'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
