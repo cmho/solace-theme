@@ -11,9 +11,6 @@
           <div class="content">
             @php(print_r(App\Experience::getDiff()))
             <dl>
-              @foreach(App\Experience::getDiff() as $diff)
-
-              @endforeach
             </dl>
           </div>
         </div>

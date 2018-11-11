@@ -133,6 +133,9 @@ function update_character()
             $post = \wp_insert_post($post_content);
             // initiate experience expenditure as draft
             $char = get_post($_POST['id']);
+            print_r(Character::getExperienceCost($post));
+            print_r(Character::getExperienceCost($char));
+            die(1);
             $exp = \wp_insert_post(array(
                 'post_type' => 'experience',
                 'post_status' => 'draft',

@@ -47,7 +47,7 @@ class Character extends Controller
     public static function getExperienceCost($character)
     {
         global $post;
-        $post =  $character;
+        $post = $character;
         $attributes = ((get_field('intelligence')+get_field('wits')+get_field('resolve')
             +get_field('strength')+get_field('dexterity')+get_field('stamina')
             +get_field('presence')+get_field('manipulation')+get_field('composure'))
