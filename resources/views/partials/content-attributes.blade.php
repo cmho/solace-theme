@@ -7,8 +7,8 @@
     <div class="row between-xs middle-xs">
       <label>Intelligence</label>
       <div class="dots">
-        @php(App\Character::printDots(1))
-        <input type="hidden" value="1" name="intelligence" />
+        @php(App\Character::printDots(get_field('intelligence') ? get_field('intelligence') : 1))
+        <input type="hidden" value="{{ get_field('intelligence') ? get_field('intelligence') : 1) }}" name="intelligence" />
       </div>
     </div>
     <div class="row between-xs middle-xs">
