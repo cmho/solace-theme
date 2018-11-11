@@ -48,20 +48,20 @@ class Character extends Controller
     {
         global $post;
         $post = $character;
-        $attributes = ((get_field('intelligence')+get_field('wits')+get_field('resolve')
-            +get_field('strength')+get_field('dexterity')+get_field('stamina')
-            +get_field('presence')+get_field('manipulation')+get_field('composure'))
+        $attributes = ((get_field('intelligence', $post)+get_field('wits', $post)+get_field('resolve', $post)
+            +get_field('strength', $post)+get_field('dexterity', $post)+get_field('stamina', $post)
+            +get_field('presence', $post)+get_field('manipulation', $post)+get_field('composure', $post))
             - 10)*4;
-        $skills = (get_field('academics')+get_field('computer')+get_field('crafts')
-            +get_field('investigation')+get_field('medicine')+get_field('occult')
-            +get_field('politics')+get_field('science')+get_field('athletics')
-            +get_field('brawl')+get_field('drive')+get_field('firearms')
-            +get_field('larceny')+get_field('stealth')+get_field('survival')
-            +get_field('weaponry')+get_field('animal_ken')+get_field('empathy')
-            +get_field('expression')+get_field('intimidation')+get_field('persuasion')
-            +get_field('socialize')+get_field('streetwise')+get_field('subterfuge')-22)*2;
+        $skills = (get_field('academics', $post)+get_field('computer', $post)+get_field('crafts', $post)
+            +get_field('investigation', $post)+get_field('medicine', $post)+get_field('occult', $post)
+            +get_field('politics', $post)+get_field('science', $post)+get_field('athletics', $post)
+            +get_field('brawl', $post)+get_field('drive', $post)+get_field('firearms', $post)
+            +get_field('larceny', $post)+get_field('stealth', $post)+get_field('survival', $post)
+            +get_field('weaponry', $post)+get_field('animal_ken', $post)+get_field('empathy', $post)
+            +get_field('expression', $post)+get_field('intimidation', $post)+get_field('persuasion', $post)
+            +get_field('socialize', $post)+get_field('streetwise', $post)+get_field('subterfuge', $post)-22)*2;
         $merits;
-        foreach (get_field('merits') as $merit) {
+        foreach (get_field('merits', $post) as $merit) {
             $merits += $merit['rating'];
         }
         $merits -= 17;
