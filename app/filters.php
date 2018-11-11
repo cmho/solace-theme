@@ -162,6 +162,20 @@ function update_character()
 
 add_action('admin_post_update_character', __NAMESPACE__.'\\update_character');
 
+function save_character_post($post_id)
+{
+    global $post;
+    $post = get_post($post_id);
+    if (get_post_type() == 'character') {
+        $e = wp_update_post(array(
+            'ID' => get_field('experience_expenditure'),
+            'post_status' => 'publish'
+        ));
+    }
+}
+
+add_action('wp_restore_post_revision', __NAMESPACE__.'\\save_character_post');
+
 function get_merit_info()
 {
     $id = intval($_POST['id']);
