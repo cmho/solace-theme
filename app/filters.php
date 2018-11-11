@@ -123,10 +123,29 @@ function update_character()
     }
 
     if (isset($_POST['id'])) {
-        $post_content['ID'] = htmlspecialchars($_POST['id']);
+        if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id']) && !App\App::isAdmin()) {
+            // create revision for approval if it's a PC and the person saving it is not an admin
+            $post_content['post_status'] = 'auto-draft';
+            $post_content['post_parent'] = htmlspecialchars($_POST['id']);
+            $post = \wp_insert_post($post_content);
+            // initiate experience expenditure as draft
+            $char = get_post($_POST['id']);
+            $exp = \wp_insert_post(array(
+                'post_type' => 'experience',
+                'post_status' => 'draft',
+                'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
+                'meta_input' => array(
+                    'amount' => (App\Character::getExperienceCost($char) - App\Character::getExperienceCost($post)), // update this later
+                    'character' => htmlspecialchars($_POST['id'])
+                )
+            ));
+        } else {
+            $post_content['ID'] = htmlspecialchars($_POST['id']);
+            $post = \wp_insert_post($post_content);
+        }
     }
 
-    $post = \wp_insert_post($post_content);
+
     header('Location:'.get_the_permalink($post));
     die(1);
 }
@@ -255,6 +274,9 @@ function delete_downtime()
     wp_delete_post($_POST['id'], false);
     header('Location:'.home_url('/')."downtimes/");
 }
+
+add_action('admin_post_delete_downtime', __NAMESPACE__.'\\delete_downtime');
+add_action('admin_post_nopriv_delete_downtime', __NAMESPACE__.'\\delete_downtime');
 
 function custom_rewrite_tag()
 {
