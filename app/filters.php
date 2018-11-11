@@ -123,7 +123,7 @@ function update_character()
     }
 
     if (isset($_POST['id'])) {
-        if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id']) && !App\App::isAdmin()) {
+        if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id'])) {
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_status'] = 'auto-draft';
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
