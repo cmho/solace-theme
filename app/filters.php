@@ -135,7 +135,7 @@ function update_character()
                 'post_status' => 'draft',
                 'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
                 'meta_input' => array(
-                    'amount' => (App\Character::getExperienceCost($post) - App\Character::getExperienceCost($char)), // update this later
+                    'amount' => (Character::getExperienceCost($post) - Character::getExperienceCost($char)), // update this later
                     'character' => htmlspecialchars($_POST['id'])
                 )
             ));
