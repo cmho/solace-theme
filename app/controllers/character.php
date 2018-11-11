@@ -46,22 +46,20 @@ class Character extends Controller
 
     public static function getExperienceCost($character)
     {
-        global $post;
-        $post = $character;
-        $attributes = ((get_field('intelligence', $post)+get_field('wits', $post)+get_field('resolve', $post)
-            +get_field('strength', $post)+get_field('dexterity', $post)+get_field('stamina', $post)
-            +get_field('presence', $post)+get_field('manipulation', $post)+get_field('composure', $post))
+        $attributes = ((get_field('intelligence', $character)+get_field('wits', $character)+get_field('resolve', $character)
+            +get_field('strength', $character)+get_field('dexterity', $character)+get_field('stamina', $character)
+            +get_field('presence', $character)+get_field('manipulation', $character)+get_field('composure', $character))
             - 10)*4;
-        $skills = (get_field('academics', $post)+get_field('computer', $post)+get_field('crafts', $post)
-            +get_field('investigation', $post)+get_field('medicine', $post)+get_field('occult', $post)
-            +get_field('politics', $post)+get_field('science', $post)+get_field('athletics', $post)
-            +get_field('brawl', $post)+get_field('drive', $post)+get_field('firearms', $post)
-            +get_field('larceny', $post)+get_field('stealth', $post)+get_field('survival', $post)
-            +get_field('weaponry', $post)+get_field('animal_ken', $post)+get_field('empathy', $post)
-            +get_field('expression', $post)+get_field('intimidation', $post)+get_field('persuasion', $post)
-            +get_field('socialize', $post)+get_field('streetwise', $post)+get_field('subterfuge', $post)-22)*2;
+        $skills = (get_field('academics', $character)+get_field('computer', $character)+get_field('crafts', $character)
+            +get_field('investigation', $character)+get_field('medicine', $character)+get_field('occult', $character)
+            +get_field('politics', $character)+get_field('science', $character)+get_field('athletics', $character)
+            +get_field('brawl', $character)+get_field('drive', $character)+get_field('firearms', $character)
+            +get_field('larceny', $character)+get_field('stealth', $character)+get_field('survival', $character)
+            +get_field('weaponry', $character)+get_field('animal_ken', $character)+get_field('empathy', $character)
+            +get_field('expression', $character)+get_field('intimidation', $character)+get_field('persuasion', $character)
+            +get_field('socialize', $character)+get_field('streetwise', $character)+get_field('subterfuge', $character)-22)*2;
         $merits;
-        foreach (get_field('merits', $post) as $merit) {
+        foreach (get_field('merits', $character) as $merit) {
             $merits += $merit['rating'];
         }
         $merits -= 17;
