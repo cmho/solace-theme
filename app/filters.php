@@ -127,6 +127,7 @@ function update_character()
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_type'] = 'revision';
             $post_content['status'] = 'inherit';
+            $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v1';
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
             // initiate experience expenditure as draft
@@ -136,7 +137,7 @@ function update_character()
                 'post_status' => 'draft',
                 'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
                 'meta_input' => array(
-                    'amount' => (Character::getExperienceCost($post) - Character::getExperienceCost($char)), // update this later
+                    'amount' => (Character::getExperienceCost($post) - Character::getExperienceCost($char)),
                     'character' => htmlspecialchars($_POST['id'])
                 )
             ));
