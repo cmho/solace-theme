@@ -21,7 +21,7 @@
     <div class="row between-xs middle-xs">
       <label>Resolve</label>
       <div class="dots">
-        @php(App\Character::printDots(get_field('resolvee') ? get_field('resolve') : 1))
+        @php(App\Character::printDots(get_field('resolve') ? get_field('resolve') : 1))
         <input type="hidden" value="{{ get_field('resolve') ? get_field('resolve') : 1 }}" name="resolve" />
       </div>
     </div>
