@@ -136,7 +136,7 @@ function update_character()
             $char = \get_post($_POST['id']);
             print_r(Character::getExperienceCost($updates));
             print_r($updates);
-            print_r(get_meta_value($updates->ID, 'strength'));
+            print_r(get_post_meta($updates->ID, 'strength'));
             echo "<br />";
             print_r(Character::getExperienceCost($char));
             die(1);
