@@ -9,8 +9,8 @@
           <div class="content">
             @if(get_field('prerequisites'))
               <p><strong>Prerequisites:</strong> {{ get_field('prerequisites') }}</p>
-              {{ get_field('description') }}
             @endif
+            {!! get_field('description') !!}
           </div>
         </div>
       </div>
