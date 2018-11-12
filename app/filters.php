@@ -127,13 +127,13 @@ function update_character()
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_type'] = 'revision';
             $post_content['status'] = 'inherit';
-            $revision_count = count(wp_get_post_revisions(htmlspecialchars($_POST['id'])));
+            $revision_count = count(\wp_get_post_revisions(htmlspecialchars($_POST['id'])));
             $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v'.($revision_count+1);
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
             // initiate experience expenditure as draft
-            $char = get_post($_POST['id']);
-            print_r(Character::getExperienceCost(get_post($post)));
+            $char = \get_post($_POST['id']);
+            print_r(Character::getExperienceCost(\get_post($post)));
             echo "<br />";
             print_r(Character::getExperienceCost($char));
             die(1);
@@ -146,17 +146,17 @@ function update_character()
                     'character' => htmlspecialchars($_POST['id'])
                 )
             ));
-            add_post_meta($post->ID, 'experience_expenditure', $exp);
-            $admins = get_users(array(
+            \add_post_meta($post->ID, 'experience_expenditure', $exp);
+            $admins = \get_users(array(
                 'role' => 'administrator'
             ));
             $message =
                 "There's a new experience expenditure for ".$post->post_title.". To see and approve it, go here:
                     <a href='https://solacelarp.com/wp-admin/revision.php?revision=".$post;
             foreach ($admins as $admin) {
-                wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
+                \wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
             }
-            header('Location:'.get_the_permalink($char));
+            header('Location:'.\get_the_permalink($char));
         } else {
             $post_content['ID'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
