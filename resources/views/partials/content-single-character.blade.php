@@ -15,9 +15,11 @@
           @if(!get_field('is_npc'))
             <p class="played-by">Played by {{ get_the_author() }}</p>
           @endif
-          <div class="button-row center">
-            <a href="{{ get_the_permalink() }}?mode=edit" class="button">Edit Character</a>
-          </div>
+          @if(App\App::isAdmin() || get_field('status') == 'In Progress' || App\Character::sumExperience() > 0)
+            <div class="button-row center">
+              <a href="{{ get_the_permalink() }}?mode=edit" class="button">Edit Character</a>
+            </div>
+          @endif
         </div>
         <div class="col-md-8 col-sm-6 col-xs-12">
           <div class="box">
