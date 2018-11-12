@@ -9,7 +9,7 @@
       @if(get_field('prerequisites'))
         <p>{!! get_field('prerequisites') ? '<strong>Prerequisites:</strong> '.get_field('prerequisites') : '' !!}</p>
       @endif
-      {{ get_field('description') }}
+      {!! get_field('description') !!}
     @endforeach
     @php(wp_reset_postdata())
   @endif
