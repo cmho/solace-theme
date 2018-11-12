@@ -126,7 +126,7 @@ function update_character()
         if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id'])) {
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_type'] = 'revision';
-            $post_content['status'] = 'inherit';
+            $post_content['post_status'] = 'inherit';
             $revision_count = count(\wp_get_post_revisions(htmlspecialchars($_POST['id'])));
             $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v'.($revision_count+1);
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
