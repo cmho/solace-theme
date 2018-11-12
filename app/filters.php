@@ -131,9 +131,11 @@ function update_character()
             $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v'.($revision_count+1);
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
+            $updates = \get_post($post);
             // initiate experience expenditure as draft
             $char = \get_post($_POST['id']);
-            print_r(Character::getExperienceCost(\get_post($post)));
+            print_r(Character::getExperienceCost($updates));
+            print_r($updates);
             echo "<br />";
             print_r(Character::getExperienceCost($char));
             die(1);
