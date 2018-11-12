@@ -69,6 +69,51 @@ add_filter('comments_template', function ($comments_template) {
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
 
+function add_meta_keys_to_revision($keys)
+{
+    array_push(
+        $keys,
+        "intelligence",
+        "wits",
+        "resolve",
+        "strength",
+        "dexterity",
+        "stamina",
+        "presence",
+        "manipulation",
+        "composure",
+        "academics",
+        "computer",
+        "crafts",
+        "investigation",
+        "medicine",
+        "occult",
+        "politics",
+        "science",
+        "athletics",
+        "brawl",
+        "drive",
+        "firearms",
+        "larceny",
+        "stealth",
+        "survival",
+        "weaponry",
+        "animal_ken",
+        "empathy",
+        "expression",
+        "intimidation",
+        "persuasion",
+        "socialize",
+        "streetwise",
+        "subterfuge",
+        "size",
+        "armor",
+        "merits"
+    );
+    return $keys;
+}
+add_filter('wp_post_revision_meta_keys', __NAMESPACE__.'\\add_meta_keys_to_revision');
+
 function update_character()
 {
     $post_content = array(
