@@ -46,18 +46,21 @@ class Character extends Controller
 
     public static function getExperienceCost($character)
     {
-        $attributes = ((get_field('intelligence', $character)+get_field('wits', $character)+get_field('resolve', $character)
+        $attributes =
+            ((get_field('intelligence', $character)+get_field('wits', $character)+get_field('resolve', $character)
             +get_field('strength', $character)+get_field('dexterity', $character)+get_field('stamina', $character)
             +get_field('presence', $character)+get_field('manipulation', $character)+get_field('composure', $character))
             - 10)*4;
-        $skills = (get_field('academics', $character)+get_field('computer', $character)+get_field('crafts', $character)
+        $skills =
+            (get_field('academics', $character)+get_field('computer', $character)+get_field('crafts', $character)
             +get_field('investigation', $character)+get_field('medicine', $character)+get_field('occult', $character)
             +get_field('politics', $character)+get_field('science', $character)+get_field('athletics', $character)
             +get_field('brawl', $character)+get_field('drive', $character)+get_field('firearms', $character)
             +get_field('larceny', $character)+get_field('stealth', $character)+get_field('survival', $character)
             +get_field('weaponry', $character)+get_field('animal_ken', $character)+get_field('empathy', $character)
             +get_field('expression', $character)+get_field('intimidation', $character)+get_field('persuasion', $character)
-            +get_field('socialize', $character)+get_field('streetwise', $character)+get_field('subterfuge', $character)-22)*2;
+            +get_field('socialize', $character)+get_field('streetwise', $character)+get_field('subterfuge', $character)
+            - 22)*2;
         $merits;
         foreach (get_field('merits', $character) as $merit) {
             $merits += $merit['rating'];
