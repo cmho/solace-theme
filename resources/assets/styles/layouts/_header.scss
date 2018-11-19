@@ -36,6 +36,16 @@ nav {
         li {
           line-height: 1;
           margin: 10px;
+
+          ul {
+            left: 100%;
+            top: 0;
+            display: none;
+          }
+
+          a:hover + ul {
+            display: block;
+          }
         }
         a {
           color: $grey;
