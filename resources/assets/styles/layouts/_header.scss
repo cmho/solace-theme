@@ -19,11 +19,6 @@ nav {
           content: " +"
         }
       }
-      a {
-        &:hover + ul {
-          display: block;
-        }
-      }
       ul {
         position: absolute;
         top: 100%;
@@ -48,12 +43,17 @@ nav {
             display: none;
           }
 
-          a:hover + ul {
+          &:hover > ul {
             display: block;
           }
         }
         a {
           color: $grey;
+        }
+      }
+      &:hover {
+        > ul {
+          display: block;
         }
       }
     }
