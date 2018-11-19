@@ -19,6 +19,11 @@ nav {
           content: " +"
         }
       }
+      a {
+        &:hover + ul {
+          display: block;
+        }
+      }
       ul {
         position: absolute;
         top: 100%;
@@ -37,7 +42,7 @@ nav {
           line-height: 1;
           margin: 10px;
 
-          ul {
+          ul.sub-menu {
             left: 100%;
             top: 0;
             display: none;
@@ -49,11 +54,6 @@ nav {
         }
         a {
           color: $grey;
-        }
-      }
-      &:hover {
-        ul {
-          display: block;
         }
       }
     }
