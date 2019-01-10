@@ -237,15 +237,15 @@
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Persuasion</label>
+            <label>Leadership</label>
             <div class="dots">
-              @php(App\Character::printDots(get_field('persuasion')))
+              @php(App\Character::printDots(get_field('leadership')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Socialize</label>
+            <label>Persuasion</label>
             <div class="dots">
-              @php(App\Character::printDots(get_field('socialize')))
+              @php(App\Character::printDots(get_field('persuasion')))
             </div>
           </div>
           <div class="row between-xs middle-xs">

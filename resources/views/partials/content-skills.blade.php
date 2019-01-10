@@ -143,17 +143,17 @@
   </div>
 </div>
 <div class="row between-xs middle-xs">
+  <label>Leadership</label>
+  <div class="dots">
+    @php(App\Character::printDots(get_field('leadership')))
+    <input type="hidden" name="leadership" value="{{ get_field('leadership') }}" />
+  </div>
+</div>
+<div class="row between-xs middle-xs">
   <label>Persuasion</label>
   <div class="dots">
     @php(App\Character::printDots(get_field('persuasion')))
     <input type="hidden" name="persuasion" value="{{ get_field('persuasion') }}" />
-  </div>
-</div>
-<div class="row between-xs middle-xs">
-  <label>Socialize</label>
-  <div class="dots">
-    @php(App\Character::printDots(get_field('socialize')))
-    <input type="hidden" name="socialize" value="{{ get_field('socialize') }}" />
   </div>
 </div>
 <div class="row between-xs middle-xs">

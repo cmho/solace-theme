@@ -49,6 +49,10 @@ nav {
         }
         a {
           color: $grey;
+
+          &:hover {
+            font-style: italic;
+          }
         }
       }
       &:hover {
