@@ -170,8 +170,8 @@ function update_character()
     }
 
     for ($j = 0; $j < intval(htmlspecialchars($_POST['skill_specialties'])); $j++) {
-        $post_content['meta_input']['skill_specialties_'.$i.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$i.'_skill']);
-        $post_content['meta_input']['skill_specialties_'.$i.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$i.'_specialty']);
+        $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']);
+        $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty']);
     }
 
     if (isset($_POST['id'])) {
