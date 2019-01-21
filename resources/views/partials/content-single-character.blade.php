@@ -272,8 +272,7 @@
           <ul class="merits">
             @if(count(get_field('merits')))
               @foreach(get_field('merits') as $merit)
-                @php(setup_postdata($merit['merit']))
-                <li>{{ get_the_title() }}{{ get_field('requires_specification') ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings')) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
+                <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
               @endforeach
               @php(wp_reset_postdata())
             @endif
