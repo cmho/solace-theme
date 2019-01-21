@@ -270,9 +270,11 @@
         <div class="col-md-4 col-xs-12">
           <h3>Merits</h3>
           <ul class="merits">
-            @foreach(get_field('merits') as $merit)
+            @foreach(get_field('merits') as $post)
+              @php(setup_postdata($post))
               <li>{{ get_the_title($merit['merit']) }}{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
             @endforeach
+            @php(wp_reset_postdata())
           </ul>
         </div>
         <div class="col-md-4 col-xs-12">
