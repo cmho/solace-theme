@@ -108,7 +108,8 @@ function add_meta_keys_to_revision($keys)
         "subterfuge",
         "size",
         "armor",
-        "merits"
+        "merits",
+        "skill_specialties"
     );
     return $keys;
 }
@@ -156,7 +157,8 @@ function update_character()
             'merits' => intval(htmlspecialchars($_POST['merits'])),
             'size' => htmlspecialchars($_POST['size']),
             'armor' => htmlspecialchars($_POST['armor']),
-            'integrity' => htmlspecialchars($_POST['integrity'])
+            'integrity' => htmlspecialchars($_POST['integrity']),
+            'skill_specialties' => intval(htmlspecialchars($_POST['skill_specialties']))
         )
     );
 
@@ -165,6 +167,11 @@ function update_character()
         $post_content['meta_input']['merits_'.$i.'_rating'] = htmlspecialchars($_POST['merits_'.$i.'_rating']);
         $post_content['meta_input']['merits_'.$i.'_specification'] = htmlspecialchars($_POST['merits_'.$i.'_specification']);
         $post_content['meta_input']['merits_'.$i.'_description'] = htmlspecialchars($_POST['merits_'.$i.'_description']);
+    }
+
+    for ($j = 0; $j < intval(htmlspecialchars($_POST['skill_specialties'])); $j++) {
+        $post_content['meta_input']['skill_specialties_'.$i.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$i.'_skill']);
+        $post_content['meta_input']['skill_specialties_'.$i.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$i.'_specialty']);
     }
 
     if (isset($_POST['id'])) {
