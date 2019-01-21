@@ -12,27 +12,33 @@ class Merit extends Controller
         $out = "";
         $last;
         $count = 0;
-        foreach ($allowed as $rating) {
-            $count++;
-            if ($last && $last+1 == $rating && $count != count($allowed)) {
-                $last = $rating;
-                continue;
-            } elseif ($last && $count != count($allowed)) {
-                $out .= "-";
-                for ($i = 0; $i < $last; $i++) {
+        if (count($allowed) > 1) {
+            foreach ($allowed as $rating) {
+                $count++;
+                if ($last && $last+1 == $rating && $count != count($allowed)) {
+                    $last = $rating;
+                    continue;
+                } elseif ($last && $count != count($allowed)) {
+                    $out .= "-";
+                    for ($i = 0; $i < $last; $i++) {
+                        $out .= "●";
+                    }
+                } elseif ($last && $last+1 == $rating) {
+                    $out .= "-";
+                } elseif ($last) {
+                    $out .= ", ";
+                }
+
+                for ($j = 0; $j < $rating; $j++) {
                     $out .= "●";
                 }
-            } elseif ($last && $last+1 == $rating) {
-                $out .= "-";
-            } elseif ($last) {
-                $out .= ", ";
-            }
 
-            for ($j = 0; $j < $rating; $j++) {
+                $last = $rating;
+            }
+        } else {
+            for ($j = 0; $j < $allowed[0]; $j++) {
                 $out .= "●";
             }
-
-            $last = $rating;
         }
 
         return $out;

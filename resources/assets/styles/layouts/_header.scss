@@ -37,14 +37,28 @@ nav {
         li {
           line-height: 1;
           margin: 10px;
+
+          ul.sub-menu {
+            left: 100%;
+            top: 0;
+            display: none;
+          }
+
+          &:hover > ul {
+            display: block;
+          }
         }
         a {
           color: $grey;
+
+          &:hover {
+            font-style: italic;
+          }
         }
       }
       &:hover {
         z-index: 99;
-        ul {
+        > ul {
           display: block;
         }
       }

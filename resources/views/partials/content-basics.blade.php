@@ -26,11 +26,11 @@
       <div class="content">
         <div class="form-row">
           <label for="quote">Quote</label>
-          <input type="text" name="quote" value="{!! htmlspecialchars(get_field('quote')) !!}" />
+          <input type="text" name="quote" value="{!! htmlspecialchars(get_field('quote', false)) !!}" />
         </div>
         <div class="form-row">
           <label for="public_blurb">Public Blurb</label>
-          <textarea name="public_blurb" rows="8">{!! get_field('public_blurb') !!}</textarea>
+          <textarea name="public_blurb" rows="8">{!! get_field('public_blurb', false) !!}</textarea>
         </div>
         <div class="form-row">
           <label for="virtue">Virtue</label>

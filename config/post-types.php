@@ -56,3 +56,9 @@ use Roots\Sage\Container;
     'public' => true,
     'supports' => array('title')
 ));
+
+\register_post_type('condition', array(
+    'label' => 'Condition',
+    'public' => true,
+    'supports' => array('title', 'editor')
+));
