@@ -58,10 +58,22 @@ nav {
       }
       &:hover,
       &:focus-within {
-        z-index: 99;
+        &.menu-item-has-children {
+          >a:after {
+            content: " -"
+          }
+        }
         > ul {
           display: block;
         }
+      }
+
+      &:hover {
+        z-index: 99;
+      }
+
+      &:focus-within {
+        z-index: 100;
       }
     }
   }
@@ -71,16 +83,17 @@ nav {
       li {
         ul {
           font-size: 18px;
-          
-          ul {
-            top: 100%;
-            left: 40px;
-            background-color: $grey;
-            border: 3px $yellow solid;
-            a {
-              color: $yellow;
-            }
+          li {
+            ul.sub-menu {
+              top: 100%;
+              left: 40px;
+              background-color: $grey;
+              border: 3px $yellow solid;
+              a {
+                color: $yellow;
+              }
 
+            }
           }
         }
       }
