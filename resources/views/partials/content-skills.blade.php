@@ -181,7 +181,7 @@
   <button id="add-specialty" type="button">Add</button>
   <input type="hidden" name="skill_specialties" value="{{ count(get_field('skill_specialties')) }}" />
 </div>
-<div class="row">
+<div class="row specialty-form-row">
   <ul class="skill-specialties">
     @foreach(get_field('skill_specialties') as $i=>$sksp)
       <li><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span> <button type="button" class="delete"><i class='fas fa-trash'></i></button><input type='hidden' name='skill_specialties_{{ $i }}_skill' value='{{ $sksp['skill'] }}' /><input type='hidden' name='skill_specialties_{{ $i }}_specialty' value='{{ $sksp['specialty'] }}' /></li>
