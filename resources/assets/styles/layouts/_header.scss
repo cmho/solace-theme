@@ -58,11 +58,6 @@ nav {
       }
       &:hover,
       &:focus-within {
-        &.menu-item-has-children {
-          >a:after {
-            content: " -"
-          }
-        }
         > ul {
           display: block;
         }
