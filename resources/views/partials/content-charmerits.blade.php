@@ -18,8 +18,13 @@
 <button type="button" id="add-merit">Add</button>
 <ul class="merits">
   @foreach(get_field('merits') as $i=>$merit)
-    <li><span class="label"><span class="meritname">{{ get_the_title($merit['merit']) }}</span><span class="specification">{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}</span><span class="rating">{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}</span></span><button class="js-modal edit" data-modal-content-id="merits-modal"><i class='fas fa-pencil-alt'></i></button> <button type="button" class="delete"><i class='fas fa-trash'></i></button>{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}<input type='hidden' name='merits_{{ $i }}_merit' value='{{ $merit['merit']->ID }}' class='merit-id' /><input type='hidden' name='merits_{{ $i }}_rating' value='{{ $merit['rating'] }}' /><input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' /><input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' /></li>
+    @php
+        $post = $merit['merit'];
+        setup_postdata($post);
+    @endphp
+    <li><span class="label"><span class="meritname">{{ get_the_title() }}</span><span class="specification">{{ get_field('requires_specification') ? " (".$merit['specification'].")" : '' }}</span><span class="rating">{{ count(get_field('allowed_ratings')) > 1 ? " ".$merit['rating'] : '' }}</span></span><button class="js-modal edit" data-modal-content-id="merits-modal"><i class='fas fa-pencil-alt'></i></button> <button type="button" class="delete"><i class='fas fa-trash'></i></button>{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}<input type='hidden' name='merits_{{ $i }}_merit' value='{{ $merit['merit']->ID }}' class='merit-id' /><input type='hidden' name='merits_{{ $i }}_rating' value='{{ $merit['rating'] }}' /><input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' /><input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' /></li>
   @endforeach
+  @php(wp_reset_postdata())
 </ul>
 <div id="merits-modal" class="hidden">
   <div class="content" id="modal-content">
