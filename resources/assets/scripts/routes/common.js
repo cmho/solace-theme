@@ -180,8 +180,8 @@ export default {
     });
 
     $('#add-specialty').on('click', function() {
-      var skill = $('#skill option:selection').val();
-      var specialty = $('#specialty').val();
+      var skill = $('#skill option:selected').val();
+      var specialty = $('#specialty_name').val();
       var num = $('.skill-specialties li').length;
       var item = '<li><strong class="skill">'+skill+':</strong> <span class="specialty">'+specialty+'</span> <button type="button" class="delete"><i class="fas fa-trash"></i></button><input type="hidden" name="skill_specialties_'+num+'_skill" value="'+skill+'" /><input type="hidden" name="skill_specialties_'+num+'_specialty" value="'+specialty+'" /></li>';
       $('.skill-specialties').append(item);
