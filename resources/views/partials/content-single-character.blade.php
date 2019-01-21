@@ -274,7 +274,7 @@
               @foreach(get_field('merits') as $post)
                 @php(print_r($post))
                 @php(setup_postdata($post))
-                <li>{{ get_the_title($merit['merit']) }}{{ get_field('requires_specification', $merit['merit']) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
+                <li>{{ get_the_title() }}{{ get_field('requires_specification') ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit'])) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
               @endforeach
               @php(wp_reset_postdata())
             @endif
