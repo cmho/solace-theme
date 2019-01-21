@@ -1,7 +1,7 @@
 export default {
   init() {
     // JavaScript to be fired on all pages
-    $('.dots i.fa-circle').on('click', function () {
+    $('form .dots i.fa-circle').on('click', function () {
       $(this).nextAll('i.fa-circle').removeClass('fas').addClass('far');
       if ($(this).hasClass('far')) {
         $(this).addClass('fas').removeClass('far');
@@ -176,6 +176,24 @@ export default {
       if (yn) {
         $(this).parents('li').detach();
         $('[name="merits"]').val($('ul.merits li').length);
+      }
+    });
+
+    $('#add-specialty').on('click', function() {
+      var skill = $('#skill option:selection').val();
+      var specialty = $('#specialty').val();
+      var num = $('.skill-specialties li').length;
+      var item = '<li><strong class="skill">'+skill+':</strong> <span class="specialty">'+specialty+'</span> <button type="button" class="delete"><i class="fas fa-trash"></i></button><input type="hidden" name="skill_specialties_'+num+'_skill" value="'+skill+'" /><input type="hidden" name="skill_specialties_'+num+'_specialty" value="'+specialty+'" /></li>';
+      $('.skill-specialties').append(item);
+    });
+
+    $(".skill-specialties").on("click", ".delete", function() {
+      var yn = confirm("Are you sure you want to delete this skill specialty?");
+      if (yn) {
+        $(this)
+          .parents("li")
+          .detach();
+        $('[name="skill_specialties"]').val($("ul.skill-specialties li").length);
       }
     });
   },
