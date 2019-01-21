@@ -260,6 +260,12 @@
               @php(App\Character::printDots(get_field('subterfuge')))
             </div>
           </div>
+          <h3>Skill Specialties</h3>
+          <ul class="skill-specialties">
+            @foreach(get_field('skill_specialties') as $i=>$sksp)
+              <li><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span> <button type="button" class="delete"><i class='fas fa-trash'></i></button><input type='hidden' name='skill_specialties_{{ $i }}_skill' value='{{ $sksp['skill'] }}' /><input type='hidden' name='skill_specialties_{{ $i }}_specialty' value='{{ $sksp['specialty'] }}' /></li>
+            @endforeach
+          </ul>
         </div>
         <div class="col-md-4 col-xs-12">
           <h3>Merits</h3>
