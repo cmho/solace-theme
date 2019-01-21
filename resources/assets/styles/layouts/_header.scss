@@ -71,12 +71,16 @@ nav {
       li {
         ul {
           font-size: 18px;
-          top: 100%;
-          left: 40px;
-          background-color: $grey;
-          border: 3px $yellow solid;
-          a {
-            color: $yellow;
+          
+          ul {
+            top: 100%;
+            left: 40px;
+            background-color: $grey;
+            border: 3px $yellow solid;
+            a {
+              color: $yellow;
+            }
+
           }
         }
       }
