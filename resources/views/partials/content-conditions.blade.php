@@ -6,13 +6,16 @@
   @endforeach
 </select>
 <label for="condition_note">Note</label>
-<input type="text" name="condition_note" />
+<input type="text" name="condition_note" id="condition_note" />
 <button type="button" id="add-condition">Add</button>
+<input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
 @if(get_field('conditions'))
   <ul>
-    @foreach(get_field('conditions') as $condition)
+    @foreach(get_field('conditions') as $i=>$condition)
     <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
       {{ $condition['note'] }}
+      <input type="hidden" name="conditions_{{ $i }}_condition" value="{{ $condition['condition']->ID }}" />
+      <input type="hidden" name="conditions_{{ $i }}_note" value="{{ $condition['note'] }}" />
     </li>
     @endforeach
   </ul>

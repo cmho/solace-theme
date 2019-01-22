@@ -158,7 +158,8 @@ function update_character()
             'size' => htmlspecialchars($_POST['size']),
             'armor' => htmlspecialchars($_POST['armor']),
             'integrity' => htmlspecialchars($_POST['integrity']),
-            'skill_specialties' => intval(htmlspecialchars($_POST['skill_specialties']))
+            'skill_specialties' => intval(htmlspecialchars($_POST['skill_specialties'])),
+            'conditions' => intval(htmlspecialchars($_POST['conditions']))
         )
     );
 
@@ -172,6 +173,11 @@ function update_character()
     for ($j = 0; $j < intval(htmlspecialchars($_POST['skill_specialties'])); $j++) {
         $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']);
         $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty']);
+    }
+
+    for ($k = 0; $k < intval(htmlspecialchars($_POST['conditions'])); $k++) {
+        $post_content['meta_input']['conditions_'.$k.'_condition'] = htmlspecialchars($_POST['conditions_'.$k.'_condition']);
+        $post_content['meta_input']['conditions_'.$k.'_note'] = htmlspecialchars($_POST['conditions_'.$k.'_note']);
     }
 
     if (isset($_POST['id'])) {

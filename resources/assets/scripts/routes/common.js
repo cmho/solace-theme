@@ -197,6 +197,16 @@ export default {
         $('[name="skill_specialties"]').val($("ul.skill-specialties li").length);
       }
     });
+
+    $('#add-condition').on('click', function() {
+      var condition = $('#conditions_list option:selected').val();
+      var conditionName = $('#conditions_list option:selected').text();
+      var num = $('.conditions li').length;
+      var note = $('#condition_note').val();
+      var item = '<li><strong>'+conditionName+'</strong><br />'+conditionNote+'<input type="hidden" name="conditions_'+num+'_condition" val="'+condition+'" /><input type="hidden" name="conditions_'+num+'_note" val="'+note+'" /></li>';
+      $('.conditions').append(item);
+      $('[name="conditions"]').val($('ul.conditions li').length);
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
