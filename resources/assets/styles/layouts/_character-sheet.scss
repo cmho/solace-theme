@@ -30,6 +30,10 @@
   .specialty-form-row {
     flex-wrap: nowrap;
 
+    select {
+      flex-shrink: 0;
+    }
+
     input[type="text"] {
       flex-shrink: 1;
       margin: 0 5px;
