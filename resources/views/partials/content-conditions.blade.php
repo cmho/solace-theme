@@ -10,7 +10,7 @@
 <button type="button" id="add-condition">Add</button>
 <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
 @if(get_field('conditions'))
-  <ul>
+  <ul class="conditions">
     @foreach(get_field('conditions') as $i=>$condition)
     <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
       {{ $condition['note'] }}
