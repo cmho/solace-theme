@@ -185,6 +185,7 @@ export default {
       var num = $('.skill-specialties li').length;
       var item = '<li><strong class="skill">'+skill+':</strong> <span class="specialty">'+specialty+'</span> <button type="button" class="delete"><i class="fas fa-trash"></i></button><input type="hidden" name="skill_specialties_'+num+'_skill" value="'+skill+'" /><input type="hidden" name="skill_specialties_'+num+'_specialty" value="'+specialty+'" /></li>';
       $('.skill-specialties').append(item);
+      $('[name="skill_specialties"]').val($('ul.skill-specialties li').length);
     });
 
     $(".skill-specialties").on("click", ".delete", function() {

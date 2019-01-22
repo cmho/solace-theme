@@ -173,8 +173,6 @@ function update_character()
         $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']);
         $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty']);
     }
-    print_r(intval(htmlspecialchars($_POST['skill_specialties'])));
-    die(1);
 
     if (isset($_POST['id'])) {
         if (get_field('status', $_POST['id']) == 'Active' && !get_field('is_npc', $_POST['id'])) {
