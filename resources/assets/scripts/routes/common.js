@@ -207,6 +207,16 @@ export default {
       $('.conditions').append(item);
       $('[name="conditions"]').val($('ul.conditions li').length);
     });
+
+    $('.conditions').on('click', '.delete', function() {
+      var yn = confirm("Are you sure you want to delete this condition?");
+      if (yn) {
+        $(this)
+          .parents("li")
+          .detach();
+        $('[name="conditions"]').val($("ul.conditions li").length);
+      }
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
