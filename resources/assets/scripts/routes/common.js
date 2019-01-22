@@ -203,7 +203,7 @@ export default {
       var conditionName = $('#conditions_list option:selected').text();
       var num = $('.conditions li').length;
       var note = $('#condition_note').val();
-      var item = '<li><strong>'+conditionName+'</strong> <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button><br />'+note+'<input type="hidden" name="conditions_'+num+'_condition" val="'+condition+'" /><input type="hidden" name="conditions_'+num+'_note" val="'+note+'" /></li>';
+      var item = '<li><strong>'+conditionName+'</strong> <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button><br />'+note+'<input type="hidden" name="conditions_'+num+'_condition" value="'+condition+'" /><input type="hidden" name="conditions_'+num+'_note" value="'+note+'" /></li>';
       $('.conditions').append(item);
       $('[name="conditions"]').val($('ul.conditions li').length);
     });

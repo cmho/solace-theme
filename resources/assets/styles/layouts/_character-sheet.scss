@@ -12,13 +12,15 @@
   }
 
   #add-merit,
-  #add-specialty {
+  #add-specialty,
+  #add-condition {
     font-size: 16px;
     padding: 4px 10px;
   }
 
   ul.merits,
-  ul.skill-specialties {
+  ul.skill-specialties,
+  ul.conditions {
     list-style: none;
     padding: 0;
 
