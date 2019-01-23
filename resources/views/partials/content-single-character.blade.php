@@ -275,8 +275,34 @@
                 <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
               @endforeach
               @php(wp_reset_postdata())
+            @else
+              <p><em>None</em></p>
             @endif
           </ul>
+          <h3>Equipment</h3>
+          @if(get_field('equipment'))
+            <ul>
+              @foreach(get_field('equipment') as $equipment)
+              <li>
+                <strong>{{ get_the_title($equipment['equipment']->ID) }}</strong><br />
+                <dl>
+                  <dt>Type</dt>
+                  <dd>{{ get_field('type', $equipment['equipment']->ID) }}</dd>
+                  <dt>Size</dt>
+                  <dd>{{ get_field('size', $equipment['equipment']->ID) }}</dd>
+                  <dt>Durability</dt>
+                  <dd>{{ get_field('durability', $equipment['equipment']->ID) }}</dd>
+                  <dt>Qualities</dt>
+                  <dd>{{ join(", ", get_field('qualities', $equipment['equipment']->ID)) }}</dd>
+                  <dt>Notes</dt>
+                  <dd>{{ $equipment['note'] }}</dd>
+                </dl>
+              </li>
+              @endforeach
+            </ul>
+          @else
+            <p><em>None</em></p>
+          @endif
         </div>
         <div class="col-md-4 col-xs-12">
           <h3>Health</h3>
@@ -316,8 +342,9 @@
               </li>
               @endforeach
             </ul>
+          @else
+            <p><em>None</em></p>
           @endif
-
         </div>
       </div>
     </div>
