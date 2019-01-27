@@ -277,6 +277,26 @@
               @php(wp_reset_postdata())
             @endif
           </ul>
+          <h3>Equipment</h3>
+          <ul class="equipment">
+            @if(count(get_field('equipment')))
+              @foreach(get_field('equipment') as $equipment)
+                <li>
+                  <strong>{{ get_the_title($equipment['equipment']->ID) }}</strong><br />
+                  <dl>
+                    <dt>Type:</dt>
+                    <dd>{{ get_field('type', $equipment['equipment']->ID) }}</dd>
+                    <dt>Size</dt>
+                    <dd>{{ get_field('size', $equipment['equipment']->ID) }}</dd>
+                    <dt>Durability</dt>
+                    <dd>{{ get_field('durability', $equipment['equipment']->ID) }}</dd>
+                    <dt>Qualities</dt>
+                    <dd>{{ join(", ", get_field('qualities', $equipment['equipment']->ID)) }}</dd>
+                  </dl>
+                </li>
+              @endforeach
+            @endif
+          </ul>
         </div>
         <div class="col-md-4 col-xs-12">
           <h3>Health</h3>

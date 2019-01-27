@@ -48,11 +48,11 @@
       <div class="col-xs-12">
         <h2>Upcoming Events</h2>
         @if(App\FrontPage::events())
-          <dl>
+          <dl class="events">
             @foreach(App\FrontPage::events() as $post)
               @php(setup_postdata($post))
-              <dt><a href="@php(the_permalink())">@php(the_title())</a></dt>
-              <dd>{{ get_field('date') }}</dd>
+              <dt><a href="{{ get_the_permalink($post->ID) }}">{{ get_the_title($post->ID) }}</a></dt>
+              <dd>{{ get_field('date', $post->ID) }}</dd>
             @endforeach
             @php(wp_reset_postdata())
           </dl>
