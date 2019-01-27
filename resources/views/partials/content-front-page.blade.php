@@ -49,12 +49,10 @@
         <h2>Upcoming Events</h2>
         @if(App\FrontPage::events())
           <dl class="events">
-            @foreach(App\FrontPage::events() as $post)
-              @php(setup_postdata($post))
-              <dt><a href="{{ get_the_permalink($post->ID) }}">{{ get_the_title($post->ID) }}</a></dt>
-              <dd>{{ get_field('date', $post->ID) }}</dd>
+            @foreach(App\FrontPage::events() as $event)
+              <dt><a href="{{ get_the_permalink($event->ID) }}">{{ get_the_title($event->ID) }}</a></dt>
+              <dd>{{ get_field('date', $event->ID) }}</dd>
             @endforeach
-            @php(wp_reset_postdata())
           </dl>
         @else
           <p class="center">No upcoming events.</p>
