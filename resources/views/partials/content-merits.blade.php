@@ -2,6 +2,8 @@
   global $post;
 @endphp
 <article>
+  {!! App\Merits::getDescription() !!}
+
   @if(App\Merits::list())
     @foreach(App\Merits::list() as $post)
       @php(setup_postdata($post))

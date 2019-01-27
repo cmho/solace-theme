@@ -27,6 +27,15 @@ class Merits extends Controller
         return \get_posts($args);
     }
 
+    public static function getDescription()
+    {
+        if (get_field('category_to_show')) {
+            $term = get_term(get_field('category_to_show'));
+            return $term->description;
+        }
+        return null;
+    }
+
     public static function listGrouped()
     {
         $terms = \get_terms('merit_category', array(
