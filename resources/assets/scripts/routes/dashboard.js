@@ -64,10 +64,6 @@ export default {
       $('.health a .indicator').each(function () {
         if ($(this).hasClass('fa-slash')) {
           current_willpower += '1';
-        } else if ($(this).hasClass('fa-times')) {
-          current_willpower += '2';
-        } else if ($(this).hasClass('fa-asterisk')) {
-          current_willpower += '3';
         } else {
           current_willpower += '0';
         }
