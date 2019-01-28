@@ -41,7 +41,7 @@
                 <h4>Conditions</h4>
                 @if(get_field('conditions'))
                   <ul>
-                    @foreach(get_field('conditions'))
+                    @foreach(get_field('conditions') as $condition)
                       <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong> <button type="button" class="button small resolve-button">Resolve</button><br />
                         {{ $condition['note'] }}
                       </li>
