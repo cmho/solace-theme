@@ -4,6 +4,6 @@
     @if($q['instructions'])
       <p class="help">{{ $q['instructions'] }}</p>
     @endif
-    <textarea name="{{ $q['key'] }}" rows="6">{!! get_field($q['key']) !!}</textarea>
+    <textarea name="{{ $q['id'] }}" rows="6">{!! get_field($q['id']) !!}</textarea>
 </div>
 @endforeach
