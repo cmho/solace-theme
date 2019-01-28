@@ -158,6 +158,10 @@ function update_character()
             'size' => htmlspecialchars($_POST['size']),
             'armor' => htmlspecialchars($_POST['armor']),
             'integrity' => htmlspecialchars($_POST['integrity']),
+            'current_health' => htmlspecialchars($_POST['current_health']),
+            'current_willpower' => htmlspecialchars($_POST['current_willpower']),
+            'health' => intval(htmlspecialchars($_POST['health'])),
+            'willpower' => intval(htmlspecialchars($_POST['willpower'])),
             'skill_specialties' => intval(htmlspecialchars($_POST['skill_specialties'])),
             'conditions' => intval(htmlspecialchars($_POST['conditions']))
         )

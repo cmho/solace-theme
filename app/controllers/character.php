@@ -104,7 +104,6 @@ class Character extends Controller
     public static function printSquaresInteractable($str = null)
     {
         $split = str_split($str);
-        print_r($split);
         $bashing = 0;
         $lethal = 0;
         $agg = 0;
