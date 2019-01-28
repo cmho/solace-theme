@@ -2,7 +2,7 @@
   global $post;
 @endphp
 <article>
-  {!! App\Merits::getDescription() !!}
+  {!! category_description(get_field('category_to_show')) !!}
 
   @if(App\Merits::list())
     @foreach(App\Merits::list() as $post)
