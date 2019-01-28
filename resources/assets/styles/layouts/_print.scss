@@ -1,0 +1,8 @@
+.print {
+  background-color: white;
+  color: black !important;
+
+  > * {
+    color: black !important;
+  }
+}
