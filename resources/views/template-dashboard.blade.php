@@ -25,11 +25,11 @@
               <h3><a href="#">@php(the_title())</a></h3>
               <div class="health">
                 <h4>Health</h4>
-                {{ App\Character::printSquaresInteractable(get_field('health_current')) }}
+                {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
               </div>
               <div class="willpower">
                 <h4>Willpower</h4>
-                {{ App\Character::printSquaresInteractable(get_field('willpower_current')) }}
+                {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
               </div>
               <div class="integrity">
 
