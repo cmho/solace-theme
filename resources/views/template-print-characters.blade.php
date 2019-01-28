@@ -2,6 +2,10 @@
   Template Name: Print All Template
 --}}
 
+@php
+  global $post;
+@endphp
+
 @extends('layouts.print')
 
 @section('content')
