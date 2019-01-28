@@ -19,19 +19,25 @@ export default {
     function updateWillpower() {
       var amt = parseInt($('input[name="composure"]').val()) + parseInt($('input[name="resolve"]').val());
       var str = "";
+      var currentstr = "";
       for (var i = 0; i < amt; i++) {
         str += "<i class='far fa-square'></i>";
+        currentstr += "0";
       }
       $('#willpower').html(str);
+      $('[name="current_willpower"]').val(currentstr);
     }
 
     function updateHealth() {
       var amt = parseInt($('input[name="stamina"]').val()) + 5;
       var str = "";
+      var currentstr = "";
       for (var i = 0; i < amt; i++) {
         str += "<i class='far fa-square'></i>";
+        currentstr += "0";
       }
       $('#health').html(str);
+      $('[name="current_health"]').val(currentstr);
     }
 
     function updateSpeed() {

@@ -31,6 +31,12 @@
                 <h4>Willpower</h4>
                 {{ App\Character::printSquaresInteractable(get_field('willpower_current')) }}
               </div>
+              <div class="integrity">
+
+              </div>
+              <div class="conditions">
+
+              </div>
             </li>
           @endforeach
           @php(wp_reset_postdata())
