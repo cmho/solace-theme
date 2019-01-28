@@ -5,7 +5,7 @@
         @foreach(get_field('equipment') as $equipment)
         <li>
         <strong>{{ get_the_title($equipment['item']->ID) }}</strong><br />
-        <dl>
+        <dl class="equipment">
             <dt>Type</dt>
             <dd>{{ get_field('type', $equipment['item']->ID) }}</dd>
             <dt>Size</dt>

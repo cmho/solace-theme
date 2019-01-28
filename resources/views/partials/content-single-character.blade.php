@@ -320,7 +320,7 @@
             @php(App\Character::printDotsTen(get_field('integrity')))
           </div>
 
-          <dl>
+          <dl class="equipment">
             <dt>Size</dt>
             <dd>{{ get_field('size') }}</dd>
             <dt>Speed</dt>
@@ -335,7 +335,7 @@
 
           <h3>Conditions</h3>
           @if(get_field('conditions'))
-            <ul>
+            <ul class="conditions">
               @foreach(get_field('conditions') as $condition)
               <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
                 {{ $condition['note'] }}
