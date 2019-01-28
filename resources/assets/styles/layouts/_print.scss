@@ -2,6 +2,10 @@
   background-color: white;
   color: black !important;
 
+  .button-row {
+    display: none;
+  }
+
   > *,
   section {
     color: black !important;
