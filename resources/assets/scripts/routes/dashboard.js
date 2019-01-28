@@ -139,7 +139,9 @@ export default {
             }
           });
         },
-      })
+      });
     }
+
+    setInterval(pollCharacters, 5000);
   },
 }

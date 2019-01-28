@@ -407,6 +407,54 @@ function updateWillpower()
 
 add_action('wp_ajax_update_willpower', __NAMESPACE__.'\\updateWillpower');
 
+function characterData()
+{
+    global $post;
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'character',
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'is_secret',
+                    'value' => true,
+                    'compare' => '!='
+                ),
+                array(
+                    'key' => 'is_secret',
+                    'compare' => 'NOT EXISTS'
+                )
+            ),
+            array(
+                'key' => 'status',
+                'value' => 'Active',
+                'compare' => '='
+            )
+        )
+    );
+
+    $posts = get_posts($args);
+    $arr = array();
+    foreach ($posts as $post) {
+        setup_postdata($post);
+        $arr[$post->ID] = array(
+            'current_health' => get_field('current_health'),
+            'current_willpower' => get_field('current_willpower'),
+            'integrity' => get_field('integrity'),
+            'conditions' => get_field('conditions')
+        );
+    }
+    wp_reset_postdata();
+    echo json_encode($arr);
+    die(1);
+}
+
+add_action('wp_ajax_get_character_data', __NAMESPACE__.'\\characterData');
+
 function custom_rewrite_tag()
 {
     add_rewrite_tag('%game%', '([^&]+)');
