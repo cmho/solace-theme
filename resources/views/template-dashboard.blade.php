@@ -24,7 +24,10 @@
             <li>
               <a href="#">@php(the_title())</a>
               <div class="health">
-
+                {{ App\Character::printSquaresInteractable(get_field('health_current')) }}
+              </div>
+              <div class="willpower">
+                {{ App\Character::printSquaresInteractable(get_field('willpower_current')) }}
               </div>
             </li>
           @endforeach

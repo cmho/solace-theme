@@ -101,6 +101,33 @@ class Character extends Controller
         echo '<span class="sr-only">'.$amt.'</span>';
     }
 
+    public static function printSquaresInteractable($str = null)
+    {
+        $split = str_split($str);
+        $bashing = 0;
+        $lethal = 0;
+        $agg = 0;
+
+        for ($i = 0; $i <= count($split); $i++) {
+            echo '<a href="#" class="fa-stack">';
+            echo '<i class="far fa-square fa-stack-1x"></i>';
+
+            if (intval($split[$i]) == 0) {
+                echo '<i class="fas fa-stack-1x indicator"></i></a>';
+            } elseif (intval($split[$i]) == 1) {
+                echo '<i class="fas fa-slash fa-stack-1x indicator"></i></a>';
+                $bashing++;
+            } elseif (intval($split[$i]) == 2) {
+                echo '<i class="fas fa-times fa-stack-1x indicator"></i></a>';
+                $lethal++;
+            } elseif (intval($split[$i]) == 3) {
+                echo '<i class="fas fa-asterisk fa-stack-1x indicator"></i></a>';
+                $agg++;
+            }
+        }
+        echo '<span class="sr-only">'.$bashing.' bashing, '.$lethal.' lethal, '.$agg.' aggravated</span>';
+    }
+
     public static function questionnaire()
     {
         $questionnaire = array();
