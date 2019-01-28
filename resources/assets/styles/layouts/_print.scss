@@ -2,7 +2,22 @@
   background-color: white;
   color: black !important;
 
-  > * {
+  > *,
+  section {
     color: black !important;
+    background-color: transparent !important;
+  }
+
+  section {
+    padding-bottom: 0;
+  }
+
+  article {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  #experience {
+    display: none;
   }
 }
