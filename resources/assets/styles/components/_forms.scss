@@ -133,6 +133,11 @@ select {
 .form-row {
   margin-bottom: 1em;
 
+  .help {
+    font-style: italic;
+    margin: 0;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
