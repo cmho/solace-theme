@@ -20,7 +20,7 @@ export default {
       $(this).parent('.health').find('span').text(bashing + ' bashing, ' + lethal + ' lethal, ' + agg + ' aggravated');
 
       var current_health = '';
-      $('.health a .indicator').each(function() {
+      $(this).parent('.health').find('a .indicator').each(function() {
         if ($(this).hasClass('fa-slash')) {
           current_health += '1';
         } else if ($(this).hasClass('fa-times')) {
@@ -61,7 +61,7 @@ export default {
       $(this).parent('.willpower').find('span').text((total - current)+' willpower');
 
       var current_willpower = '';
-      $('.health a .indicator').each(function () {
+      $(this).parent('.willpower').find('a .indicator').each(function () {
         if ($(this).hasClass('fa-slash')) {
           current_willpower += '1';
         } else {
