@@ -1,3 +1,7 @@
+{{--
+  Template Name: Print All Template
+--}}
+
 @extends('layouts.print')
 
 @section('content')
