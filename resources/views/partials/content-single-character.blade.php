@@ -354,27 +354,11 @@
       <div class="row">
         <div class="col-xs-12">
           <h3>Questionnaire</h3>
-          <dl>
-            <dt>Character Backstory</dt>
-            <dd>{!! get_field('backstory') !!}</dd>
-            <dt>List 3 connections to other characters, PCs or NPCs.</dt>
-            <dd>{!! get_field('connections') !!}</dd>
-            <dt>Complications</dt>
-            <dd>{!! get_field('complications') !!}</dd>
-            <dt>What was your first experience with the supernatural? Which supernatural experience most shaped your worldview?</dt>
-            <dd>{!! get_field('supernatural') !!}</dd>
-            <dt>Where were you when the massacre took place? Who did you lose?</dt>
-            <dd>{!! get_field('massacre') !!}</dd>
-            <dt>What is the worst thing you've done to survive?</dt>
-            <dd>{!! get_field('survive') !!}</dd>
-            <dt>What loss have you never gotten over, or that hurt the most?</dt>
-            <dd>{!! get_field('loss') !!}</dd>
-            <dt>What's one thing you hold onto outside of your hunter life?</dt>
-            <dd>{!! get_field('hobbies') !!}</dd>
-            <dt>What do you do to cope with the stresses of this life?</dt>
-            <dd>{!! get_field('coping') !!}</dd>
-            <dt>OPTIONAL: Is there anything else the Storytellers should know about this character?</dt>
-            <dd>{!! get_field('anything_else') !!}</dd>
+          <dl class="questionnaire">
+            @foreach(App\Character::questionnaire() as $q)
+              <dt>{{ $q['label'] }}</dt>
+              <dd>{!! get_field($q['key']) !!}</dd>
+            @endforeach
           </dl>
         </div>
       </div>
