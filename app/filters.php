@@ -382,7 +382,7 @@ function updateHealth()
             'current_health' => $_POST['current_health']
         )
     ));
-    return;
+    die(1);
 }
 
 add_action('wp_ajax_update_health', __NAMESPACE__.'\\updateHealth');
@@ -395,7 +395,7 @@ function updateWillpower()
             'current_willpower' => $_POST['current_willpower']
         )
     ));
-    return;
+    die(1);
 }
 
 add_action('wp_ajax_update_willpower', __NAMESPACE__.'\\updateWillpower');
