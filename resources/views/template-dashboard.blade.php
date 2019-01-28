@@ -21,7 +21,7 @@
         <ol class="characters">
           @foreach(App\Characters::activeList() as $post)
             @php(setup_postdata($post))
-            <li>
+            <li data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
               <div class="health">
                 <h4>Health</h4>

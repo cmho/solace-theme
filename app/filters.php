@@ -376,8 +376,29 @@ add_action('admin_post_nopriv_delete_downtime', __NAMESPACE__.'\\delete_downtime
 
 function updateHealth()
 {
+    wp_update_post(array(
+        'id' => $_POST['character'],
+        'meta_input' => array(
+            'current_health' => $_POST['current_health']
+        )
+    ));
     return;
 }
+
+add_action('wp_ajax_update_health', __NAMESPACE__.'\\updateHealth');
+
+function updateWillpower()
+{
+    wp_update_post(array(
+        'id' => $_POST['character'],
+        'meta_input' => array(
+            'current_willpower' => $_POST['current_willpower']
+        )
+    ));
+    return;
+}
+
+add_action('wp_ajax_update_willpower', __NAMESPACE__.'\\updateWillpower');
 
 function custom_rewrite_tag()
 {
