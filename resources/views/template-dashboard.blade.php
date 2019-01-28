@@ -17,7 +17,7 @@
         <input name="search" type="search" />
         <button class="button" type="submit">Search</button>
       </form>
-      @if(App\Characters::listActive())
+      @if(App\Characters::activeList())
         <ol class="characters">
           @foreach(App\Characters::activeList() as $post)
             @php(setup_postdata($post))
