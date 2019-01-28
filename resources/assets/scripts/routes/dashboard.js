@@ -36,5 +36,5 @@ export default {
 
       $(this).parent('.willpower').find('span').text((total - current)+' willpower');
     });
-  }
+  },
 }
