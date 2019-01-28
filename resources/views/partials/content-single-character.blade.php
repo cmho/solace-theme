@@ -281,7 +281,7 @@
           </ul>
           <h3>Equipment</h3>
           @if(get_field('equipment'))
-            <ul>
+            <ul class="equipment">
               @foreach(get_field('equipment') as $equipment)
               <li>
                 <strong>{{ get_the_title($equipment['item']->ID) }}</strong><br />
@@ -320,7 +320,7 @@
             @php(App\Character::printDotsTen(get_field('integrity')))
           </div>
 
-          <dl class="equipment">
+          <dl>
             <dt>Size</dt>
             <dd>{{ get_field('size') }}</dd>
             <dt>Speed</dt>
