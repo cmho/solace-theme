@@ -370,6 +370,11 @@ function delete_downtime()
 add_action('admin_post_delete_downtime', __NAMESPACE__.'\\delete_downtime');
 add_action('admin_post_nopriv_delete_downtime', __NAMESPACE__.'\\delete_downtime');
 
+function updateHealth()
+{
+    return;
+}
+
 function custom_rewrite_tag()
 {
     add_rewrite_tag('%game%', '([^&]+)');
