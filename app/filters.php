@@ -109,7 +109,14 @@ function add_meta_keys_to_revision($keys)
         "size",
         "armor",
         "merits",
-        "skill_specialties"
+        "skill_specialties",
+        "health",
+        "willpower",
+        "current_health",
+        "current_willpower",
+        "conditions",
+        "equipment",
+        "merits"
     );
     return $keys;
 }

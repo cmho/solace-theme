@@ -75,7 +75,7 @@ export default {
         method: 'POST',
         data: {
           character: character,
-          current_health: current_willpower,
+          current_willpower: current_willpower,
           action: 'update_willpower',
         },
       });
