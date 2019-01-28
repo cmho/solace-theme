@@ -2,13 +2,12 @@
   Template Name: Dashboard
 --}}
 
-@php
-    global $post;
-@endphp
-
 @extends('layouts.dashboard')
 
 @section('content')
+  @php
+      global $post;
+  @endphp
   @while(have_posts()) @php the_post() @endphp
     <div class="section">
       <h2>Characters</h2>
