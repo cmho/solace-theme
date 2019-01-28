@@ -22,11 +22,13 @@
           @foreach(App\Characters::activeList() as $post)
             @php(setup_postdata($post))
             <li>
-              <a href="#">@php(the_title())</a>
+              <h3><a href="#">@php(the_title())</a></h3>
               <div class="health">
+                <h4>Health</h4>
                 {{ App\Character::printSquaresInteractable(get_field('health_current')) }}
               </div>
               <div class="willpower">
+                <h4>Willpower</h4>
                 {{ App\Character::printSquaresInteractable(get_field('willpower_current')) }}
               </div>
             </li>
