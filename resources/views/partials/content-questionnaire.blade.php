@@ -1,4 +1,8 @@
-<label for="backstory">Character Backstory</label>
+@php
+  $backstory = get_field_object('backstory');
+@endphp
+
+<label for="backstory">{{ $backstory['label'] }}</label>
 <p class="help">Maximum 500 words.</p>
 <textarea name="backstory">{!! get_field('backstory') !!}</textarea>
 <label for="connections">List 3 connections to other characters, PCs or NPCs.</label>
