@@ -108,7 +108,7 @@ class Character extends Controller
         $lethal = 0;
         $agg = 0;
 
-        for ($i = 0; $i <= count($split); $i++) {
+        for ($i = 0; $i < count($split); $i++) {
             echo '<a href="#" class="fa-stack">';
             echo '<i class="far fa-square fa-stack-1x"></i>';
 

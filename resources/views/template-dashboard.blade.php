@@ -23,11 +23,11 @@
             @php(setup_postdata($post))
             <li data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
-              <div class="health">
+              <div class="health" data-health="{{ get_field('current_health') }}">
                 <h4>Health</h4>
                 {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
               </div>
-              <div class="willpower">
+              <div class="willpower" data-willpower="{{ get_field('current_willpower') }}">
                 <h4>Willpower</h4>
                 {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
               </div>
