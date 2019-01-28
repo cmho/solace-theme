@@ -40,7 +40,7 @@ export default {
         data: {
           character: character,
           current_health: current_health,
-          action: 'update_health'
+          action: 'update_health',
         },
       });
     });
@@ -80,7 +80,7 @@ export default {
         data: {
           character: character,
           current_health: current_willpower,
-          action: 'update_willpower'
+          action: 'update_willpower',
         },
       });
     });
