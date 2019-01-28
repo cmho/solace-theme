@@ -39,6 +39,18 @@
               </div>
               <div class="conditions">
                 <h4>Conditions</h4>
+                <form>
+                  <label for="conditions_list">Condition</label>
+                  <select id="conditions_list">
+                    @foreach(App\Conditions::list() as $condition)
+                      <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
+                    @endforeach
+                  </select>
+                  <label for="condition_note">Note</label>
+                  <input type="text" name="condition_note" id="condition_note" />
+                  <button type="button small" id="add-condition">Add</button>
+                  <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
+                </form>
                 @if(get_field('conditions'))
                   <ul>
                     @foreach(get_field('conditions') as $condition)
