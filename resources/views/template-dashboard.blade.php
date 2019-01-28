@@ -2,12 +2,13 @@
   Template Name: Dashboard
 --}}
 
+@php
+    global $post;
+@endphp
+
 @extends('layouts.dashboard')
 
 @section('content')
-  @php
-      global $post;
-  @endphp
   @while(have_posts()) @php the_post() @endphp
     <div class="section">
       <h2>Characters</h2>
@@ -18,7 +19,7 @@
       </form>
       @if(App\Characters::listActive())
         <ol class="characters">
-          @foreach(App\Characters::listActive() as $post)
+          @foreach(App\Characters::activeList() as $post)
             @php(setup_postdata($post))
             <li>
               <a href="#">@php(the_title())</a>
