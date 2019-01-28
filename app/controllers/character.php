@@ -100,4 +100,20 @@ class Character extends Controller
         }
         echo '<span class="sr-only">'.$amt.'</span>';
     }
+
+    public static function questionnaire()
+    {
+        $questionnaire = array();
+        array_push($questionnaire, get_field_object('backstory'));
+        array_push($questionnaire, get_field_object('connections'));
+        array_push($questionnaire, get_field_object('complications'));
+        array_push($questionnaire, get_field_object('supernatural'));
+        array_push($questionnaire, get_field_object('massacre'));
+        array_push($questionniare, get_field_object('survive'));
+        array_push($questionnaire, get_field_object('loss'));
+        array_push($questionnaire, get_field_object('hobbies'));
+        array_push($questionnaire, get_field_object('coping'));
+        array_push($questionnaire, get_field_object('anything_else'));
+        return $questionnaire;
+    }
 }
