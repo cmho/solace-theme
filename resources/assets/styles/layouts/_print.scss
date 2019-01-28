@@ -29,6 +29,11 @@
     background-color: transparent;
     border: none;
 
+    &:after,
+    &:before {
+      display: none;
+    }
+
     .content {
       padding: 0;
     }
