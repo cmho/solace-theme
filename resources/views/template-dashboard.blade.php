@@ -23,19 +23,31 @@
             @php(setup_postdata($post))
             <li data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
-              <div class="health" data-health="{{ get_field('current_health') }}">
-                <h4>Health</h4>
-                {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
-              </div>
-              <div class="willpower" data-willpower="{{ get_field('current_willpower') }}">
-                <h4>Willpower</h4>
-                {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
+              <div class="row">
+                <div class="health col-sm-6 col-xs-12" data-health="{{ get_field('current_health') }}">
+                  <h4>Health</h4>
+                  {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
+                </div>
+                <div class="willpower col-sm-6 col-xs-12" data-willpower="{{ get_field('current_willpower') }}">
+                  <h4>Willpower</h4>
+                  {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
+                </div>
               </div>
               <div class="integrity">
-
+                <h4>Integrity</h4>
+                <span class="current-integrity">{{ get_field('integrity') }}</span> <button type="button" class="button breaking-point">Breaking Point</button>
               </div>
               <div class="conditions">
-
+                <h4>Conditions</h4>
+                @if(get_field('conditions'))
+                  <ul>
+                    @foreach(get_field('conditions'))
+                      <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong> <button type="button" class="button small resolve-button">Resolve</button><br />
+                        {{ $condition['note'] }}
+                      </li>
+                    @endforeach
+                  </ul>
+                @endif
               </div>
             </li>
           @endforeach
