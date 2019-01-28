@@ -135,7 +135,8 @@ select {
 
   .help {
     font-style: italic;
-    margin: 0;
+    margin: 0 0 8px;
+    font-size: .9em;
   }
 
   &:last-child {
