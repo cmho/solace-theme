@@ -62,3 +62,8 @@ use Roots\Sage\Container;
     'public' => true,
     'supports' => array('title', 'editor')
 ));
+
+\register_post_type('beat', array(
+    'label' => 'Beat',
+    'public' => true
+));

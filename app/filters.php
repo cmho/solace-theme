@@ -420,6 +420,18 @@ function updateIntegrity()
 }
 add_action('wp_ajax_breaking_point', __NAMESPACE__.'\\updateIntegrity');
 
+function addBeat()
+{
+    wp_insert_post(array(
+        'post_type' => 'beat',
+        'meta_input' => array(
+            'value' => 1,
+        )
+    ));
+    echo App\Beat::count();
+    die(1);
+}
+
 function characterData()
 {
     global $post;
