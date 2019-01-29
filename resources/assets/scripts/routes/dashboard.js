@@ -109,7 +109,8 @@ export default {
         success: function(data) {
           $('.beat-count').text(data);
         },
-      })
+      });
+      $('#ding')[0].play();
     });
 
     function pollCharacters() {
