@@ -10,13 +10,11 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
-    <section class="section">
+    <section>
       <h2>Beats</h2>
       <form>
         <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" class="large button">Beat!</button>
       </for>
-    </section>
-    <section class="section">
       <h2>Characters</h2>
       <form id="character-search">
         <label for="search">Filter Characters</label>
@@ -29,15 +27,13 @@
             @php(setup_postdata($post))
             <li data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
-              <div class="row">
-                <div class="health" data-health="{{ get_field('current_health') }}">
-                  <h4>Health</h4>
-                  {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
-                </div>
-                <div class="willpower" data-willpower="{{ get_field('current_willpower') }}">
-                  <h4>Willpower</h4>
-                  {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
-                </div>
+              <div class="health" data-health="{{ get_field('current_health') }}">
+                <h4>Health</h4>
+                {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
+              </div>
+              <div class="willpower" data-willpower="{{ get_field('current_willpower') }}">
+                <h4>Willpower</h4>
+                {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
               </div>
               <div class="integrity">
                 <h4>Integrity</h4>
@@ -72,6 +68,6 @@
           @php(wp_reset_postdata())
         </ol>
       @endif
-    </div>
+    </section>
   @endwhile
 @endsection
