@@ -101,8 +101,8 @@ export default {
             var i;
             if ($('.characters li[data-character="'+id+'"]').length > 0) {
               $current = $('.characters li[data-character="' + id + '"]');
-              if ($current.find('.willpower').data('data-willpower') != this.current_willpower) {
-                string = this.current_willpower;
+              if ($current.find('.willpower').data('data-willpower') != item.current_willpower) {
+                string = item.current_willpower;
                 split = string.split("");
                 num;
                 $current.find('.willpower').html('');
@@ -119,8 +119,8 @@ export default {
                   }
                 }
               }
-              if ($current.find('.health').data('data-health') != this.current_health) {
-                string = this.current_health;
+              if ($current.find('.health').data('data-health') != item.current_health) {
+                string = item.current_health;
                 split = string.split("");
                 num;
                 $current.find('.health').html('');
