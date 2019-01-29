@@ -428,7 +428,7 @@ function addBeat()
             'value' => 1,
         )
     ));
-    echo App\Beat::count();
+    echo \App\Beat::count();
     die(1);
 }
 
