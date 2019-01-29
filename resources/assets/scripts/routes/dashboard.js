@@ -83,8 +83,7 @@ export default {
       });
     });
 
-    $('.breaking-point').on('click', function(e) {
-      e.preventDefault();
+    $('.breaking-point').on('click', function() {
       var character = parseInt($(this).parents('li').data('character'));
       var $num = $(this).siblings('span').first();
       $.ajax({
@@ -122,7 +121,7 @@ export default {
                 string = item.current_willpower;
                 split = string.split("");
                 num;
-                $current.find('.willpower').html('');
+                $current.find('.willpower').html('<h4>Willpower</h4>');
                 for (i = 0; i < split.length; i++) {
                   num = parseInt(split[i]);
                   if (num == 0) {
@@ -140,7 +139,7 @@ export default {
                 string = item.current_health;
                 split = string.split("");
                 num;
-                $current.find('.health').html('');
+                $current.find('.health').html('<h4>Health</h4>');
                 for (i = 0; i < split.length; i++) {
                   num = parseInt(split[i]);
                   if (num == 0) {
