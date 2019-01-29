@@ -94,7 +94,7 @@ let webpackConfig = {
         }),
       },
       {
-        test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
+        test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico|mp3|mp4|wav|ogg)$/,
         include: config.paths.assets,
         loader: 'url',
         options: {
@@ -111,15 +111,6 @@ let webpackConfig = {
           outputPath: 'vendor/',
           name: `${config.cacheBusting}.[ext]`,
         },
-      },
-      {
-        test: /\.(mp3|mp4|wav|ogg)$/,
-        include: config.paths.assets,
-        loader: 'url',
-        options: {
-          outputPath: 'media/',
-          name: `${config.cacheBusting}.[ext]`,
-        }
       },
     ],
   },
