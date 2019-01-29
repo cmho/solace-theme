@@ -110,7 +110,8 @@ export default {
           $('.beat-count').text(data);
         },
       });
-      $('#ding')[0].play();
+      var ding = document.getElementById('ding');
+      ding.play();
     });
 
     function pollCharacters() {

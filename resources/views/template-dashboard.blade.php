@@ -69,8 +69,8 @@
         </ol>
       @endif
     </section>
-    <audio controls>
-      <source id="ding" src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
+    <audio controls id="ding">
+      <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
   @endwhile
 @endsection
