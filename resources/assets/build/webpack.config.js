@@ -112,6 +112,15 @@ let webpackConfig = {
           name: `${config.cacheBusting}.[ext]`,
         },
       },
+      {
+        test: /\.(mp3|mp4|wav|ogg)$/,
+        include: config.paths.assets,
+        loader: 'url',
+        options: {
+          outputPath: 'media/',
+          name: `${config.cacheBusting}.[ext]`,
+        }
+      },
     ],
   },
   resolve: {
