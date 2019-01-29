@@ -92,8 +92,8 @@ export default {
         },
         success: function(data) {
           var chars = JSON.parse(data);
-          chars.forEach(function() {
-            var id = this.id;
+          chars.forEach(function(item) {
+            var id = item.id;
             var $current;
             var string;
             var split;
