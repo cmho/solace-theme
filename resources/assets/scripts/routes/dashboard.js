@@ -99,6 +99,19 @@ export default {
       });
     });
 
+    $('#beat-button').on('click', function() {
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'add_beat',
+        },
+        success: function(data) {
+          $('.beat-count').text(data);
+        },
+      })
+    });
+
     function pollCharacters() {
       $.ajax({
         url: ajaxurl,

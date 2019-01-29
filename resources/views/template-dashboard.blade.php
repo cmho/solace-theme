@@ -13,7 +13,7 @@
     <section>
       <h2>Beats</h2>
       <form>
-        <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" class="large button">Beat!</button>
+        <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
       </for>
       <h2>Characters</h2>
       <form id="character-search">

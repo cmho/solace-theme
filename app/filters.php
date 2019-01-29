@@ -432,6 +432,8 @@ function addBeat()
     die(1);
 }
 
+add_action('wp_ajax_add_beat', __NAMESPACE__.'\\addBeat');
+
 function characterData()
 {
     global $post;
