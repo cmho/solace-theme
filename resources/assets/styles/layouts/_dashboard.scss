@@ -27,10 +27,17 @@
     }
   }
 
+  .health,
+  .willpower,
   .integrity {
     margin-bottom: 1em;
+  }
+
+  .integrity {
     span.current-integrity {
       font-size: 20px;
+      font-weight: bold;
+      margin-right: 10px;
     }
   }
 
