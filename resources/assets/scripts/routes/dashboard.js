@@ -83,6 +83,23 @@ export default {
       });
     });
 
+    $('.breaking-point').on('click', function(e) {
+      e.preventDefault();
+      var character = parseInt($(this).parents('li').data('character'));
+      var $num = $(this).siblings('span').first();
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'breaking_point',
+          character: character,
+        },
+        success: function(data) {
+          $num.text(data);
+        },
+      });
+    });
+
     function pollCharacters() {
       $.ajax({
         url: ajaxurl,

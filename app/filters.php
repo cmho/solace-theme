@@ -407,6 +407,19 @@ function updateWillpower()
 
 add_action('wp_ajax_update_willpower', __NAMESPACE__.'\\updateWillpower');
 
+function updateIntegrity()
+{
+    wp_update_post(array(
+        'ID' => $_POST['character'],
+        'meta_input' => array(
+            'integrity' => (get_field('integrity', intval($_POST['character']))-1)
+        )
+    ));
+    echo get_field('integrity', intval($_POST['character']))-1;
+    die(1);
+}
+add_action('wp_ajax_breaking_point', __NAMESPACE__.'\\updateIntegrity');
+
 function characterData()
 {
     global $post;
