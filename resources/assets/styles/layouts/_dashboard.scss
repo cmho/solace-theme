@@ -27,6 +27,17 @@
     }
   }
 
+  .integrity {
+    margin-bottom: 1em;
+    span.current-integrity {
+      font-size: 20px;
+    }
+  }
+
+  .conditions {
+    margin-bottom: 1em;
+  }
+
   .fa-stack {
     width: 1.5em;
   }
