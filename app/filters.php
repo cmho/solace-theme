@@ -441,12 +441,13 @@ function characterData()
     $arr = array();
     foreach ($posts as $post) {
         setup_postdata($post);
-        $arr[$post->ID] = array(
+        array_push($arr, array(
+            'id' => $post->ID,
             'current_health' => get_field('current_health'),
             'current_willpower' => get_field('current_willpower'),
             'integrity' => get_field('integrity'),
             'conditions' => get_field('conditions')
-        );
+        ));
     }
     wp_reset_postdata();
     echo json_encode($arr);
