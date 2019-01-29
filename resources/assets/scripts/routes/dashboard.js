@@ -91,7 +91,7 @@ export default {
           action: 'get_character_data',
         },
         success: function(data) {
-          data.forEach(function() {
+          JSON.parse(data).forEach(function() {
             var id = this.id;
             var $current;
             var string;
