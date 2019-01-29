@@ -424,6 +424,7 @@ function addBeat()
 {
     wp_insert_post(array(
         'post_type' => 'beat',
+        'post_status' => 'publish',
         'meta_input' => array(
             'value' => 1,
         )
