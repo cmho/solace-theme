@@ -35,7 +35,7 @@
               </div>
               <div class="integrity">
                 <h4>Integrity</h4>
-                <span class="current-integrity">{{ get_field('integrity') }}</span> <button type="button" class="button breaking-point">Breaking Point</button>
+                <span class="current-integrity">{{ get_field('integrity') }}</span> <button type="button" class="button small breaking-point">Breaking Point</button>
               </div>
               <div class="conditions">
                 <h4>Conditions</h4>
@@ -48,7 +48,7 @@
                   </select>
                   <label for="condition_note">Note</label>
                   <input type="text" name="condition_note" id="condition_note" />
-                  <button type="button small" id="add-condition">Add</button>
+                  <button type="button" class="button small" id="add-condition">Add</button>
                   <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                 </form>
                 @if(get_field('conditions'))
