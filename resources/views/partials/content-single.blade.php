@@ -1,13 +1,18 @@
-<article @php post_class() @endphp>
-  <header>
-    <h1 class="entry-title">{{ get_the_title() }}</h1>
-    @include('partials/entry-meta')
-  </header>
-  <div class="entry-content">
-    @php the_content() @endphp
+<section class="grey">
+  <div class="wrapper">
+    <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <h2>{{ get_the_title() }}</h2>
+        <p class="date">{{ get_field('date') }}</p>
+      </div>
+      <article @php post_class('col-md-8 col-xs-12') @endphp>
+        <div class="box">
+          <div class="content">
+            @php(the_content())
+            {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
-  @php comments_template('/partials/comments.blade.php') @endphp
-</article>
+</section>
