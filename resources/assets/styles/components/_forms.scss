@@ -47,6 +47,10 @@ section.yellow {
   textarea {
     border-color: $grey;
     color: $grey;
+
+    &:focus {
+      color: $grey;
+    }
   }
 }
 
@@ -71,6 +75,10 @@ form#loginform {
     font-size: 16px;
     color: $yellow;
     box-shadow: 3px 3px 0 $yellow solid;
+
+    &:focus {
+      color: $yellow;
+    }
 
     &[disabled] {
       border: 4px rgba(white, 0.5) solid;
