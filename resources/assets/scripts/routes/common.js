@@ -149,6 +149,7 @@ export default {
           } else {
             $('#modal-content #description-row').hide();
           }
+          $('#modal-content a').attr("rel", "external").attr("target", "_blank");
           var option;
           for (var i = 0; i < data.ratings.length; i++) {
             option = '<option value="'+data.ratings[i]+'"'+((currentVal === data.ratings[i]) ? ' selected="selected"' : '')+'>'+data.ratings[i]+'</option>';

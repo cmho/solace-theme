@@ -32,6 +32,10 @@ dialog {
   z-index: 667;
   overflow: auto;
 
+  a {
+    color: $grey !important;
+  }
+
   label {
     font-size: 14px;
     text-transform: uppercase;
