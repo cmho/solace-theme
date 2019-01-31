@@ -18,7 +18,7 @@ class Characters extends Controller
         );
 
         if (!$is_admin) {
-            $args['post_author'] = $user->ID;
+            $args['author'] = $user->ID;
         }
 
         return \get_posts($args);
