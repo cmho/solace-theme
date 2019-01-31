@@ -228,6 +228,9 @@ function update_character()
             $post = \wp_insert_post($post_content);
             header('Location:'.get_the_permalink($post));
         }
+    } else {
+        $post = \wp_insert_post($post_content);
+        header('Location:'.get_the_permalink($post));
     }
 
     die(1);
