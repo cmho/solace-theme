@@ -1,3 +1,6 @@
+@php
+  global $post;
+@endphp
 <section id="intro" class="grey">
   <div class="wrapper">
     <div class="row top-xs">
