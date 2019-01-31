@@ -208,7 +208,6 @@ function update_character()
             print_r(get_post_meta($updates->ID));
             echo "<br />";
             print_r(Character::getExperienceCost($char));
-            die(1);
             $exp = \wp_insert_post(array(
                 'post_type' => 'experience',
                 'post_status' => 'draft',
