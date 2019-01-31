@@ -82,7 +82,7 @@ section {
   @media only screen and (max-width: 768px) {
     padding: 25px 10px;
   }
-  
+
   .wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -157,6 +157,9 @@ section {
     width: 100%;
     object-fit: cover;
     filter: url(#duochrome);
+    -webkit-filter: url(#duochrome);
+    -ms-filter: url(#duochrome);
+    -moz-filter: url(#duochrome);
     max-height: 450px;
   }
 }
