@@ -226,9 +226,24 @@ section.yellow {
     background-color: $grey !important;
     border-bottom: $grey !important;
   }
+
+  .trumbowyg-editor {
+    border-color: $grey;
+  }
 }
 
 .trumbowyg-editor {
   border-width: 3px;
   border-style: solid;
+  border-color: white;
+}
+
+.trumbowyg-dropdown {
+  background-color: $yellow;
+  border: 3px $grey solid;
+  color: $grey;
+
+  button {
+    background-color: $yellow;
+  }
 }
