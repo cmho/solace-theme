@@ -243,12 +243,20 @@ section.yellow {
       background-color: $grey;
       color: white;
     }
+  }
+
+  .trumbowyg-box {
+    svg {
+      fill: white;
+    }
+
     .trumbowyg-active {
       color: $grey;
       background-color: $yellow;
-    }
-    .trumbowyg-box svg {
-      fill: white;
+
+      svg {
+        fill: $grey;
+      }
     }
   }
 
