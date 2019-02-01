@@ -219,12 +219,30 @@ select {
 .trumbowyg-button-pane {
   background-color: white !important;
   border-bottom: white !important;
+
+  .trumbowyg-button {
+    background-color: white;
+  }
+
+  .trumbowyg-active {
+    color: $yellow;
+    color: $grey;
+  }
 }
 
 section.yellow {
   .trumbowyg-button-pane {
     background-color: $grey !important;
     border-bottom: $grey !important;
+
+    .trumbowyg-button {
+      background-color: $grey;
+      color: white;
+    }
+    .trumbowyg-active {
+      color: $grey;
+      background-color: $yellow;
+    }
   }
 
   .trumbowyg-editor {
