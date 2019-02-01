@@ -1,3 +1,6 @@
+@php
+  global $post;
+@endphp
 @if(get_query_var('mode') === 'edit')
   <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
     <input type="hidden" name="id" value="{{ get_the_ID() }}" />
@@ -269,16 +272,15 @@
         </div>
         <div class="col-md-4 col-xs-12">
           <h3>Merits</h3>
-          <ul class="merits">
-            @if(count(get_field('merits')))
-              @foreach(get_field('merits') as $merit)
-                <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
-              @endforeach
-              @php(wp_reset_postdata())
-            @else
-              <p><em>None</em></p>
-            @endif
-          </ul>
+          @if(count(get_field('merits')))
+            <ul class="merits">
+                @foreach(get_field('merits') as $merit)
+                  <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
+                @endforeach
+            </ul>
+          @else
+            <p><em>None</em></p>
+          @endif
           <h3>Equipment</h3>
           @if(get_field('equipment'))
             <ul class="equipment">
