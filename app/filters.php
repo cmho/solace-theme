@@ -180,7 +180,17 @@ function update_character()
             'health' => intval(htmlspecialchars($_POST['health'])),
             'willpower' => intval(htmlspecialchars($_POST['willpower'])),
             'skill_specialties' => intval(htmlspecialchars($_POST['skill_specialties'])),
-            'conditions' => intval(htmlspecialchars($_POST['conditions']))
+            'conditions' => intval(htmlspecialchars($_POST['conditions'])),
+            "backstory" => htmlspecialchars($_POST['backstory']),
+            "connections" => htmlspecialchars($_POST['connections']),
+            "complications" => htmlspecialchars($_POST['complications']),
+            "supernatural" => htmlspecialchars($_POST['supernatural']),
+            "massacre" => htmlspecialchars($_POST['massacre']),
+            "survive" => htmlspecialchars($_POST['survive']),
+            "loss" => htmlspecialchars($_POST['loss']),
+            "hobbies" => htmlspecialchars($_POST['hobbies']),
+            "coping" => htmlspecialchars($_POST['coping']),
+            "anything_else" => htmlspecialchars($_POST['anything_else'])
         )
     );
 
