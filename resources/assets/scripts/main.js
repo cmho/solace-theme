@@ -2,6 +2,7 @@
 import 'jquery';
 import 'datatables.net-dt';
 import 'jquery-accessible-modal-window-aria';
+import 'trumbowyg';
 
 // Import everything from autoload
 import "./autoload/**/*"

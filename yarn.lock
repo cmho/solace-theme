@@ -8012,6 +8012,11 @@ trough@^1.0.0:
   dependencies:
     glob "^6.0.4"
 
+trumbowyg@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.14.0.tgz#22a383836b42f4ae988318f9c4fc89171cf02281"
+  integrity sha512-eBOqF54WFoPYCdmuqq00+1fSw8bmWTWLHjXVQ42046RCVKBdWB0MyaxDPk9Q7vTKyI7HBvvmPBO1marCcTraAA==
+
 tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"

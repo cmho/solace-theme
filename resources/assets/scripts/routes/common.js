@@ -1,6 +1,8 @@
 export default {
   init() {
     // JavaScript to be fired on all pages
+    $('textarea').trumbowyg();
+
     $('form .dots i.fa-circle').on('click', function () {
       $(this).nextAll('i.fa-circle').removeClass('fas').addClass('far');
       if ($(this).hasClass('far')) {
