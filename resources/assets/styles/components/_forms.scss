@@ -228,6 +228,10 @@ select {
     color: $yellow;
     color: $grey;
   }
+
+  .trumbowyg-box svg {
+    color: $yellow;
+  }
 }
 
 section.yellow {
@@ -242,6 +246,9 @@ section.yellow {
     .trumbowyg-active {
       color: $grey;
       background-color: $yellow;
+    }
+    .trumbowyg-box svg {
+      color: white;
     }
   }
 
