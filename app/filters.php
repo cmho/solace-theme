@@ -186,7 +186,6 @@ function update_character()
             'current_willpower' => htmlspecialchars($_POST['current_willpower']),
             'health' => intval(htmlspecialchars($_POST['health'])),
             'willpower' => intval(htmlspecialchars($_POST['willpower'])),
-            'conditions' => intval(htmlspecialchars($_POST['conditions'])),
             "backstory" => htmlspecialchars($_POST['backstory']),
             "connections" => htmlspecialchars($_POST['connections']),
             "complications" => htmlspecialchars($_POST['complications']),
@@ -200,7 +199,18 @@ function update_character()
         )
     );
 
+
+    $merits = array();
+    $skill_specialties = array();
+    $conditions = array();
+
     for ($i = 0; $i < intval(htmlspecialchars($_POST['merits'])); $i++) {
+        array_push($merits, array(
+            'merit' => htmlspecialchars($_POST['merits_'.$i.'_merit']),
+            'rating' => htmlspecialchars($_POST['merits_'.$i.'_rating']),
+            'specification' => htmlspecialchars($_POST['merits_'.$i.'_specification']),
+            'description' => htmlspecialchars($_POST['merits_'.$i.'_description'])
+        ));
         $post_content['meta_input']['merits_'.$i.'_merit'] = htmlspecialchars($_POST['merits_'.$i.'_merit']);
         $post_content['meta_input']['merits_'.$i.'_rating'] = htmlspecialchars($_POST['merits_'.$i.'_rating']);
         $post_content['meta_input']['merits_'.$i.'_specification'] = htmlspecialchars($_POST['merits_'.$i.'_specification']);
@@ -208,11 +218,19 @@ function update_character()
     }
 
     for ($j = 0; $j < intval(htmlspecialchars($_POST['skill_specialties'])); $j++) {
+        array_push($skill_specialties, array(
+            'skill' => htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']),
+            'specialty' => htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty'])
+        ));
         $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']);
         $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty']);
     }
 
     for ($k = 0; $k < intval(htmlspecialchars($_POST['conditions'])); $k++) {
+        array_push($conditions, array(
+            'condition' => htmlspecialchars($_POST['conditions_'.$k.'_condition']),
+            'note' => htmlspecialchars($_POST['conditions_'.$k.'_note'])
+        ));
         $post_content['meta_input']['conditions_'.$k.'_condition'] = htmlspecialchars($_POST['conditions_'.$k.'_condition']);
         $post_content['meta_input']['conditions_'.$k.'_note'] = htmlspecialchars($_POST['conditions_'.$k.'_note']);
     }
@@ -226,6 +244,9 @@ function update_character()
             $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v'.($revision_count+1);
             $post_content['post_parent'] = htmlspecialchars($_POST['id']);
             $post = \wp_insert_post($post_content);
+            update_field('field_5bdcf2262be68', $merits, $post);
+            update_field('field_5c45fac0556fc', $skill_specialties, $post);
+            update_field('field_5bf216f2f5e3a', $conditions, $post);
             $updates = \get_post($post);
             // initiate experience expenditure as draft
             $char = \get_post($_POST['id']);
@@ -249,15 +270,16 @@ function update_character()
                 \wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
             }
             header('Location:'.\get_the_permalink($char));
+            die(1);
         } else {
             $post_content['ID'] = htmlspecialchars($_POST['id']);
-            $post = \wp_insert_post($post_content);
-            header('Location:'.get_the_permalink($post));
         }
-    } else {
-        $post = \wp_insert_post($post_content);
-        header('Location:'.get_the_permalink($post));
     }
+    $post = \wp_insert_post($post_content);
+    update_field('field_5bdcf2262be68', $merits, $post);
+    update_field('field_5c45fac0556fc', $skill_specialties, $post);
+    update_field('field_5bf216f2f5e3a', $conditions, $post);
+    header('Location:'.get_the_permalink($post));
 
     die(1);
 }
