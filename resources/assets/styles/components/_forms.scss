@@ -278,5 +278,9 @@ section.yellow {
 
   button {
     background-color: $yellow;
+
+    svg {
+      fill: $grey;
+    }
   }
 }
