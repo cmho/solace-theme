@@ -61,6 +61,10 @@ dialog {
   textarea {
     border-color: $grey;
     color: $grey;
+
+    &:focus {
+      color: $grey;
+    }
   }
 
   select {
