@@ -1,6 +1,7 @@
 export default {
   init() {
     // JavaScript to be fired on all pages
+    $.trumbowyg.svgPath = '/wp-content/themes/solace-theme/dist/images/icons.svg';
     $('textarea').trumbowyg();
 
     $('form .dots i.fa-circle').on('click', function () {
