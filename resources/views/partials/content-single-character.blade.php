@@ -274,7 +274,6 @@
           <h3>Merits</h3>
           @if(count(get_field('merits')) > 0)
             <ul class="merits">
-              @php(print_r(get_field('merits')))
               @foreach(get_field('merits') as $merit)
                 <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
               @endforeach
