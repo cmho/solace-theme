@@ -217,11 +217,18 @@ select {
 }
 
 .trumbowyg-button-pane {
-  background-color: $grey !important;
-  border-bottom: $grey !important;
+  background-color: white !important;
+  border-bottom: white !important;
 }
 
-.trumbowyg-textarea {
+section.yellow {
+  .trumbowyg-button-pane {
+    background-color: $grey !important;
+    border-bottom: $grey !important;
+  }
+}
+
+.trumbowyg-editor {
   border-width: 3px;
   border-style: solid;
 }
