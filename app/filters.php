@@ -116,7 +116,17 @@ function add_meta_keys_to_revision($keys)
         "current_willpower",
         "conditions",
         "equipment",
-        "merits"
+        "merits",
+        "backstory",
+        "connections",
+        "complications",
+        "supernatural",
+        "massacre",
+        "survive",
+        "loss",
+        "hobbies",
+        "coping",
+        "anything_else"
     );
     return $keys;
 }
