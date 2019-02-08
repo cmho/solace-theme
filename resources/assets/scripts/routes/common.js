@@ -4,7 +4,7 @@ export default {
     $.trumbowyg.svgPath =
       "/wp-content/themes/solace-theme/dist/images/icons.svg";
     $("textarea").trumbowyg({
-      btns: [["bold", "italic"], ["link"]]
+      btns: [["bold", "italic"], ["link"]],
     });
 
     $("form .dots i.fa-circle").on("click", function() {
@@ -135,7 +135,7 @@ export default {
         method: "POST",
         data: {
           id: merit,
-          action: "get_merit_info"
+          action: "get_merit_info",
         },
         success: function(data) {
           var newNum;
@@ -205,7 +205,7 @@ export default {
         method: "POST",
         data: {
           id: merit,
-          action: "get_merit_info"
+          action: "get_merit_info",
         },
         success: function(data) {
           $("#modal-content").attr("data-index", idx);
