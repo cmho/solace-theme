@@ -18,7 +18,6 @@
 @section('content')
   @while(have_posts()) @php the_post() @endphp
     <section>
-      <h2>Characters</h2>
       <form id="character-search">
         <label for="search">Filter Characters</label>
         <input name="search" type="search" />

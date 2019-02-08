@@ -22,7 +22,7 @@
     li {
       margin-bottom: 0;
       padding-bottom: 1em;
-      border: 5px white solid;
+      border: 3px white solid;
 
       h3 {
         margin: 0 0 1em;
@@ -30,20 +30,22 @@
         font-weight: bold;
 
         a {
-          border-bottom: 5px white solid;
+          border-bottom: 3px white solid;
           padding: 3px 5px;
           color: white;
           display: block;
           width: 100%;
+          text-decoration: none;
 
           &:before {
             content: "";
             display: inline-block;
             transform: rotate(0);
             transition: 0.3s;
-            border-left: 5px white solid;
-            border-top: 3px transparent solid;
-            border-bottom: 3px transparent solid;
+            border-left: 8px white solid;
+            border-top: 4px transparent solid;
+            border-bottom: 4px transparent solid;
+            margin-right: 10px;
           }
         }
 
