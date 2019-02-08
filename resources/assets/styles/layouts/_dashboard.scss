@@ -25,7 +25,7 @@
       border: 3px white solid;
 
       h3 {
-        margin: 0 0 1em;
+        margin: 0;
         font-size: 16px;
         font-weight: bold;
 
@@ -56,6 +56,10 @@
         font-size: 16px;
         text-transform: uppercase;
         letter-spacing: 1px;
+      }
+
+      .character-content {
+        padding: 1em 20px;
       }
     }
   }
