@@ -189,5 +189,5 @@ export default {
     setInterval(pollCharacters, 5000);
   },
   finalize() {
-  }
+  },
 }
