@@ -8,15 +8,15 @@ self.addEventListener("install", function(e) {
     caches.open(cacheName).then(function(cache) {
       return cache
         .addAll([
-          "./",
-          "./dist/css/main.css",
-          "./dist/js/main.js",
-          "./dist/fonts/worksans-regular-webfont.woff",
-          "./dist/fonts/worksans-regular-webfont.woff2",
-          "./dist/fonts/worksans-bold-webfont.woff",
-          "./dist/fonts/worksans-bold-webfont.woff2",
-          "./dist/fonts/boycott-webfont.woff",
-          "../../offline.html",
+          themepath + "/storyteller-dashboard/",
+          themepath + "/dist/css/main.css",
+          themepath + "/dist/js/main.js",
+          themepath + "/dist/fonts/worksans-regular-webfont.woff",
+          themepath + "/dist/fonts/worksans-regular-webfont.woff2",
+          themepath + "/dist/fonts/worksans-bold-webfont.woff",
+          themepath + "/dist/fonts/worksans-bold-webfont.woff2",
+          themepath + "/dist/fonts/boycott-webfont.woff",
+          themepath + "/offline.html",
         ])
         .then(function() {
           self.skipWaiting();
