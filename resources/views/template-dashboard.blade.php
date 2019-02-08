@@ -8,13 +8,16 @@
 
 @extends('layouts.dashboard')
 
+@section('header')
+  <h1><a href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a></h1>
+  <form>
+    <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
+  </form>
+@endsection
+
 @section('content')
   @while(have_posts()) @php the_post() @endphp
     <section>
-      <h2>Beats</h2>
-      <form>
-        <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
-      </for>
       <h2>Characters</h2>
       <form id="character-search">
         <label for="search">Filter Characters</label>

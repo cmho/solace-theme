@@ -1,5 +1,10 @@
 .dashboard {
-  padding: 0 20px;
+  header {
+    border-bottom: 5px $yellow solid;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
 
   h1 {
     font-size: 36px;
