@@ -6,7 +6,7 @@
 
 <h3>Willpower</h3>
 <div class="dots center" id="willpower">
-  @php(App\Character::printSquares((get_field('composure') || get_field('resolve') ? get_field('composure')+get_field('resolve') : 2)))
+  @php(App\Character::printSquares((get_field('composure') || get_field('resolve') ? 5+get_field('resolve') : 6)))
 </div>
 <input type="hidden" name="current_willpower" value="{{ get_field('current_willpower') }}" />
 

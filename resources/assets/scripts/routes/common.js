@@ -25,7 +25,7 @@ export default {
     });
 
     function updateWillpower() {
-      var amt = parseInt($('input[name="composure"]').val()) + parseInt($('input[name="resolve"]').val());
+      var amt = 5 + parseInt($('input[name="resolve"]').val());
       var str = "";
       var currentstr = "";
       for (var i = 0; i < amt; i++) {
@@ -64,7 +64,6 @@ export default {
     }
 
     $('input[name="composure"]').on('change', function () {
-      updateWillpower();
       updateInitiative();
     });
 
