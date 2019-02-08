@@ -176,7 +176,7 @@ export default {
             "_description' value='' /></li>";
           $("ul.merits").append(newItem);
           $('[name="merits"]').val($("ul.merits li").length);
-        }
+        },
       });
     });
 
@@ -258,7 +258,7 @@ export default {
           } else {
             $("#modal-content select").removeProp("disabled");
           }
-        }
+        },
       });
     });
 
