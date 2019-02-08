@@ -35,7 +35,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/storyteller-dashboard/",
+  "start_url": "../../../storyteller-dashboard/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#fff5a3",
