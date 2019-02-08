@@ -394,6 +394,7 @@ export default {
             "Error whilst registering service worker",
             err
           );
+          console.log(themepath+"/sw.js");
         });
     }
 
