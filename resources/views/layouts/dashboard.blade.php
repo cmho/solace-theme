@@ -3,7 +3,7 @@
   @include('partials.head')
   <body @php body_class('dashboard') @endphp>
     <header>
-      <h1><a href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a></h1>
+      @yield('header')
     </header>
     <main class="main">
       @yield('content')
