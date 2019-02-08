@@ -10,8 +10,8 @@ self.addEventListener("install", function(e) {
       return cache
         .addAll([
           themepath + "/storyteller-dashboard/",
-          themepath + "/dist/css/main.css",
-          themepath + "/dist/js/main.js",
+          themepath + "/dist/styles/main.css",
+          themepath + "/dist/scripts/main.js",
           themepath + "/dist/fonts/worksans-regular-webfont.woff",
           themepath + "/dist/fonts/worksans-regular-webfont.woff2",
           themepath + "/dist/fonts/worksans-bold-webfont.woff",
