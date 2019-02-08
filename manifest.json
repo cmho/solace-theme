@@ -27,6 +27,12 @@
       "src": "dist/images/launcher-icon-256.png",
       "sizes": "256x256",
       "type": "image/png"
+    },
+
+    {
+      "src": "dist/images/launcher-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "./storyteller-dashboard",
