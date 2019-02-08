@@ -1,6 +1,10 @@
 // TODO: .banner .nav li {}
 // TODO: .banner .nav a {}
 nav {
+  a {
+    display: block;
+    line-height: 1;
+  }
   ul {
     list-style: none;
     display: flex;

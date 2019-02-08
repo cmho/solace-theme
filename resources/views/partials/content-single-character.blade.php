@@ -359,7 +359,7 @@
           <dl class="questionnaire">
             @foreach(App\Character::questionnaire() as $q)
               <dt>{{ $q['label'] }}</dt>
-              <dd>{!! get_field($q['name']) !!}</dd>
+              <dd>{!! $q['value'] !!}</dd>
             @endforeach
           </dl>
         </div>
