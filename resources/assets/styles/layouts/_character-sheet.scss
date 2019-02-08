@@ -43,6 +43,9 @@
     input[type="text"] {
       flex-shrink: 1;
       margin: 0 5px;
+      min-width: 0;
+      width: auto;
+      flex-grow: 1;
     }
   }
 }
