@@ -16,7 +16,7 @@ self.addEventListener("install", function(e) {
           "./dist/fonts/worksans-bold-webfont.woff",
           "./dist/fonts/worksans-bold-webfont.woff2",
           "./dist/fonts/boycott-webfont.woff",
-          "./offline.html",
+          "../../offline.html",
         ])
         .then(function() {
           self.skipWaiting();
