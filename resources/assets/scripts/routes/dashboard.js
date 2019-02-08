@@ -1,7 +1,10 @@
 export default {
   init() {
     $('#wpadminbar').hide();
-    $('html').css("margin-top", "0 !important");
+
+    $(window).on('load', function() {
+      $('html').css("margin-top", "0 !important");
+    });
 
     $('ol li h3 a').on('click', function(e) {
       e.preventDefault();
@@ -185,4 +188,6 @@ export default {
 
     setInterval(pollCharacters, 5000);
   },
+  finalize() {
+  }
 }
