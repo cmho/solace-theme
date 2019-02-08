@@ -5,5 +5,6 @@
   <script type="text/javascript">
     var ajaxurl = "{{ admin_url('admin-ajax.php') }}";
   </script>
+  <link rel="manifest" href="{{ get_stylesheet_directory_uri() }}/manifest.json">
   @php wp_head() @endphp
 </head>
