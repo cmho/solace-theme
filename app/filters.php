@@ -186,16 +186,16 @@ function update_character()
             'current_willpower' => htmlspecialchars($_POST['current_willpower']),
             'health' => intval(htmlspecialchars($_POST['health'])),
             'willpower' => intval(htmlspecialchars($_POST['willpower'])),
-            "backstory" => htmlspecialchars($_POST['backstory']),
-            "connections" => htmlspecialchars($_POST['connections']),
-            "complications" => htmlspecialchars($_POST['complications']),
-            "supernatural" => htmlspecialchars($_POST['supernatural']),
-            "massacre" => htmlspecialchars($_POST['massacre']),
-            "survive" => htmlspecialchars($_POST['survive']),
-            "loss" => htmlspecialchars($_POST['loss']),
-            "hobbies" => htmlspecialchars($_POST['hobbies']),
-            "coping" => htmlspecialchars($_POST['coping']),
-            "anything_else" => htmlspecialchars($_POST['anything_else'])
+            "backstory" => !empty($_POST['backstory']) ? htmlspecialchars($_POST['backstory']) : ' ',
+            "connections" => !empty($_POST['connections']) ? htmlspecialchars($_POST['connections']) : ' ',
+            "complications" => !empty($_POST['complications']) ? htmlspecialchars($_POST['complications']) : ' ',
+            "supernatural" => !empty($_POST['supernatural']) ? htmlspecialchars($_POST['supernatural']) : ' ',
+            "massacre" => !empty($_POST['massacre']) ? htmlspecialchars($_POST['massacre']) : ' ',
+            "survive" => !empty($_POST['survive']) ? htmlspecialchars($_POST['survive']) : ' ',
+            "loss" => !empty($_POST['loss']) ? htmlspecialchars($_POST['loss']) : ' ',
+            "hobbies" => !empty($_POST['hobbies']) ? htmlspecialchars($_POST['hobbies']) : ' ',
+            "coping" => !empty($_POST['coping']) ? htmlspecialchars($_POST['coping']) : ' ',
+            "anything_else" => !empty($_POST['anything_else']) ? htmlspecialchars($_POST['anything_else']) : ' '
         )
     );
 
