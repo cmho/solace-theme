@@ -1,5 +1,8 @@
 export default {
   init() {
+    $('#wpadminbar').hide();
+    $('html').css("margin-top", "0 !important");
+
     $('ol li h3 a').on('click', function(e) {
       e.preventDefault();
       $(this).parents('li').toggleClass('open');
