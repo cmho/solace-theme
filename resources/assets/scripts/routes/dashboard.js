@@ -3,6 +3,7 @@ export default {
     $('ol li h3 a').on('click', function(e) {
       e.preventDefault();
       $(this).parents('li').toggleClass('open');
+      $(this).parents('li').find('.character-content').slideToggle();
     });
 
     $('.health').on('click', 'a.fa-stack', function (e) {
