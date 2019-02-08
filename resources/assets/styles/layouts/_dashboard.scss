@@ -21,7 +21,6 @@
 
     li {
       margin-bottom: 0;
-      padding-bottom: 1em;
       border: 3px white solid;
 
       h3 {
@@ -49,6 +48,14 @@
           }
         }
 
+      }
+
+      &.open {
+        a {
+          &:before {
+            transform: rotate(90deg);
+          }
+        }
       }
 
       h4 {

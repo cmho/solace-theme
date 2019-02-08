@@ -1,5 +1,10 @@
 export default {
   init() {
+    $('ol li h3 a').on('click', function(e) {
+      e.preventDefault();
+      $(this).parents('li').toggleClass('open');
+    });
+
     $('.health').on('click', 'a.fa-stack', function (e) {
       e.preventDefault();
       var $indicator = $(this).children('.indicator').first();
