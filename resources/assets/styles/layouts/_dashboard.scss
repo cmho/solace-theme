@@ -24,26 +24,26 @@
       padding-bottom: 1em;
       border: 5px white solid;
 
-      > a {
-        border-bottom: 5px white solid;
-        padding: 3px 5px;
-        color: white;
-
-        &:before {
-          content: "";
-          display: inline-block;
-          transform: rotate(0);
-          transition: 0.3s;
-          border-right: 10px white solid;
-          border-top: 10px transparent solid;
-          border-bottom: 10px transparent solid;
-        }
-      }
-
       h3 {
         margin: 0;
         font-size: 24px;
         font-weight: bold;
+
+        a {
+          border-bottom: 5px white solid;
+          padding: 3px 5px;
+          color: white;
+          &:before {
+            content: "";
+            display: inline-block;
+            transform: rotate(0);
+            transition: 0.3s;
+            border-right: 10px white solid;
+            border-top: 10px transparent solid;
+            border-bottom: 10px transparent solid;
+          }
+        }
+
       }
 
       h4 {
