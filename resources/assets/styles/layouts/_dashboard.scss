@@ -4,12 +4,13 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   h1 {
     font-size: 36px;
     letter-spacing: 1px;
-    margin-top: 20px;
+    margin: 0;
   }
 
   ol {
@@ -34,8 +35,17 @@
     }
   }
 
+  button,
+  input[type="submit"],
+  .button {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 5px;
+  }
+
   .beat-count {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     vertical-align: middle;
     margin-right: 10px;
