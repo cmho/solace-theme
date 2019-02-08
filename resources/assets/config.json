@@ -6,6 +6,9 @@
     ],
     "customizer": [
       "./scripts/customizer.js"
+    ],
+    "sw": [
+      "./scripts/sw.js"
     ]
   },
   "publicPath": "/wp-content/themes/solace-theme",
