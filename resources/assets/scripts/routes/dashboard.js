@@ -209,6 +209,25 @@ export default {
       }
     });
 
+    function pollBeats() {
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'get_beats',
+        },
+        success: function(data) {
+          var newBeats = parseInt(data);
+          var oldBeats = parseInt($('.beat-count').text());
+          if (newBeats != oldBeats) {
+            var ding = document.getElementById('ding');
+            ding.play();
+            $('.beat-count').text(newBeats);
+          }
+        },
+      });
+    }
+
     function pollCharacters() {
       $.ajax({
         url: ajaxurl,
@@ -270,6 +289,7 @@ export default {
     }
 
     setInterval(pollCharacters, 5000);
+    setInterval(pollBeats, 5000);
   },
   finalize() {
   },

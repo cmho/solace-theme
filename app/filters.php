@@ -480,6 +480,62 @@ function addBeat()
 
 add_action('wp_ajax_add_beat', __NAMESPACE__.'\\addBeat');
 
+function getBeats()
+{
+    $beats = get_posts(array(
+        'post_type' => 'beat',
+        'post_status' => 'publish'
+    ));
+
+    $total = array_reduce($beats, function ($c, $i) {
+        return $c + get_field('value', $i->ID);
+    }, 0);
+
+    return $total;
+}
+
+add_action('wp_ajax_get_beats', __NAMESPACE__.'\\getBeats');
+
+function distributeBeats()
+{
+    wp_insert_post(array(
+        'post_type' => 'beat',
+        'post_status' => 'publish',
+        'meta_input' => array(
+            'value' => -100
+        )
+    ));
+    $chars = get_posts(array(
+        'post_type' => 'character',
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => 'status',
+                'value' => 'active'
+            ),
+            array(
+                'key' => 'status',
+                'value' => 'Active'
+            )
+        )
+    ));
+    foreach($chars as $char) {
+        wp_insert_post(array(
+            'post_type' => 'experience',
+            'post_title' => 'Beat pool disbursement '.date('m/d/y'),
+            'post_status' => 'publish',
+            'meta_input' => array(
+                'amount' => 1,
+                'character' => $char->ID
+            )
+        ));
+    }
+    echo \App\Beat::count();
+    die(1);
+}
+
+add_action('wp_ajax_distribute_beats', __NAMESPACE__.'\\distributeBeats');
+
 function characterData()
 {
     global $post;
