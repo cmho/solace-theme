@@ -3,7 +3,7 @@ export default {
     $('#wpadminbar').hide();
 
     $(window).on('load', function() {
-      $('html').css("margin-top", "0 !important");
+      jQuery('html').attr("style", "margin-top: 0px !important");
     });
 
     $('#login').on('submit', function(e) {
