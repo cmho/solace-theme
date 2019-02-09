@@ -194,12 +194,12 @@ export default {
 
     $('#character-search').on('submit', function(e) {
       e.preventDefault();
-      var search = $(this).find('[name="search"]').val();
+      var search = $(this).find('[name="search"]').val().toLowerCase();
       if (search == "") {
         $('ol.characters li').show();
       } else {
         $('ol.characters li h3 a').each(function() {
-          var txt = $(this).text();
+          var txt = $(this).text().toLowerCase();
           console.log(txt);
           if (txt.search(search) != -1) {
             $(this).parents('li').show();
