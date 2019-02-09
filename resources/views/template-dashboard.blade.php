@@ -78,7 +78,7 @@
     <audio controls id="ding">
       <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
-  @elseif(isLoggedIn())
+  @elseif(App::isLoggedIn())
     REGULAR USER
   @else
     <form id="login" action="login" method="post">
