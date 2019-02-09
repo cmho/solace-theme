@@ -41,7 +41,7 @@ class App extends Controller
     public static function isLoggedIn()
     {
         $user = wp_get_current_user();
-        return $user ? true : false;
+        return $user->ID != 0 ? true : false;
     }
 
     public static function newCharacterLink()
