@@ -47,7 +47,7 @@
                 <div class="conditions">
                   <h4>Conditions</h4>
                   @if(get_field('conditions'))
-                    <ul>
+                    <ul id="conditions">
                       @foreach(get_field('conditions') as $condition)
                         <li>{{ $condition['condition']->post_title }}{{ $condition['note'] ? ' ('.$condition['note'].')' : '' }} <button type="button" class="button resolve-button">Resolve</button></li>
                       @endforeach
@@ -68,7 +68,7 @@
                         <input type="text" name="condition_note" id="condition_note" />
                       </div>
                     </div>
-                    <button type="button" class="button small" id="add-condition">Add</button>
+                    <button type="button" class="button small add-condition">Add</button>
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
                 </div>

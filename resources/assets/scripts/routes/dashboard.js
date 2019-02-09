@@ -150,6 +150,48 @@ export default {
       ding.play();
     });
 
+    $(".add-condition").on("click", function () {
+      var condition = $(
+        "#conditions_list option:selected"
+      ).val();
+      var conditionName = $(
+        "#conditions_list option:selected"
+      ).text();
+      var num = $(this).parents('.conditions').find(".char-conditions li").length;
+      var note = $("#condition_note").val();
+      var item =
+        "<li>" +
+        conditionName +
+        '</strong>'+(note ? ' ('+note+')' : '')+' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
+        '<input type="hidden" name="conditions_' +
+        num +
+        '_condition" value="' +
+        condition +
+        '" /><input type="hidden" name="conditions_' +
+        num +
+        '_note" value="' +
+        note +
+        '" /></li>';
+      $(this).parents('.conditions').find(".char-conditions").append(item);
+      $('[name="char-conditions"]').val(
+        $(this).parents('.conditions').find("ul.char-conditions li").length
+      );
+    });
+
+    $(".conditions").on("click", ".delete", function () {
+      var yn = confirm(
+        "Are you sure you want to delete this condition?"
+      );
+      if (yn) {
+        $(this)
+          .parents("li")
+          .detach();
+        $('[name="conditions"]').val(
+          $("ul.conditions li").length
+        );
+      }
+    });
+
     function pollCharacters() {
       $.ajax({
         url: ajaxurl,
