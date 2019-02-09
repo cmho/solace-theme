@@ -547,7 +547,7 @@ add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 
 function ajax_login_init()
 {
-    add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login');
+    add_action('wp_ajax_nopriv_ajaxlogin', __NAMESPACE__.'\\ajax_login');
 }
 
 function ajax_login()
