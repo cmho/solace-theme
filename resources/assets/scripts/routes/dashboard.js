@@ -19,7 +19,7 @@ export default {
           security: $('#login #security').val(),
         },
         success: function(data) {
-          $('html').load('/dashboard/');
+          $('body').load('/dashboard/');
         },
       })
     });
