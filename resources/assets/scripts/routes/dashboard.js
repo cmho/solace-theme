@@ -19,7 +19,10 @@ export default {
           security: $('#login #security').val(),
         },
         success: function(data) {
+          console.log(data);
+          $('body').fadeOut();
           $('body').load('/dashboard/');
+          $('body').fadeIn();
         },
       })
     });
