@@ -194,7 +194,7 @@ export default {
 
     $('#character-search').on('submit', function(e) {
       e.preventDefault();
-      var search = $(this).find('[type="name"]').val();
+      var search = $(this).find('[name="search"]').val();
       if (search != "") {
         $('ol.characters li').show();
       } else {
