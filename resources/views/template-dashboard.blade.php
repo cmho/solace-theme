@@ -46,6 +46,13 @@
                 </div>
                 <div class="conditions">
                   <h4>Conditions</h4>
+                  <ul>
+                    @if(get_field('conditions'))
+                      @foreach(get_field('conditions') as $condition)
+                        <li>{{ $condition['condition']->post_title }}{{ $condition['note'] ? ' ('.$condition['note'].')' : '' }} <button type="button" class="button">Resolve</button></li>
+                      @endforeach
+                    @endif
+                  </ul>
                   <form>
                     <label for="conditions_list">Condition</label>
                     <select id="conditions_list">
@@ -80,6 +87,8 @@
     </audio>
   @elseif(App::isLoggedIn())
     REGULAR USER
+
+    YOUR CHARACTER GOES HERE
   @else
     <form id="login" action="login" method="post">
         <h2>Log In</h2>
