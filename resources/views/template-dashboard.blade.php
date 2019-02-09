@@ -83,17 +83,8 @@
       <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
   @elseif(App::isLoggedIn())
-    <h2>{{ get_the_title(App::currentChar->ID) }}</h2>
     <div class="character-sheet">
-      <h3>Attributes</h3>
-      <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', App::currentChar->ID) }}, Wits {{ get_field('wits', App::currentChar->ID) }}, Resolve {{ get_field('resolve' App::currentChar->ID) }}</p>
-      <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', App::currentChar->ID) }}, Dexterity {{ get_field('dexterity', App::currentChar->ID) }}, Stamina {{ get_field('stamina', App::currentChar->ID) }}</p>
-      <p><strong>Social Attributes:</strong> Presence {{ get_field('presence', App::currentChar->ID) }}, Manipulation {{ get_field('manipulation', App::currentChar->ID) }}, Composure {{ get_field('composure', App::currentChar->ID) }}</p>
-      <h3>Skills</h3>
 
-      <h3>Merits</h3>
-      <h3>Equipment</h3>
-      <h3>Conditions</h3>
     </div>
   @else
     <form id="login" action="login" method="post">
