@@ -491,7 +491,8 @@ function getBeats()
         return $c + get_field('value', $i->ID);
     }, 0);
 
-    return $total;
+    echo $total;
+    die(1);
 }
 
 add_action('wp_ajax_get_beats', __NAMESPACE__.'\\getBeats');
@@ -519,7 +520,8 @@ function distributeBeats()
             )
         )
     ));
-    foreach($chars as $char) {
+
+    foreach ($chars as $char) {
         wp_insert_post(array(
             'post_type' => 'experience',
             'post_title' => 'Beat pool disbursement '.date('m/d/y'),
@@ -530,6 +532,7 @@ function distributeBeats()
             )
         ));
     }
+
     echo \App\Beat::count();
     die(1);
 }
