@@ -192,6 +192,23 @@ export default {
       }
     });
 
+    $('#character-search').on('submit', function(e) {
+      e.preventDefault();
+      var search = $(this).find('[type="name"]').val();
+      if (search != "") {
+        $('ol.characters li').show();
+      } else {
+        $('ol.characters li h3 a').each(function() {
+          var txt = $(this).text();
+          if (txt.match(search)) {
+            $(this).parents('li').show();
+          } else {
+            $(this).parents('li').hide();
+          }
+        })
+      }
+    });
+
     function pollCharacters() {
       $.ajax({
         url: ajaxurl,
