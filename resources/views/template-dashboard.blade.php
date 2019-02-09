@@ -47,7 +47,7 @@
                 <div class="conditions">
                   <h4>Conditions</h4>
                   @if(get_field('conditions'))
-                    <ul id="conditions">
+                    <ul class="char-conditions">
                       @foreach(get_field('conditions') as $condition)
                         <li>{{ $condition['condition']->post_title }}{{ $condition['note'] ? ' ('.$condition['note'].')' : '' }} <button type="button" class="button resolve-button">Resolve</button></li>
                       @endforeach

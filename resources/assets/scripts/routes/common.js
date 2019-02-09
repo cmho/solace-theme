@@ -336,7 +336,7 @@ export default {
       }
     });
 
-    $("html").on("click", ".add-condition", function () {
+    $("#character-sheet #add-condition").on("click", function() {
       var condition = $(
         "#conditions_list option:selected"
       ).val();
@@ -365,15 +365,17 @@ export default {
       );
     });
 
-    $("html").on("click", ".conditions .delete", function() {
+    $("#character-sheet .conditions").on("click", ".delete", function() {
       var yn = confirm(
-        "Are you sure you want to resolve this condition?"
+        "Are you sure you want to delete this condition?"
       );
       if (yn) {
         $(this)
           .parents("li")
           .detach();
-        $('[name="conditions"]').val($(this).parents('.conditions').find("ul.char-conditions li").length);
+        $('[name="conditions"]').val(
+          $("ul.conditions li").length
+        );
       }
     });
 

@@ -161,8 +161,7 @@ export default {
       var note = $("#condition_note").val();
       var item =
         "<li>" +
-        conditionName +
-        '</strong>'+(note ? ' ('+note+')' : '')+' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
+        conditionName +(note ? ' ('+note+')' : '')+' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
         '<input type="hidden" name="conditions_' +
         num +
         '_condition" value="' +
