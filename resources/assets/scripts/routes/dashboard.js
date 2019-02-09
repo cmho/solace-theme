@@ -20,7 +20,7 @@ export default {
         },
         success: function(data) {
           $('html').load('/dashboard/');
-        }
+        },
       })
     });
 
