@@ -123,4 +123,27 @@ class App extends Controller
 
         return;
     }
+
+    public static function currentCharacter()
+    {
+        if ($this->isAdmin()) {
+            $chars = \get_posts(array(
+                'post_type' => 'character',
+                'posts_per_page' => 1,
+                'meta_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'status',
+                        'value' => 'active'
+                    ),
+                    array(
+                        'key' => 'status',
+                        'value' => 'Active'
+                    )
+                )
+            ));
+            return $chars[0];
+        }
+        return null;
+    }
 }
