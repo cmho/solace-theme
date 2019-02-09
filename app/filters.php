@@ -484,6 +484,7 @@ function getBeats()
 {
     $beats = get_posts(array(
         'post_type' => 'beat',
+        'posts_per_page' => -1,
         'post_status' => 'publish'
     ));
 
@@ -508,6 +509,7 @@ function distributeBeats()
     ));
     $chars = get_posts(array(
         'post_type' => 'character',
+        'posts_per_page' => -1,
         'meta_query' => array(
             'relation' => 'OR',
             array(
