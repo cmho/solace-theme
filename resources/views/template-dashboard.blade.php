@@ -55,7 +55,7 @@
                   </ul>
                   <form id="condition-form">
                     <div class="row">
-                      <div class="form-row">
+                      <div class="form-row" id="select-control">
                         <label for="conditions_list">Condition</label>
                         <select id="conditions_list">
                           @foreach(App\Conditions::list() as $condition)
@@ -63,7 +63,7 @@
                           @endforeach
                         </select>
                       </div>
-                      <div class="form-row">
+                      <div class="form-row" id="note-control">
                         <label for="condition_note">Note</label>
                         <input type="text" name="condition_note" id="condition_note" />
                       </div>
