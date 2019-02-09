@@ -20,7 +20,7 @@
 @section('content')
   @if(App::isLoggedIn())
     @php
-        $char = App::currentCharacter();
+      $char = App::currentCharacter();
     @endphp
     <h2>{{ get_the_title($char->ID) }}</h2>
     <div class="character-sheet">
