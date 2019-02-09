@@ -131,6 +131,11 @@
     #select-control {
       width: 40%;
       margin-right: 10px;
+
+      select {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
 
