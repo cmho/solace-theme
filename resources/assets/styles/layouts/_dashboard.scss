@@ -120,6 +120,9 @@
   }
 
   #condition-form {
+    .form-row {
+      margin-bottom: .5em;
+    }
     .row {
       margin: 0;
       flex-wrap: nowrap;
