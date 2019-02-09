@@ -83,9 +83,9 @@
       <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
   @elseif(App::isLoggedIn())
-    REGULAR USER
+    <div class="character-sheet">
 
-    YOUR CHARACTER GOES HERE
+    </div>
   @else
     <form id="login" action="login" method="post">
         <h2>Log In</h2>
