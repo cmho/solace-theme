@@ -198,6 +198,7 @@ export default {
       if (search != "") {
         $('ol.characters li').show();
       } else {
+        console.log('search term exists');
         $('ol.characters li h3 a').each(function() {
           var txt = $(this).text();
           console.log(txt);
