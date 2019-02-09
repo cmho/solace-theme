@@ -4,6 +4,7 @@
 
 @php
     global $post;
+    $char = App\Character::currentChar();
 @endphp
 
 @extends('layouts.dashboard')
@@ -83,9 +84,12 @@
       <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
   @elseif(App::isLoggedIn())
-    <div class="character-sheet">
+    @if($char)
+      <h2>{{ get_the_title($char) }}</h2>
+      <div class="character-sheet">
 
-    </div>
+      </div>
+    @endif
   @else
     <form id="login" action="login" method="post">
         <h2>Log In</h2>
