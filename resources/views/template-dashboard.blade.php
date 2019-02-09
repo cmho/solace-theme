@@ -54,14 +54,18 @@
                     @endif
                   </ul>
                   <form>
-                    <label for="conditions_list">Condition</label>
-                    <select id="conditions_list">
-                      @foreach(App\Conditions::list() as $condition)
-                        <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
-                      @endforeach
-                    </select>
-                    <label for="condition_note">Note</label>
-                    <input type="text" name="condition_note" id="condition_note" />
+                    <div class="form-row">
+                      <label for="conditions_list">Condition</label>
+                      <select id="conditions_list">
+                        @foreach(App\Conditions::list() as $condition)
+                          <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label for="condition_note">Note</label>
+                      <input type="text" name="condition_note" id="condition_note" />
+                    </div>
                     <button type="button" class="button small" id="add-condition">Add</button>
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
