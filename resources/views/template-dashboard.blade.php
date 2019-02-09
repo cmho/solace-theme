@@ -4,6 +4,7 @@
 
 @php
     global $post;
+    $char = App::currentCharacter();
 @endphp
 
 @extends('layouts.dashboard')
@@ -19,9 +20,6 @@
 
 @section('content')
   @if(App::isLoggedIn())
-    @php
-      $char = App::currentCharacter();
-    @endphp
     <h2>{{ get_the_title($char->ID) }}</h2>
     <div class="character-sheet">
       <h3>Attributes</h3>
