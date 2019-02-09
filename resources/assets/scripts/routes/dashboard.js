@@ -195,10 +195,9 @@ export default {
     $('#character-search').on('submit', function(e) {
       e.preventDefault();
       var search = $(this).find('[name="search"]').val();
-      if (search != "") {
+      if (search == "") {
         $('ol.characters li').show();
       } else {
-        console.log('search term exists');
         $('ol.characters li h3 a').each(function() {
           var txt = $(this).text();
           console.log(txt);
