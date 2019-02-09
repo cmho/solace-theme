@@ -200,7 +200,7 @@ export default {
       } else {
         $('ol.characters li h3 a').each(function() {
           var txt = $(this).text();
-          if (txt.match(search)) {
+          if (txt.search(search)) {
             $(this).parents('li').show();
           } else {
             $(this).parents('li').hide();
