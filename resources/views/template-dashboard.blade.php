@@ -4,7 +4,6 @@
 
 @php
     global $post;
-    $char = App::currentCharacter();
 @endphp
 
 @extends('layouts.dashboard')
@@ -20,12 +19,12 @@
 
 @section('content')
   @if(App::isLoggedIn())
-    <h2>{{ get_the_title($char->ID) }}</h2>
+    <h2>{{ get_the_title(App::currentChar->ID) }}</h2>
     <div class="character-sheet">
       <h3>Attributes</h3>
-      <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve' $char->ID) }}</p>
-      <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', $char->ID) }}, Dexterity {{ get_field('dexterity', $char->ID) }}, Stamina {{ get_field('stamina', $char->ID) }}</p>
-      <p><strong>Social Attributes:</strong> Presence {{ get_field('presence', $char->ID) }}, Manipulation {{ get_field('manipulation', $char->ID) }}, Composure {{ get_field('composure', $char->ID) }}</p>
+      <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', App::currentChar->ID) }}, Wits {{ get_field('wits', App::currentChar->ID) }}, Resolve {{ get_field('resolve' App::currentChar->ID) }}</p>
+      <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', App::currentChar->ID) }}, Dexterity {{ get_field('dexterity', App::currentChar->ID) }}, Stamina {{ get_field('stamina', App::currentChar->ID) }}</p>
+      <p><strong>Social Attributes:</strong> Presence {{ get_field('presence', App::currentChar->ID) }}, Manipulation {{ get_field('manipulation', App::currentChar->ID) }}, Composure {{ get_field('composure', App::currentChar->ID) }}</p>
       <h3>Skills</h3>
 
       <h3>Merits</h3>

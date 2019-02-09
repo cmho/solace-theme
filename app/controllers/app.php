@@ -6,6 +6,28 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
+    public static $currentChar;
+
+    private function __construct()
+    {
+        $chars = \get_posts(array(
+            'post_type' => 'character',
+            'posts_per_page' => 1,
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'status',
+                    'value' => 'active'
+                ),
+                array(
+                    'key' => 'status',
+                    'value' => 'Active'
+                )
+            )
+        ));
+        $this->currentChar = $chars[0];
+    }
+
     public function siteName()
     {
         return get_bloginfo('name');
