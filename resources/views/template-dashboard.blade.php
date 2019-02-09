@@ -10,13 +10,15 @@
 
 @section('header')
   <h1><a href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a></h1>
-  <form>
-    <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
-  </form>
+  @if (App::isAdmin())
+    <form>
+      <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
+    </form>
+  @endif
 @endsection
 
 @section('content')
-  @while(have_posts()) @php the_post() @endphp
+  @if(App::isAdmin())
     <section>
       <form id="character-search">
         <label for="search">Filter Characters</label>
@@ -76,5 +78,26 @@
     <audio controls id="ding">
       <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
     </audio>
-  @endwhile
+  @elseif(isLoggedIn())
+    REGULAR USER
+  @else
+    <form id="login" action="login" method="post">
+        <h2>Log In</h2>
+        <div class="form-row">
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username">
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password">
+        </div>
+        <div class="form-row">
+          <a class="lost" href="<?php echo wp_lostpassword_url(); ?>">Lost your password?</a>
+        </div>
+        <div class="form-row">
+          <input class="button" type="submit" value="Log in" name="submit">
+        </div>
+        <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
+    </form>
+  @endif
 @endsection

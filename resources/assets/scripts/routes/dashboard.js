@@ -6,6 +6,24 @@ export default {
       $('html').css("margin-top", "0 !important");
     });
 
+    $('#login').on('submit', function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: ajaxurl,
+        data: {
+          action: 'ajaxlogin',
+          username: $('#login #username').val(),
+          password: $('#login #password').val(),
+          security: $('#login #security').val(),
+        },
+        success: function(data) {
+          $('html').load('/dashboard/');
+        }
+      })
+    });
+
     $('ol li h3 a').on('click', function(e) {
       e.preventDefault();
       $(this).parents('li').toggleClass('open');

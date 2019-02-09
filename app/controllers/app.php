@@ -38,6 +38,12 @@ class App extends Controller
         return $is_admin;
     }
 
+    public static function isLoggedIn()
+    {
+        $user = wp_get_current_user();
+        return $user ? true : false;
+    }
+
     public static function newCharacterLink()
     {
         $posts = \get_posts(array(
