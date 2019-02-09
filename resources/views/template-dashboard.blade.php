@@ -83,6 +83,7 @@
   @else
     <form id="login" action="login" method="post">
         <h2>Log In</h2>
+        <p class="status"></p>
         <div class="form-row">
           <label for="username">Username</label>
           <input id="username" type="text" name="username">

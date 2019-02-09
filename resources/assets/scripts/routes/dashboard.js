@@ -22,6 +22,9 @@ export default {
           console.log(data);
           $('body').fadeOut();
           $('body').load('/dashboard/');
+          if (!data.loggedin) {
+            $('body').find('.status').addClass('error').text('There was an error logging you in; please try again.');
+          }
           $('body').fadeIn();
         },
       })

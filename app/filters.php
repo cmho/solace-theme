@@ -568,7 +568,7 @@ function ajax_login()
         echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
     }
 
-    die();
+    die(1);
 }
 
 // Execute the action only if the user isn't logged in
