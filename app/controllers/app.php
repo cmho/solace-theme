@@ -147,26 +147,4 @@ class App extends Controller
 
         return;
     }
-
-    public static function currentCharacter()
-    {
-        $author = wp_get_current_user();
-        $chars = \get_posts(array(
-            'post_type' => 'character',
-            'posts_per_page' => 1,
-            'post_author' => $author,
-            'meta_query' => array(
-                'relation' => 'OR',
-                array(
-                    'key' => 'status',
-                    'value' => 'active'
-                ),
-                array(
-                    'key' => 'status',
-                    'value' => 'Active'
-                )
-            )
-        ));
-        return $chars[0];
-    }
 }
