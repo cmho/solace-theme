@@ -176,7 +176,7 @@ class Character extends Controller
             return 0;
         });
         $skills = array_map(function ($x) {
-            return $x['name']." ".$x['value'];
+            return $x['label']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
@@ -200,7 +200,7 @@ class Character extends Controller
             return 0;
         });
         $skills = array_map(function ($x) {
-            return $x['name']." ".$x['value'];
+            return $x['label']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
@@ -222,7 +222,7 @@ class Character extends Controller
             return 0;
         });
         $skills = array_map(function ($x) {
-            return $x['name']." ".$x['value'];
+            return $x['label']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
