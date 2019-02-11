@@ -158,50 +158,68 @@ class Character extends Controller
         return null;
     }
 
-    public static function mentalSkillsSimple()
+    public static function mentalSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('academics'));
-        array_push($skills, get_field_object('crafts'));
-        array_push($skills, get_field_object('computer'));
-        array_push($skills, get_field_object('investigation'));
-        array_push($skills, get_field_object('medicine'));
-        array_push($skills, get_field_object('occult'));
-        array_push($skills, get_field_object('politics'));
-        array_push($skills, get_field_object('science'));
+        array_push($skills, get_field_object('academics', $id));
+        array_push($skills, get_field_object('crafts', $id));
+        array_push($skills, get_field_object('computer', $id));
+        array_push($skills, get_field_object('investigation', $id));
+        array_push($skills, get_field_object('medicine', $id));
+        array_push($skills, get_field_object('occult', $id));
+        array_push($skills, get_field_object('politics', $id));
+        array_push($skills, get_field_object('science', $id));
+        $skills = array_filter($skills, function ($c) {
+            if ($c) {
+                return 1;
+            }
+            return 0;
+        });
         $skills = array_map(function ($x) {
             return $x['name']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
 
-    public static function physicalSkillsSimple()
+    public static function physicalSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('athletics'));
-        array_push($skills, get_field_object('brawl'));
-        array_push($skills, get_field_object('drive'));
-        array_push($skills, get_field_object('firearms'));
-        array_push($skills, get_field_object('larceny'));
-        array_push($skills, get_field_object('stealth'));
-        array_push($skills, get_field_object('survival'));
-        array_push($skills, get_field_object('weaponry'));
+        array_push($skills, get_field_object('athletics', $id));
+        array_push($skills, get_field_object('brawl', $id));
+        array_push($skills, get_field_object('drive', $id));
+        array_push($skills, get_field_object('firearms', $id));
+        array_push($skills, get_field_object('larceny', $id));
+        array_push($skills, get_field_object('stealth', $id));
+        array_push($skills, get_field_object('survival', $id));
+        array_push($skills, get_field_object('weaponry', $id));
+        $skills = array_filter($skills, function ($c) {
+            if ($c) {
+                return 1;
+            }
+            return 0;
+        });
         $skills = array_map(function ($x) {
             return $x['name']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
-    public static function socialSkillsSimple()
+    public static function socialSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('animal_ken'));
-        array_push($skills, get_field_object('empathy'));
-        array_push($skills, get_field_object('expression'));
-        array_push($skills, get_field_object('intimidation'));
-        array_push($skills, get_field_object('leadership'));
-        array_push($skills, get_field_object('persuasion'));
-        array_push($skills, get_field_object('streetwise'));
-        array_push($skills, get_field_object('subterfuge'));
+        array_push($skills, get_field_object('animal_ken', $id));
+        array_push($skills, get_field_object('empathy', $id));
+        array_push($skills, get_field_object('expression', $id));
+        array_push($skills, get_field_object('intimidation', $id));
+        array_push($skills, get_field_object('leadership', $id));
+        array_push($skills, get_field_object('persuasion', $id));
+        array_push($skills, get_field_object('streetwise', $id));
+        array_push($skills, get_field_object('subterfuge', $id));
+        $skills = array_filter($skills, function ($c) {
+            if ($c) {
+                return 1;
+            }
+            return 0;
+        });
         $skills = array_map(function ($x) {
             return $x['name']." ".$x['value'];
         }, $skills);
