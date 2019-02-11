@@ -150,7 +150,7 @@ class Character extends Controller
         $chars = \get_posts(array(
             'post_type' => 'character',
             'posts_per_page' => 1,
-            'post_author' => $author,
+            'author' => $author,
             'meta_query' => array(
                 'relation' => 'OR',
                 array(
