@@ -85,6 +85,14 @@
       <div class="character-sheet">
         <h2>{{ get_the_title($char->ID) }}</h2>
         <div class="character-content">
+          <div class="health" data-health="{{ get_field('current_health') }}">
+            <h3>Health</h3>
+            {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
+          </div>
+          <div class="willpower" data-willpower="{{ get_field('current_willpower') }}">
+            <h3>Willpower</h3>
+            {{ App\Character::printSquaresInteractable(get_field('current_willpower')) }}
+          </div>
           <h3>Attributes</h3>
           <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve', $char->ID) }}</p>
           <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', $char->ID) }}, Dexterity {{ get_field('dexterity', $char->ID) }}, Stamina {{ get_field('stamina', $char->ID) }}</p>
@@ -94,6 +102,13 @@
           <p><strong>Mental Skills:</strong> {{ App\Character::mentalSkillsSimple($char->ID) }}</p>
           <p><strong>Physical Skills:</strong> {{ App\Character::physicalSkillsSimple($char->ID) }}</p>
           <p><strong>Social Skills:</strong> {{ App\Character::socialSkillsSimple($char->ID) }}</p>
+
+          <h3>Merits</h3>
+          <p>{{ App\Character::meritsSimple($char->ID) }}</p>
+
+          <h3>Equipment</h3>
+
+          <h3>Conditions</h3>
         </div>
       </div>
     @endif

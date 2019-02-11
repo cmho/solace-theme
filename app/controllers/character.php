@@ -225,4 +225,14 @@ class Character extends Controller
         }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
+
+    public static function meritsSimple($id)
+    {
+        $merits = get_field('merits', $id);
+        $merits = array_map(function ($m) {
+            $merit = get_post($m['merit']->ID);
+            return get_the_title($merit->ID)." ".$m['rating'].($m['specification'] ? ' ('.$m['specification'].')' : '');
+        }, $merits);
+        return join(", ", $merits);
+    }
 }
