@@ -213,7 +213,7 @@ export default {
       var roll = (Math.random() * 10) + 1;
       var mod = parseInt($('#initiative-mod').text());
 
-      $('#initiative-roller .initiative-roll').text(roll+mod);
+      $('#js-modal .initiative-roll').text(roll+mod);
     });
 
     function pollBeats() {
