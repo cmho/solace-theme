@@ -184,9 +184,9 @@ class Character extends Controller
     public static function physicalSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('athletics', $id));
-        array_push($skills, get_field_object('brawl', $id));
-        array_push($skills, get_field_object('drive', $id));
+        array_push($skills, array('key' => 'Athletics', 'value' => get_field('athletics', $id)));
+        array_push($skills, get_field('brawl', $id));
+        array_push($skills, get_field('drive', $id));
         array_push($skills, get_field_object('firearms', $id));
         array_push($skills, get_field_object('larceny', $id));
         array_push($skills, get_field_object('stealth', $id));
@@ -200,7 +200,7 @@ class Character extends Controller
             return 0;
         });
         $skills = array_map(function ($x) {
-            return $x['label']." ".$x['value'];
+            return $x['key']." ".$x['value'];
         }, $skills);
         return join(", ", $skills);
     }
