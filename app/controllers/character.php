@@ -161,23 +161,23 @@ class Character extends Controller
     public static function mentalSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('academics', $id));
-        array_push($skills, get_field_object('crafts', $id));
-        array_push($skills, get_field_object('computer', $id));
-        array_push($skills, get_field_object('investigation', $id));
-        array_push($skills, get_field_object('medicine', $id));
-        array_push($skills, get_field_object('occult', $id));
-        array_push($skills, get_field_object('politics', $id));
-        array_push($skills, get_field_object('science', $id));
-        $skills = array_filter($skills, function ($c) {
-            if ($c) {
+        $skills['Academics'] = get_field('academics', $id);
+        $skills['Crafts'] = get_field('crafts', $id);
+        $skills['Computer'] = get_field('computer', $id);
+        $skills['Investigation'] = get_field('investigation', $id);
+        $skills['Medicine'] = get_field('medicine', $id);
+        $skills['Occult'] = get_field('occult', $id);
+        $skills['Politics'] = get_field('politics', $id);
+        $skills['Science'] = get_field('science', $id);
+        $skills = array_filter($skills, function ($c, $k) {
+            if ($c != 0) {
                 return 1;
             }
             return 0;
-        });
-        $skills = array_map(function ($x) {
-            return $x['label']." ".$x['value'];
-        }, $skills);
+        }, ARRAY_FILTER_USE_BOTH);
+        $skills = array_map(function ($k, $v) {
+            return $k." ".$v;
+        }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
 
@@ -206,23 +206,23 @@ class Character extends Controller
     public static function socialSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, get_field_object('animal_ken', $id));
-        array_push($skills, get_field_object('empathy', $id));
-        array_push($skills, get_field_object('expression', $id));
-        array_push($skills, get_field_object('intimidation', $id));
-        array_push($skills, get_field_object('leadership', $id));
-        array_push($skills, get_field_object('persuasion', $id));
-        array_push($skills, get_field_object('streetwise', $id));
-        array_push($skills, get_field_object('subterfuge', $id));
-        $skills = array_filter($skills, function ($c) {
-            if ($c) {
+        $skills['Animal Ken'] = get_field('animal_ken', $id);
+        $skills['Empathy'] = get_field('empathy', $id);
+        $skills['Expression'] = get_field('expression', $id);
+        $skills['Intimidation'] = get_field('intimidation', $id);
+        $skills['Leadership'] = get_field('leadership', $id);
+        $skills['Persuasion'] = get_field('persuasion', $id);
+        $skills['Streetwise'] = get_field('streetwise', $id);
+        $skills['Subterfuge'] = get_field('subterfuge', $id);
+        $skills = array_filter($skills, function ($c, $k) {
+            if ($c != 0) {
                 return 1;
             }
             return 0;
-        });
-        $skills = array_map(function ($x) {
-            return $x['label']." ".$x['value'];
-        }, $skills);
+        }, ARRAY_FILTER_USE_BOTH);
+        $skills = array_map(function ($k, $v) {
+            return $k." ".$v;
+        }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
 }
