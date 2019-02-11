@@ -80,9 +80,6 @@
         </ol>
       @endif
     </section>
-    <audio controls id="ding">
-      <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
-    </audio>
   @elseif(App::isLoggedIn())
     @if($char)
       <div class="character-sheet">
@@ -121,4 +118,7 @@
         <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
     </form>
   @endif
+  <audio controls id="ding">
+    <source src="{{get_theme_file_uri() }}/dist/media/ding.mp3" type="audio/mpeg"></source>
+  </audio>
 @endsection
