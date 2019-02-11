@@ -212,9 +212,9 @@ export default {
     $('#roll-initiative').on('click', function() {
       var roll = (Math.random() * 10) + 1;
       var mod = parseInt($('#initiative-mod').text());
-      setTimeout(function() {
-        $('.initiative-roll').text(roll+mod);
-      }, 250);
+      console.log(roll+mod);
+      console.log($('.initiative-roll'));
+      $('.initiative-roll').text(roll+mod);
     });
 
     function pollBeats() {
