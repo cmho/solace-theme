@@ -184,21 +184,20 @@ class Character extends Controller
     public static function physicalSkillsSimple($id)
     {
         $skills = array();
-        array_push($skills, array('key' => 'Athletics', 'value' => get_field('athletics', $id)));
-        array_push($skills, get_field('brawl', $id));
-        array_push($skills, get_field('drive', $id));
-        array_push($skills, get_field_object('firearms', $id));
-        array_push($skills, get_field_object('larceny', $id));
-        array_push($skills, get_field_object('stealth', $id));
-        array_push($skills, get_field_object('survival', $id));
-        array_push($skills, get_field_object('weaponry', $id));
-        print_r($skills);
-        $skills = array_filter($skills, function ($c) {
-            if ($c && $c['value'] != 0) {
+        $skills['Athletics'] = get_field('athletics', $id);
+        $skills['Brawl'] = get_field('brawl', $id);
+        $skills['Drive'] = get_field('drive', $id);
+        $skills['Firearms'] = get_field('firearms', $id);
+        $skills['Larceny'] = get_field('larceny', $id);
+        $skills['Stealth'] = get_field('stealth', $id);
+        $skills['Survival'] = get_field('survival', $id);
+        $skills['Weaponry'] = get_field('weaponry', $id);
+        $skills = array_filter($skills, function ($c, $k) {
+            if ($c != 0) {
                 return 1;
             }
             return 0;
-        });
+        }, ARRAY_FILTER_USE_BOTH);
         $skills = array_map(function ($x) {
             return $x['key']." ".$x['value'];
         }, $skills);
