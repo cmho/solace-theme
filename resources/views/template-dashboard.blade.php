@@ -85,7 +85,7 @@
     </audio>
   @elseif(App::isLoggedIn())
     @if($char)
-      <h2>{{ get_the_title($char) }}</h2>
+      <h2>{{ get_the_title($char->ID) }}</h2>
       <div class="character-sheet">
 
       </div>

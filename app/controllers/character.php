@@ -152,6 +152,9 @@ class Character extends Controller
             'posts_per_page' => 1,
             'author' => $author
         ));
-        return $chars[0];
+        if ($chars) {
+            return $chars[0];
+        }
+        return null;
     }
 }
