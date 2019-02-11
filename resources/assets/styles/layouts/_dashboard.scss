@@ -155,11 +155,19 @@
     border: 3px white solid;
 
     h2 {
-      font-size: 28px;
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-bottom: 3px white solid;
+    }
+
+    .character-content {
+      padding: 10px;
     }
 
     h3 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     p {
