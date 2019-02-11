@@ -150,6 +150,23 @@
     }
   }
 
+  .character-sheet {
+    margin: 20px;
+    border: 3px white solid;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
   #login {
     padding: 0 20px;
   }
