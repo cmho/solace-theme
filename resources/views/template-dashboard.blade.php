@@ -133,18 +133,6 @@
           @else
             <p><em>None.</em></p>
           @endif
-          <h3>Conditions</h3>
-          @if(get_field('conditions', $char->ID))
-            <ul class="conditions">
-              @foreach(get_field('conditions', $char->ID) as $condition)
-              <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
-                {{ $condition['note'] }}
-              </li>
-              @endforeach
-            </ul>
-          @else
-            <p><em>None.</em></p>
-          @endif
         </div>
       </div>
     @endif
