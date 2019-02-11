@@ -282,6 +282,9 @@ export default {
                   }
                 }
               }
+              if (parseInt($current.find('.current-integrity').text()) != item.integrity) {
+                $current.find('.current-integrity').text(item.integrity);
+              }
             }
           });
         },
@@ -289,9 +292,7 @@ export default {
     }
 
     setInterval(pollCharacters, 5000);
-    if ($('#beat-button').length > 0) {
-      setInterval(pollBeats, 5000);
-    }
+    setInterval(pollBeats, 5000);
   },
   finalize() {
   },

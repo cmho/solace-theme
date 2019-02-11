@@ -11,11 +11,9 @@
 
 @section('header')
   <h1><a href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a></h1>
-  @if (App::isAdmin())
-    <form>
-      <span class="beat-count">{{ App\Beat::count() }}</span> <button type="button" id="beat-button" class="large button">Beat!</button>
-    </form>
-  @endif
+  <form>
+    <span class="beat-count">{{ App\Beat::count() }}</span> @if (App::isAdmin())<button type="button" id="beat-button" class="large button">Beat!</button>@endif
+  </form>
 @endsection
 
 @section('content')
@@ -95,7 +93,7 @@
           </div>
           <p><strong>Virtue:</strong> {{ get_field('virtue', $char->ID) }}</p>
           <p><strong>Vice:</strong> {{ get_field('vice', $char->ID) }}</p>
-          <p><strong>Integrity:</strong> <span class="integrity">{{ get_field('integrity', $char->ID) }}</span></p>
+          <p><strong>Integrity:</strong> <span class="current-integrity">{{ get_field('integrity', $char->ID) }}</span></p>
           <h3>Attributes</h3>
           <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve', $char->ID) }}</p>
           <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', $char->ID) }}, Dexterity {{ get_field('dexterity', $char->ID) }}, Stamina {{ get_field('stamina', $char->ID) }}</p>
