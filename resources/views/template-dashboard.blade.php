@@ -143,6 +143,8 @@
               @endforeach
             </ul>
           @else
+            <p><em>None.</em></p>
+          @endif
         </div>
       </div>
     @endif
