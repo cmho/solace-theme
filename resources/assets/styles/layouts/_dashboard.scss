@@ -175,6 +175,17 @@
     }
   }
 
+  dialog.modal {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .initiative-roll {
+      font-size: 144px;
+    }
+  }
+
   #login {
     padding: 0 20px;
   }

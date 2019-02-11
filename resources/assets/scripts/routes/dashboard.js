@@ -209,6 +209,13 @@ export default {
       }
     });
 
+    $('#roll-initiative').on('click', function() {
+      var roll = (Math.random() * 10) + 1;
+      var mod = parseInt($('#initiative-mod').text());
+
+      $('#initiative-roller .initiative-roll').text(roll+mod);
+    });
+
     function pollBeats() {
       $.ajax({
         url: ajaxurl,

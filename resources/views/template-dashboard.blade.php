@@ -150,9 +150,13 @@
           <p><strong>Speed:</strong> {{ get_field('strength', $char->ID)+get_field('dexterity', $char->ID)+5 }}</p>
           <p><strong>Defense:</strong> {{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</p>
           <p><strong>Armor:</strong> {{ get_field('armor', $char->ID) }}</p>
-          <p><strong>Initiative Mod:</strong> {{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</p>
+          <p><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
         </div>
       </div>
+      <dialog id="initiative-roller" class="modal">
+        <button type="button" id="close-button">Close</button>
+        <span class="initiative-roll"></span>
+      </dialog>
     @endif
   @else
     <form id="login" action="login" method="post">
