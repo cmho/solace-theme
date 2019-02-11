@@ -192,8 +192,9 @@ class Character extends Controller
         array_push($skills, get_field_object('stealth', $id));
         array_push($skills, get_field_object('survival', $id));
         array_push($skills, get_field_object('weaponry', $id));
+        print_r($skills);
         $skills = array_filter($skills, function ($c) {
-            if ($c) {
+            if ($c && $c['value'] != 0) {
                 return 1;
             }
             return 0;
