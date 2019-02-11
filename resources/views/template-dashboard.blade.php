@@ -89,9 +89,14 @@
         <h2>{{ get_the_title($char->ID) }}</h2>
         <div class="character-content">
           <h3>Attributes</h3>
-          <p><strong>Mental Attributes: </strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve', $char->ID) }}</p>
-          <p><strong>Physical Attributes: </strong> Strength {{ get_field('strength', $char->ID) }}, Dexterity {{ get_field('dexterity', $char->ID) }}, Stamina {{ get_field('stamina', $char->ID) }}</p>
-          <p><strong>Social Attributes: </strong> Presence {{ get_field('presence', $char->ID) }}, Manipulation {{ get_field('manipulation', $char->ID) }}, Composure {{ get_field('composure', $char->ID) }}</p>
+          <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve', $char->ID) }}</p>
+          <p><strong>Physical Attributes:</strong> Strength {{ get_field('strength', $char->ID) }}, Dexterity {{ get_field('dexterity', $char->ID) }}, Stamina {{ get_field('stamina', $char->ID) }}</p>
+          <p><strong>Social Attributes:</strong> Presence {{ get_field('presence', $char->ID) }}, Manipulation {{ get_field('manipulation', $char->ID) }}, Composure {{ get_field('composure', $char->ID) }}</p>
+
+          <h3>Skills</h3>
+          <p><strong>Mental Skills:</strong> {{ App\Char::mentalSkillsSimple() }}</p>
+          <p><strong>Physical Skills:</strong> {{ App\Char::physicalSkillsSimple() }}</p>
+          <p><strong>Social Skills:</strong> {{ App\Char::socialSkillsSimple() }}</p>
         </div>
       </div>
     @endif
