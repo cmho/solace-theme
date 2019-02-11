@@ -94,9 +94,9 @@
           <p><strong>Social Attributes:</strong> Presence {{ get_field('presence', $char->ID) }}, Manipulation {{ get_field('manipulation', $char->ID) }}, Composure {{ get_field('composure', $char->ID) }}</p>
 
           <h3>Skills</h3>
-          <p><strong>Mental Skills:</strong> {{ App\Char::mentalSkillsSimple() }}</p>
-          <p><strong>Physical Skills:</strong> {{ App\Char::physicalSkillsSimple() }}</p>
-          <p><strong>Social Skills:</strong> {{ App\Char::socialSkillsSimple() }}</p>
+          <p><strong>Mental Skills:</strong> {{ App\Character::mentalSkillsSimple() }}</p>
+          <p><strong>Physical Skills:</strong> {{ App\Character::physicalSkillsSimple() }}</p>
+          <p><strong>Social Skills:</strong> {{ App\Character::socialSkillsSimple() }}</p>
         </div>
       </div>
     @endif
