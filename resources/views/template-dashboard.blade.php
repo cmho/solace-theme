@@ -150,7 +150,7 @@
           <p><strong>Speed:</strong> {{ get_field('strength', $char->ID)+get_field('dexterity', $char->ID)+5 }}</p>
           <p><strong>Defense:</strong> {{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</p>
           <p><strong>Armor:</strong> {{ get_field('armor', $char->ID) }}</p>
-          <p><strong>Initiative Mod:</strong> {{ get_field('initiative_mod', $char->ID) }}</p>
+          <p><strong>Initiative Mod:</strong> {{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</p>
         </div>
       </div>
     @endif
