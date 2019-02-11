@@ -110,8 +110,39 @@
           <p>{{ App\Character::meritsSimple($char->ID) }}</p>
 
           <h3>Equipment</h3>
-
+          @if(get_field('equipment', $char->ID))
+            <ul>
+              @foreach(get_field('equipment', $char->ID) as $equipment)
+                <li>
+                  <strong>{{ get_the_title($equipment['item']->ID) }}</strong><br />
+                  <dl>
+                    <dt>Type</dt>
+                    <dd>{{ get_field('type', $equipment['item']->ID) }}</dd>
+                    <dt>Size</dt>
+                    <dd>{{ get_field('size', $equipment['item']->ID) }}</dd>
+                    <dt>Durability</dt>
+                    <dd>{{ get_field('durability', $equipment['item']->ID) }}</dd>
+                    <dt>Qualities</dt>
+                    <dd>{{ join(", ", get_field('qualities', $equipment['item']->ID)) }}</dd>
+                    <dt>Notes</dt>
+                    <dd>{{ $equipment['note'] }}</dd>
+                  </dl>
+                </li>
+              @endforeach
+            </ul>
+          @else
+            <p><em>None.</em></p>
+          @endif
           <h3>Conditions</h3>
+          @if(get_field('conditions', $char->ID))
+            <ul class="conditions">
+              @foreach(get_field('conditions', $char->ID) as $condition)
+              <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
+                {{ $condition['note'] }}
+              </li>
+              @endforeach
+            </ul>
+          @else
         </div>
       </div>
     @endif
