@@ -19,7 +19,6 @@ export default {
           security: $('#login #security').val(),
         },
         success: function(data) {
-          console.log(data);
           $('body').fadeOut();
           $('body').load('/dashboard/');
           if (!data.loggedin) {
@@ -160,29 +159,24 @@ export default {
       $.ajax({
         url: ajaxurl,
         method: 'POST',
+        dataType: 'json',
         data: {
           action: 'add_condition',
           condition: condition,
           note: note,
           character: character,
+        },
+        success: function(data) {
+          $conditions.find('.char-conditions').empty();
+          for (var i = 0; i < data.length; i++) {
+            var item =
+              "<li>" +
+              conditionName + (note ? ' (' + note + ')' : '') + ' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
+              '</li>';
+            $conditions.find('.char-conditions').append(item);
+          }
         }
       });
-      var item =
-        "<li>" +
-        conditionName +(note ? ' ('+note+')' : '')+' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
-        '<input type="hidden" name="conditions_' +
-        num +
-        '_condition" value="' +
-        condition +
-        '" /><input type="hidden" name="conditions_' +
-        num +
-        '_note" value="' +
-        note +
-        '" /></li>';
-      $conditions.find(".char-conditions").append(item);
-      $conditions.find('[name="char-conditions"]').val(
-        $conditions.find("ul.char-conditions li").length
-      );
     });
 
     $(".conditions").on("click", ".delete", function () {
