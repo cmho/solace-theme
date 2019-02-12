@@ -212,7 +212,8 @@ export default {
     $('#init-mod-wrapper').on('click', function() {
       var roll = Math.floor(Math.random() * 10) + 1;
       var mod = parseInt($('#initiative-mod').text());
-      console.log(roll+mod);
+      console.log(roll);
+      console.log(mod);
       console.log($('.initiative-roll'));
       $('.initiative-roll').text(roll+mod);
     });
