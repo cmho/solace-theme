@@ -541,6 +541,28 @@ function distributeBeats()
 
 add_action('wp_ajax_distribute_beats', __NAMESPACE__.'\\distributeBeats');
 
+function addCondition()
+{
+    $char = get_post($_POST['character']);
+    $conditions = get_field('conditions', $char->ID);
+    array_push($conditions, array(
+        'condition' => $_POST['condition'],
+        'note' => $_POST['note']
+    ));
+    update_field('conditions', $conditions, $char->ID);
+    echo json_encode(get_field('conditions', $char->ID));
+    die(1);
+}
+
+add_action('wp_ajax_add_condition', __NAMESPACE__.'\\addCondition');
+
+function resolveCondition()
+{
+    return;
+}
+
+add_action('wp_ajax_resolve_condition', __NAMESPACE__.'\\resolveCondition');
+
 function characterData()
 {
     global $post;

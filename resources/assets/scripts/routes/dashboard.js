@@ -151,14 +151,22 @@ export default {
     });
 
     $(".add-condition").on("click", function () {
-      var condition = $(
-        "#conditions_list option:selected"
-      ).val();
-      var conditionName = $(
-        "#conditions_list option:selected"
-      ).text();
-      var num = $(this).parents('.conditions').find(".char-conditions li").length;
-      var note = $("#condition_note").val();
+      var $conditions = $(this).parents('.conditions');
+      var condition = $conditions.find(".conditions_list option:selected").val();
+      var conditionName = $conditions.find(".conditions_list option:selected").text();
+      var num = $conditions.find(".char-conditions li").length;
+      var note = $conditions.find(".condition_note").val();
+      var character = $conditions.parents('li').data('character');
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'add_condition',
+          condition: condition,
+          note: note,
+          character: character,
+        }
+      });
       var item =
         "<li>" +
         conditionName +(note ? ' ('+note+')' : '')+' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
@@ -171,9 +179,9 @@ export default {
         '_note" value="' +
         note +
         '" /></li>';
-      $(this).parents('.conditions').find(".char-conditions").append(item);
-      $('[name="char-conditions"]').val(
-        $(this).parents('.conditions').find("ul.char-conditions li").length
+      $conditions.find(".char-conditions").append(item);
+      $conditions.find('[name="char-conditions"]').val(
+        $conditions.find("ul.char-conditions li").length
       );
     });
 
