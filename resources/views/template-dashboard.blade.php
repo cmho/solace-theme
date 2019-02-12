@@ -45,13 +45,13 @@
                 </div>
                 <div class="conditions">
                   <h4>Conditions</h4>
-                  @if(get_field('conditions'))
-                    <ul class="char-conditions">
+                  <ul class="char-conditions">
+                    @if(get_field('conditions'))
                       @foreach(get_field('conditions') as $condition)
                         <li>{{ $condition['condition']->post_title }}{{ $condition['note'] ? ' ('.$condition['note'].')' : '' }} <button type="button" class="button resolve-button">Resolve</button></li>
                       @endforeach
-                    </ul>
-                  @endif
+                    @endif
+                  </ul>
                   <form id="condition-form">
                     <div class="row">
                       <div class="form-row" id="select-control">
