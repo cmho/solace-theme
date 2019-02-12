@@ -56,15 +56,15 @@
                     <div class="row">
                       <div class="form-row" id="select-control">
                         <label for="conditions_list">Condition</label>
-                        <select id="conditions_list">
+                        <select class="conditions_list" name="condition">
                           @foreach(App\Conditions::list() as $condition)
                             <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
                           @endforeach
                         </select>
                       </div>
                       <div class="form-row" id="note-control">
-                        <label for="condition_note">Note</label>
-                        <input type="text" name="condition_note" id="condition_note" />
+                        <label for="note">Note</label>
+                        <input type="text" name="note" class="condition_note" />
                       </div>
                     </div>
                     <button type="button" class="button small add-condition">Add</button>
