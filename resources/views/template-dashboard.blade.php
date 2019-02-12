@@ -150,7 +150,7 @@
           <p><strong>Speed:</strong> {{ get_field('strength', $char->ID)+get_field('dexterity', $char->ID)+5 }}</p>
           <p><strong>Defense:</strong> {{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</p>
           <p><strong>Armor:</strong> {{ get_field('armor', $char->ID) }}</p>
-          <p><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
+          <p id="init-mod-wrapper"><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
         </div>
       </div>
       <div id="initiative-roller">

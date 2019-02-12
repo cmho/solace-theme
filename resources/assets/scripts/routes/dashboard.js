@@ -209,7 +209,7 @@ export default {
       }
     });
 
-    $('#roll-initiative').on('click', function() {
+    $('#init-mod-wrapper').on('click', function() {
       var roll = (Math.random() * 10) + 1;
       var mod = parseInt($('#initiative-mod').text());
       console.log(roll+mod);
