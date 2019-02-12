@@ -133,17 +133,17 @@
           @endif
 
           <h3>Conditions</h3>
-          @if(get_field('conditions', $char->ID))
             <ul class="conditions">
-              @foreach(get_field('conditions', $char->ID) as $condition)
-              <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
-                {{ $condition['note'] }}
-              </li>
-              @endforeach
+              @if(get_field('conditions', $char->ID))
+                @foreach(get_field('conditions', $char->ID) as $condition)
+                <li><strong>{{ get_the_title($condition['condition']->ID) }}</strong><br />
+                  {{ $condition['note'] }}
+                </li>
+                @endforeach
+              @else
+                <li><em>None.</em></li>
+              @endif
             </ul>
-          @else
-            <p><em>None.</em></p>
-          @endif
 
           <h3>Vitals</h3>
           <p><strong>Size:</strong> {{ get_field('size', $char->ID) }}</p>
