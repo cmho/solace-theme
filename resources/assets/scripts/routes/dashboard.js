@@ -175,7 +175,7 @@ export default {
               '</li>';
             $conditions.find('.char-conditions').append(item);
           }
-        }
+        },
       });
     });
 
