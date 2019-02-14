@@ -545,11 +545,13 @@ function addCondition()
 {
     $char = get_post($_POST['character']);
     $conditions = get_field('conditions', $char->ID);
+    if (!$conditions) {
+        $conditions = array();
+    }
     array_push($conditions, array(
         'condition' => $_POST['condition'],
         'note' => $_POST['note']
     ));
-    print_r($char);
     update_field('conditions', $conditions, $char->ID);
     echo json_encode(get_field('conditions', $char->ID));
     die(1);

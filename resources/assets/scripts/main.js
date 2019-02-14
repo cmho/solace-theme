@@ -14,6 +14,7 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 import templateCharacterList from './routes/characterList';
 import templateDashboard from './routes/dashboard';
+import singleCharacter from './routes/character';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -25,6 +26,7 @@ const routes = new Router({
   aboutUs,
   templateDashboard,
   templateCharacterList,
+  singleCharacter,
 });
 
 // Load Events
