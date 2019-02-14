@@ -179,7 +179,7 @@ export default {
       });
     });
 
-    $(".conditions").on("click", ".delete", function () {
+    $(".char-conditions").on("click", ".delete", function () {
       var yn = confirm(
         "Are you sure you want to delete this condition?"
       );
@@ -188,7 +188,7 @@ export default {
           .parents("li")
           .detach();
         $('[name="conditions"]').val(
-          $("ul.conditions li").length
+          $("ul.char-conditions li").length
         );
       }
     });

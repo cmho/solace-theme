@@ -549,6 +549,7 @@ function addCondition()
         'condition' => $_POST['condition'],
         'note' => $_POST['note']
     ));
+    print_r($char);
     update_field('conditions', $conditions, $char->ID);
     echo json_encode(get_field('conditions', $char->ID));
     die(1);
