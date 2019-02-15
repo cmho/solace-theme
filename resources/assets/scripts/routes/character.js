@@ -159,6 +159,10 @@ export default {
       checkAttributes();
     });
 
+    $(window).on('load', function() {
+      checkAttributes();
+    });
+
     function validateSubmission()
     {
       // check virtue
