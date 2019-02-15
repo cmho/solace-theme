@@ -275,8 +275,13 @@ export default {
       checkAttributes();
     });
 
+    $('#skills-row input').on('change', function() {
+      checkSkills();
+    });
+
     $(window).on('load', function() {
       checkAttributes();
+      checkSkills();
     });
 
     function validateSubmission()
