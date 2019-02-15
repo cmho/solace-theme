@@ -161,15 +161,15 @@ export default {
       var physicals = 0;
       mentals = $('#mental-skills input').map(function() {
         return $(this).val();
-      }).reduce((a, b) => a + b);
+      }).get().reduce((a, b) => a + b);
 
       socials = $('#social-skills input').map(function () {
         return $(this).val();
-      }).reduce((a, b) => a + b);
+      }).get().reduce((a, b) => a + b);
 
       physicals = $('#physical-skills input').map(function () {
         return $(this).val();
-      }).reduce((a, b) => a + b);
+      }).get().reduce((a, b) => a + b);
 
       // general error validation
       if (mentals > 11) {
