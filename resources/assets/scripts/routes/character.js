@@ -170,23 +170,22 @@ export default {
       physicals = $('#physical-skills input').map(function () {
         return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
-      console.log(mentals);
 
       // general error validation
       if (mentals > 11) {
-        $('#mental-count').text((11 - mentals) + " Remaining").addClass('warn').removeClass('hidden');
+        $('#mental-skills-count').text((11 - mentals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
-        $('#mental-count').addClass('hidden');
+        $('#mental-skills-count').addClass('hidden');
       }
       if (physicals > 11) {
-        $('#physical-count').text((11 - physicals) + " Remaining").addClass('warn').removeClass('hidden');
+        $('#physical-skills-count').text((11 - physicals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
-        $('#physical-count').addClass('hidden');
+        $('#physical-skills-count').addClass('hidden');
       }
       if (socials > 11) {
-        $('#social-count').text((11 - socials) + " Remaining").addClass('warn').removeClass('hidden');
+        $('#social-skills-count').text((11 - socials) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
-        $('#social-count').addClass('hidden');
+        $('#social-skills-count').addClass('hidden');
       }
 
       var primary_name = "";
