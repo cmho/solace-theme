@@ -155,6 +155,10 @@ export default {
       }
     }
 
+    $('#attributes-row input').on('change', function() {
+      checkAttributes();
+    });
+
     function validateSubmission()
     {
       // check virtue

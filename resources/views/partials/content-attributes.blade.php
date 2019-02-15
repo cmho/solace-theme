@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="attributes-row">
   <div class="col-xs-12">
     <h3>Attributes</h3>
   </div>
