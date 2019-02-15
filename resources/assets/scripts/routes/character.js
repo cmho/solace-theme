@@ -56,7 +56,7 @@ export default {
     }
 
     function checkSkillSpecialties() {
-      var skillSpCount = parseInt($('[name="skill_specialties"]').val());
+      var skillSpCount = $('.skill-specialties li').length;
       $('#skill-specialty-count').text((3 - skillSpCount)+" Remaining");
       if (skillSpCount > 3) {
         $('#skill-specialty-count').addClass('warn');
