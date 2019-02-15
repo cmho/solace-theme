@@ -249,6 +249,12 @@ export default {
             tertiary_val = mentals;
           }
         }
+        console.log(primary_name);
+        console.log(primary_val);
+        console.log(secondary_name);
+        console.log(secondary_val);
+        console.log(tertiary_name);
+        console.log(tertiary_val);
         if (primary_val > 11) {
           $('#' + primary_name + "-skills-count").removeClass('hidden').addClass('warn').text((11 - primary_val) + " Remaining");
         } else {
