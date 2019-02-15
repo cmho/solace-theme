@@ -71,10 +71,10 @@
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
                 </div>
-              </div>
-              <div class="notes">
-                <h4>Storyteller Notes</h4>
-                <textarea name="st_notes">{!! get_field('st_notes') !!}</textarea>
+                <div class="notes">
+                  <h4>Storyteller Notes</h4>
+                  <textarea name="st_notes">{!! get_field('st_notes') !!}</textarea>
+                </div>
               </div>
             </li>
           @endforeach
