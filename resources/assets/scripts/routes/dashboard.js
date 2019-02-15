@@ -171,7 +171,7 @@ export default {
           for (var i = 0; i < data.length; i++) {
             var item =
               "<li>" +
-              conditionName + (note ? ' (' + note + ')' : '') + ' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
+              data.condition + (data.note ? ' (' + data.note + ')' : '') + ' <button class="delete" type="button"><i class="fas fa-trash"></i><span class="sr-only">Resolve</span></button>' +
               '</li>';
             $conditions.find('.char-conditions').append(item);
           }
