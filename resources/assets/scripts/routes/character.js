@@ -46,6 +46,8 @@ export default {
       });
 
       $('#merit-count').text((17 - meritCount)+" Remaining");
+      $('#merit-count').removeClass('hidden');
+
       if (meritCount > 17) {
         $('#merit-count').addClass('warn');
       } else {
