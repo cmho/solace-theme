@@ -4,6 +4,11 @@ export default {
 
     $(window).on('load', function() {
       jQuery('html').attr("style", "margin-top: 0px !important");
+      var charstring = getCookie('opencharacters');
+      var characters = JSON.parse(charstring);
+      characters.forEach(function(elt) {
+        $('ol li[data-character="'+elt+'"]').addClass('open');
+      });
     });
 
     $('#login').on('submit', function(e) {
@@ -33,6 +38,10 @@ export default {
       e.preventDefault();
       $(this).parents('li').toggleClass('open');
       $(this).parents('li').find('.character-content').slideToggle();
+      var openItems = JSON.stringify($(this).parents('li.open').map(function() {
+        return $(this).data('character');
+      }).get());
+      createCookie('openCharacters', openItems);
     });
 
     $('.health').on('click', 'a.fa-stack', function (e) {
