@@ -170,6 +170,7 @@ export default {
       physicals = $('#physical-skills input').map(function () {
         return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
+      console.log(mentals);
 
       // general error validation
       if (mentals > 11) {
