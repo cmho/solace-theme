@@ -358,7 +358,7 @@
           <h3>Questionnaire</h3>
           <dl class="questionnaire">
             <!--
-              {{ get_field_object('backstory') }}
+              {{ get_field('backstory') }}
               @php(print_r(App\Character::questionnaire()))
             -->
             @foreach(App\Character::questionnaire() as $q)
