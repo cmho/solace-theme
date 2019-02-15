@@ -130,6 +130,7 @@ class Character extends Controller
 
     public static function questionnaire()
     {
+        global $post;
         $questionnaire = array();
         array_push($questionnaire, get_field_object('backstory'));
         array_push($questionnaire, get_field_object('connections'));
