@@ -176,6 +176,8 @@
         <input type="hidden" name="subterfuge" value="{{ get_field('subterfuge') }}" />
       </div>
     </div>
+  </div>
+  <div id="skill-specialties">
     <h3>Skill Specialties</h3>
     <div class="row specialty-form-row">
       <select id="skills_list">

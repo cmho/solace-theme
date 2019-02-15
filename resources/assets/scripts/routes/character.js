@@ -159,6 +159,7 @@ export default {
       var mentals = 0;
       var socials = 0;
       var physicals = 0;
+
       mentals = $('#mental-skills input').map(function() {
         return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
@@ -170,6 +171,7 @@ export default {
       physicals = $('#physical-skills input').map(function () {
         return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
+
       console.log(mentals);
       console.log(socials);
       console.log(physicals);
