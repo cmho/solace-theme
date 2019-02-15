@@ -52,7 +52,7 @@
                       @endforeach
                     @endif
                   </ul>
-                  <form id="condition-form">
+                  <form class="condition-form">
                     <div class="row">
                       <div class="form-row" id="select-control">
                         <label for="conditions_list">Condition</label>
@@ -71,6 +71,10 @@
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
                 </div>
+              </div>
+              <div class="notes">
+                <h4>Storyteller Notes</h4>
+                <textarea name="st_notes">{!! get_field('st_notes') !!}</textarea>
               </div>
             </li>
           @endforeach

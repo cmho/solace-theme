@@ -361,6 +361,10 @@
               <dt>{{ $q['label'] }}</dt>
               <dd>{!! $q['value'] !!}</dd>
             @endforeach
+            @if(App::isAdmin())
+              <dt>Storyteller Notes</dt>
+              <dd>{!! get_field('st_notes') !!}</dd>
+            @endif
           </dl>
         </div>
       </div>
