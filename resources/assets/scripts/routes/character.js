@@ -55,6 +55,16 @@ export default {
       }
     }
 
+    function checkSkillSpecialties() {
+      var skillSpCount = parseInt($('[name="skill_specialties"]').val());
+      $('#skill-specialty-count').text((3 - skillSpCount)+" Remaining");
+      if (skillSpCount > 3) {
+        $('#skill-specialty-count').addClass('warn');
+      } else {
+        $('#skill-specialty-count').removeClass('warn');
+      }
+    }
+
     function updateWillpower() {
       var amt = 5 + parseInt($('input[name="resolve"]').val());
       var str = "";
@@ -330,6 +340,7 @@ export default {
       $('[name="skill_specialties"]').val(
         $("ul.skill-specialties li").length
       );
+      checkSkillSpecialties();
     });
 
     $(".skill-specialties").on("click", ".delete", function () {
@@ -344,6 +355,7 @@ export default {
           $("ul.skill-specialties li").length
         );
       }
+      checkSkillSpecialties();
     });
 
     $("#character-sheet #add-condition").on("click", function () {
@@ -674,6 +686,7 @@ export default {
       checkAttributes();
       checkSkills();
       checkMerits();
+      checkSkillSpecialties();
     });
 
     function validateSubmission()

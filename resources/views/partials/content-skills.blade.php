@@ -178,7 +178,7 @@
     </div>
   </div>
   <div id="skill-specialties">
-    <h3>Skill Specialties</h3>
+    <h3>Skill Specialties <span id="skill-specialty-count"></span></h3>
     <div class="row specialty-form-row">
       <select id="skills_list">
         @foreach(get_field_object("field_5c45fad0556fd")['choices'] as $value=>$label)
