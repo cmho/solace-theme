@@ -160,15 +160,15 @@ export default {
       var socials = 0;
       var physicals = 0;
       mentals = $('#mental-skills input').map(function() {
-        return $(this).val();
+        return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
 
       socials = $('#social-skills input').map(function () {
-        return $(this).val();
+        return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
 
       physicals = $('#physical-skills input').map(function () {
-        return $(this).val();
+        return parseInt($(this).val());
       }).get().reduce((a, b) => a + b);
 
       // general error validation
