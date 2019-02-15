@@ -16,9 +16,9 @@ export default {
     }
 
     function checkAttributes() {
-      var mentals = parseInt($('[name="intelligence"]').val()) + parseInt($('[name="wits"]').val()) + parseInt($('[name="resolve"]').val());
-      var physicals = parseInt($('[name="strength"]').val()) + parseInt($('[name="dexterity"]').val()) + parseInt($('[name="stamina"]').val());
-      var socials = parseInt($('[name="presence"]').val()) + parseInt($('[name="manipulation"]').val()) + parseInt($('[name="composure"]').val());
+      var mentals = parseInt($('[name="intelligence"]').val()) + parseInt($('[name="wits"]').val()) + parseInt($('[name="resolve"]').val()) - 3;
+      var physicals = parseInt($('[name="strength"]').val()) + parseInt($('[name="dexterity"]').val()) + parseInt($('[name="stamina"]').val()) - 3;
+      var socials = parseInt($('[name="presence"]').val()) + parseInt($('[name="manipulation"]').val()) + parseInt($('[name="composure"]').val()) - 3;
 
       // general error validation
       if (mentals > 6) {
