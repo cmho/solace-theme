@@ -6,6 +6,22 @@
     letter-spacing: 1px;
   }
 
+  h4 {
+    span {
+      padding: 3px 5px;
+      font-weight: bold;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.warn {
+        background-color: $yellow;
+        color: $grey;
+      }
+    }
+  }
+
   input:not([type="checkbox"]):not([type="submit"]):not([type="radio"]),
   textarea {
     width: 100%;

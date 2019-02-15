@@ -3,7 +3,7 @@
     <h3>Attributes</h3>
   </div>
   <div class="col-md-4 col-xs-12">
-    <h4>Mental <span id="mental-count"></span></h4>
+    <h4>Mental <span id="mental-count" class="hidden"></span></h4>
     <div class="row between-xs middle-xs">
       <label>Intelligence</label>
       <div class="dots">
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="col-md-4 col-xs-12">
-    <h4>Physical <span id="physical-count"></span></h4>
+    <h4>Physical <span id="physical-count" class="hidden"></span></h4>
     <div class="row between-xs middle-xs">
       <label>Strength</label>
       <div class="dots">
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="col-md-4 col-xs-12">
-    <h4>Social <span id="social-count"></span></h4>
+    <h4>Social <span id="social-count" class="hidden"></span></h4>
     <div class="row between-xs middle-xs">
       <label>Presence</label>
       <div class="dots">
