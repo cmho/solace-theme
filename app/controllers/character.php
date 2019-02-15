@@ -132,16 +132,16 @@ class Character extends Controller
     {
         global $post;
         $questionnaire = array();
-        array_push($questionnaire, get_field_object('backstory'));
-        array_push($questionnaire, get_field_object('connections'));
-        array_push($questionnaire, get_field_object('complications'));
-        array_push($questionnaire, get_field_object('supernatural'));
-        array_push($questionnaire, get_field_object('massacre'));
-        array_push($questionniare, get_field_object('survive'));
-        array_push($questionnaire, get_field_object('loss'));
-        array_push($questionnaire, get_field_object('hobbies'));
-        array_push($questionnaire, get_field_object('coping'));
-        array_push($questionnaire, get_field_object('anything_else'));
+        array_push($questionnaire, get_field_object('field_5bf38a8987e1d')); // backstory
+        array_push($questionnaire, get_field_object('field_5c36bd1092798')); // connections
+        array_push($questionnaire, get_field_object('field_5bf38ac987e1e')); // complications
+        array_push($questionnaire, get_field_object('field_5c36bd4792799')); // supernatural
+        array_push($questionnaire, get_field_object('field_5bf38ae787e1f')); // massacre
+        array_push($questionniare, get_field_object('field_5bf38b0687e20')); // survive
+        array_push($questionnaire, get_field_object('field_5bf38b3187e21')); // loss
+        array_push($questionnaire, get_field_object('field_5bf38b3d87e22')); // hobbies
+        array_push($questionnaire, get_field_object('field_5bf38b4987e23')); // coping
+        array_push($questionnaire, get_field_object('field_5c36bd6d9279a')); // anything else
         return $questionnaire;
     }
 

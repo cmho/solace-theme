@@ -357,9 +357,6 @@
         <div class="col-xs-12">
           <h3>Questionnaire</h3>
           <dl class="questionnaire">
-            <!--
-              @php(print_r(get_field_object('backstory', $post->ID)))
-            -->
             @foreach(App\Character::questionnaire() as $q)
               <dt>{{ $q['label'] }}</dt>
               <dd>{!! $q['value'] !!}</dd>
