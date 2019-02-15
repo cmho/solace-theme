@@ -155,6 +155,122 @@ export default {
       }
     }
 
+    function checkSkills() {
+      var mentals = 0;
+      var socials = 0;
+      var physicals = 0;
+      mentals = $('#mental-skills input').map(function() {
+        return $(this).val();
+      }).reduce((a, b) => a + b);
+
+      socials = $('#social-skills input').map(function () {
+        return $(this).val();
+      }).reduce((a, b) => a + b);
+
+      physicals = $('#physical-skills input').map(function () {
+        return $(this).val();
+      }).reduce((a, b) => a + b);
+
+      // general error validation
+      if (mentals > 11) {
+        $('#mental-count').text((11 - mentals) + " Remaining").addClass('warn').removeClass('hidden');
+      } else {
+        $('#mental-count').addClass('hidden');
+      }
+      if (physicals > 11) {
+        $('#physical-count').text((11 - physicals) + " Remaining").addClass('warn').removeClass('hidden');
+      } else {
+        $('#physical-count').addClass('hidden');
+      }
+      if (socials > 11) {
+        $('#social-count').text((11 - socials) + " Remaining").addClass('warn').removeClass('hidden');
+      } else {
+        $('#social-count').addClass('hidden');
+      }
+
+      var primary_name = "";
+      var secondary_name = "";
+      var tertiary_name = "";
+      var primary_val = 0;
+      var secondary_val = 0;
+      var tertiary_val = 0;
+
+      // if user has allocated all dots (or has too many)
+      if (mentals + physicals + socials >= 22) {
+        if (mentals >= physicals && mentals >= socials) {
+          primary_name = "mental";
+          primary_val = mentals;
+          // mental is primary category
+          if (physicals >= socials) {
+            // physical is secondary
+            secondary_name = "physical";
+            secondary_val = physicals;
+            tertiary_name = "social";
+            tertiary_val = socials;
+          } else {
+            // social is secondary
+            secondary_name = "social";
+            secondary_val = socials;
+            tertiary_name = "physical";
+            tertiary_val = physicals;
+          }
+        } else if (physicals >= mentals && physicals >= socials) {
+          // physical is primary
+          primary_name = "physical";
+          primary_val = physicals;
+          if (mentals >= socials) {
+            // mental is secondary
+            secondary_name = "mental";
+            secondary_val = mentals;
+            tertiary_name = "social";
+            tertiary_val = socials;
+          } else {
+            // social is secondary
+            secondary_name = "social";
+            secondary_val = socials;
+            tertiary_name = "mental";
+            tertiary_val = mentals;
+          }
+        } else {
+          // social is primary
+          primary_name = "social";
+          primary_val = socials;
+          if (mentals >= physicals) {
+            // mental is secondary
+            secondary_name = "mental";
+            secondary_val = mentals;
+            tertiary_name = "physical";
+            tertiary_val = physicals;
+          } else {
+            // physical is secondary
+            secondary_name = "physical";
+            secondary_val = physicals;
+            tertiary_name = "mental";
+            tertiary_val = mentals;
+          }
+        }
+        if (primary_val > 11) {
+          $('#' + primary_name + "-skills-count").removeClass('hidden').addClass('warn').text((11 - primary_val) + " Remaining");
+        } else {
+          $('#' + primary_name + "-skills-count").addClass('hidden');
+        }
+        if (secondary_val > 7) {
+          $('#' + secondary_name + "-skills-count").removeClass('hidden').addClass('warn').text((7 - secondary_val) + " Remaining");
+        } else if (secondary_val < 7) {
+          $('#' + secondary_name + "-skills-count").removeClass('hidden').removeClass('warn').text((7 - secondary_val) + "Remaining");
+        } else {
+          $('#' + secondary_name).addClass('hidden');
+        }
+        if (tertiary_val > 4) {
+          $('#' + tertiary_name + "-skills-count").removeClass('hidden').addClass('warn').text((4 - tertiary_val) + " Remaining");
+        } else if (tertiary_val < 4) {
+          $('#' + tertiary_name + "-skills-count").removeClass('hidden').removeClass('warn').text((4 - tertiary_val) + " Remaining");
+        } else {
+          $('#' + tertiary_name + "-skills-count").addClass('hidden');
+        }
+      }
+    }
+
     $('#attributes-row input').on('change', function() {
       checkAttributes();
     });
