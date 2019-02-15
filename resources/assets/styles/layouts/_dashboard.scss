@@ -20,11 +20,11 @@
     margin: 0.25em 0;
   }
 
-  ol {
+  ol.characters {
     list-style: none;
     padding: 0;
 
-    li {
+    > li {
       margin-bottom: 0;
       border: 3px white solid;
 
@@ -120,6 +120,15 @@
 
   .conditions {
     margin-bottom: 1em;
+  }
+
+  .char-conditions {
+    list-style: none;
+
+    button {
+      border: 0;
+      padding: 0;
+    }
   }
 
   .fa-stack {
