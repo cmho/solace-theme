@@ -358,7 +358,7 @@
           <h3>Questionnaire</h3>
           <dl class="questionnaire">
             <!--
-              @php(get_field_object('backstory', get_the_ID()))
+              @php(get_field_object('backstory', $post->ID))
             -->
             @foreach(App\Character::questionnaire() as $q)
               <dt>{{ $q['label'] }}</dt>
