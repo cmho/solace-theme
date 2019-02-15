@@ -39,6 +39,20 @@ export default {
         .change();
     });
 
+    function checkMerits() {
+      var meritCount = 0;
+      $('[name^="merits_"][name$="_rating"]').each(function() {
+        meritCount += parseInt($(this).val());
+      });
+
+      $('#merit-count').text((17 - meritCount)+" Remaining");
+      if (meritCount > 17) {
+        $('#merit-count').addClass('warn');
+      } else {
+        $('#merit-count').removeClass('warn');
+      }
+    }
+
     function updateWillpower() {
       var amt = 5 + parseInt($('input[name="resolve"]').val());
       var str = "";
@@ -171,6 +185,7 @@ export default {
           $('[name="merits"]').val($("ul.merits li").length);
         },
       });
+      checkMerits();
     });
 
     $(".merits").on("click", ".edit", function () {
@@ -656,6 +671,7 @@ export default {
     $(window).on('load', function() {
       checkAttributes();
       checkSkills();
+      checkMerits();
     });
 
     function validateSubmission()
