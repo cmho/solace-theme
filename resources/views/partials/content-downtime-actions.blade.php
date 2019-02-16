@@ -30,7 +30,8 @@
         @if(get_field('response', $downtime) && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
           <hr />
           <div class="response">
-              {!! get_field('response', $downtime) !!}
+            @php(the_field('response', $downtime))
+              {!! get_field('response', $downtime->ID) !!}
           </div>
         @endif
         @if(App\App::isAdmin())
