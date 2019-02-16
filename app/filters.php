@@ -402,14 +402,13 @@ function respond_to_downtime()
     $id = intval(htmlspecialchars($_POST['id']));
     $args = array(
         'post_type' => 'downtime',
+        'post_status' => 'publish',
         'ID' => $id,
         'meta_input' => array(
             'response' => htmlspecialchars($_POST['response'])
         )
     );
     $action = wp_insert_post($args);
-    print_r(get_permalink($id));
-    die(1);
     header('Location:'.get_permalink($id));
     die(1);
 }
