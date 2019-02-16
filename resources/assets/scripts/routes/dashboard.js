@@ -93,7 +93,7 @@ export default {
       });
       $(this).parent('.health').attr('data-health', current_health);
 
-      var character = parseInt($(this).parents('li').data('character'));
+      var character = parseInt($(this).parents('.character').data('character'));
 
       $.ajax({
         url: ajaxurl,
@@ -130,7 +130,7 @@ export default {
         }
       });
       $(this).parent('.willpower').attr('data-willpower', current_willpower);
-      var character = parseInt($(this).parents('li').data('character'));
+      var character = parseInt($(this).parents('.character').data('character'));
 
       $.ajax({
         url: ajaxurl,
@@ -144,7 +144,7 @@ export default {
     });
 
     $('.breaking-point').on('click', function() {
-      var character = parseInt($(this).parents('li').data('character'));
+      var character = parseInt($(this).parents('.character').data('character'));
       var $num = $(this).siblings('span').first();
       $.ajax({
         url: ajaxurl,

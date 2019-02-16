@@ -28,7 +28,7 @@
         <ol class="characters">
           @foreach(App\Characters::activeList() as $post)
             @php(setup_postdata($post))
-            <li data-character="{{ $post->ID }}">
+            <li class="character" data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
               <div class="character-content">
                 <div class="health" data-health="{{ get_field('current_health') }}">
@@ -84,7 +84,7 @@
     </section>
   @elseif(App::isLoggedIn())
     @if($char)
-      <div class="character-sheet" data-id="{{ $char->ID }}">
+      <div class="character-sheet character" data-character="{{ $char->ID }}">
         <h2>{{ get_the_title($char->ID) }}</h2>
         <div class="character-content">
           <div class="health" data-health="{{ get_field('current_health', $char->ID) }}">
