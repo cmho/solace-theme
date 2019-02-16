@@ -410,7 +410,7 @@ add_action('admin_post_update_downtime', __NAMESPACE__.'\\update_downtime');
 function respond_to_downtime()
 {
     global $purifier;
-    $id = intval($purifier->purify($_POST['id']));
+    $id = intval($_POST['id']);
     $args = array(
         'post_type' => 'downtime',
         'post_status' => 'publish',
