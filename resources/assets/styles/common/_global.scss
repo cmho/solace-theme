@@ -104,6 +104,12 @@ section {
     a {
       color: $grey;
     }
+    button,
+    .button,
+    input[type="submit"] {
+      border-color: $grey;
+      color: $grey;
+    }
     .box {
       &:before,
       &:after {
