@@ -395,15 +395,16 @@ add_action('admin_post_update_downtime', __NAMESPACE__.'\\update_downtime');
 
 function respond_to_downtime()
 {
+    $id = intval(htmlspecialchars($_POST['id']));
     $args = array(
         'post_type' => 'downtime',
-        'ID' => intval(htmlspecialchars($_POST['id'])),
+        'ID' => $id,
         'meta_input' => array(
             'response' => htmlspecialchars($_POST['response'])
         )
     );
     $action = wp_insert_post($args);
-    header('Location:'.get_permalink($action));
+    header('Location:'.get_permalink($id));
     die(1);
 }
 
