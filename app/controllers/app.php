@@ -116,7 +116,7 @@ class App extends Controller
                 array(
                     'key' => 'downtimes_open',
                     'value' => $date->format('Y-m-d'),
-                    'compare' => '<='
+                    'compare' => '>='
                 )
             )
         ));
