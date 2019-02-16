@@ -8,12 +8,22 @@ class Downtimes extends Controller
 {
     public static function listDowntimes()
     {
+        $tz = \DateTimeZone('America/Chicago');
+        $date = \DateTime('now', $tz);
         $games = \get_posts(array(
             'post_type' => 'game',
             'posts_per_page' => -1,
             'meta_key' => 'downtimes_open',
             'orderby' => 'meta_key',
-            'order' => 'DESC'
+            'order' => 'DESC',
+            'meta_query' => array(
+                array(
+                    'key' => 'downtimes_open',
+                    'value' => $date->format('Y-m-d'),
+                    'compare' => '<=',
+                    'type' => 'DATE'
+                )
+            )
         ));
 
         $actions = array();

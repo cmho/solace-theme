@@ -54,7 +54,8 @@ use Roots\Sage\Container;
 \register_post_type('experience', array(
     'label' => 'Experience',
     'public' => true,
-    'supports' => array('title')
+    'supports' => array('title'),
+    'menu_icon' => 'dashicons-star-filled'
 ));
 
 \register_post_type('condition', array(
@@ -65,5 +66,13 @@ use Roots\Sage\Container;
 
 \register_post_type('beat', array(
     'label' => 'Beat',
-    'public' => true
+    'public' => true,
+    'menu_icon' => 'dashicons-star-half'
+));
+
+\register_post_type('rumor', array(
+    'label' => 'Rumor',
+    'public' => true,
+    'supports' => array('title', 'editor', 'page-attributes'),
+    'menu_icon' => 'dashicons-testimonial'
 ));
