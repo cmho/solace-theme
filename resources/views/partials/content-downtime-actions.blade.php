@@ -18,6 +18,7 @@
   @if($downtimes)
     @foreach($downtimes as $post)
       @php(setup_postdata($post))
+      @php(print_r(get_field('character')))
       @php
         $char = get_field('character');
       @endphp
