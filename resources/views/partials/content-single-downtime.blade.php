@@ -23,7 +23,7 @@
     </div>
   </div>
 </section>
-@if($_GET['mode'] == 'respond' && App\App::isAdmin())
+@if(App\App::isAdmin())
   <section id="respond" class="yellow">
     <div class="wrapper">
       <div class="row">

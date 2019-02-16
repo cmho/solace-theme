@@ -407,6 +407,8 @@ function respond_to_downtime()
     die(1);
 }
 
+add_action('admin_post_downtime_response', __NAMESPACE__.'\\respond_to_downtime');
+
 function delete_character()
 {
     wp_delete_post($_POST['id'], false);

@@ -34,7 +34,7 @@
           </div>
         @endif
         @if(App\App::isAdmin())
-          <a href="{{ get_the_permalink($downtime) }}/?mode=respond">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
+          <a href="{{ get_the_permalink($downtime) }}/#response">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
         @endif
       </div>
     @endforeach
