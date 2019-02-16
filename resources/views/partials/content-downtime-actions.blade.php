@@ -18,7 +18,7 @@
     @foreach($downtimes as $downtime)
       <div class="downtime">
         @php
-          $char = get_post(get_field('character')->ID);
+          $char = get_post(get_field('character', $downtime->ID)->ID);
         @endphp
         <h4>{{ $downtime->post_title }}</h4>
         <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
