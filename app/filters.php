@@ -408,7 +408,7 @@ function respond_to_downtime()
             'response' => htmlspecialchars($_POST['response'])
         )
     );
-    $action = wp_insert_post($args);
+    $action = wp_update_post($args);
     header('Location:'.get_permalink($id));
     die(1);
 }
