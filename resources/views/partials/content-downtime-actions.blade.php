@@ -25,7 +25,7 @@
         <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
         <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
         <div class="description">
-          {!! get_field('description', $downtime) !!}
+          {!! get_field('description', $downtime->ID) !!}
         </div>
         @if(get_field('response', $downtime) && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
           <hr />

@@ -1,6 +1,10 @@
 <?php
-
 namespace App;
+
+$config = HTMLPurifier_Config::createDefault();
+$config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+$config->set('URI.MakeAbsolute', true);
+$purifier = new HTMLPurifier($config);
 
 /**
  * Add <body> classes
@@ -134,6 +138,7 @@ add_filter('wp_post_revision_meta_keys', __NAMESPACE__.'\\add_meta_keys_to_revis
 
 function update_character()
 {
+    global $purifier;
     $post_content = array(
         'post_title' => htmlspecialchars($_POST['post_title']),
         'post_author' => htmlspecialchars($_POST['author']),
@@ -153,8 +158,8 @@ function update_character()
             'status' => htmlspecialchars($_POST['status']),
             'virtue' => htmlspecialchars($_POST['virtue']),
             'vice' => htmlspecialchars($_POST['vice']),
-            'quote' => htmlspecialchars($_POST['quote']),
-            'public_blurb' => htmlspecialchars($_POST['public_blurb']),
+            'quote' => $purifier->purify($_POST['quote']),
+            'public_blurb' => $purifier->purify($_POST['public_blurb']),
             'academics' => htmlspecialchars($_POST['academics']),
             'computer' => htmlspecialchars($_POST['computer']),
             'crafts' => htmlspecialchars($_POST['crafts']),
@@ -186,16 +191,17 @@ function update_character()
             'current_willpower' => htmlspecialchars($_POST['current_willpower']),
             'health' => intval(htmlspecialchars($_POST['health'])),
             'willpower' => intval(htmlspecialchars($_POST['willpower'])),
-            "backstory" => !empty($_POST['backstory']) ? htmlspecialchars($_POST['backstory']) : ' ',
-            "connections" => !empty($_POST['connections']) ? htmlspecialchars($_POST['connections']) : ' ',
-            "complications" => !empty($_POST['complications']) ? htmlspecialchars($_POST['complications']) : ' ',
-            "supernatural" => !empty($_POST['supernatural']) ? htmlspecialchars($_POST['supernatural']) : ' ',
-            "massacre" => !empty($_POST['massacre']) ? htmlspecialchars($_POST['massacre']) : ' ',
-            "survive" => !empty($_POST['survive']) ? htmlspecialchars($_POST['survive']) : ' ',
-            "loss" => !empty($_POST['loss']) ? htmlspecialchars($_POST['loss']) : ' ',
-            "hobbies" => !empty($_POST['hobbies']) ? htmlspecialchars($_POST['hobbies']) : ' ',
-            "coping" => !empty($_POST['coping']) ? htmlspecialchars($_POST['coping']) : ' ',
-            "anything_else" => !empty($_POST['anything_else']) ? htmlspecialchars($_POST['anything_else']) : ' '
+            "backstory" => !empty($_POST['backstory']) ? $purifier->purify($_POST['backstory']) : ' ',
+            "connections" => !empty($_POST['connections']) ? $purifier->purify($_POST['connections']) : ' ',
+            "complications" => !empty($_POST['complications']) ? $purifier->purify($_POST['complications']) : ' ',
+            "supernatural" => !empty($_POST['supernatural']) ? $purifier->purify($_POST['supernatural']) : ' ',
+            "massacre" => !empty($_POST['massacre']) ? $purifier->purify($_POST['massacre']) : ' ',
+            "survive" => !empty($_POST['survive']) ? $purifier->purify($_POST['survive']) : ' ',
+            "loss" => !empty($_POST['loss']) ? $purifier->purify($_POST['loss']) : ' ',
+            "hobbies" => !empty($_POST['hobbies']) ? $purifier->purify($_POST['hobbies']) : ' ',
+            "coping" => !empty($_POST['coping']) ? $purifier->purify($_POST['coping']) : ' ',
+            "anything_else" => !empty($_POST['anything_else']) ? $purifier->purify($_POST['anything_else']) : ' ',
+            "st_notes" => !empty($_POST['st_notes']) ? $purifier->purify($_POST['st_notes']) : ' '
         )
     );
 
@@ -379,8 +385,8 @@ function update_downtime()
         'ID' => intval(htmlspecialchars($_POST['id'])),
         'post_status' => 'publish',
         'post_author' => htmlspecialchars($_POST['author']),
-        'post_title' => htmlspecialchars($_POST['post_title']),
-        'post_content' => htmlspecialchars($_POST['post_content']),
+        'post_title' => $_POST['post_title'],
+        'post_content' => $_POST['post_content'],
         'meta_input' => array(
             'character' => intval(htmlspecialchars($_POST['character'])),
             'game' => intval(htmlspecialchars($_POST['game'])),
