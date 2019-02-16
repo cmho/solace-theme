@@ -39,8 +39,8 @@
           $character = $char[0];
         @endphp
         <input type="hidden" name="character" value="{{ $character->ID }}" />
-        <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod()->ID }}" />
       @endif
+      <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod()->ID }}" />
       <div class="form-row">
         <label for="action_type">Action Type</label>
         <select name="action_type">
