@@ -57,7 +57,6 @@ export default {
       d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
       var expires = "expires=" + d.toUTCString();
       document.cookie = 'openCharacters='+openItems+';'+expires+';path=/';
-      createCookie('openCharacters', openItems);
     });
 
     $('.health').on('click', 'a.fa-stack', function (e) {
