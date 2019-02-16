@@ -7,7 +7,6 @@ export default {
       var name = 'openCharacters' + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(";");
-      console.log(ca);
       for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == " ") {
@@ -16,9 +15,9 @@ export default {
         if (c.indexOf(name) == 0) {
           var charstring = c.substring(name.length, c.length);
           var characters = JSON.parse(charstring);
-          console.log(characters);
           characters.forEach(function(elt) {
             $('ol li[data-character="' + elt + '"]').addClass("open");
+            $('ol li[data-character="' + elt + '"]').find('.character-content').slideDown();
           });
           break;
         }
