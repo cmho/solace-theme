@@ -11,7 +11,7 @@
       $gamepost = get_post($game);
   @endphp
   <h3>{{ $gamepost->post_title }}</h3>
-  @if(date('Ymd') >= get_field('downtimes_open', $game) && date('Ymd') <= get_field('downtimes_close', $game))
+  @if(date('Y-m-d') >= get_field('downtimes_open', $game) && date('Y-m-d') <= get_field('downtimes_close', $game))
       <p class="downtime-status">Downtimes are currently <strong>open</strong>. They will close at 11:59 PM on {{ date('m/d/y', strtotime(get_field('downtimes_close', $game))) }}.</p>
   @endif
   @if($downtimes)
