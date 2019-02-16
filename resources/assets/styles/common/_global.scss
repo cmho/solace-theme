@@ -72,6 +72,12 @@ h4 {
   }
 }
 
+hr {
+  background-color: none;
+  border: none;
+  border-bottom: 1px $yellow dashed;
+}
+
 main {
   padding: 0;
 }
