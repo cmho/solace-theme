@@ -32,7 +32,8 @@
         </div>
         <div class="col-md-8 col-xs-12">
           <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
-            <textarea name="response"></textarea>
+            <textarea name="response">{!! get_field('response') !!}</textarea>
+            <button type="submit" class="button">Respond</button>
             <input type="hidden" name="action" value="downtime_response" />
           </form>
         </div>
