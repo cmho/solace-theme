@@ -1,4 +1,5 @@
 @php
+  global $post;
   $user = wp_get_current_user();
 @endphp
 @if(App\App::currentDowntimePeriod())
@@ -16,13 +17,14 @@
   @endif
   @if($downtimes)
     @foreach($downtimes as $downtime)
+      @php(setup_postdata($downtime))
       <div class="downtime box">
         <div class="content">
           @php
             $char = get_post(get_field('character', $downtime->ID)->ID);
           @endphp
           <h4>{{ $downtime->post_title }}</h4>
-          @php(apply_filters('the_content', $downtime->post_content))
+          @php(the_content())
           <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
           <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
           <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
@@ -42,6 +44,7 @@
         </div>
       </div>
     @endforeach
+    @php(wp_reset_postdata())
   @else
     <p><em>No downtimes for this game.</em></p>
   @endif
