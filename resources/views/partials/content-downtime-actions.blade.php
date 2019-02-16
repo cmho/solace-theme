@@ -1,7 +1,7 @@
 @php
   $user = wp_get_current_user();
 @endphp
-@if(App\currentDowntimePeriod())
+@if(App\App::currentDowntimePeriod())
   <div class="button-row right">
     <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
   </div>
