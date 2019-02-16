@@ -412,7 +412,10 @@ add_action('admin_post_update_downtime', __NAMESPACE__.'\\update_downtime');
 
 function respond_to_downtime()
 {
-    global $purifier;
+    $config = \HTMLPurifier_Config::createDefault();
+    $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+    $config->set('URI.MakeAbsolute', true);
+    $purifier = new \HTMLPurifier($config);
     $id = intval($_POST['id']);
     $args = array(
         'post_type' => 'downtime',
