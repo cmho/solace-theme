@@ -140,57 +140,57 @@ function update_character()
 {
     global $purifier;
     $post_content = array(
-        'post_title' => htmlspecialchars($_POST['post_title']),
-        'post_author' => htmlspecialchars($_POST['author']),
+        'post_title' => $purifier->purify($_POST['post_title']),
+        'post_author' => $purifier->purify($_POST['author']),
         'post_type' => 'character',
         'post_status' => 'publish',
         'meta_input' => array(
-            'intelligence' => htmlspecialchars($_POST['intelligence']),
-            'wits' => htmlspecialchars($_POST['wits']),
-            'resolve' => htmlspecialchars($_POST['resolve']),
-            'strength' => htmlspecialchars($_POST['strength']),
-            'dexterity' => htmlspecialchars($_POST['dexterity']),
-            'stamina' => htmlspecialchars($_POST['stamina']),
-            'presence' => htmlspecialchars($_POST['presence']),
-            'manipulation' => htmlspecialchars($_POST['manipulation']),
-            'composure' => htmlspecialchars($_POST['composure']),
-            'family' => htmlspecialchars($_POST['family']),
-            'status' => htmlspecialchars($_POST['status']),
-            'virtue' => htmlspecialchars($_POST['virtue']),
-            'vice' => htmlspecialchars($_POST['vice']),
+            'intelligence' => $purifier->purify($_POST['intelligence']),
+            'wits' => $purifier->purify($_POST['wits']),
+            'resolve' => $purifier->purify($_POST['resolve']),
+            'strength' => $purifier->purify($_POST['strength']),
+            'dexterity' => $purifier->purify($_POST['dexterity']),
+            'stamina' => $purifier->purify($_POST['stamina']),
+            'presence' => $purifier->purify($_POST['presence']),
+            'manipulation' => $purifier->purify($_POST['manipulation']),
+            'composure' => $purifier->purify($_POST['composure']),
+            'family' => $purifier->purify($_POST['family']),
+            'status' => $purifier->purify($_POST['status']),
+            'virtue' => $purifier->purify($_POST['virtue']),
+            'vice' => $purifier->purify($_POST['vice']),
             'quote' => $purifier->purify($_POST['quote']),
             'public_blurb' => $purifier->purify($_POST['public_blurb']),
-            'academics' => htmlspecialchars($_POST['academics']),
-            'computer' => htmlspecialchars($_POST['computer']),
-            'crafts' => htmlspecialchars($_POST['crafts']),
-            'investigation' => htmlspecialchars($_POST['investigation']),
-            'medicine' => htmlspecialchars($_POST['medicine']),
-            'occult' => htmlspecialchars($_POST['occult']),
-            'politics' => htmlspecialchars($_POST['politics']),
-            'science' => htmlspecialchars($_POST['science']),
-            'athletics' => htmlspecialchars($_POST['athletics']),
-            'brawl' => htmlspecialchars($_POST['brawl']),
-            'drive' => htmlspecialchars($_POST['drive']),
-            'firearms' => htmlspecialchars($_POST['firearms']),
-            'larceny' => htmlspecialchars($_POST['larceny']),
-            'stealth' => htmlspecialchars($_POST['stealth']),
-            'survival' => htmlspecialchars($_POST['survival']),
-            'weaponry' => htmlspecialchars($_POST['weaponry']),
-            'animal_ken' => htmlspecialchars($_POST['animal_ken']),
-            'empathy' => htmlspecialchars($_POST['empathy']),
-            'expression' => htmlspecialchars($_POST['expression']),
-            'intimidation' => htmlspecialchars($_POST['intimidation']),
-            'leadership' => htmlspecialchars($_POST['leadership']),
-            'persuasion' => htmlspecialchars($_POST['persuasion']),
-            'streetwise' => htmlspecialchars($_POST['streetwise']),
-            'subterfuge' => htmlspecialchars($_POST['subterfuge']),
-            'size' => htmlspecialchars($_POST['size']),
-            'armor' => htmlspecialchars($_POST['armor']),
-            'integrity' => htmlspecialchars($_POST['integrity']),
-            'current_health' => htmlspecialchars($_POST['current_health']),
-            'current_willpower' => htmlspecialchars($_POST['current_willpower']),
-            'health' => intval(htmlspecialchars($_POST['health'])),
-            'willpower' => intval(htmlspecialchars($_POST['willpower'])),
+            'academics' => $purifier->purify($_POST['academics']),
+            'computer' => $purifier->purify($_POST['computer']),
+            'crafts' => $purifier->purify($_POST['crafts']),
+            'investigation' => $purifier->purify($_POST['investigation']),
+            'medicine' => $purifier->purify($_POST['medicine']),
+            'occult' => $purifier->purify($_POST['occult']),
+            'politics' => $purifier->purify($_POST['politics']),
+            'science' => $purifier->purify($_POST['science']),
+            'athletics' => $purifier->purify($_POST['athletics']),
+            'brawl' => $purifier->purify($_POST['brawl']),
+            'drive' => $purifier->purify($_POST['drive']),
+            'firearms' => $purifier->purify($_POST['firearms']),
+            'larceny' => $purifier->purify($_POST['larceny']),
+            'stealth' => $purifier->purify($_POST['stealth']),
+            'survival' => $purifier->purify($_POST['survival']),
+            'weaponry' => $purifier->purify($_POST['weaponry']),
+            'animal_ken' => $purifier->purify($_POST['animal_ken']),
+            'empathy' => $purifier->purify($_POST['empathy']),
+            'expression' => $purifier->purify($_POST['expression']),
+            'intimidation' => $purifier->purify($_POST['intimidation']),
+            'leadership' => $purifier->purify($_POST['leadership']),
+            'persuasion' => $purifier->purify($_POST['persuasion']),
+            'streetwise' => $purifier->purify($_POST['streetwise']),
+            'subterfuge' => $purifier->purify($_POST['subterfuge']),
+            'size' => $purifier->purify($_POST['size']),
+            'armor' => $purifier->purify($_POST['armor']),
+            'integrity' => $purifier->purify($_POST['integrity']),
+            'current_health' => $purifier->purify($_POST['current_health']),
+            'current_willpower' => $purifier->purify($_POST['current_willpower']),
+            'health' => intval($purifier->purify($_POST['health'])),
+            'willpower' => intval($purifier->purify($_POST['willpower'])),
             "backstory" => !empty($_POST['backstory']) ? $purifier->purify($_POST['backstory']) : ' ',
             "connections" => !empty($_POST['connections']) ? $purifier->purify($_POST['connections']) : ' ',
             "complications" => !empty($_POST['complications']) ? $purifier->purify($_POST['complications']) : ' ',
@@ -210,35 +210,35 @@ function update_character()
     $skill_specialties = array();
     $conditions = array();
 
-    for ($i = 0; $i < intval(htmlspecialchars($_POST['merits'])); $i++) {
+    for ($i = 0; $i < intval($purifier->purify($_POST['merits'])); $i++) {
         array_push($merits, array(
-            'merit' => htmlspecialchars($_POST['merits_'.$i.'_merit']),
-            'rating' => htmlspecialchars($_POST['merits_'.$i.'_rating']),
-            'specification' => htmlspecialchars($_POST['merits_'.$i.'_specification']),
-            'description' => htmlspecialchars($_POST['merits_'.$i.'_description'])
+            'merit' => $purifier->purify($_POST['merits_'.$i.'_merit']),
+            'rating' => $purifier->purify($_POST['merits_'.$i.'_rating']),
+            'specification' => $purifier->purify($_POST['merits_'.$i.'_specification']),
+            'description' => $purifier->purify($_POST['merits_'.$i.'_description'])
         ));
-        $post_content['meta_input']['merits_'.$i.'_merit'] = htmlspecialchars($_POST['merits_'.$i.'_merit']);
-        $post_content['meta_input']['merits_'.$i.'_rating'] = htmlspecialchars($_POST['merits_'.$i.'_rating']);
-        $post_content['meta_input']['merits_'.$i.'_specification'] = htmlspecialchars($_POST['merits_'.$i.'_specification']);
-        $post_content['meta_input']['merits_'.$i.'_description'] = htmlspecialchars($_POST['merits_'.$i.'_description']);
+        $post_content['meta_input']['merits_'.$i.'_merit'] = $purifier->purify($_POST['merits_'.$i.'_merit']);
+        $post_content['meta_input']['merits_'.$i.'_rating'] = $purifier->purify($_POST['merits_'.$i.'_rating']);
+        $post_content['meta_input']['merits_'.$i.'_specification'] = $purifier->purify($_POST['merits_'.$i.'_specification']);
+        $post_content['meta_input']['merits_'.$i.'_description'] = $purifier->purify($_POST['merits_'.$i.'_description']);
     }
 
-    for ($j = 0; $j < intval(htmlspecialchars($_POST['skill_specialties'])); $j++) {
+    for ($j = 0; $j < intval($purifier->purify($_POST['skill_specialties'])); $j++) {
         array_push($skill_specialties, array(
-            'skill' => htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']),
-            'specialty' => htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty'])
+            'skill' => $purifier->purify($_POST['skill_specialties_'.$j.'_skill']),
+            'specialty' => $purifier->purify($_POST['skill_specialties_'.$j.'_specialty'])
         ));
-        $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_skill']);
-        $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = htmlspecialchars($_POST['skill_specialties_'.$j.'_specialty']);
+        $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = $purifier->purify($_POST['skill_specialties_'.$j.'_skill']);
+        $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = $purifier->purify($_POST['skill_specialties_'.$j.'_specialty']);
     }
 
-    for ($k = 0; $k < intval(htmlspecialchars($_POST['conditions'])); $k++) {
+    for ($k = 0; $k < intval($purifier->purify($_POST['conditions'])); $k++) {
         array_push($conditions, array(
-            'condition' => htmlspecialchars($_POST['conditions_'.$k.'_condition']),
-            'note' => htmlspecialchars($_POST['conditions_'.$k.'_note'])
+            'condition' => $purifier->purify($_POST['conditions_'.$k.'_condition']),
+            'note' => $purifier->purify($_POST['conditions_'.$k.'_note'])
         ));
-        $post_content['meta_input']['conditions_'.$k.'_condition'] = htmlspecialchars($_POST['conditions_'.$k.'_condition']);
-        $post_content['meta_input']['conditions_'.$k.'_note'] = htmlspecialchars($_POST['conditions_'.$k.'_note']);
+        $post_content['meta_input']['conditions_'.$k.'_condition'] = $purifier->purify($_POST['conditions_'.$k.'_condition']);
+        $post_content['meta_input']['conditions_'.$k.'_note'] = $purifier->purify($_POST['conditions_'.$k.'_note']);
     }
 
     if (isset($_POST['id'])) {
@@ -246,9 +246,9 @@ function update_character()
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_type'] = 'revision';
             $post_content['post_status'] = 'inherit';
-            $revision_count = count(\wp_get_post_revisions(htmlspecialchars($_POST['id'])));
-            $post_content['post_name'] = htmlspecialchars($_POST['id']).'-revision-v'.($revision_count+1);
-            $post_content['post_parent'] = htmlspecialchars($_POST['id']);
+            $revision_count = count(\wp_get_post_revisions($purifier->purify($_POST['id'])));
+            $post_content['post_name'] = $purifier->purify($_POST['id']).'-revision-v'.($revision_count+1);
+            $post_content['post_parent'] = $purifier->purify($_POST['id']);
             $post = \wp_insert_post($post_content);
             update_field('field_5bdcf2262be68', $merits, $post);
             update_field('field_5c45fac0556fc', $skill_specialties, $post);
@@ -262,7 +262,7 @@ function update_character()
                 'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
                 'meta_input' => array(
                     'amount' => (Character::getExperienceCost($post) - Character::getExperienceCost($char)),
-                    'character' => htmlspecialchars($_POST['id'])
+                    'character' => $purifier->purify($_POST['id'])
                 )
             ));
             \add_post_meta($post->ID, 'experience_expenditure', $exp);
@@ -278,7 +278,7 @@ function update_character()
             header('Location:'.\get_the_permalink($char));
             die(1);
         } else {
-            $post_content['ID'] = htmlspecialchars($_POST['id']);
+            $post_content['ID'] = $purifier->purify($_POST['id']);
         }
     }
     $post = \wp_insert_post($post_content);
@@ -330,6 +330,7 @@ add_action('wp_ajax_nopriv_get_merit_info', __NAMESPACE__.'\\get_merit_info');
 
 function mass_add_experience()
 {
+    global $purifier;
     $characters = get_posts(array(
         'posts_per_page' => -1,
         'post_type' => 'character',
@@ -350,10 +351,10 @@ function mass_add_experience()
     foreach ($characters as $character) {
         wp_insert_post(array(
             'post_type' => 'experience',
-            'post_title' => htmlspecialchars($_POST['reason']),
+            'post_title' => $purifier->purify($_POST['reason']),
             'meta_input' => array(
                 'character' => $character->ID,
-                'amount' => intval(htmlspecialchars($_POST['amount']))
+                'amount' => intval($purifier->purify($_POST['amount']))
             )
         ));
     }
@@ -364,12 +365,13 @@ add_action('admin_post_mass_add_experience', __NAMESPACE__.'\\mass_add_experienc
 
 function add_experience()
 {
+    global $purifier;
     wp_insert_post(array(
         'post_type' => 'experience',
-        'post_title' => htmlspecialchars($_POST['reason']),
+        'post_title' => $purifier->purify($_POST['reason']),
         'meta_input' => array(
-            'character' => intval(htmlspecialchars($_POST['character'])),
-            'amount' => intval(htmlspecialchars($_POST['amount']))
+            'character' => intval($purifier->purify($_POST['character'])),
+            'amount' => intval($purifier->purify($_POST['amount']))
         )
     ));
 
@@ -380,19 +382,20 @@ add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
 
 function update_downtime()
 {
+    global $purifier;
     $args = array(
         'post_type' => 'downtime',
-        'ID' => intval(htmlspecialchars($_POST['id'])),
+        'ID' => intval($purifier->purify($_POST['id'])),
         'post_status' => 'publish',
-        'post_author' => htmlspecialchars($_POST['author']),
-        'post_title' => $_POST['post_title'],
-        'post_content' => $_POST['post_content'],
+        'post_author' => $purifier->purify($_POST['author']),
+        'post_title' => $purifier->purify($_POST['post_title']),
+        'post_content' => $purifier->purify($_POST['post_content']),
         'meta_input' => array(
-            'character' => intval(htmlspecialchars($_POST['character'])),
-            'game' => intval(htmlspecialchars($_POST['game'])),
-            'goal' => htmlspecialchars($_POST['goal']),
-            'assets' => htmlspecialchars($_POST['assets']),
-            'action_type' => htmlspecialchars($_POST['action_type'])
+            'character' => intval($purifier->purify($_POST['character'])),
+            'game' => intval($purifier->purify($_POST['game'])),
+            'goal' => $purifier->purify($_POST['goal']),
+            'assets' => $purifier->purify($_POST['assets']),
+            'action_type' => $purifier->purify($_POST['action_type'])
         )
     );
 
@@ -405,13 +408,14 @@ add_action('admin_post_update_downtime', __NAMESPACE__.'\\update_downtime');
 
 function respond_to_downtime()
 {
-    $id = intval(htmlspecialchars($_POST['id']));
+    global $purifier;
+    $id = intval($purifier->purify($_POST['id']));
     $args = array(
         'post_type' => 'downtime',
         'post_status' => 'publish',
         'ID' => $id,
         'meta_input' => array(
-            'response' => htmlspecialchars($_POST['response'])
+            'response' => $purifier->purify($_POST['response'])
         )
     );
     $action = wp_update_post($args);
