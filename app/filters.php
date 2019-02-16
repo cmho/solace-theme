@@ -383,6 +383,7 @@ add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
 function update_downtime()
 {
     global $purifier;
+    print_r($purifier);
     $args = array(
         'post_type' => 'downtime',
         'ID' => intval($purifier->purify($_POST['id'])),
