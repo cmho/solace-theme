@@ -25,7 +25,7 @@
         <div class="content">
           <h4>{{ get_the_title() }}</h4>
           @if(App\App::isAdmin())
-            <p class="character"><strong>Character:</strong> <a href="{{ get_the_permalink($char->ID) }}" target="_blank">{{ get_the_title($char->ID) }}</a></p>
+            <p class="character"><strong>Character:</strong> <a href="{{ get_permalink($char->ID) }}" target="_blank">{{ $char->post_title }}</a></p>
           @endif
           <p class="assets"><strong>Assets:</strong> {{ get_field('assets') }}</p>
           <p class="goal"><strong>Goal:</strong> {{ get_field('goal') }}</p>
