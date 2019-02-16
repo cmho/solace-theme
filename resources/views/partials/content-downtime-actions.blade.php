@@ -23,7 +23,7 @@
       @endphp
       <div class="downtime box">
         <div class="content">
-          <h4>{{ get_the_title() }}</h4>
+          <h4><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h4>
           @if(App\App::isAdmin())
             <p class="character"><strong>Character:</strong> <a href="{{ get_permalink($char->ID) }}" target="_blank">{{ $char->post_title }}</a></p>
           @endif
