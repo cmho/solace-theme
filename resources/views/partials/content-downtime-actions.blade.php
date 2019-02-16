@@ -16,30 +16,29 @@
       <p class="downtime-status">Downtimes are currently <strong>open</strong>. They will close at 11:59 PM on {{ date('m/d/y', strtotime(get_field('downtimes_close', $game))) }}.</p>
   @endif
   @if($downtimes)
-    @foreach($downtimes as $downtime)
-      @php(setup_postdata($downtime))
+    @foreach($downtimes as $post)
+      @php(setup_postdata($post))
       <div class="downtime box">
         <div class="content">
           @php
-            $char = get_post(get_field('character', $downtime->ID)->ID);
+            $char = get_post(get_field('character')->ID);
           @endphp
-          <h4>{{ $downtime->post_title }}</h4>
-          @php(the_content())
-          <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
-          <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
-          <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
+          <h4>{{ get_the_title() }}</h4>
+          <p class="character"><strong>Character:</strong> <a href="{{ get_the_permalink($char->ID) }}" target="_blank">{{ get_the_title($char->ID) }}</a></p>
+          <p class="assets"><strong>Assets:</strong> {{ get_field('assets') }}</p>
+          <p class="goal"><strong>Goal:</strong> {{ get_field('goal') }}</p>
           <div class="description">
-            {!! get_field('description', $downtime->ID) !!}
+            @php(the_content())
           </div>
-          @if(get_field('response', $downtime) && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
+          @if(get_field('response') && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
             <hr />
             <div class="response">
               <h5>Response:</h5>
-              {!! get_field('response', $downtime->ID) !!}
+              {!! get_field('response') !!}
             </div>
           @endif
           @if(App\App::isAdmin())
-            <a href="{{ get_the_permalink($downtime) }}#response">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
+            <a href="{{ get_the_permalink() }}#response">{{ (get_field('response')) ? 'Edit Response' : 'Respond' }}</a>
           @endif
         </div>
       </div>
