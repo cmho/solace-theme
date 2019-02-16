@@ -106,6 +106,8 @@ class App extends Controller
 
     public static function currentDowntimePeriod()
     {
+        $tz = new DateTimeZone('America/Chicago');
+        $date = new DateTime('now', $tz);
         $posts = \get_posts(array(
             'post_type' => 'game',
             'posts_per_page' => 1,
@@ -113,8 +115,13 @@ class App extends Controller
                 'relation' => 'AND',
                 array(
                     'key' => 'downtimes_open',
-                    'value' => date('Y-m-d'),
+                    'value' => $date->format('Y-m-d'),
                     'compare' => '>='
+                ),
+                array(
+                    'key' => 'downtimes_close',
+                    'value' => $date->format('Y-m-d'),
+                    'compare' => '<='
                 )
             )
         ));
