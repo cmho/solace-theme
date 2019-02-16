@@ -1,8 +1,6 @@
 <?php
 namespace App;
 
-require_once __DIR__.'../vendor/autoload.php';
-
 $config = \HTMLPurifier_Config::createDefault();
 $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
 $config->set('URI.MakeAbsolute', true);
