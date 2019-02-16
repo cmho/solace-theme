@@ -104,6 +104,32 @@ class App extends Controller
         return;
     }
 
+    public static function currentDowntimePeriod()
+    {
+        $posts = \get_posts(array(
+            'post_type' => 'game',
+            'posts_per_page' => 1,
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'downtimes_open',
+                    'value' => date('Y-m-d'),
+                    'compare' => '>='
+                ),
+                array(
+                    'key' => 'downtimes_close',
+                    'value' => date('Y-m-d'),
+                    'compare' => '<='
+                )
+            )
+        ));
+        if ($posts) {
+            return $posts[0];
+        }
+
+        return null;
+    }
+
     public static function dashboardLink()
     {
         $posts = \get_posts(array(

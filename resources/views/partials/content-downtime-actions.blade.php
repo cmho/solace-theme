@@ -1,9 +1,11 @@
 @php
   $user = wp_get_current_user();
 @endphp
-<div class="button-row right">
-  <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
-</div>
+@if(App\currentDowntimePeriod())
+  <div class="button-row right">
+    <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
+  </div>
+@endif
 @foreach(App\Downtimes::listDowntimes() as $game=>$downtimes)
   @php
       $gamepost = get_post($game);
