@@ -24,7 +24,7 @@
   </div>
 </section>
 @if(App\App::isAdmin())
-  <section id="respond" class="yellow">
+  <section id="response" class="yellow">
     <div class="wrapper">
       <div class="row">
         <div class="col-md-4 col-xs-12">
