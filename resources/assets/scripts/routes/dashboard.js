@@ -4,11 +4,23 @@ export default {
 
     $(window).on('load', function() {
       jQuery('html').attr("style", "margin-top: 0px !important");
-      var charstring = getCookie('opencharacters');
-      var characters = JSON.parse(charstring);
-      characters.forEach(function(elt) {
-        $('ol li[data-character="'+elt+'"]').addClass('open');
-      });
+      var name = 'openCharacters' + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          var charstring = c.substring(name.length, c.length);
+          var characters = JSON.parse(charstring);
+          characters.forEach(function(elt) {
+            $('ol li[data-character="' + elt + '"]').addClass("open");
+          });
+          break;
+        }
+      }
     });
 
     $('#login').on('submit', function(e) {
@@ -41,6 +53,10 @@ export default {
       var openItems = JSON.stringify($(this).parents('li.open').map(function() {
         return $(this).data('character');
       }).get());
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = 'openCharacters='+openItems+';'+expires+';path=/';
       createCookie('openCharacters', openItems);
     });
 
