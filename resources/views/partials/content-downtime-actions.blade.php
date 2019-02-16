@@ -22,6 +22,7 @@
             $char = get_post(get_field('character', $downtime->ID)->ID);
           @endphp
           <h4>{{ $downtime->post_title }}</h4>
+          @php(apply_filters('the_content', $downtime->post_content))
           <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
           <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
           <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
