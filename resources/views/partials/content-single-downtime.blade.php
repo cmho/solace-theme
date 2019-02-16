@@ -23,3 +23,20 @@
     </div>
   </div>
 </section>
+@if($_GET['mode'] == 'respond' && App\App::isAdmin())
+  <section id="respond" class="yellow">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-md-4 col-xs-12">
+          <h3>Response</h3>
+        </div>
+        <div class="col-md-8 col-xs-12">
+          <form action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
+            <textarea name="response"></textarea>
+            <input type="hidden" name="action" value="downtime_response" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+@endif
