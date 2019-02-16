@@ -1,11 +1,6 @@
 <?php
 namespace App;
 
-$config = \HTMLPurifier_Config::createDefault();
-$config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
-$config->set('URI.MakeAbsolute', true);
-$purifier = new \HTMLPurifier($config);
-
 /**
  * Add <body> classes
  */
@@ -138,7 +133,10 @@ add_filter('wp_post_revision_meta_keys', __NAMESPACE__.'\\add_meta_keys_to_revis
 
 function update_character()
 {
-    global $purifier;
+    $config = \HTMLPurifier_Config::createDefault();
+    $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+    $config->set('URI.MakeAbsolute', true);
+    $purifier = new \HTMLPurifier($config);
     $post_content = array(
         'post_title' => $purifier->purify($_POST['post_title']),
         'post_author' => $purifier->purify($_POST['author']),
@@ -330,7 +328,10 @@ add_action('wp_ajax_nopriv_get_merit_info', __NAMESPACE__.'\\get_merit_info');
 
 function mass_add_experience()
 {
-    global $purifier;
+    $config = \HTMLPurifier_Config::createDefault();
+    $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+    $config->set('URI.MakeAbsolute', true);
+    $purifier = new \HTMLPurifier($config);
     $characters = get_posts(array(
         'posts_per_page' => -1,
         'post_type' => 'character',
@@ -365,7 +366,10 @@ add_action('admin_post_mass_add_experience', __NAMESPACE__.'\\mass_add_experienc
 
 function add_experience()
 {
-    global $purifier;
+    $config = \HTMLPurifier_Config::createDefault();
+    $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+    $config->set('URI.MakeAbsolute', true);
+    $purifier = new \HTMLPurifier($config);
     wp_insert_post(array(
         'post_type' => 'experience',
         'post_title' => $purifier->purify($_POST['reason']),
