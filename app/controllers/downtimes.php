@@ -8,8 +8,8 @@ class Downtimes extends Controller
 {
     public static function listDowntimes()
     {
-        $tz = \DateTimeZone('America/Chicago');
-        $date = \DateTime('now', $tz);
+        $tz = new \DateTimeZone('America/Chicago');
+        $date = new \DateTime('now', $tz);
         $games = \get_posts(array(
             'post_type' => 'game',
             'posts_per_page' => -1,
