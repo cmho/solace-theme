@@ -19,6 +19,7 @@
     @foreach($downtimes as $post)
       @php(setup_postdata($post))
       @php
+        print_r(get_field('character'))
         $char = get_post(get_field('character')->ID);
       @endphp
       <div class="downtime box">
