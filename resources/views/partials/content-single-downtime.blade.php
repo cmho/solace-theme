@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="breadcrumb">
+          @php(print_r(get_field('game')))
           <a href="{{ App\App::downtimesLink() }}">Downtime Actions</a> &gt;
           <a href="{{ App\App::downtimesLink() }}#{{ get_field('game')->post_name }}">{{ get_field('game')->post_title }}</a>
         </div>
