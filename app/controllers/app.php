@@ -114,12 +114,12 @@ class App extends Controller
                 array(
                     'key' => 'downtimes_open',
                     'value' => date('Y-m-d'),
-                    'compare' => '>='
+                    'compare' => '<='
                 ),
                 array(
                     'key' => 'downtimes_close',
                     'value' => date('Y-m-d'),
-                    'compare' => '<='
+                    'compare' => '>='
                 )
             )
         ));
