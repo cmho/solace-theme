@@ -16,27 +16,29 @@
   @endif
   @if($downtimes)
     @foreach($downtimes as $downtime)
-      <div class="downtime">
-        @php
-          $char = get_post(get_field('character', $downtime->ID)->ID);
-        @endphp
-        <h4>{{ $downtime->post_title }}</h4>
-        <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
-        <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
-        <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
-        <div class="description">
-          {!! get_field('description', $downtime->ID) !!}
-        </div>
-        @if(get_field('response', $downtime) && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
-          <hr />
-          <div class="response">
-            <h5>Response:</h5>
-            {!! get_field('response', $downtime->ID) !!}
+      <div class="downtime box">
+        <div class="content">
+          @php
+            $char = get_post(get_field('character', $downtime->ID)->ID);
+          @endphp
+          <h4>{{ $downtime->post_title }}</h4>
+          <p class="character"><strong>Character:</strong> {{ $char->post_title }}</p>
+          <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $downtime) }}</p>
+          <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $downtime) }}</p>
+          <div class="description">
+            {!! get_field('description', $downtime->ID) !!}
           </div>
-        @endif
-        @if(App\App::isAdmin())
-          <a href="{{ get_the_permalink($downtime) }}#response">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
-        @endif
+          @if(get_field('response', $downtime) && (get_field('downtimes_visible', $gamepost) || App\App::isAdmin()))
+            <hr />
+            <div class="response">
+              <h5>Response:</h5>
+              {!! get_field('response', $downtime->ID) !!}
+            </div>
+          @endif
+          @if(App\App::isAdmin())
+            <a href="{{ get_the_permalink($downtime) }}#response">{{ (get_field('response', $downtime)) ? 'Edit Response' : 'Respond' }}</a>
+          @endif
+        </div>
       </div>
     @endforeach
   @else
