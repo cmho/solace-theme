@@ -1,10 +1,10 @@
 <?php
 namespace App;
 
-$config = HTMLPurifier_Config::createDefault();
+$config = \HTMLPurifier_Config::createDefault();
 $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
 $config->set('URI.MakeAbsolute', true);
-$purifier = new HTMLPurifier($config);
+$purifier = new \HTMLPurifier($config);
 
 /**
  * Add <body> classes
