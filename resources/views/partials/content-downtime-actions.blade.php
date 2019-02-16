@@ -18,15 +18,11 @@
   @if($downtimes)
     @foreach($downtimes as $post)
       @php(setup_postdata($post))
-      @php(print_r(get_field('character')))
-      @php
-        $char = get_field('character');
-      @endphp
       <div class="downtime box">
         <div class="content">
           <h4><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h4>
           @if(App\App::isAdmin())
-            <p class="character"><strong>Character:</strong> <a href="{{ get_permalink($char->ID) }}" target="_blank">{{ $char->post_title }}</a></p>
+            <p class="character"><strong>Character:</strong> <a href="{{ get_permalink(get_field('character')->ID) }}" target="_blank">{{ get_field('character')->post_title }}</a></p>
           @endif
           <p class="assets"><strong>Assets:</strong> {{ get_field('assets') }}</p>
           <p class="goal"><strong>Goal:</strong> {{ get_field('goal') }}</p>
