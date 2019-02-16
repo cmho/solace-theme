@@ -408,6 +408,8 @@ function respond_to_downtime()
         )
     );
     $action = wp_insert_post($args);
+    print_r(get_permalink($id));
+    die(1);
     header('Location:'.get_permalink($id));
     die(1);
 }
