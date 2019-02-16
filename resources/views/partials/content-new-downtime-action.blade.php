@@ -39,6 +39,7 @@
           $character = $char[0];
         @endphp
         <input type="hidden" name="character" value="{{ $character->ID }}" />
+        <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod()->ID }}" />
       @endif
       <div class="form-row">
         <label for="action_type">Action Type</label>
