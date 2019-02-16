@@ -382,7 +382,10 @@ add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
 
 function update_downtime()
 {
-    global $purifier;
+    $config = \HTMLPurifier_Config::createDefault();
+    $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
+    $config->set('URI.MakeAbsolute', true);
+    $purifier = new \HTMLPurifier($config);
     print_r($purifier);
     $args = array(
         'post_type' => 'downtime',
