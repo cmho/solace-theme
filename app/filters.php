@@ -354,6 +354,8 @@ function mass_add_experience()
     die(1);
 }
 
+add_action('admin_post_mass_add_experience', __NAMESPACE__.'\\mass_add_experience');
+
 function add_experience()
 {
     wp_insert_post(array(
@@ -367,6 +369,8 @@ function add_experience()
 
     die(1);
 }
+
+add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
 
 function update_downtime()
 {
@@ -405,6 +409,7 @@ function respond_to_downtime()
     );
     $action = wp_insert_post($args);
     header('Location:'.get_permalink($id));
+    die(1);
 }
 
 add_action('admin_post_downtime_response', __NAMESPACE__.'\\respond_to_downtime');
