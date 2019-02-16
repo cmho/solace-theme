@@ -3,6 +3,7 @@
 --}}
 
 @php
+  global $post;
   $user = wp_get_current_user();
   if (!$user) {
     header('Location:'.home_url('/'));
