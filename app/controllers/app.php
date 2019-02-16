@@ -106,8 +106,8 @@ class App extends Controller
 
     public static function currentDowntimePeriod()
     {
-        $tz = new DateTimeZone('America/Chicago');
-        $date = new DateTime('now', $tz);
+        $tz = new \DateTimeZone('America/Chicago');
+        $date = new \DateTime('now', $tz);
         $posts = \get_posts(array(
             'post_type' => 'game',
             'posts_per_page' => 1,
