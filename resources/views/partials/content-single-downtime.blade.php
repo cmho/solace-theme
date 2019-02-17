@@ -9,7 +9,6 @@
         </div>
       </div>
     </div>
-    @php(print_r(get_query_var('mode')))
     @if(get_query_var('mode') === 'edit')
       <form class="row" action="{{ esc_url( admin_url('admin-post.php') ) }}" method="POST">
         <input type="hidden" name="id" value="{{ get_the_ID() }}" />
