@@ -71,4 +71,16 @@ class Downtimes extends Controller
 
         return $grouped;
     }
+
+    public static function getCharacter($dt)
+    {
+        $char = get_field('character', $dt->ID);
+    }
+
+    public static function isOpen($game)
+    {
+        $tz = new \DateTimeZone('America/Chicago');
+        $date = new \DateTime('now', $tz);
+        return $date->format('Y-m-d') >= get_field('downtimes_open', $game) && $date->format('Y-m-d') <= get_field('downtimes_close', $game);
+    }
 }

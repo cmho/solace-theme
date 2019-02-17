@@ -12,8 +12,8 @@
       $gamepost = get_post($game);
   @endphp
   <h3 id="{{ $gamepost->post_name }}">{{ $gamepost->post_title }}</h3>
-  @if(date('Y-m-d') >= get_field('downtimes_open', $game) && date('Y-m-d') <= get_field('downtimes_close', $game))
-      <p class="downtime-status">Downtimes are currently <strong>open</strong>. They will close at 11:59 PM on {{ date('m/d/y', strtotime(get_field('downtimes_close', $game))) }}.</p>
+  @if(App\Downtimes::isOpen($game))
+    <p class="downtime-status">Downtimes are currently <strong>open</strong>. They will close at 11:59 PM on {{ date('m/d/y', strtotime(get_field('downtimes_close', $game))) }}.</p>
   @endif
   @if($downtimes)
     @foreach($downtimes as $post)
@@ -37,7 +37,13 @@
             </div>
           @endif
           @if(App\App::isAdmin())
-            <a href="{{ get_the_permalink() }}#response">{{ (get_field('response')) ? 'Edit Response' : 'Respond' }}</a>
+            <div class="button-row">
+              <a href="{{ get_the_permalink() }}#response" button small>{{ (get_field('response')) ? 'Edit Response' : 'Respond' }}</a>
+            </div>
+          @elseif(App\Downtimes::isOpen($game))
+            <div class="button-row">
+              <a href="{{ get_the_permalink($game) }}" class="button small">Edit</a>
+            </div>
           @endif
         </div>
       </div>
