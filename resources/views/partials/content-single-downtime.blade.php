@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-4 col-xs-12">
         <h2>{!! get_the_title() !!}</h2>
-        <p class="character"><strong>Character:</strong> {{ get_field('character') }}</p>
+        <p class="character"><strong>Character:</strong> {{ get_post(get_field('character'))->post_title }}</p>
         <p class="action-type"><strong>Action Type:</strong> {{ get_field('action_type') }}</p>
       </div>
       <div class="col-md-8 col-xs-12">
