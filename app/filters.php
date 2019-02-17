@@ -648,6 +648,7 @@ function custom_rewrite_tag()
 {
     add_rewrite_tag('%game%', '([^&]+)');
     add_rewrite_tag('%character%', '([^&]+)');
+    add_rewrite_tag('%downtime%', '([^&]+)');
     add_rewrite_tag('%mode%', '([^&]+)');
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrite_tag', 10, 0);
