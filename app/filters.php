@@ -657,6 +657,8 @@ function custom_rewrites()
 {
     add_rewrite_rule('character/([^/]+)/edit/?$', 'index.php?character=$matches[1]&mode=edit', 'top');
     add_rewrite_rule('downtime/([^/]+)/edit/?$', 'index.php?downtime=$matches[1]&mode=edit', 'top');
+    add_rewrite_rule('game/([^/]+)/rumors/?$', 'index.php?game=$matches[1]&view=rumors', 'top');
+    add_rewrite_rule('game/([^/]+)/downtimes/?$', 'index.php?game=$matches[1]&view=downtimes', 'top');
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 

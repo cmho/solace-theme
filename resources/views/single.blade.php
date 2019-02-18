@@ -12,6 +12,8 @@
       && !$is_admin) {
       header('Location:'.get_the_permalink($post));
     }
+  } else if (get_post_type == 'game'  && !$is_admin) {
+    header('Location:'.home_url('/'));
   }
 @endphp
 

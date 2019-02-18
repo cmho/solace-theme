@@ -236,4 +236,47 @@ class Character extends Controller
         }, $merits);
         return join(", ", $merits);
     }
+
+    public static function getRumors($char, $game)
+    {
+        $args = array(
+            'post_type' => 'rumor',
+            'posts_per_page' =>  -1,
+            'post_status' => 'publish',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'characters',
+                    'value' => $char,
+                    'compare' => 'IN'
+                ),
+                array(
+                    'key' => 'game',
+                    'value' => $game
+                )
+            )
+        );
+        return \get_posts($args);
+    }
+
+    public static function getDowntimes($char, $game)
+    {
+        $args = array(
+            'post_type' => 'downtime',
+            'posts_per_page' =>  -1,
+            'post_status' => 'publish',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'character',
+                    'value' => $char
+                ),
+                array(
+                    'key' => 'game',
+                    'value' => $game
+                )
+            )
+        );
+        return \get_posts($args);
+    }
 }
