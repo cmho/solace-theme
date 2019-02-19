@@ -24,6 +24,12 @@ export default {
       }
     });
 
+    $('.tab a').on('click', function(e) {
+      e.preventDefault();
+      $(this).find('i').removeClass('far').addClass('fas');
+      $(this).parent('.tab').siblings().find('i').removeClass('fas').addClass('far');
+    });
+
     $('#login').on('submit', function(e) {
       e.preventDefault();
       $.ajax({

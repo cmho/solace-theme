@@ -217,5 +217,21 @@ nav.dashboard-tabs {
 
   .tab {
     margin: 0 5px;
+
+    a {
+      text-decoration: none;
+    }
+
+    .icon {
+      font-size: 24px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    span {
+      font-size: 11px;
+    }
   }
 }
