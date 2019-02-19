@@ -714,17 +714,17 @@ function getCharacterData()
 
 function addCharacterDataApi()
 {
-    register_rest_route('solace/v1', 'characters?id=([0-9]+)', array(
+    register_rest_route('solace/v1', '/characters/id=([0-9]+)', array(
         'methods' => 'POST',
         'callback' => 'getCharacterData'
     ));
 
-    register_rest_route('solace/v1', 'downtimes?char_id=([0-9]+)', array(
+    register_rest_route('solace/v1', '/downtimes/char_id=([0-9]+)', array(
         'methods' => 'GET',
         'callback' => 'getDowntimesData'
     ));
 
-    register_rest_route('solace/v1', 'rumors?char_id=([0-9]+)', array(
+    register_rest_route('solace/v1', '/rumors/char_id=([0-9]+)', array(
         'methods' => 'GET',
         'callback' => 'getRumorsData'
     ));
