@@ -161,15 +161,15 @@
         <div class="wrapper">
           <div class="row center-xs middle-xs">
             <div class="tab">
-              <a href="#">
+              <a href="#" id="character-tab">
                 <div class="icon">
-                  <i class="far fa-user"></i>
+                  <i class="fas fa-user"></i>
                 </div>
                 <span>Character</span>
               </a>
             </div>
             <div class="tab">
-              <a href="#">
+              <a href="#" id="downtime-tab">
                 <div class="icon">
                   <i class="far fa-list-alt"></i>
                 </div>
@@ -177,7 +177,7 @@
               </a>
             </div>
             <div class="tab">
-              <a href="#">
+              <a href="#" id="rumor-tab">
                 <div class="icon">
                   <i class="far fa-comments"></i>
                 </div>
