@@ -157,6 +157,30 @@
           <p id="init-mod-wrapper"><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char->ID)+get_field('composure', $char->ID) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
         </div>
       </div>
+      <nav class="dashboard-tabs">
+        <div class="wrapper">
+          <div class="row center-xs middle-xs">
+            <div class="tab">
+              <div class="icon">
+                <i class="far fa-user"></i>
+              </div>
+              Character
+            </div>
+            <div class="tab">
+              <div class="icon">
+                <i class="far fa-list-alt"></i>
+              </div>
+              Downtimes
+            </div>
+            <div class="tab">
+              <div class="icon">
+                <i class="far fa-comments"></i>
+              </div>
+              Rumors
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="initiative-roller">
         <span class="initiative-roll"></span>
       </div>
