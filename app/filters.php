@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use Roots\Sage\Template\Blade;
+use Roots\Sage\Template\BladeProvider;
+
 /**
  * Add <body> classes
  */
@@ -692,3 +695,39 @@ function ajax_login()
 if (!is_user_logged_in()) {
     add_action('init', __NAMESPACE__.'\\ajax_login_init');
 }
+
+function getCharacterData()
+{
+    $user = wp_get_current_user();
+    if (!$user) {
+        die(1);
+        return;
+    }
+
+    $char = get_post(intval($_GET['id']));
+    if ($user->ID == $char->post_author || in_array('administrator', $user->roles)) {
+        $blade = new Blade('templates');
+        echo $blade->make('partials.content-dashboard-character', array('char' => $char));
+    }
+    die(1);
+}
+
+function addCharacterDataApi()
+{
+    register_rest_route('solace/v1', 'characters?id=([0-9]+)', array(
+        'methods' => 'POST',
+        'callback' => 'getCharacterData'
+    ));
+
+    register_rest_route('solace/v1', 'downtimes?char_id=([0-9]+)', array(
+        'methods' => 'GET',
+        'callback' => 'getDowntimesData'
+    ));
+
+    register_rest_route('solace/v1', 'rumors?char_id=([0-9]+)', array(
+        'methods' => 'GET',
+        'callback' => 'getRumorsData'
+    ));
+}
+
+add_action('rest_api_init', __NAMESPACE__.'\\addCharacterDataApi');
