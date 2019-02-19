@@ -211,4 +211,11 @@ nav.dashboard-tabs {
   left: 0;
   width: 100%;
   padding: 10px 0;
+  color: $yellow;
+  background-color: $grey;
+  border-top: 2px $yellow solid;
+
+  .tab {
+    margin: 0 5px;
+  }
 }

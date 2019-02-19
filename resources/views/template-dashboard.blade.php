@@ -161,22 +161,28 @@
         <div class="wrapper">
           <div class="row center-xs middle-xs">
             <div class="tab">
-              <div class="icon">
-                <i class="far fa-user"></i>
-              </div>
-              Character
+              <a href="#">
+                <div class="icon">
+                  <i class="far fa-user"></i>
+                </div>
+                <span>Character</span>
+              </a>
             </div>
             <div class="tab">
-              <div class="icon">
-                <i class="far fa-list-alt"></i>
-              </div>
-              Downtimes
+              <a href="#">
+                <div class="icon">
+                  <i class="far fa-list-alt"></i>
+                </div>
+                <span>Downtimes</span>
+              </a>
             </div>
             <div class="tab">
-              <div class="icon">
-                <i class="far fa-comments"></i>
-              </div>
-              Rumors
+              <a href="#">
+                <div class="icon">
+                  <i class="far fa-comments"></i>
+                </div>
+                <span>Rumors</span>
+              </a>
             </div>
           </div>
         </div>
