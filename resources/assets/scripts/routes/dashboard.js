@@ -183,8 +183,6 @@ export default {
     $(".add-condition").on("click", function () {
       var $conditions = $(this).parents('.conditions');
       var condition = $conditions.find(".conditions_list option:selected").val();
-      var conditionName = $conditions.find(".conditions_list option:selected").text();
-      var num = $conditions.find(".char-conditions li").length;
       var note = $conditions.find(".condition_note").val();
       var character = $conditions.parents('li').data('character');
       $.ajax({
@@ -217,7 +215,9 @@ export default {
       );
       if (yn) {
         var condition = $(this).parents('li').index();
+        console.log(condition);
         var character = $(this).parents('li').data('character');
+        console.log(character);
         $.ajax({
           url: ajaxurl,
           method: 'POST',
