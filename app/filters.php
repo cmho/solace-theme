@@ -603,6 +603,8 @@ function resolveCondition()
     $conditions = get_field('conditions', $char->ID);
     $cond = array_splice($conditions, intval($_POST['condition']), 1);
     if (get_field('resolution', $cond['condition']->ID) && empty($_POST['delete'])) {
+        print_r(get_field('resolution', $cond['condition']->ID));
+        die(1);
         wp_insert_post(array(
             'post_type' => 'beat',
             'post_status' => 'publish',
