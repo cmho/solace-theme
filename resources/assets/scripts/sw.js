@@ -9,7 +9,7 @@ self.addEventListener("install", function(e) {
     caches.open(cacheName).then(function(cache) {
       return cache
         .addAll([
-          themepath + "/storyteller-dashboard/",
+          "/storyteller-dashboard/",
           themepath + "/dist/styles/main.css",
           themepath + "/dist/scripts/main.js",
           themepath + "/dist/fonts/worksans-regular-webfont.woff",
