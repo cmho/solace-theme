@@ -202,7 +202,7 @@ export default {
           for (var i = 0; i < data.length; i++) {
             var item =
               "<li>" +
-              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="delete" type="button">Resolve</button>' +
+              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button>' +
               '</li>';
             $conditions.find('.char-conditions').append(item);
           }
@@ -210,17 +210,33 @@ export default {
       });
     });
 
-    $(".char-conditions").on("click", ".delete", function () {
+    $(".char-conditions").on("click", ".resolve-button", function () {
       var yn = confirm(
-        "Are you sure you want to delete this condition?"
+        "Resolve this condition?"
       );
       if (yn) {
-        $(this)
-          .parents("li")
-          .detach();
-        $('[name="conditions"]').val(
-          $("ul.char-conditions li").length
-        );
+        var condition = $(this).parents('li').index();
+        var character = $(this).parents('li').data('character');
+        $.ajax({
+          url: ajaxurl,
+          method: 'POST',
+          dataType: 'json',
+          data: {
+            action: 'resolve_condition',
+            condition: condition,
+            character: character,
+          },
+          success: function (data) {
+            $conditions.find('.char-conditions').empty();
+            for (var i = 0; i < data.length; i++) {
+              var item =
+                "<li>" +
+                data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button>' +
+                '</li>';
+              $conditions.find('.char-conditions').append(item);
+            }
+          },
+        });
       }
     });
 

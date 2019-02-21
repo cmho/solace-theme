@@ -599,6 +599,10 @@ add_action('wp_ajax_add_condition', __NAMESPACE__.'\\addCondition');
 
 function resolveCondition()
 {
+    $char = get_post($_POST['character']);
+    $conditions = get_field('conditions', $char->ID);
+    $conditions = array_splice($conditions, intval($_POST['condition']), 1);
+    update_field('conditions', $conditions, $char->ID);
     return;
 }
 
