@@ -102,6 +102,10 @@ export default {
       });
     }
 
+    $('#attributes-row input[type="hidden"], #skills-row input[type="hidden"]').on('change', function() {
+      checkMerits();
+    });
+
     function checkSkillSpecialties() {
       var skillSpCount = $('.skill-specialties li').length;
       $('#skill-specialty-count').text((3 - skillSpCount)+" Remaining");
