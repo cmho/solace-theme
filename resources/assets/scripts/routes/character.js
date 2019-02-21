@@ -175,7 +175,7 @@ export default {
             specstr = ' <span class="specification">()</span>';
           }
           var newItem =
-            "<li><span class='label'><span class='meritname'>" +
+            "<li data-prereqs='"+JSON.stringify(data.prerequisites_list)+"'><span class='label'><span class='meritname'>" +
             data.name +
             "</span>" +
             specstr +
@@ -702,5 +702,12 @@ export default {
       // check skill specialties
       // check questionnaire
     }
+
+    $('#save-submit').on('click', function(e) {
+      e.preventDefault();
+      // validate first
+      $('input[name="status"]').val("Submitted");
+      $(this).parents('form').submit();
+    });
   },
 }

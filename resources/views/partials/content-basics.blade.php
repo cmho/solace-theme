@@ -58,7 +58,7 @@
             </select>
           </div>
         @else
-          <input type="hidden" name="status" value="in_progress" />
+          <input type="hidden" name="status" value="In Progress" />
         @endif
       </div>
     </div>
