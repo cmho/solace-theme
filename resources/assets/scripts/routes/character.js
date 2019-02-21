@@ -62,14 +62,15 @@ export default {
           prereqs.forEach(function(item) {
             if (item.type === 'Merit') {
               var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(item.merit.ID ? '[val="'+item.merit.ID+'"]' : '')).parents('li');
-              console.log($merit);
               if ($merit.length > 0) {
                 var $rating = $merit.find('input[type="hidden"][name$="_rating"]'+(item.rating ? '[val="'+item.rating+'"]' : ''));
-                console.log($rating);
                 if (!$rating || $rating.val() < item.rating) {
                   $item.addClass('error');
                   errors.push("Must have the merit "+item.merit.post_title+" rated at least "+item.rating+".");
                 }
+              } else {
+                $item.addClass("error");
+                errors.push("Must have the merit "+item.merit.post_title+" rated at least "+item.rating+".");
               }
             } else if (item.type === 'Attribute') {
               if ($('input[name="'+item.attribute+'"]').val() < item.rating) {
