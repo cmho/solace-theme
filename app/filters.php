@@ -611,6 +611,7 @@ function resolveCondition()
             )
         ));
     }
+    update_field('conditions', $conditions, $char->ID);
     $c = array_map(function ($x) {
         return array(
             'condition' => $x['condition']->post_title,
@@ -618,7 +619,7 @@ function resolveCondition()
         );
     }, get_field('conditions', $char->ID));
     echo json_encode($c);
-    update_field('conditions', $conditions, $char->ID);
+    die(1);
     return;
 }
 
