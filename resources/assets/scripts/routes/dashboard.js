@@ -243,14 +243,14 @@ export default {
 
     $(".char-conditions").on("click", ".delete-button", function () {
       var $conditions = $(this).parents('.conditions');
+      var condition = $(this).parents('li').index();
+      console.log(condition);
+      var character = $(this).parents('li').data('character');
+      console.log(character);
       var yn = confirm(
         "Delete this condition?"
       );
       if (yn) {
-        var condition = $(this).parents('li').index();
-        console.log(condition);
-        var character = $(this).parents('li').data('character');
-        console.log(character);
         $.ajax({
           url: ajaxurl,
           method: 'POST',
