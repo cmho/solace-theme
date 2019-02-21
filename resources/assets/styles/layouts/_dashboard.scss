@@ -207,6 +207,11 @@
   }
 }
 
+.downtime-actions,
+.rumors {
+  display: none;
+}
+
 nav.dashboard-tabs {
   position: fixed;
   bottom: 0;

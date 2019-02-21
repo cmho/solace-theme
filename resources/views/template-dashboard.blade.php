@@ -111,6 +111,7 @@
         </dl>
       </div>
       <div class="rumors" id="rumors">
+        <h2>Rumors</h2>
         <dl>
           @foreach(App\Games::listGames() as $game)
             <dt><a href="#">{{ $game->post_title }}</a></dt>
