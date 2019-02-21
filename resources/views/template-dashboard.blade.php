@@ -85,7 +85,7 @@
   @elseif(App::isLoggedIn())
     @if($char)
       @include('partials.content-dashboard-character')
-      <div class="downtime-actions" id="downtimes">
+      <div class="downtime-actions" id="downtime">
         <h2>Downtime Actions</h2>
         <dl>
           @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
@@ -110,7 +110,7 @@
           @endforeach
         </dl>
       </div>
-      <div class="rumors" id="rumors">
+      <div class="rumors" id="rumor">
         <h2>Rumors</h2>
         <dl>
           @foreach(App\Games::listGames() as $game)
