@@ -239,9 +239,9 @@ function update_character()
             // create revision for approval if it's a PC and the person saving it is not an admin
             $post_content['post_type'] = 'revision';
             $post_content['post_status'] = 'inherit';
-            $revision_count = count(\wp_get_post_revisions($purifier->purify($_POST['id'])));
-            $post_content['post_name'] = $purifier->purify($_POST['id']).'-revision-v'.($revision_count+1);
-            $post_content['post_parent'] = $purifier->purify($_POST['id']);
+            $revision_count = count(\wp_get_post_revisions(intval($_POST['id'])));
+            $post_content['post_name'] = intval($_POST['id']).'-revision-v'.($revision_count+1);
+            $post_content['post_parent'] = intval($_POST['id']);
             $post = \wp_insert_post($post_content);
             update_field('field_5bdcf2262be68', $merits, $post);
             update_field('field_5c45fac0556fc', $skill_specialties, $post);
