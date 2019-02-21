@@ -85,7 +85,7 @@
   @elseif(App::isLoggedIn())
     @if($char)
       @include('partials.content-dashboard-character')
-      <div class="downtime-actions">
+      <div class="downtime-actions" id="downtimes">
         <h2>Downtime Actions</h2>
         <dl>
           @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
@@ -112,17 +112,19 @@
           @endforeach
         </dl>
       </div>
-      <div class="rumors">
-        @foreach(App\Games::listGames() as $game)
-          <dt><a href="#">{{ $game->post_title }}</a></dt>
-          <dd>
-            <ul>
-              @foreach(App\Rumors::listRumors($game->ID, $char->ID) as $rumor)
-                <li>{!! apply_filter('the_content', $rumor->post_content) !!}</li>
-              @endforeach
-            </ul>
-          </dd>
-        @endforeach
+      <div class="rumors" id="rumors">
+        <dl>
+          @foreach(App\Games::listGames() as $game)
+            <dt><a href="#">{{ $game->post_title }}</a></dt>
+            <dd>
+              <ul>
+                @foreach(App\Rumors::listRumors($game->ID, $char->ID) as $rumor)
+                  <li>{!! apply_filter('the_content', $rumor->post_content) !!}</li>
+                @endforeach
+              </ul>
+            </dd>
+          @endforeach
+        </dl>
       </div>
       <nav class="dashboard-tabs">
         <div class="wrapper">

@@ -4,7 +4,8 @@ export default {
 
     $(window).on('load', function() {
       jQuery('html').attr("style", "margin-top: 0px !important");
-      var name = 'openCharacters' + "=";
+      var charcookie = 'openCharacters' + "=";
+      var tabcookie = 'openTab' + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(";");
       for (var i = 0; i < ca.length; i++) {
@@ -12,14 +13,16 @@ export default {
         while (c.charAt(0) == " ") {
           c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
-          var charstring = c.substring(name.length, c.length);
+        if (c.indexOf(charcookie) == 0) {
+          var charstring = c.substring(charcookie.length, c.length);
           var characters = JSON.parse(charstring);
           characters.forEach(function(elt) {
             $('ol li[data-character="' + elt + '"]').addClass("open");
             $('ol li[data-character="' + elt + '"]').find('.character-content').slideDown();
           });
-          break;
+        } else if (c.indexOf(tabcookie) == 0) {
+          var tab = c.substring(tabcookie.length, c.length);
+          $('.dashboard-tabs #'+tab+'-tab').trigger('click');
         }
       }
     });
@@ -28,6 +31,12 @@ export default {
       e.preventDefault();
       $(this).find('i').removeClass('far').addClass('fas');
       $(this).parent('.tab').siblings().find('i').removeClass('fas').addClass('far');
+      var tabid = $(this).attr('id').replace('-tab', '');
+      $('#'+tabid).show().siblings('div').hide();
+      var d = new Date();
+      d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = 'openTab=' + tabid + ';' + expires + ';path=/';
     });
 
     $('#login').on('submit', function(e) {
