@@ -53,6 +53,47 @@ export default {
       } else {
         $('#merit-count').removeClass('warn');
       }
+      // validate merits
+      $('ul.merits li').each(function() {
+        var prereqs = JSON.parse($(this).data('prereqs'));
+        var errors = [];
+        var $item = $(this);
+        prereqs.forEach(function(item) {
+          if (item.type === 'Merit') {
+            var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(item.merit.ID ? '[val="'+item.merit.ID+'"]' : '')).parents('li');
+            if ($merit.length > 0) {
+              var $rating = $merit.find('input[type="hidden"][name$="_rating"]'+(item.rating ? '[val="'+item.rating+'"]' : ''));
+              if (!$rating || $rating.val() < item.rating) {
+                $item.addClass('error');
+                errors.push("Must have the merit "+item.merit.post_title+" rated at least "+item.rating+".");
+              }
+            }
+          } else if (item.type === 'Attribute') {
+            if ($('input[name="'+item.attribute+'"]').val() < item.rating) {
+              $item.addClass('error');
+              errors.push("Must have "+item.attribute.charAt(0).toUpperCase() + item.attribute.slice(1)+" of at least "+item.rating+".");
+            }
+          } else if (item.type === 'Skill') {
+            if ($('input[name="' + item.skill + '"]').val() < item.rating) {
+              $item.addClass("error");
+              errors.push("Must have " + item.skill.charAt(0).toUpperCase() + item.skill.slice(1).replace("_", " ") + " of at least " + item.rating + ".");
+            }
+          } else if (item.type === 'Skill Specialty') {
+            var $sksp = $('ul.skill-specialties').find('input[type="hidden"][name$="_skill"][val="'+item.skill_specialty+'"]').parents('li');
+            if ($sksp.length == 0) {
+              $item.addClass('error');
+              errors.push("Must have a skill specialty for "+item.skill_specialty+".");
+            }
+          } else if (item.type === 'Option') {
+
+          }
+          if (errors.length == 0) {
+            $item.removeClass('error');
+          } else {
+            $item.find('.error-content').html("<span>"+errors.join("</span><span>")+"</span>");
+          }
+        });
+      });
     }
 
     function checkSkillSpecialties() {
