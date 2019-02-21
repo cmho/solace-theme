@@ -585,7 +585,13 @@ function addCondition()
         'note' => $_POST['note']
     ));
     update_field('conditions', $conditions, $char->ID);
-    echo json_encode(get_field('conditions', $char->ID));
+    $c = array_map(function ($x) {
+        return array(
+            'condition' => $x['condition']->post_title,
+            'note' => $x['note']
+        );
+    }, get_field('conditions', $char->ID));
+    echo json_encode($c);
     die(1);
 }
 
@@ -695,39 +701,3 @@ function ajax_login()
 if (!is_user_logged_in()) {
     add_action('init', __NAMESPACE__.'\\ajax_login_init');
 }
-
-function getCharacterData()
-{
-    $user = wp_get_current_user();
-    if (!$user) {
-        die(1);
-        return;
-    }
-
-    $char = get_post(intval($_GET['id']));
-    if ($user->ID == $char->post_author || in_array('administrator', $user->roles)) {
-        $blade = new Blade('templates');
-        echo $blade->make('partials.content-dashboard-character', array('char' => $char));
-    }
-    die(1);
-}
-
-function addCharacterDataApi()
-{
-    register_rest_route('solace/v1', '/characters/(?P<id>\d+)', array(
-        'methods' => 'POST',
-        'callback' => 'getCharacterData'
-    ));
-
-    register_rest_route('solace/v1', '/downtimes/(?P<char_id>\d+)', array(
-        'methods' => 'GET',
-        'callback' => 'getDowntimesData'
-    ));
-
-    register_rest_route('solace/v1', '/rumors/(?P<char_id>\d+)', array(
-        'methods' => 'GET',
-        'callback' => 'getRumorsData'
-    ));
-}
-
-add_action('rest_api_init', __NAMESPACE__.'\\addCharacterDataApi');
