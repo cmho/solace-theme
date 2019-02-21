@@ -85,47 +85,7 @@
   @elseif(App::isLoggedIn())
     @if($char)
       @include('partials.content-dashboard-character')
-      <div class="downtime-actions" id="downtimes">
-        <h2>Downtime Actions</h2>
-        <dl>
-          @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
-            @php
-              $game = get_post($g);
-            @endphp
-            <dt><a href="#">{{ $game->post_title }}</a></dt>
-            <dd>
-              @foreach($actions as $action)
-                <div class="action">
-                  <h3>{{ get_the_title($action->ID) }}</h3>
-                  <p class="action-type"><strong>Action Type:</strong> {{ get_field('action_type', $action->ID) }}</p>
-                  <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $action->ID) }}</p>
-                  <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $action->ID) }}</p>
-                  <div class="description">
-                    {!! apply_filter('the_content', '<strong>Description:</strong> '.$action->post_content) !!}
-                  </div>
-                  <div class="response">
-                    <strong>Response:</strong> {!! get_field('response', $action->ID) !!}
-                  </div>
-                </div>
-              @endforeach
-            </dd>
-          @endforeach
-        </dl>
-      </div>
-      <div class="rumors" id="rumors">
-        <dl>
-          @foreach(App\Games::listGames() as $game)
-            <dt><a href="#">{{ $game->post_title }}</a></dt>
-            <dd>
-              <ul>
-                @foreach(App\Rumors::listRumors($game->ID, $char->ID) as $rumor)
-                  <li>{!! apply_filter('the_content', $rumor->post_content) !!}</li>
-                @endforeach
-              </ul>
-            </dd>
-          @endforeach
-        </dl>
-      </div>
+
       <nav class="dashboard-tabs">
         <div class="wrapper">
           <div class="row center-xs middle-xs">
