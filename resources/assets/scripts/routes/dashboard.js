@@ -200,7 +200,7 @@ export default {
           for (var i = 0; i < data.length; i++) {
             var item =
               "<li>" +
-              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button>' +
+              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
               '</li>';
             $conditions.find('.char-conditions').append(item);
           }
@@ -232,7 +232,40 @@ export default {
             for (var i = 0; i < data.length; i++) {
               var item =
                 "<li>" +
-                data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button>' +
+                data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
+                '</li>';
+              $conditions.find('.char-conditions').append(item);
+            }
+          },
+        });
+      }
+    });
+
+    $(".char-conditions").on("click", ".delete-button", function () {
+      var $conditions = $(this).parents('.conditions');
+      var yn = confirm(
+        "Delete this condition?"
+      );
+      if (yn) {
+        var condition = $(this).parents('li').index();
+        console.log(condition);
+        var character = $(this).parents('li').data('character');
+        console.log(character);
+        $.ajax({
+          url: ajaxurl,
+          method: 'POST',
+          dataType: 'json',
+          data: {
+            action: 'delete_condition',
+            condition: condition,
+            character: character,
+          },
+          success: function (data) {
+            $conditions.find('.char-conditions').empty();
+            for (var i = 0; i < data.length; i++) {
+              var item =
+                "<li>" +
+                data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
                 '</li>';
               $conditions.find('.char-conditions').append(item);
             }
