@@ -210,14 +210,14 @@ export default {
 
     $(".char-conditions").on("click", ".resolve-button", function () {
       var $conditions = $(this).parents('.conditions');
+      var condition = $(this).parents('li').index();
+      console.log(condition);
+      var character = $(this).parents('li').data('character');
+      console.log(character);
       var yn = confirm(
         "Resolve this condition?"
       );
       if (yn) {
-        var condition = $conditions.parents('li').index();
-        console.log(condition);
-        var character = $conditions.parents('li').data('character');
-        console.log(character);
         $.ajax({
           url: ajaxurl,
           method: 'POST',
