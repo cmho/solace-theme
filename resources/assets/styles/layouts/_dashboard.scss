@@ -140,7 +140,8 @@
     display: none;
   }
 
-  #condition-form {
+  #condition-form,
+  .condition-form {
     .form-row {
       margin-bottom: .5em;
     }
@@ -163,6 +164,7 @@
   .character-sheet {
     margin: 20px;
     border: 3px white solid;
+    margin-bottom: 80px;
 
     h2 {
       margin: 0;
@@ -202,5 +204,41 @@
 
   #login {
     padding: 0 20px;
+  }
+}
+
+.downtime-actions,
+.rumors {
+  display: none;
+}
+
+nav.dashboard-tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  color: $yellow;
+  background-color: $grey;
+  border-top: 2px $yellow solid;
+
+  .tab {
+    margin: 0 5px;
+
+    a {
+      text-decoration: none;
+    }
+
+    .icon {
+      font-size: 24px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    span {
+      font-size: 11px;
+    }
   }
 }

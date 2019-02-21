@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use Roots\Sage\Template\Blade;
+use Roots\Sage\Template\BladeProvider;
+
 /**
  * Add <body> classes
  */
@@ -583,7 +586,13 @@ function addCondition()
         'note' => $_POST['note']
     ));
     update_field('conditions', $conditions, $char->ID);
-    echo json_encode(get_field('conditions', $char->ID));
+    $c = array_map(function ($x) {
+        return array(
+            'condition' => $x['condition']->post_title,
+            'note' => $x['note']
+        );
+    }, get_field('conditions', $char->ID));
+    echo json_encode($c);
     die(1);
 }
 
@@ -591,6 +600,27 @@ add_action('wp_ajax_add_condition', __NAMESPACE__.'\\addCondition');
 
 function resolveCondition()
 {
+    $char = get_post($_POST['character']);
+    $conditions = get_field('conditions', $char->ID);
+    $cond = array_splice($conditions, intval($_POST['condition']), 1);
+    if (get_field('resolution', $cond[0]['condition']->ID) && empty($_POST['delete'])) {
+        wp_insert_post(array(
+            'post_type' => 'beat',
+            'post_status' => 'publish',
+            'meta_input' => array(
+                'value' => 1,
+            )
+        ));
+    }
+    update_field('conditions', $conditions, $char->ID);
+    $c = array_map(function ($x) {
+        return array(
+            'condition' => $x['condition']->post_title,
+            'note' => $x['note']
+        );
+    }, get_field('conditions', $char->ID));
+    echo json_encode($c);
+    die(1);
     return;
 }
 

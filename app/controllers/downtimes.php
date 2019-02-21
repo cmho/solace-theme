@@ -6,7 +6,7 @@ use Sober\Controller\Controller;
 
 class Downtimes extends Controller
 {
-    public static function listDowntimes()
+    public static function listDowntimes($char = null)
     {
         $tz = new \DateTimeZone('America/Chicago');
         $date = new \DateTime('now', $tz);
@@ -41,6 +41,12 @@ class Downtimes extends Controller
                     )
                 )
             );
+            if ($char) {
+                array_push($args['meta_query'], array(
+                    'key' => 'character',
+                    'value' => $char
+                ));
+            }
             if (!App::isAdmin()) {
                 $args['post_author'] = wp_get_current_user();
             }
