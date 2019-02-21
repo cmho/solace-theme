@@ -55,7 +55,8 @@ export default {
       }
       // validate merits
       $('ul.merits li').each(function() {
-        var prereqs = JSON.parse($(this).data('prereqs'));
+        var prereqs = $(this).data('prereqs');
+        console.log(prereqs);
         var errors = [];
         var $item = $(this);
         if (prereqs != null) {
