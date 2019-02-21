@@ -106,6 +106,7 @@ export default {
             } else if (item.type === 'Option') {
               var foundAny = false;
               item.options.forEach(function(optitem) {
+                console.log(optitem);
                 if (optitem.type === 'Merit') {
                   var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(optitem.merit.ID ? '[val="'+optitem.merit.ID+'"]' : '')).parents('li');
                   if ($merit.length > 0) {
@@ -119,6 +120,8 @@ export default {
                     foundAny = true;
                   }
                 } else if (optitem.type === 'Skill') {
+                  console.log(optitem.skill);
+                  console.log(optitem.rating);
                   if (optitem.skill == 'any') {
                     var $sksp = $('ul.skill-specialties').find('input[type="hidden"][name$="_skill"]').map(function($x) {
                       return $x.val();
