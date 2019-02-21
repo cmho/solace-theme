@@ -218,11 +218,14 @@ export default {
             specstr = ' <span class="specification">()</span>';
           }
           var newItem =
-            "<li data-prereqs='"+JSON.stringify(data.prerequisites_list)+"'><span class='label'><span class='meritname'>" +
+            "<li data-prereqs='" +
+            JSON.stringify(data.prerequisites_list) +
+            "'><span class='label'><span class='meritname'>" +
             data.name +
             "</span>" +
             specstr +
             ratingstr +
+            +' <span class="alert"><i class="fas fa-exclamation-triangle"></i><span class="sr-only">Alert</span><span class="error-content"></span></span>';
             " <button class='js-modal edit' data-modal-content-id='merits-modal'><i class='fas fa-pencil-alt'></i></button> <button class='delete'><i class='fas fa-trash'></i></button><div class='description'></div><input type='hidden' name='merits_" +
             newNum +
             "_merit' value='" +
