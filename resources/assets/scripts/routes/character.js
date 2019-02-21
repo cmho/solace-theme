@@ -56,7 +56,6 @@ export default {
       // validate merits
       $('ul.merits li').each(function() {
         var prereqs = $(this).data('prereqs');
-        console.log(prereqs);
         var errors = [];
         var $item = $(this);
         if (prereqs != null) {
@@ -91,7 +90,6 @@ export default {
             } else if (item.type === 'Option') {
 
             }
-            console.log(errors);
           });
           if (errors.length == 0) {
             $item.removeClass('error');
