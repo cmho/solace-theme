@@ -211,6 +211,7 @@ export default {
     });
 
     $(".char-conditions").on("click", ".resolve-button", function () {
+      var $conditions = $(this).parents('.conditions');
       var yn = confirm(
         "Resolve this condition?"
       );
