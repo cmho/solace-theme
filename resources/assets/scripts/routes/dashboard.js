@@ -214,9 +214,9 @@ export default {
         "Resolve this condition?"
       );
       if (yn) {
-        var condition = $(this).parents('li').index();
+        var condition = $conditions.parents('li').index();
         console.log(condition);
-        var character = $(this).parents('li').data('character');
+        var character = $conditions.parents('li').data('character');
         console.log(character);
         $.ajax({
           url: ajaxurl,
