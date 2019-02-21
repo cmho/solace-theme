@@ -90,7 +90,7 @@
         <dl>
           @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
             @php
-              $game = get_post($g);
+                $game = get_post($g);
             @endphp
             <dt><a href="#">{{ $game->post_title }}</a></dt>
             <dd>
@@ -108,6 +108,20 @@
                   </div>
                 </div>
               @endforeach
+            </dd>
+          @endforeach
+        </dl>
+      </div>
+      <div class="rumors" id="rumors">
+        <dl>
+          @foreach(App\Games::listGames() as $game)
+            <dt><a href="#">{{ $game->post_title }}</a></dt>
+            <dd>
+              <ul>
+                @foreach(App\Rumors::listRumors($game->ID, $char->ID) as $rumor)
+                  <li>{!! apply_filter('the_content', $rumor->post_content) !!}</li>
+                @endforeach
+              </ul>
             </dd>
           @endforeach
         </dl>
