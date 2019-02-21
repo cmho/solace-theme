@@ -149,7 +149,7 @@ export default {
                   if (m.type === 'Skill') {
                     return m.skill+" "+m.rating;
                   } else if (m.type === 'Attribute') {
-                    return m.attribute+" "m.rating;
+                    return m.attribute+" "+m.rating;
                   } else if (m.type === 'Merit') {
                     return m.merit.post_title+(m.rating ? ' '+m.rating : '');
                   } else if (m.type === 'Skill Specialty') {
