@@ -90,7 +90,7 @@ export default {
                 });
 
                 if (!foundAny) {
-                  $item.AddClass('error');
+                  $item.addClass('error');
                   errors.push("Must have a skill with a specialty at at least "+item.rating+".");
                 }
               } else if ($('input[name="' + item.skill + '"]').val() < item.rating) {
