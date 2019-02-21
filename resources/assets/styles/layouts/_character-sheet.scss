@@ -63,6 +63,45 @@
     }
   }
 
+  ul.merits {
+    li {
+      .alert {
+        display: none;
+        position: relative;
+
+        .error-content {
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $yellow;
+          padding: 5px;
+          font-size: 12px;
+          text-align: left;
+          display: none;
+
+          span {
+            display: block;
+          }
+        }
+      }
+
+      &.error {
+        .alert {
+          display: inline-block;
+
+          &:hover {
+            cursor: pointer;
+
+            .error-content {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .specialty-form-row {
     flex-wrap: nowrap;
 
