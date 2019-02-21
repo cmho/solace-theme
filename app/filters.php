@@ -218,10 +218,6 @@ function update_character()
             'specification' => $purifier->purify($_POST['merits_'.$i.'_specification']),
             'description' => $purifier->purify($_POST['merits_'.$i.'_description'])
         ));
-        $post_content['meta_input']['merits_'.$i.'_merit'] = $purifier->purify($_POST['merits_'.$i.'_merit']);
-        $post_content['meta_input']['merits_'.$i.'_rating'] = $purifier->purify($_POST['merits_'.$i.'_rating']);
-        $post_content['meta_input']['merits_'.$i.'_specification'] = $purifier->purify($_POST['merits_'.$i.'_specification']);
-        $post_content['meta_input']['merits_'.$i.'_description'] = $purifier->purify($_POST['merits_'.$i.'_description']);
     }
 
     for ($j = 0; $j < intval($purifier->purify($_POST['skill_specialties'])); $j++) {
@@ -229,8 +225,6 @@ function update_character()
             'skill' => $purifier->purify($_POST['skill_specialties_'.$j.'_skill']),
             'specialty' => $purifier->purify($_POST['skill_specialties_'.$j.'_specialty'])
         ));
-        $post_content['meta_input']['skill_specialties_'.$j.'_skill'] = $purifier->purify($_POST['skill_specialties_'.$j.'_skill']);
-        $post_content['meta_input']['skill_specialties_'.$j.'_specialty'] = $purifier->purify($_POST['skill_specialties_'.$j.'_specialty']);
     }
 
     for ($k = 0; $k < intval($purifier->purify($_POST['conditions'])); $k++) {
@@ -238,8 +232,6 @@ function update_character()
             'condition' => $purifier->purify($_POST['conditions_'.$k.'_condition']),
             'note' => $purifier->purify($_POST['conditions_'.$k.'_note'])
         ));
-        $post_content['meta_input']['conditions_'.$k.'_condition'] = $purifier->purify($_POST['conditions_'.$k.'_condition']);
-        $post_content['meta_input']['conditions_'.$k.'_note'] = $purifier->purify($_POST['conditions_'.$k.'_note']);
     }
 
     if (isset($_POST['id'])) {
