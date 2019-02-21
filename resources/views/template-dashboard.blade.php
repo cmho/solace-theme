@@ -89,9 +89,9 @@
         <h2>Downtime Actions</h2>
         <dl>
           @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
-            @php
-                $game = get_post($g);
-            @endphp
+@php
+    $game = get_post($g);
+@endphp
             <dt><a href="#">{{ $game->post_title }}</a></dt>
             <dd>
               @foreach($actions as $action)
