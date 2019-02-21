@@ -105,6 +105,7 @@ export default {
               }
             } else if (item.type === 'Option') {
               var foundAny = false;
+              console.log(foundAny);
               item.options.forEach(function(optitem) {
                 console.log(optitem);
                 if (optitem.type === 'Merit') {
@@ -145,6 +146,7 @@ export default {
                     foundAny = true;
                   }
                 } 
+                console.log(foundAny);
               });
               if (!foundAny) {
                 $item.addClass('error');
