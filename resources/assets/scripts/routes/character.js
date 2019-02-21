@@ -78,7 +78,22 @@ export default {
                 errors.push("Must have "+item.attribute.charAt(0).toUpperCase() + item.attribute.slice(1)+" of at least "+item.rating+".");
               }
             } else if (item.type === 'Skill') {
-              if ($('input[name="' + item.skill + '"]').val() < item.rating) {
+              if (item.skill == 'any') {
+                var $sksp = $('ul.skill-specialties').find('input[type="hidden"][name$="_skill"]').map(function($x) {
+                  return $x.val();
+                }).get();
+                var foundAny = false;
+                $sksp.forEach(function(i) {
+                  if ($('input[name="'+i+'"]').val() > item.rating) {
+                    foundAny = true;
+                  }
+                });
+
+                if (!foundAny) {
+                  $item.AddClass('error');
+                  errors.push("Must have a skill with a specialty at at least "+item.rating+".");
+                }
+              } else if ($('input[name="' + item.skill + '"]').val() < item.rating) {
                 $item.addClass("error");
                 errors.push("Must have " + item.skill.charAt(0).toUpperCase() + item.skill.slice(1).replace("_", " ") + " of at least " + item.rating + ".");
               }
@@ -89,7 +104,59 @@ export default {
                 errors.push("Must have a skill specialty for "+item.skill_specialty+".");
               }
             } else if (item.type === 'Option') {
+              var foundAny = false;
+              item.options.forEach(function(optitem) {
+                if (optitem.type === 'Merit') {
+                  var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(optitem.merit.ID ? '[val="'+optitem.merit.ID+'"]' : '')).parents('li');
+                  if ($merit.length > 0) {
+                    var $rating = $merit.find('input[type="hidden"][name$="_rating"]'+(optitem.rating ? '[val="'+optitem.rating+'"]' : ''));
+                    if ($rating && $rating.val() >= optitem.rating) {
+                      foundAny = true;
+                    }
+                  }
+                } else if (optitem.type === 'Attribute') {
+                  if ($('input[name="'+optitem.attribute+'"]').val() >= optitem.rating) {
+                    foundAny = true;
+                  }
+                } else if (optitem.type === 'Skill') {
+                  if (optitem.skill == 'any') {
+                    var $sksp = $('ul.skill-specialties').find('input[type="hidden"][name$="_skill"]').map(function($x) {
+                      return $x.val();
+                    }).get();
+                    var fa = false;
+                    $sksp.forEach(function(i) {
+                      if ($('input[name="'+i+'"]').val() > optitem.rating) {
+                        fa = true;
+                      }
+                    });
 
+                    if (fa) {
+                      foundAny = true;
+                    }
+                  } else if ($('input[name="' + optitem.skill + '"]').val() >= optitem.rating) {
+                    foundAny = true;
+                  }
+                } else if (optitem.type === 'Skill Specialty') {
+                  var $sksp = $('ul.skill-specialties').find('input[type="hidden"][name$="_skill"][val="'+optitem.skill_specialty+'"]').parents('li');
+                  if ($sksp.length != 0) {
+                    foundAny = true;
+                  }
+                } 
+              });
+              if (!foundAny) {
+                $item.addClass('error');
+                var errorText = "Must have at least one of: "+item.options.map(function(m) {
+                  if (m.type === 'Skill') {
+                    return m.skill+" "+m.rating;
+                  } else if (m.type === 'Attribute') {
+                    return m.attribute+" "m.rating;
+                  } else if (m.type === 'Merit') {
+                    return m.merit.post_title+(m.rating ? ' '+m.rating : '');
+                  } else if (m.type === 'Skill Specialty') {
+                    return "a specialty in "+m.skill_specialty;
+                  }
+                }).join(", ");
+              }
             }
           });
           if (errors.length == 0) {
