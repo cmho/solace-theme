@@ -602,7 +602,7 @@ function resolveCondition()
     $char = get_post($_POST['character']);
     $conditions = get_field('conditions', $char->ID);
     $cond = array_splice($conditions, intval($_POST['condition']), 1);
-    if (get_field('resolution', $cond->ID) && !isset($_POST['delete'])) {
+    if (get_field('resolution', $cond['condition']->ID) && !isset($_POST['delete'])) {
         wp_insert_post(array(
             'post_type' => 'beat',
             'post_status' => 'publish',
