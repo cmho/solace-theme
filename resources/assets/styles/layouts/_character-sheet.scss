@@ -74,11 +74,15 @@
           bottom: 100%;
           left: 50%;
           transform: translateX(-50%);
-          background-color: $yellow;
+          background-color: $gray;
+          color: white;
+          border: 3px white solid;
+          box-shadow: 3px 3px 0 $yellow;
           padding: 5px;
           font-size: 12px;
           text-align: left;
           display: none;
+          min-width: 120px;
 
           span {
             display: block;
