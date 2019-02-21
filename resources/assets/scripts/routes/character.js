@@ -59,7 +59,9 @@ export default {
         var errors = [];
         var $item = $(this);
         if (prereqs != null) {
+          console.log(prereqs);
           prereqs.forEach(function(item) {
+            console.log(item);
             if (item.type === 'Merit') {
               var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(item.merit.ID ? '[val="'+item.merit.ID+'"]' : '')).parents('li');
               if ($merit.length > 0) {
@@ -88,12 +90,13 @@ export default {
             } else if (item.type === 'Option') {
 
             }
-            if (errors.length == 0) {
-              $item.removeClass('error');
-            } else {
-              $item.find('.error-content').html("<span>"+errors.join("</span><span>")+"</span>");
-            }
+            console.log(errors);
           });
+          if (errors.length == 0) {
+            $item.removeClass('error');
+          } else {
+            $item.find('.error-content').html("<span>"+errors.join("</span><span>")+"</span>");
+          }
         }
       });
     }
