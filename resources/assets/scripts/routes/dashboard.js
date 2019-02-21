@@ -256,9 +256,10 @@ export default {
           method: 'POST',
           dataType: 'json',
           data: {
-            action: 'delete_condition',
+            action: 'resolve_condition',
             condition: condition,
             character: character,
+            delete: true,
           },
           success: function (data) {
             $conditions.find('.char-conditions').empty();

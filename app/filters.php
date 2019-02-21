@@ -601,7 +601,23 @@ function resolveCondition()
 {
     $char = get_post($_POST['character']);
     $conditions = get_field('conditions', $char->ID);
-    array_splice($conditions, intval($_POST['condition']), 1);
+    $cond = array_splice($conditions, intval($_POST['condition']), 1);
+    if (get_field('resolution', $cond->ID) && isset($_POST['delete'])) {
+        wp_insert_post(array(
+            'post_type' => 'beat',
+            'post_status' => 'publish',
+            'meta_input' => array(
+                'value' => 1,
+            )
+        ));
+    }
+    $c = array_map(function ($x) {
+        return array(
+            'condition' => $x['condition']->post_title,
+            'note' => $x['note']
+        );
+    }, get_field('conditions', $char->ID));
+    echo json_encode($c);
     update_field('conditions', $conditions, $char->ID);
     return;
 }
