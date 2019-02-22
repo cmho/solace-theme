@@ -263,10 +263,10 @@ function update_character()
                 'role' => 'administrator'
             ));
             $message =
-                "There's a new experience expenditure for ".$post->post_title.". To see and approve it, go here:
+                "There's a new experience expenditure for ".get_post($post)->post_title.". To see and approve it, go here:
                     <a href='https://solacelarp.com/wp-admin/revision.php?revision=".$post;
             foreach ($admins as $admin) {
-                \wp_mail($admin->user_email, '[Solace] New experience expenditure for '.$post->post_title, $message);
+                \wp_mail($admin->user_email, '[Solace] New experience expenditure for '.get_post($post)->post_title, $message);
             }
             header('Location:'.\get_the_permalink($char));
             die(1);
