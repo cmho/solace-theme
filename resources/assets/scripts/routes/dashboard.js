@@ -39,6 +39,25 @@ export default {
       document.cookie = 'openTab=' + tabid + ';' + expires + ';path=/';
     });
 
+    $(".merit-link").on("click", function() {
+      var merit = parseInt($(this).data('id'));
+      $.ajax({
+        url: ajaxurl,
+        method: "POST",
+        data: {
+          id: merit,
+          action: "get_merit_info",
+        },
+        success: function(data) {
+          $("#modal-content h4").text(data.name);
+          $("#modal-content .description").html(data.description);
+          $("#modal-content .prerequisites").html(
+            "<strong>Prerequsites:</strong> " + data.prerequisites
+          );
+        },
+      });
+    });
+
     $('#login').on('submit', function(e) {
       e.preventDefault();
       $.ajax({
