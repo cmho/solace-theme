@@ -23,7 +23,7 @@
     <p><strong>Social Skills:</strong> {{ App\Character::socialSkillsSimple($char->ID) }}</p>
 
     <h3>Merits</h3>
-    <p>{{ App\Character::meritsSimple($char->ID) }}</p>
+    <p>{!! App\Character::meritsSimple($char->ID) !!}</p>
 
     <h3>Equipment</h3>
     @if(get_field('equipment', $char->ID))
