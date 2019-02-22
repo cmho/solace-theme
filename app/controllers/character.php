@@ -232,7 +232,7 @@ class Character extends Controller
         $merits = get_field('merits', $id);
         $merits = array_map(function ($m) {
             $merit = get_post($m['merit']->ID);
-            return '<a class="js-modal merit-link" href="#" data-id="'.$m['merit']->ID.'">'.get_the_title($merit->ID)."</a> ".$m['rating'].($m['specification'] ? ' ('.$m['specification'].')' : '');
+            return '<a class="js-modal merit-link" href="#" data-id="'.$m['merit']->ID.'" data-content="merits-modal">'.get_the_title($merit->ID)."</a> ".$m['rating'].($m['specification'] ? ' ('.$m['specification'].')' : '');
         }, $merits);
         return join(", ", $merits);
     }
