@@ -259,6 +259,58 @@ class Character extends Controller
         return \get_posts($args);
     }
 
+    public static function printSkills($char)
+    {
+        $skills = array(
+            'mental' => array(
+                'academics',
+                'computer',
+                'crafts',
+                'investigation',
+                'medicine',
+                'occult',
+                'politics',
+                'science'
+            ),
+            'physical' => array(
+                'athletics',
+                'brawl',
+                'drive',
+                'firearms',
+                'larceny',
+                'stealth',
+                'survival',
+                'weaponry'
+            ),
+            'social' => array(
+                'animal_ken',
+                'empathy',
+                'expression',
+                'intimidation',
+                'leadership',
+                'persuasion',
+                'streetwise',
+                'subterfuge'
+            )
+        );
+
+        foreach($skills as $skill_cat=>$skill_list) {
+            echo "<h4>".ucwords(str_replace('_', ' ', $skill_cat))."</h4>";
+            foreach($skill_list as $skill) {
+                echo '<div class="row between-xs middle-xs">';
+                echo '<label>';
+                if (Character::hasAssetSkill($char, $skill)) {
+                    echo '* ';
+                }
+                echo ucwords(str_replace('_', ' ', $skill)).'</label>';
+                echo '<div class="dots">';
+                App\Character::printDots(get_field('computer'));
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+    }
+
     public static function getDowntimes($char, $game)
     {
         $args = array(
@@ -278,5 +330,10 @@ class Character extends Controller
             )
         );
         return \get_posts($args);
+    }
+
+    public static function hasAssetSkill($id, $skill)
+    {
+        return in_array(get_field('asset_skills', $id), $skill);
     }
 }

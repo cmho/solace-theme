@@ -116,6 +116,7 @@
       <div class="row">
         <div class="col-md-4 col-xs-12">
           <h3>Skills</h3>
+          @php(App\Character::printSkills($post->ID));
           <h4>Mental</h4>
           <div class="row between-xs middle-xs">
             <label>Academics</label>
@@ -179,37 +180,37 @@
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Drive</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'drive') ? '* ' : '' }}Drive</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('drive')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Firearms</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'firearms') ? '* ' : '' }}Firearms</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('firearms')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Larceny</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'larceny') ? '* ' : '' }}Larceny</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('larceny')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Stealth</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'stealth') ? '* ' : '' }}Stealth</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('stealth')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Survival</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'survival') ? '* ' : '' }}Survival</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('survival')))
             </div>
           </div>
           <div class="row between-xs middle-xs">
-            <label>Weaponry</label>
+            <label>{{ App\Character::hasAssetSkill($post->ID, 'weaponryh') ? '* ' : '' }}Weaponry</label>
             <div class="dots">
               @php(App\Character::printDots(get_field('weaponry')))
             </div>
