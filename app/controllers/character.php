@@ -294,7 +294,7 @@ class Character extends Controller
             )
         );
 
-        foreach ($skills as $skill_cat=>$skill_list) {
+        foreach ($skills as $skill_cat => $skill_list) {
             echo "<h4>".ucwords(str_replace('_', ' ', $skill_cat))."</h4>";
             foreach ($skill_list as $skill) {
                 echo '<div class="row between-xs middle-xs">';
