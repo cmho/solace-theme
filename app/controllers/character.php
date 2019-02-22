@@ -334,6 +334,6 @@ class Character extends Controller
 
     public static function hasAssetSkill($id, $skill)
     {
-        return in_array(get_field('asset_skills', $id), ucwords(str_replace("_", " ", $skill)));
+        return in_array(ucwords(str_replace("_", " ", $skill)), get_field('asset_skills', $id));
     }
 }
