@@ -336,4 +336,50 @@ class Character extends Controller
     {
         return in_array(ucwords(str_replace("_", " ", $skill)), get_field('asset_skills', $id));
     }
+
+    public static function getSubMerits($id)
+    {
+        $merits = get_field('merits', $id);
+        $extra_merits = array();
+        foreach ($merits as $m) {
+            $merit = $m['merit'];
+            if (get_field('additional_benefits', $merit->ID)) {
+                foreach (get_field('additional_benefits', $merit->ID) as $b) {
+                    if ($b['type'] == 'Merit') {
+                        $nm = array(
+                            'merit' => $b['merit']
+                        );
+                        if (isset($b['rating'])) {
+                            $nm['rating'] = $b['rating'];
+                        }
+                        if (isset($b['specification'])) {
+                            $nm['specification'] = $b['specification'];
+                        }
+                        array_push($extra_merits, $nm);
+                    }
+                }
+            }
+        }
+        return $extra_merits;
+    }
+
+    public static function getSubSkillSpecialties($id)
+    {
+        $merits = get_field('merits', $id);
+        $extra_sksps = array();
+        foreach ($merits as $m) {
+            $merit = $m['merit'];
+            if (get_field('additional_benefits', $merit->ID)) {
+                foreach (get_field('additional_benefits', $merit->ID) as $b) {
+                    if ($b['type'] == 'Skill Specialty') {
+                        $nss = array(
+                            'skill' => $b['skill'],
+                            'specialty' => $b['specialty']
+                        );
+                        array_push($extra_sksps, $nss);
+                    }
+                }
+            }
+        }
+    }
 }
