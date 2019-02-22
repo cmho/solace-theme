@@ -116,6 +116,7 @@
       <div class="row">
         <div class="col-md-4 col-xs-12">
           <h3>Skills</h3>
+          @php(print_r(get_field('asset_skills', $post->ID)))
           @php(App\Character::printSkills($post->ID))
           <h3>Skill Specialties</h3>
           <ul class="skill-specialties">
