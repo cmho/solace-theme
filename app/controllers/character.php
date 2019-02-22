@@ -304,7 +304,7 @@ class Character extends Controller
                 }
                 echo ucwords(str_replace('_', ' ', $skill)).'</label>';
                 echo '<div class="dots">';
-                App\Character::printDots(get_field('computer'));
+                Character::printDots(get_field('computer'));
                 echo '</div>';
                 echo '</div>';
             }
