@@ -177,7 +177,7 @@ class Character extends Controller
             return 0;
         }, ARRAY_FILTER_USE_BOTH);
         $skills = array_map(function ($k, $v) {
-            return $k." ".$v;
+            return (Character::hasAssetSkill($id, $k) ? '*' : '').$k." ".$v;
         }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
@@ -200,7 +200,7 @@ class Character extends Controller
             return 0;
         }, ARRAY_FILTER_USE_BOTH);
         $skills = array_map(function ($k, $v) {
-            return $k." ".$v;
+            return (Character::hasAssetSkill($id, $k) ? '*' : '').$k." ".$v;
         }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
@@ -222,7 +222,7 @@ class Character extends Controller
             return 0;
         }, ARRAY_FILTER_USE_BOTH);
         $skills = array_map(function ($k, $v) {
-            return $k." ".$v;
+            return (Character::hasAssetSkill($id, $k) ? '*' : '').$k." ".$v;
         }, array_keys($skills), $skills);
         return join(", ", $skills);
     }
