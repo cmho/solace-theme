@@ -51,9 +51,13 @@ export default {
         success: function(data) {
           $("#modal-content h4").text(data.name);
           $("#modal-content .description").html(data.description);
-          $("#modal-content .prerequisites").html(
-            "<strong>Prerequsites:</strong> " + data.prerequisites
-          );
+          if (data.prerequisites) {
+            $("#modal-content .prerequisites").html(
+              "<strong>Prerequisites:</strong> " + data.prerequisites
+            );
+          } else {
+            $('#modal-content .prerequisites').html("");
+          }
         },
       });
     });
