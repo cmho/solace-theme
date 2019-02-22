@@ -19,7 +19,24 @@
   <button type="button" id="add-merit">Add</button>
   <ul class="merits">
     @foreach(get_field('merits') as $i=>$merit)
-    <li data-prereqs="{{ json_encode($merit['prerequisites_list']) }}"><span class="label"><span class="meritname">{{ get_the_title($merit['merit']->ID) }}</span><span class="specification">{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}</span><span class="rating">{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}</span><span class="alert"><i class="fas fa-exclamation-triangle"></i><span class="sr-only">Alert</span><span class="error-content"></span></span><button class="js-modal edit" data-modal-content-id="merits-modal"><i class='fas fa-pencil-alt'></i></button> <button type="button" class="delete"><i class='fas fa-trash'></i></button>{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}<input type='hidden' name='merits_{{ $i }}_merit' value='{{ $merit['merit']->ID }}' class='merit-id' /><input type='hidden' name='merits_{{ $i }}_rating' value='{{ $merit['rating'] }}' /><input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' /><input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' /></li>
+    <li data-prereqs="{{ json_encode($merit['prerequisites_list']) }}">
+      <span class="label">
+        <span class="meritname">{{ get_the_title($merit['merit']->ID) }}</span>
+        <span class="specification">{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}</span>
+        <span class="rating">{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}</span>
+        <span class="alert">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span class="sr-only">Alert</span>
+          <span class="error-content"></span>
+        </span>
+        <button class="js-modal edit" data-modal-content-id="merits-modal"><i class='fas fa-pencil-alt'></i></button>
+        <button type="button" class="delete"><i class='fas fa-trash'></i></button>
+        {{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}
+        <input type='hidden' name='merits_{{ $i }}_merit' value='{{ $merit['merit']->ID }}' class='merit-id' />
+        <input type='hidden' name='merits_{{ $i }}_rating' value='{{ $merit['rating'] }}' />
+        <input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' />
+        <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
+      </li>
     @endforeach
     @php(wp_reset_postdata())
   </ul>

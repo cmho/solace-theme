@@ -30,9 +30,9 @@ export default {
     $('.tab a').on('click', function(e) {
       e.preventDefault();
       $(this).find('i').removeClass('far').addClass('fas');
-      $(this).parent('.tab').siblings().find('i').removeClass('fas').addClass('far');
+      $(this).parent('.tab').siblings('.tab-content').find('i').removeClass('fas').addClass('far');
       var tabid = $(this).attr('id').replace('-tab', '');
-      $('#'+tabid).show().siblings('div').hide();
+      $('#'+tabid).show().siblings('.tab-content').hide();
       var d = new Date();
       d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
       var expires = "expires=" + d.toUTCString();

@@ -1,4 +1,4 @@
-<div class="character-sheet character" id="character" data-character="{{ $char->ID }}">
+<div class="character-sheet character tab-content" id="character" data-character="{{ $char->ID }}">
   <h2>{{ get_the_title($char->ID) }}</h2>
   <div class="character-content">
     <div class="health" data-health="{{ get_field('current_health', $char->ID) }}">
