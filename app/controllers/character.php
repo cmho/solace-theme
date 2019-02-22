@@ -294,9 +294,9 @@ class Character extends Controller
             )
         );
 
-        foreach($skills as $skill_cat=>$skill_list) {
+        foreach ($skills as $skill_cat=>$skill_list) {
             echo "<h4>".ucwords(str_replace('_', ' ', $skill_cat))."</h4>";
-            foreach($skill_list as $skill) {
+            foreach ($skill_list as $skill) {
                 echo '<div class="row between-xs middle-xs">';
                 echo '<label>';
                 if (Character::hasAssetSkill($char, $skill)) {
@@ -304,7 +304,7 @@ class Character extends Controller
                 }
                 echo ucwords(str_replace('_', ' ', $skill)).'</label>';
                 echo '<div class="dots">';
-                Character::printDots(get_field('computer'));
+                Character::printDots(get_field($skill, $char));
                 echo '</div>';
                 echo '</div>';
             }
