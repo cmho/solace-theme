@@ -153,6 +153,12 @@ $bodyStart = `<div class="body-text" style="font-family:Helvetica, Arial, sans-s
 $bodyEnd = `<br><br>
 </div>`;
 
+function set_html_mail_content_type()
+{
+    return 'text/html';
+}
+add_filter('wp_mail_content_type', __NAMESPACE__.'\\set_html_mail_content_type');
+
 /**
  * Add <body> classes
  */
@@ -415,7 +421,11 @@ function update_character()
                 "There's a new experience expenditure for ".get_post($post)->post_title.". To see and approve it, go
                     <a href='https://solacelarp.com/wp-admin/revision.php?revision=".$post.">here</a>.";
             foreach ($admins as $admin) {
-                \wp_mail($admin->user_email, '[Solace] New experience expenditure for '.get_post($post)->post_title, $mailHeader.$titleStart.'New experience expenditure for '.get_post($post)->post_title.$title_end.$body_start.$message.$body_end.$mailFooter);
+                \wp_mail(
+                    $admin->user_email,
+                    '[Solace] New experience expenditure for '.get_post($post)->post_title,
+                    $mailHeader.$titleStart.'New experience expenditure for '.get_post($post)->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
+                );
             }
             header('Location:'.\get_the_permalink($char));
             die(1);
