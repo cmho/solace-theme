@@ -53,7 +53,7 @@
             <label for="status">Status</label>
             <select name="status">
               @foreach(get_field_object('field_5bdd389ba91cf')['choices'] as $label)
-                <option value="{{ $label }}"{{ get_field('status') == $label ? ' selected="selected"' : '' }}>{{ $label }}</option>
+                <option value="{{ $label }}"{{ get_field('status') == $label ? ' selected=selected' : '' }}>{{ $label }}</option>
               @endforeach
             </select>
           </div>
