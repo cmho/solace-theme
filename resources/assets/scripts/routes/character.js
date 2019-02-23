@@ -141,7 +141,7 @@ export default {
                   if ($sksp.length != 0) {
                     foundAny = true;
                   }
-                } 
+                }
               });
               if (!foundAny) {
                 $item.addClass('error');
@@ -828,6 +828,7 @@ export default {
       e.preventDefault();
       // validate first
       $('input[name="status"]').val("Submitted");
+      $('select[name="status"] option[value="Submitted"]').prop("selected", "selected").siblings().removeProp("selected");
       $(this).parents('form').submit();
     });
   },

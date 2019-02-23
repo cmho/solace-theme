@@ -283,7 +283,8 @@ function add_meta_keys_to_revision($keys)
         "loss",
         "hobbies",
         "coping",
-        "anything_else"
+        "anything_else",
+        "status"
     );
     return $keys;
 }
