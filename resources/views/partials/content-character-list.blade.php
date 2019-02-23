@@ -31,7 +31,7 @@
           </div>
         </td>
         @if($is_admin)
-          <td>{{ get_the_author() }}</td>
+          <td>{{ get_the_author_meta('nickname') }}</td>
         @endif
         <td>{{ get_field('family') }}</td>
         <td>{{ get_field('status') }}</td>
