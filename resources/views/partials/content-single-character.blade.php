@@ -16,7 +16,7 @@
             <p class="family">{{ get_field('family') }}</p>
           @endif
           @if(!get_field('is_npc'))
-            <p class="played-by">Played by {{ get_the_author() }}</p>
+            <p class="played-by">Played by {{ get_the_author_meta('nickname') }}</p>
           @endif
           @if(App\App::isAdmin() || (get_field('status') == 'In Progress' || get_field('status') == 'in_progress') || App\Character::sumExperience() > 0)
             <div class="button-row center">
