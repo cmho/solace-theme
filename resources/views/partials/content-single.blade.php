@@ -1,9 +1,9 @@
-<div class="breadcrumb">
-  <a href="{{ get_the_permalink(get_option('page_for_posts')) }}">Updates</a> &gt;
-  {{ get_the_title() }}
-</div>
 <section class="grey">
   <div class="wrapper">
+    <div class="breadcrumb">
+      <a href="{{ get_the_permalink(get_option('page_for_posts')) }}">Updates</a> &gt;
+      {{ get_the_title() }}
+    </div>
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <h2>{{ get_the_title() }}</h2>
