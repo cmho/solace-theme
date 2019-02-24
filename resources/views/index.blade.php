@@ -14,6 +14,11 @@
           @endif
 
           @while (have_posts()) @php the_post() @endphp
+            <div class="col-md-6 col-xs-12">
+              <div class="box">
+                @include('partials.content')
+              </div>
+            </div>
             @include('partials.content-'.get_post_type())
           @endwhile
 
