@@ -443,6 +443,8 @@ function update_character()
                     'role' => 'administrator'
                 ));
                 file_put_contents('./log_'.date("j.n.Y").'.log', '['.date('Y-m-d H:i:s').']', FILE_APPEND);
+                file_put_contents('./log_'.date("j.n.Y").'.log', var_dump(get_field('status', $p)), FILE_APPEND);
+                file_put_contents('./log_'.date("j.n.Y").'.log', var_dump($_POST['status']), FILE_APPEND);
                 file_put_contents('./log_'.date("j.n.Y").'.log', var_dump($message), FILE_APPEND);
                 foreach ($admins as $admin) {
                     \wp_mail(
