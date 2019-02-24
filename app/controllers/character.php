@@ -137,7 +137,7 @@ class Character extends Controller
         array_push($questionnaire, get_field_object('field_5bf38ac987e1e')); // complications
         array_push($questionnaire, get_field_object('field_5c36bd4792799')); // supernatural
         array_push($questionnaire, get_field_object('field_5bf38ae787e1f')); // massacre
-        array_push($questionniare, get_field_object('field_5bf38b0687e20')); // survive
+        array_push($questionnaire, get_field_object('field_5bf38b0687e20')); // survive
         array_push($questionnaire, get_field_object('field_5bf38b3187e21')); // loss
         array_push($questionnaire, get_field_object('field_5bf38b3d87e22')); // hobbies
         array_push($questionnaire, get_field_object('field_5bf38b4987e23')); // coping
