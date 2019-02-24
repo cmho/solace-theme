@@ -425,8 +425,8 @@ function update_character()
                 \wp_mail(
                     $admin->user_email,
                     '[Solace] New experience expenditure for '.get_post($post)->post_title,
-                    $mailHeader.$titleStart.'New experience expenditure for '.
-                    get_post($post)->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
+                    "<h2>".'New experience expenditure for '.
+                    get_post($post)->post_title."</h2>".$message
                 );
             }
             header('Location:'.\get_the_permalink($char));
@@ -447,9 +447,9 @@ function update_character()
                         $admin->user_email,
                         '[Solace] New character submission from '.
                         get_the_author_meta('nickname', $po->post_author).' :'.$po->post_title,
-                        $mailHeader.$titleStart.'New character submission from '.
+                        "<h2>".'New character submission from '.
                         get_the_author_meta('nickname', $po->post_author).' :'.
-                        $po->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
+                        $po->post_title."</h2>".$message
                     );
                 }
             }
