@@ -442,7 +442,6 @@ function update_character()
                 $admins = \get_users(array(
                     'role' => 'administrator'
                 ));
-                print_r($admins);
                 foreach ($admins as $admin) {
                     \wp_mail(
                         $admin->user_email,
