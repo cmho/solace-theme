@@ -436,9 +436,8 @@ function update_character()
             $po = get_post($p);
             if ((get_field('status', $p) == 'In Progress') && ($_POST['status'] == 'Submitted')) {
                 $message =
-                "There's a new character submission from ".get_the_author_meta('nickname', $po->post_author).
-                ": ".$po->post_title.". To review it, go here:
-                    <a href='".get_the_permalink($p)."'>here</a>";
+                "There's a new character submission from ".get_the_author_meta('nickname', $po->post_author).": ".
+                $po->post_title.". To review it, go <a href='".get_the_permalink($p)."'>here</a>";
                 $admins = \get_users(array(
                     'role' => 'administrator'
                 ));
@@ -446,7 +445,7 @@ function update_character()
                     \wp_mail(
                         $admin->user_email,
                         '[Solace] New character submission from '.
-                        get_the_author_meta('nickname', $po->post_author).' :'.$po->post_title,
+                        get_the_author_meta('nickname', $po->post_author).': '.$po->post_title,
                         "<h2>".'New character submission from '.
                         get_the_author_meta('nickname', $po->post_author).' :'.
                         $po->post_title."</h2>".$message
