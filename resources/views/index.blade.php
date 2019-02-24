@@ -1,3 +1,5 @@
+@php(global $wp_query)
+
 @extends('layouts.app')
 
 @section('content')
@@ -19,8 +21,12 @@
                 @include('partials.content')
               </div>
             </div>
-            @include('partials.content-'.get_post_type())
           @endwhile
+          @if($wp_query->current_post % 2 == 1)
+            <div class="col-md-6 col-xs-12 end-card">
+              *
+            </div>
+          @endif
 
           {!! get_the_posts_navigation() !!}
         </div>
