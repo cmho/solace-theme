@@ -434,9 +434,6 @@ function update_character()
         } else {
             $p = intval($_POST['id']);
             $po = get_post($p);
-                print_r(get_field('status', $p));
-                print_r($_POST['status']);
-                die(1);
             if (get_field('status', $p) == 'In Progress' && $post_content['status'] == 'Submitted') {
                 $message =
                 "There's a new character submission from ".get_the_author_meta('nickname', $po->post_author).
