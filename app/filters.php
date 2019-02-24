@@ -445,6 +445,7 @@ function update_character()
                 print_r(get_field('status', $p));
                 print_r($_POST['status']);
                 print_r($admins);
+                die(1);
                 foreach ($admins as $admin) {
                     \wp_mail(
                         $admin->user_email,
