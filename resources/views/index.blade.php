@@ -25,6 +25,7 @@
             </div>
           </div>
         @endwhile
+        @php(print_r($wp_query))
         @if($wp_query->current_post % 2 == 1)
           <div class="col-md-6 col-xs-12 end-card">
             *
