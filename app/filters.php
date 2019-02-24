@@ -425,7 +425,8 @@ function update_character()
                 \wp_mail(
                     $admin->user_email,
                     '[Solace] New experience expenditure for '.get_post($post)->post_title,
-                    $mailHeader.$titleStart.'New experience expenditure for '.get_post($post)->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
+                    $mailHeader.$titleStart.'New experience expenditure for '.
+                    get_post($post)->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
                 );
             }
             header('Location:'.\get_the_permalink($char));
@@ -433,15 +434,22 @@ function update_character()
         } else {
             $p = intval($_POST['id']);
             $po = get_post($p);
-            if (get_field('status', $p) == 'In Progress' && $_POST['status'] == 'Submitted') {
+            if (get_field('status', $p) == 'In Progress' && $post_content['status'] == 'Submitted') {
                 $message =
-                "There's a new character submission from ".get_the_author_meta('nickname', $po->post_author).": ".$po->post_title.". To review it, go here:
+                "There's a new character submission from ".get_the_author_meta('nickname', $po->post_author).
+                ": ".$po->post_title.". To review it, go here:
                     <a href='".get_the_permalink($p)."'>here</a>";
+                $admins = \get_users(array(
+                    'role' => 'administrator'
+                ));
                 foreach ($admins as $admin) {
                     \wp_mail(
                         $admin->user_email,
-                        '[Solace] New character submission from '.get_the_author_meta('nickname', $po->post_author).' :'.$po->post_title,
-                        $mailHeader.$titleStart.'New character submission from '.get_the_author_meta('nickname', $po->post_author).' :'.$po->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
+                        '[Solace] New character submission from '.
+                        get_the_author_meta('nickname', $po->post_author).' :'.$po->post_title,
+                        $mailHeader.$titleStart.'New character submission from '.
+                        get_the_author_meta('nickname', $po->post_author).' :'.
+                        $po->post_title.$title_end.$body_start.$message.$body_end.$mailFooter
                     );
                 }
             }
