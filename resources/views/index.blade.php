@@ -1,4 +1,6 @@
-@php(global $wp_query)
+@php
+  global $wp_query;
+@endphp
 
 @extends('layouts.app')
 
