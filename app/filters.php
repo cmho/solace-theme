@@ -442,10 +442,9 @@ function update_character()
                 $admins = \get_users(array(
                     'role' => 'administrator'
                 ));
-                file_put_contents('./log_'.date("j.n.Y").'.log', '['.date('Y-m-d H:i:s').']', FILE_APPEND);
-                file_put_contents('./log_'.date("j.n.Y").'.log', var_dump(get_field('status', $p)), FILE_APPEND);
-                file_put_contents('./log_'.date("j.n.Y").'.log', var_dump($_POST['status']), FILE_APPEND);
-                file_put_contents('./log_'.date("j.n.Y").'.log', var_dump($message), FILE_APPEND);
+                print_r(get_field('status', $p));
+                print_r($_POST['status']);
+                print_r($admins);
                 foreach ($admins as $admin) {
                     \wp_mail(
                         $admin->user_email,
