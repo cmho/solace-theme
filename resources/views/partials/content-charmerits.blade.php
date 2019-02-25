@@ -42,7 +42,7 @@
               @foreach($ab['benefits'] as $benefit)
                 @if(($benefit['type'] == 'Merit') && ($ab['rating'] <= $merit['rating']))
                   <li>
-                    {{ $benefit['merit']->post_name }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
+                    {{ $benefit['merit']->post_title }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                   </li>
                 @endif
               @endforeach
