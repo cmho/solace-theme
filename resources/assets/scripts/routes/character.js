@@ -174,7 +174,7 @@ export default {
     });
 
     function checkSkillSpecialties() {
-      var skillSpCount = $('.skill-specialties li').length;
+      var skillSpCount = $('.skill-specialties li').not("[data-phantom]").length;
       $('#skill-specialty-count').text((3 - skillSpCount)+" Remaining");
       if (skillSpCount > 3) {
         $('#skill-specialty-count').addClass('warn');

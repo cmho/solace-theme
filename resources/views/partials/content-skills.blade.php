@@ -194,6 +194,11 @@
         @foreach(get_field('skill_specialties') as $i=>$sksp)
           <li><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span> <button type="button" class="delete"><i class='fas fa-trash'></i></button><input type='hidden' name='skill_specialties_{{ $i }}_skill' value='{{ $sksp['skill'] }}' /><input type='hidden' name='skill_specialties_{{ $i }}_specialty' value='{{ $sksp['specialty'] }}' /></li>
         @endforeach
+        @if(App\Character::getSubSkillSpecialties($post->ID))
+          @foreach(App\Character::getSubSkillSpecialties($post->ID) as $sksp)
+            <li><strong class="skill" data-phantom>{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
+          @endforeach
+        @endif
       </ul>
     </div>
   </div>

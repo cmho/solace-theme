@@ -381,5 +381,6 @@ class Character extends Controller
                 }
             }
         }
+        return $extra_sksps;
     }
 }
