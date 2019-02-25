@@ -469,7 +469,7 @@ export default {
         var name = $(this).attr('name');
         var res = name.match(/benefit_definition_([0-9]+)_([0-9]+)/);
         console.log(res);
-        var newname = "merits_"+(idx-1)+"_benefits_def_"+res[1]+"_"+res[2];
+        var newname = "merits_"+(idx-1)+"_benefit_def_"+res[1]+"_"+res[2];
         console.log(newname);
         $('[name="'+newname+'"]').val($(this).val());
       });
