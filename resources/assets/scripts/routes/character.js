@@ -322,14 +322,14 @@ export default {
     });
 
     $(".merits").on("click", ".edit", function () {
-      var merit = $(this)
+      var merit = parseInt($(this)
         .parents("li")
         .find(".merit-id")
-        .val();
-      var currentVal = $(this)
+        .val());
+      var currentVal = parseInt($(this)
         .parents("li")
         .find(".merit-rating")
-        .val();
+        .val());
       var currentSpec = $(this)
         .parents("li")
         .find(".merit-spec")
@@ -467,6 +467,7 @@ export default {
       $('#modal-content [name^="benefits_definition_"]').each(function() {
         var name = $(this).attr('name');
         var res = name.match("/benefits_definition_([0-9]+)_([0-9]+)");
+        console.log(res);
         var newname = "merits_"+(idx-1)+"_benefits_def_"+res[0]+"_"+res[1];
         $('[name="'+newname+'"]').val($(this).val());
       });
