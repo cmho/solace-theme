@@ -37,6 +37,9 @@
         <input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' />
         <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
         @if(App\Merit::addlBenefits($merit['merit']->ID))
+          <!--
+            @php(print_r(App\Merit::addlBenefits($merit['merit']->ID)))
+          -->
           <ul>
             @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
               @if($ab['type'] == 'Merit' && $i <= $merit['rating'])
