@@ -305,13 +305,13 @@ export default {
             newNum +
             "_merit' value='" +
             data.id +
-            "' class='merit-id' /><input type='hidden' name='merits_" +
+            "' class='merit-id' /><input type='hidden' class='merit-rating' name='merits_" +
             newNum +
             "_rating' value='" +
             data.ratings[0] +
-            "' /><input type='hidden' name='merits_" +
+            "' /><input type='hidden' class='merit-spec' name='merits_" +
             newNum +
-            "_specification' value='' /><input type='hidden' name='merits_" +
+            "_specification' value='' /><input type='hidden' class='merit-desc' name='merits_" +
             newNum +
             "_description' value='' /></li>";
           $("ul.merits").append(newItem);
@@ -404,7 +404,7 @@ export default {
               '<option value="' +
               data.ratings[i] +
               '"' +
-              (currentVal === data.ratings[i] ?
+              (currentVal == data.ratings[i] ?
                 ' selected="selected"' :
                 "") +
               ">" +
