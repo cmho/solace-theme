@@ -833,7 +833,6 @@ export default {
       $('#questionnaire textarea').each(function() {
         if ($(this).val() == '') {
           ok = false;
-          break;
         }
       });
       return ok;
