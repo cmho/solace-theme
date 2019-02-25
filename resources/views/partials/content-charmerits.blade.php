@@ -42,11 +42,8 @@
               @foreach($ab['benefits'] as $j => $benefit)
                 @if(($benefit['type'] == 'Merit') && ($ab['rating'] <= $merit['rating']))
                   <li>
-                    {{ $benefit['merit']->post_title }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
+                    {{ $benefit['merit']->post_title }}<span class="specification">{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'] ? " (".get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'].")" : '' }}</span><span class='rating'>{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}</span>
                     @if($benefit['player-defined'])
-                      <!--
-                        @php(print_r(get_field('merits')[$i]['additional_specifications']))
-                      -->
                       <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'] }}" />
                     @endif
                   </li>
