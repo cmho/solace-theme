@@ -219,19 +219,32 @@ function update_character()
     $conditions = array();
 
     for ($i = 0; $i < intval($purifier->purify($_POST['merits'])); $i++) {
+        $ab = array();
+        $addl_benefits = get_field('additional_benefits', intval($_POST['merits_'.$i.'_merit']));
+        if ($addl_benefits) {
+            foreach ($addl_benefits as $b) {
+                $arr = array(
+                    'rating' => $b['rating'],
+                    'specifications' => array()
+                );
+                foreach ($b['benefits'] as $j => $benefit) {
+                    if ($benefit['player-defined'] == true) {
+                        array_push($arr['specifications'], array(
+                            'index' => $j,
+                            'specification' => $purifier->purify($_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j]),
+                            'skill' => $_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill'] ? $purifier->purify($_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill']) : ''
+                        ));
+                    }
+                }
+                array_push($ab, $arr);
+            }
+        }
         array_push($merits, array(
-            'merit' => $purifier->purify($_POST['merits_'.$i.'_merit']),
+            'merit' => intval($_POST['merits_'.$i.'_merit']),
             'rating' => $purifier->purify($_POST['merits_'.$i.'_rating']),
             'specification' => $purifier->purify($_POST['merits_'.$i.'_specification']),
             'description' => $purifier->purify($_POST['merits_'.$i.'_description']),
-            'additional_specifications' => array(
-                array(
-                    'rating' => $r,
-                    'specifications' => array(
-
-                    )
-                )
-            )
+            'additional_specifications' => $ab
         ));
     }
 
