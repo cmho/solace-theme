@@ -383,6 +383,7 @@ export default {
             var $benefits = $('#modal-content #benefits-row');
             $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
+              console.log(b);
               b.benefits.forEach(function(benefit, j) {
                 if (benefit.player_defined) {
                   var newItem = "<div class='form-row' data-rating='"+i+"'>";
