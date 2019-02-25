@@ -44,15 +44,12 @@
                   <li>
                     {{ $benefit['merit']->post_title }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                     @if($benefit['player-defined'])
-                      <!--
-                        @php(print_r($benefit))
-                      -->
-                      <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
+                      <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['specification'] }}" />
                     @endif
                   </li>
                 @else
-                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
-                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}_skill" value="{{ get_field('merits')['additional_specifications'][$i][$j]['skill'] }}" />
+                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['specification'] }}" />
+                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}_skill" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['skill'] }}" />
                 @endif
               @endforeach
             @endforeach
