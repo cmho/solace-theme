@@ -231,8 +231,8 @@ function update_character()
                     if ($benefit['player-defined'] == true) {
                         array_push($arr['specifications'], array(
                             'index' => $j,
-                            'specification' => $purifier->purify($_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j]),
-                            'skill' => $_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill'] ? $purifier->purify($_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill']) : ''
+                            'specification' => $purifier->purify($_POST['merits_'.$i.'_benefit_def_'.$b['rating'].'_'.$j]),
+                            'skill' => $_POST['merits_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill'] ? $purifier->purify($_POST['merit_'.$i.'_benefit_def_'.$b['rating'].'_'.$j.'_skill']) : ''
                         ));
                     }
                 }
