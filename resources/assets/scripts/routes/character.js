@@ -379,11 +379,11 @@ export default {
             $benefits.html("");
             additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
-                var new = "<div class='form-row'>";
-                new += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
-                new += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
-                new += "</div>";
-                $benefits.append(new);
+                var newItem = "<div class='form-row'>";
+                newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
+                newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
+                newItem += "</div>";
+                $benefits.append(newItem);
               });
             });
           }
