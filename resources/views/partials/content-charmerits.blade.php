@@ -47,7 +47,7 @@
                       <!--
                         @php(print_r(get_field('merits')[$i]['additional_specifications']))
                       -->
-                      <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['specification'] }}" />
+                      <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'] }}" />
                     @endif
                   </li>
                 @else
