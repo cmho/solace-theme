@@ -38,8 +38,8 @@
         <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
         @if(App\Merit::addlBenefits($merit['merit']->ID))
           <ul>
-            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $ab)
-              @if($ab['type'] == 'Merit')
+            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
+              @if($ab['type'] == 'Merit' && $i <= $merit['rating'])
                 <li>
                   {{ $ab['merit']->post_name }}{{ $ab['rating'] ? ' '.$ab['rating'] : '' }}
                 </li>
