@@ -362,6 +362,11 @@ export default {
             "<strong>Prerequsites:</strong> " +
             data.prerequisites
           );
+          if (!data.prerequisites) {
+            $('#modal-content .prerequisites').hide();
+          } else {
+            $('#modal-content .prerequisites').show();
+          }
           if (data.has_specification) {
             $("#modal-content #specification-row").show();
             $("#modal-content #specification").val(currentSpec);
@@ -379,11 +384,13 @@ export default {
             $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
-                var newItem = "<div class='form-row' data-rating='"+i+"'">";
-                newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
-                newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
-                newItem += "</div>";
-                $benefits.append(newItem);
+                if (benefit.player_defined) {
+                  var newItem = "<div class='form-row' data-rating='"+i+"'>";
+                  newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
+                  newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
+                  newItem += "</div>";
+                  $benefits.append(newItem);
+                }
               });
             });
           }

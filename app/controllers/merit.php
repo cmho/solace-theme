@@ -43,4 +43,11 @@ class Merit extends Controller
 
         return $out;
     }
+
+    public static function addlBenefits($id) {
+        if (get_field('additional_benefits', $id)) {
+            return $benefits = get_field('additional_benefits', $id);
+        }
+        return;
+    }
 }

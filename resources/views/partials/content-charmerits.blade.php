@@ -36,6 +36,17 @@
         <input type='hidden' name='merits_{{ $i }}_rating' value='{{ $merit['rating'] }}' />
         <input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' />
         <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
+        @if(App\Merit::addlBenefits($merit['merit']->ID))
+          <ul>
+            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $ab)
+              @if($ab['type'] == 'Merit')
+                <li>
+                  {{ $ab['merit']->post_name }}{{ $ab['rating'] ? ' '.$ab['rating'] : '' }}
+                </li>
+              @endif
+            @endforeach
+          </ul>
+        @endif
       </li>
     @endforeach
     @php(wp_reset_postdata())
