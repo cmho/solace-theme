@@ -34,8 +34,8 @@
         {{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}
         <input type='hidden' name='merits_{{ $i }}_merit' value='{{ $merit['merit']->ID }}' class='merit-id' />
         <input type='hidden' name='merits_{{ $i }}_rating' class="merit-rating" value='{{ $merit['rating'] }}' />
-        <input type='hidden' name='merits_{{ $i }}_specification' class="merit-specification" value='{{ $merit['specification'] }}' />
-        <input type='hidden' name='merits_{{ $i }}_description' class="merit-description" value='{{ $merit['description'] }}' />
+        <input type='hidden' name='merits_{{ $i }}_specification' class="merit-spec" value='{{ $merit['specification'] }}' />
+        <input type='hidden' name='merits_{{ $i }}_description' class="merit-desc" value='{{ $merit['description'] }}' />
         @if(App\Merit::addlBenefits($merit['merit']->ID))
           <ul>
             @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $k => $ab)
