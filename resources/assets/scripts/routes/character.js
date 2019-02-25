@@ -464,12 +464,12 @@ export default {
       $(
         ".merits li:nth-child(" + idx + ") .specification"
       ).text("(" + specification + ")");
-      $('#modal-content [name^="benefits_definition_"]').each(function() {
+      $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
-        var res = name.match("/benefits_definition_([0-9]+)_([0-9]+)");
+        var res = name.match("/benefit_definition_([0-9]+)_([0-9]+)");
         console.log(res);
         var newname = "merits_"+(idx-1)+"_benefits_def_"+res[0]+"_"+res[1];
-        $('[name="'+newname+'"]').val($(this).val());
+        $('[name="'+newname+'"]').val($(this).val());merits_0_benefit_def_1_0
       });
       $(".modal #js-modal-close").click();
     });
