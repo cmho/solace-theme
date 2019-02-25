@@ -51,8 +51,8 @@
                     @endif
                   </li>
                 @else
-                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['specification'] }}" />
-                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}_skill" value="{{ get_field('merits')[$i]['additional_specifications'][$k][$j]['skill'] }}" />
+                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'] }}" />
+                  <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}_skill" value="{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['skill'] }}" />
                 @endif
               @endforeach
             @endforeach
