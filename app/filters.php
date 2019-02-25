@@ -225,7 +225,12 @@ function update_character()
             'specification' => $purifier->purify($_POST['merits_'.$i.'_specification']),
             'description' => $purifier->purify($_POST['merits_'.$i.'_description']),
             'additional_specifications' => array(
+                array(
+                    'rating' => $r,
+                    'specifications' => array(
 
+                    )
+                )
             )
         ));
     }
