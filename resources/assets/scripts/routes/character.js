@@ -386,9 +386,13 @@ export default {
               console.log(b);
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
+                  var name = 'benefit_definition'+b.rating+'_'+j;
+                  var res = name.match(/benefit_definition_([0-9]+)_([0-9]+)/);
+                  var newname = "merits_" + (idx - 1) + "_benefit_def_" + res[1] + "_" + res[2];
+                  var val = $('[name="'+newname+'"]').val();
                   var newItem = "<div class='form-row' data-rating='"+b.rating+"'>";
                   newItem += "<label for='benefit_definition_" + b.rating + "_" + j + "'>" + (benefit.type == 'Merit' ? benefit.merit.post_title : benefit.type) + "</label>";
-                  newItem += "<input type='text' name='benefit_definition_" + b.rating + "_" + j + "' />";
+                  newItem += "<input type='text' name='benefit_definition_" + b.rating + "_" + j + "' value='"+val+"' />";
                   newItem += "</div>";
                   $benefits.append(newItem);
                 }
