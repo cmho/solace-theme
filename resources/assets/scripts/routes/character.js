@@ -377,7 +377,7 @@ export default {
           if (data.additional_benefits) {
             var $benefits = $('#modal-content #benefits-row');
             $benefits.html("");
-            additional_benefits.forEach(function(b, i) {
+            data.additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
                 var newItem = "<div class='form-row'>";
                 newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
