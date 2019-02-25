@@ -38,13 +38,13 @@
         <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
         @if(App\Merit::addlBenefits($merit['merit']->ID))
           <ul>
-            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
+            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $k => $ab)
               @foreach($ab['benefits'] as $j => $benefit)
                 @if(($benefit['type'] == 'Merit') && ($ab['rating'] <= $merit['rating']))
                   <li>
                     {{ $benefit['merit']->post_title }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                     @if($benefit['player-defined'])
-                      <input type="hidden" name="benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
+                      <input type="hidden" name="merits_{{$k}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
                     @endif
                   </li>
                 @else
