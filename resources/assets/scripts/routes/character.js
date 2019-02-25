@@ -385,7 +385,7 @@ export default {
             data.additional_benefits.forEach(function(b, i) {
               console.log(b);
               b.benefits.forEach(function(benefit, j) {
-                if (benefit.player_defined) {
+                if (benefit["player-defined"]) {
                   var newItem = "<div class='form-row' data-rating='"+i+"'>";
                   newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
                   newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
