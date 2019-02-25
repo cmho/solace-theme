@@ -483,7 +483,7 @@ export default {
       ).text("(" + specification + ")");
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
-        var res = name.match(/benefit_definition_([0-9]+)_([0-9]+)/);
+        var res = name.match(/benefit_definition_([0-9]+)_([0-9\_a-z]+)/);
         var newname = "merits_"+(idx-1)+"_benefit_def_"+res[1]+"_"+res[2];
         $('[name="'+newname+'"]').val($(this).val());
       });
