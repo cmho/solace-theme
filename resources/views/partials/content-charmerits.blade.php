@@ -48,6 +48,7 @@
                     {{ $benefit['merit']->post_name }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                   </li>
                 @endif
+              @endforeach
             @endforeach
           </ul>
         @endif
