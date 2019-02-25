@@ -402,7 +402,7 @@ export default {
                     newItem += "</select>"
                     newItem += "</div>";
                   }
-                  newItem = "<div class='form-row' data-rating='"+b.rating+"'>";
+                  newItem += "<div class='form-row' data-rating='"+b.rating+"'>";
                   newItem += "<label for='benefit_definition_" + b.rating + "_" + j + "'>" + (benefit.type == 'Merit' ? benefit.merit.post_title : benefit.type) + "</label>";
                   newItem += "<input type='text' name='benefit_definition_" + b.rating + "_" + j + "' value='"+val+"' />";
                   newItem += "</div>";
