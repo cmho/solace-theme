@@ -426,7 +426,7 @@ export default {
               ">" +
               data.ratings[i] +
               "</option>";
-            $("#modal-content select").append(option);
+            $("#modal-content select#ratings").append(option);
           }
           console.log(currentVal);
           $('#modal-content #benefits-row .form-row').each(function() {
