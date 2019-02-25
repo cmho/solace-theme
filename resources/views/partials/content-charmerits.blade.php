@@ -41,11 +41,11 @@
             @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
               @foreach($ab as $benefit)
 
+                <!--
+                  @php(print_r($benefit))
+                -->
                 @if($ab['type'] == 'Merit' && $i <= $merit['rating'])
                   <li>
-                    <!--
-                      @php(print_r($benefit))
-                    -->
                     {{ $benefit['merit']->post_name }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                   </li>
                 @endif
