@@ -44,7 +44,7 @@
                   <li>
                     {{ $benefit['merit']->post_title }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                     @if($benefit['player-defined'])
-                      <input type="hidden" name="merits_{{$k}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
+                      <input type="hidden" name="merits_{{$i}}_benefit_def_{{ $ab['rating'] }}_{{ $j }}" value="{{ get_field('merits')['additional_specifications'][$i][$j]['specification'] }}" />
                     @endif
                   </li>
                 @else
