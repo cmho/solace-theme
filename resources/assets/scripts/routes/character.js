@@ -374,6 +374,19 @@ export default {
           } else {
             $("#modal-content #description-row").hide();
           }
+          if (data.additional_benefits) {
+            var $benefits = $('#modal-content #benefits-row');
+            $benefits.html("");
+            additional_benefits.forEach(function(b, i) {
+              b.benefits.forEach(function(benefit, j) {
+                var new = "<div class='form-row'>";
+                new += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
+                new += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
+                new += "</div>";
+                $benefits.append(new);
+              });
+            });
+          }
           $("#modal-content a")
             .attr("rel", "external")
             .attr("target", "_blank");
@@ -675,6 +688,11 @@ export default {
           }
         }
       }
+      if ($('#attribute-row .warn').length > 0) {
+        return false;
+      }
+
+      return true;
     }
 
     function checkSkills() {
@@ -793,6 +811,12 @@ export default {
           $('#' + tertiary_name + "-skills-count").addClass('hidden');
         }
       }
+
+      if ($('#skills-row .warn').length > 0) {
+        return false;
+      }
+
+      return true;
     }
 
     $('#attributes-row input').on('change', function() {
@@ -803,6 +827,26 @@ export default {
       checkSkills();
     });
 
+    function checkQuestionnaire()
+    {
+      var ok = true;
+      $('#questionnaire textarea').each(function() {
+        if ($(this).val() == '') {
+          ok = false;
+          break;
+        }
+      });
+      return ok;
+    }
+
+    function checkIntegrity()
+    {
+      if ($('[name="integrity"]').val() > 0) {
+        return true;
+      }
+      return false;
+    }
+
     $(window).on('load', function() {
       checkAttributes();
       checkSkills();
@@ -812,16 +856,24 @@ export default {
 
     function validateSubmission()
     {
+      var valid = true;
       // check virtue
-      checkVirtue();
+      valid = valid && checkVirtue();
       // check vice
-      checkVice();
+      valid = valid && checkVice();
       // check attributes
+      valid == valid && checkAttributes();
       // check skills
+      valid == valid && checkSkills();
       // check merits
+      valid == valid && checkMerits();
       // check integrity
+      valid == valid && checkIntegrity();
       // check skill specialties
+      valid == valid && checkSkillSpecialties();
       // check questionnaire
+      valid == valid && checkQuestionnaire();
+      return valid;
     }
 
     $('#save-submit').on('click', function(e) {

@@ -493,7 +493,8 @@ function get_merit_info()
         'has_description' => get_field('requires_description', $post),
         'description' => get_field('description', $post),
         'prerequisites' => get_field('prerequisites', $post),
-        'prerequisites_list' => get_field('prerequisites_list', $post)
+        'prerequisites_list' => get_field('prerequisites_list', $post),
+        'additional_benefits' => get_field('additional_benefits', $post)
     );
     header('Content-type: application/json');
     echo json_encode($obj);

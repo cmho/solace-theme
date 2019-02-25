@@ -55,9 +55,12 @@
       <label>Specification</label>
       <input type="text" name="specification" id="specification" />
     </div>
-    <div class="form-row" name="description" id="description-row">
+    <div class="form-row" id="description-row">
       <label>Description</label>
       <textarea name="description"></textarea>
+    </div>
+    <div id="benefits-row">
+
     </div>
     <div class="form-row">
       <button type="button" id="save-merit">Save</button>
