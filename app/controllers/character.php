@@ -367,16 +367,20 @@ class Character extends Controller
     {
         $merits = get_field('merits', $id);
         $extra_sksps = array();
-        foreach ($merits as $m) {
-            $merit = $m['merit'];
-            if (get_field('additional_benefits', $merit->ID)) {
-                foreach (get_field('additional_benefits', $merit->ID) as $b) {
-                    if ($b['type'] == 'Skill Specialty') {
-                        $nss = array(
-                            'skill' => $b['skill'],
-                            'specialty' => $b['specialty']
-                        );
-                        array_push($extra_sksps, $nss);
+        if ($merits) {
+            foreach ($merits as $m) {
+                $merit = $m['merit'];
+                if (get_field('additional_benefits', $merit->ID)) {
+                    foreach (get_field('additional_benefits', $merit->ID) as $b) {
+                        foreach ($b['benefits'] as $benefit) {
+                            if ($benefit['type'] == 'Skill Specialty') {
+                                $nss = array(
+                                    'skill' => $benefit['skill'],
+                                    'specialty' => $benefit['specialty']
+                                );
+                                array_push($extra_sksps, $nss);
+                            }
+                        }
                     }
                 }
             }
