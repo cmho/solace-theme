@@ -487,7 +487,7 @@ export default {
         var newname = "merits_"+(idx-1)+"_benefit_def_"+res[1]+"_"+res[2];
         $('[name="'+newname+'"]').val($(this).val());
         if (!res[2].match("_skill")) {
-          $('[name="' + newname + '"]').siblings('.specification').text("("+$(this).val()+")");
+          $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+")");
         }
       });
       $(".modal #js-modal-close").click();
