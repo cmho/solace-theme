@@ -387,7 +387,7 @@ export default {
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
                   var newItem = "<div class='form-row' data-rating='"+i+"'>";
-                  newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
+                  newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + (benefit.type == 'Merit' ? benefit.merit.post_title : benefit.type) + "</label>";
                   newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
                   newItem += "</div>";
                   $benefits.append(newItem);
