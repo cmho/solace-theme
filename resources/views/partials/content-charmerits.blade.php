@@ -41,7 +41,7 @@
             @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
               @foreach($ab['benefits'] as $benefit)
                 <!--
-                  @php(print_r(($ab['type'] == 'Merit'))
+                  @php(print_r(($ab['type'])))
                   @php(print_r($ab['rating'] <= $merit['rating']))
                 -->
                 @if(($ab['type'] == 'Merit') && ($ab['rating'] <= $merit['rating']))
