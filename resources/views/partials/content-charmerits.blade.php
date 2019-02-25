@@ -37,14 +37,15 @@
         <input type='hidden' name='merits_{{ $i }}_specification' value='{{ $merit['specification'] }}' />
         <input type='hidden' name='merits_{{ $i }}_description' value='{{ $merit['description'] }}' />
         @if(App\Merit::addlBenefits($merit['merit']->ID))
-          <!--
-            @php(print_r(App\Merit::addlBenefits($merit['merit']->ID)))
-          -->
           <ul>
-            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $ab)
+            @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
               @foreach($ab as $benefit)
+
                 @if($benefit['type'] == 'Merit' && $i <= $merit['rating'])
                   <li>
+                    <!--
+                      @php(print_r($benefit))
+                    -->
                     {{ $benefit['merit']->post_name }}{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}
                   </li>
                 @endif
