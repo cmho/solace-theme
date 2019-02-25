@@ -392,7 +392,17 @@ export default {
                   console.log(newname);
                   console.log($('[name="' + newname + '"]'));
                   var val = $('[name="'+newname+'"]').val();
-                  var newItem = "<div class='form-row' data-rating='"+b.rating+"'>";
+                  var skills_list = $('#skills_list').html();
+                  var newItem = "";
+                  if (benefit.type == 'Skill Specialty') {
+                    newItem += "<div class='form-row' data-rating'"+b.rating+"'>";
+                    newItem += "<label for='benefit_definition_"+b.rating+"_"+j+"_skill'>Skill</label>";
+                    newItem += "<select name='benefit_definition_"+b.rating+"_"+j+"_skill'>";
+                    newItem += skills_list;
+                    newItem += "</select>"
+                    newItem += "</div>";
+                  }
+                  newItem = "<div class='form-row' data-rating='"+b.rating+"'>";
                   newItem += "<label for='benefit_definition_" + b.rating + "_" + j + "'>" + (benefit.type == 'Merit' ? benefit.merit.post_title : benefit.type) + "</label>";
                   newItem += "<input type='text' name='benefit_definition_" + b.rating + "_" + j + "' value='"+val+"' />";
                   newItem += "</div>";
