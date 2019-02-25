@@ -475,11 +475,11 @@ export default {
       $(".merits li:nth-child(" + idx + ") .description").html(
         description
       );
-      $(".merits li:nth-child(" + idx + ") .rating").text(
+      $(".merits li:nth-child(" + idx + ") .label .rating").text(
         rating
       );
       $(
-        ".merits li:nth-child(" + idx + ") .specification"
+        ".merits li:nth-child(" + idx + ") .label .specification"
       ).text("(" + specification + ")");
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
