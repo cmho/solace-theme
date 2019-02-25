@@ -196,7 +196,7 @@
         @endforeach
         @if(App\Character::getSubSkillSpecialties($post->ID))
           @foreach(App\Character::getSubSkillSpecialties($post->ID) as $sksp)
-            <li><strong class="skill" data-phantom>{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
+            <li><strong class="skill" data-phantom="true">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
           @endforeach
         @endif
       </ul>
