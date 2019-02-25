@@ -39,7 +39,7 @@
         @if(App\Merit::addlBenefits($merit['merit']->ID))
           <ul>
             @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $i => $ab)
-              @foreach($ab as $benefit)
+              @foreach($ab['benefits'] as $benefit)
 
                 <!--
                   @php(print_r($benefit))
