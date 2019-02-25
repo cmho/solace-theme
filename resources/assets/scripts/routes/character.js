@@ -379,7 +379,7 @@ export default {
             $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
-                var newItem = "<div class='form-row'>";
+                var newItem = "<div class='form-row' data-rating='"+i+"'">";
                 newItem += "<label for='benefit_definition_" + i + "_" + j + "'>" + benefit.type + "</label>";
                 newItem += "<input type='text' name='benefit_definition_" + i + "_" + j + "' />";
                 newItem += "</div>";
@@ -404,6 +404,25 @@ export default {
               "</option>";
             $("#modal-content select").append(option);
           }
+          $('#modal-content #benefits-row .form-row').each(function() {
+            var rowRating = $(this).data('rating');
+            if (rowRating > currentVal) {
+              $(this).hide();
+            } else {
+              $(this).show();
+            }
+          });
+          $('#modal-content select').on('change', function() {
+            var newVal = parseInt($(this).find('option:selected').val());
+            $('#modal-content #benefits-row .form-row').each(function () {
+              var rowRating = $(this).data('rating');
+              if (rowRating > newVal) {
+                $(this).hide();
+              } else {
+                $(this).show();
+              }
+            });
+          });
           if (data.ratings.length === 1) {
             $("#modal-content select").prop(
               "disabled",
