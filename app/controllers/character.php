@@ -371,13 +371,20 @@ class Character extends Controller
             foreach ($merits as $m) {
                 $merit = $m['merit'];
                 if (get_field('additional_benefits', $merit->ID)) {
-                    foreach (get_field('additional_benefits', $merit->ID) as $b) {
-                        foreach ($b['benefits'] as $benefit) {
+                    foreach (get_field('additional_benefits', $merit->ID) as $i => $b) {
+                        foreach ($b['benefits'] as $j => $benefit) {
                             if ($benefit['type'] == 'Skill Specialty') {
-                                $nss = array(
-                                    'skill' => ucwords($benefit['skill']),
-                                    'specialty' => $benefit['specialty']
-                                );
+                                if ($benefit['player-defined']) {
+                                    $nss = array(
+                                        'skill' => $m['additional_specifications'][$i]['specifications'][$j]['skill'],
+                                        'specialty' => $m['additional_specifications'][$i]['specifications'][$j]['specification']
+                                    );
+                                } else {
+                                    $nss = array(
+                                        'skill' => ucwords($benefit['skill']),
+                                        'specialty' => $benefit['specialty']
+                                    );
+                                }
                                 array_push($extra_sksps, $nss);
                             }
                         }
