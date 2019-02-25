@@ -375,7 +375,7 @@ class Character extends Controller
                         foreach ($b['benefits'] as $benefit) {
                             if ($benefit['type'] == 'Skill Specialty') {
                                 $nss = array(
-                                    'skill' => $benefit['skill'],
+                                    'skill' => ucwords($benefit['skill']),
                                     'specialty' => $benefit['specialty']
                                 );
                                 array_push($extra_sksps, $nss);
