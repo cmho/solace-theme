@@ -383,14 +383,11 @@ export default {
             var $benefits = $('#modal-content #benefits-row');
             $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
-              console.log(b);
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
                   var name = 'benefit_definition_'+b.rating+'_'+j;
                   var res = name.match(/benefit_definition_([0-9]+)_([0-9]+)/);
                   var newname = "merits_" + idx + "_benefit_def_" + res[1] + "_" + res[2];
-                  console.log(newname);
-                  console.log($('[name="' + newname + '"]'));
                   var val = $('[name="'+newname+'"]').val();
                   var skills_list = $('#skills_list').html();
                   var newItem = "";
@@ -428,7 +425,6 @@ export default {
               "</option>";
             $("#modal-content select#ratings").append(option);
           }
-          console.log(currentVal);
           $('#modal-content #benefits-row .form-row').each(function() {
             var rowRating = parseInt($(this).data('rating'));
             if (rowRating > currentVal) {
