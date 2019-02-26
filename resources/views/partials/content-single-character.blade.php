@@ -133,7 +133,7 @@
           <h3>Merits</h3>
           @if(get_field('merits'))
             <ul class="merits">
-              @foreach(get_field('merits') as $merit)
+              @foreach(get_field('merits') as $i => $merit)
                 <li>
                   {{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}
                   @if(App\Merit::addlBenefits($merit['merit']->ID))
