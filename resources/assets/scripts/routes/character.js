@@ -468,14 +468,14 @@ export default {
       $('[name="merits_' + (idx - 1) + "_description").val(
         description
       );
-      $(".merits > li:nth-child(" + idx + ") .description").html(
+      $(".merits > li:nth-child(" + idx + ") > .description").html(
         description
       );
-      $(".merits > li:nth-child(" + idx + ") > .label .rating").text(
+      $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
       $(
-        ".merits > li:nth-child(" + idx + ") > .label .specification"
+        ".merits > li:nth-child(" + idx + ") > .label > .specification"
       ).text("(" + specification + ")");
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
