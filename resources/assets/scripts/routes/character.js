@@ -488,9 +488,10 @@ export default {
         var newname = "merits_"+(idx-1)+"_benefit_def_"+res[1]+"_"+res[2];
         $('[name="'+newname+'"]').val($(this).val());
         if (!res[2].match("_skill")) {
-          $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+")");
+          $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+") ");
         } else {
           var sibname = newname.replace("_skill", "");
+          console.log(sibname);
           var newli = "<li data-phantom='true'><strong>"+$(this).val()+":</strong> "+$(this).siblings('[name="'+sibname+'"]').val()+"</li>";
           $('.skill-specialties').append(newli);
         }
