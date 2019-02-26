@@ -481,6 +481,7 @@ export default {
       $(
         ".merits li:nth-child(" + idx + ") .label .specification"
       ).text("(" + specification + ")");
+      $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
         var res = name.match(/benefit_definition_([0-9]+)_([0-9\_a-z]+)/);
@@ -488,6 +489,10 @@ export default {
         $('[name="'+newname+'"]').val($(this).val());
         if (!res[2].match("_skill")) {
           $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+")");
+        } else {
+          var sibname = newname.replace("_skill", "");
+          var newli = "<li data-phantom='true'><strong>"+$(this).val()+":</strong> "+$(this).siblings('[name="'+sibname+'"]').val()+"</li>";
+          $('.skill-specialties').append(newli);
         }
       });
       $(".modal #js-modal-close").click();
