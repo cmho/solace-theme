@@ -122,6 +122,11 @@
             @foreach(get_field('skill_specialties') as $i=>$sksp)
               <li><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
             @endforeach
+            @if(App\Character::getSubSkillSpecialties($post->ID))
+              @foreach(App\Character::getSubSkillSpecialties($post->ID) as $sksp)
+                <li data-phantom="true"><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
+              @endforeach
+            @endif
           </ul>
         </div>
         <div class="col-md-4 col-xs-12">
