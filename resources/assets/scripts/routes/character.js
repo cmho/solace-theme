@@ -471,11 +471,11 @@ export default {
       $(".merits li:nth-child(" + idx + ") .description").html(
         description
       );
-      $(".merits li:nth-child(" + idx + ") .label .rating").text(
+      $(".merits li:nth-child(" + idx + ") > .label .rating").text(
         rating
       );
       $(
-        ".merits li:nth-child(" + idx + ") .label .specification"
+        ".merits li:nth-child(" + idx + ") > .label .specification"
       ).text("(" + specification + ")");
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
@@ -487,8 +487,7 @@ export default {
           $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+") ");
         } else {
           var sibname = newname.replace("_skill", "");
-          console.log(sibname);
-          var newli = "<li data-phantom='true'><strong>"+$(this).val()+":</strong> "+$(this).siblings('[name="'+sibname+'"]').val()+"</li>";
+          var newli = "<li data-phantom='true'><strong>"+$(this).val()+":</strong> "+$('[name="'+sibname+'"]').val()+"</li>";
           $('.skill-specialties').append(newli);
         }
       });
