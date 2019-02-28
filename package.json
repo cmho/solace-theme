@@ -108,6 +108,7 @@
     "flexboxgrid-sass": "^8.0.5",
     "jquery": "^3.3.1",
     "jquery-accessible-modal-window-aria": "^1.10.0",
-    "trumbowyg": "^2.14.0"
+    "trumbowyg": "^2.14.0",
+    "underscore": "^1.9.1"
   }
 }

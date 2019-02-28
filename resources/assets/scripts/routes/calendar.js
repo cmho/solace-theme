@@ -7,6 +7,7 @@ export default {
               data: {
                 action: "get_events",
               },
+              dataType: 'JSON',
               success: function(data) {
                 $("#calendar").clndr({
                   events: data,
