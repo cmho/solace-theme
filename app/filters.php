@@ -505,6 +505,26 @@ function delete_downtime()
 add_action('admin_post_delete_downtime', __NAMESPACE__.'\\delete_downtime');
 add_action('admin_post_nopriv_delete_downtime', __NAMESPACE__.'\\delete_downtime');
 
+function getEvents()
+{
+    $args = array(
+        'post_type' => 'event',
+        'posts_per_page' => -1
+    );
+    $posts = get_posts($args);
+    $posts = array_map(function ($c) {
+        return array(
+            'date' => get_field('date', $c->ID),
+            'title' => get_the_title($c->ID),
+            'url' => get_the_permalink($c->ID)
+        );
+    }, $posts);
+    return json_encode($posts);
+}
+
+add_action('admin_post_get_events', __NAMESPACE__.'\\getEvents');
+add_action('admin_post_nopriv_get_events', __NAMESPACE__.'\\getEvents');
+
 function updateHealth()
 {
     wp_update_post(array(
@@ -671,6 +691,22 @@ function resolveCondition()
 }
 
 add_action('wp_ajax_resolve_condition', __NAMESPACE__.'\\resolveCondition');
+
+function skillSpData()
+{
+    $id = intval($_POST['id']);
+    $content = '';
+    foreach (get_field('skill_specialties', $id) as $i => $sksp) {
+        $content .= '<li><strong class="skill">'.$sksp['skill'].':</strong> <span class="specialty">'.$sksp['specialty'].'</span> <button type="button" class="delete"><i class="fas fa-trash"></i></button><input type="hidden" name="skill_specialties_'.$i.'_skill" value="'.$sksp['skill'].'" /><input type="hidden" name="skill_specialties_'.$i.'_specialty" value="'.$sksp['specialty'].'" /></li>';
+    }
+    if (\App\Character::getSubSkillSpecialties($id)) {
+        foreach (\App\Character::getSubSkillSpecialties($id) as $sksp) {
+            $content .= '<li data-phantom="true"><strong class="skill">'.$sksp['skill'].':</strong> <span class="specialty">'.$sksp['specialty'].'</span></li>';
+        }
+    }
+    return $content;
+}
+add_action('wp_ajax_get_skill_specialties', __NAMESPACE__.'\\skillSpData');
 
 function characterData()
 {
