@@ -520,6 +520,7 @@ function getEvents()
         );
     }, $posts);
     return json_encode($posts);
+    die(1);
 }
 
 add_action('wp_ajax_get_events', __NAMESPACE__.'\\getEvents');
