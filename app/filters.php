@@ -522,8 +522,8 @@ function getEvents()
     return json_encode($posts);
 }
 
-add_action('admin_post_get_events', __NAMESPACE__.'\\getEvents');
-add_action('admin_post_nopriv_get_events', __NAMESPACE__.'\\getEvents');
+add_action('wp_ajax_get_events', __NAMESPACE__.'\\getEvents');
+add_action('wp_ajax_nopriv_get_events', __NAMESPACE__.'\\getEvents');
 
 function updateHealth()
 {
