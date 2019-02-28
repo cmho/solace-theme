@@ -383,14 +383,11 @@ export default {
             var $benefits = $('#modal-content #benefits-row');
             $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
-              console.log(b);
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
                   var name = 'benefit_definition_'+b.rating+'_'+j;
                   var res = name.match(/benefit_definition_([0-9]+)_([0-9]+)/);
                   var newname = "merits_" + idx + "_benefit_def_" + res[1] + "_" + res[2];
-                  console.log(newname);
-                  console.log($('[name="' + newname + '"]'));
                   var val = $('[name="'+newname+'"]').val();
                   var skills_list = $('#skills_list').html();
                   var newItem = "";
@@ -428,7 +425,6 @@ export default {
               "</option>";
             $("#modal-content select#ratings").append(option);
           }
-          console.log(currentVal);
           $('#modal-content #benefits-row .form-row').each(function() {
             var rowRating = parseInt($(this).data('rating'));
             if (rowRating > currentVal) {
@@ -472,22 +468,27 @@ export default {
       $('[name="merits_' + (idx - 1) + "_description").val(
         description
       );
-      $(".merits li:nth-child(" + idx + ") .description").html(
+      $(".merits > li:nth-child(" + idx + ") > .description").html(
         description
       );
-      $(".merits li:nth-child(" + idx + ") .label .rating").text(
+      $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
       $(
-        ".merits li:nth-child(" + idx + ") .label .specification"
+        ".merits > li:nth-child(" + idx + ") > .label > .specification"
       ).text("(" + specification + ")");
+      $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
         var res = name.match(/benefit_definition_([0-9]+)_([0-9\_a-z]+)/);
         var newname = "merits_"+(idx-1)+"_benefit_def_"+res[1]+"_"+res[2];
         $('[name="'+newname+'"]').val($(this).val());
         if (!res[2].match("_skill")) {
-          $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+")");
+          $('[name="' + newname + '"]').siblings('.specification').text(" ("+$(this).val()+") ");
+        } else {
+          var sibname = newname.replace("_skill", "");
+          var newli = "<li data-phantom='true'><strong>"+$(this).val()+":</strong> "+$('[name="'+sibname+'"]').val()+"</li>";
+          $('.skill-specialties').append(newli);
         }
       });
       $(".modal #js-modal-close").click();

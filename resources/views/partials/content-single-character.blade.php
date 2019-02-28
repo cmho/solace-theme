@@ -122,14 +122,34 @@
             @foreach(get_field('skill_specialties') as $i=>$sksp)
               <li><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
             @endforeach
+            @if(App\Character::getSubSkillSpecialties($post->ID))
+              @foreach(App\Character::getSubSkillSpecialties($post->ID) as $sksp)
+                <li data-phantom="true"><strong class="skill">{{ $sksp['skill'] }}:</strong> <span class="specialty">{{ $sksp['specialty'] }}</span></li>
+              @endforeach
+            @endif
           </ul>
         </div>
         <div class="col-md-4 col-xs-12">
           <h3>Merits</h3>
           @if(get_field('merits'))
             <ul class="merits">
-              @foreach(get_field('merits') as $merit)
-                <li>{{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}</li>
+              @foreach(get_field('merits') as $i => $merit)
+                <li>
+                  {{ get_the_title($merit['merit']->ID) }}{{ get_field('requires_specification', $merit['merit']->ID) ? " (".$merit['specification'].")" : '' }}{{ count(get_field('allowed_ratings', $merit['merit']->ID)) > 1 ? " ".$merit['rating'] : '' }}{{ $merit['description'] ? '<div>'.$merit['description'].'</div>' : '' }}
+                  @if(App\Merit::addlBenefits($merit['merit']->ID))
+                    <ul>
+                      @foreach(App\Merit::addlBenefits($merit['merit']->ID) as $k => $ab)
+                        @foreach($ab['benefits'] as $j => $benefit)
+                          @if(($benefit['type'] == 'Merit') && ($ab['rating'] <= $merit['rating']))
+                            <li>
+                              {{ $benefit['merit']->post_title }}<span class="specification">{{ get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'] ? " (".get_field('merits')[$i]['additional_specifications'][$k]['specifications'][$j]['specification'].")" : '' }}</span><span class='rating'>{{ $benefit['rating'] ? ' '.$benefit['rating'] : '' }}</span>
+                            </li>
+                          @endif
+                        @endforeach
+                      @endforeach
+                    </ul>
+                  @endif
+                </li>
               @endforeach
             </ul>
           @else
