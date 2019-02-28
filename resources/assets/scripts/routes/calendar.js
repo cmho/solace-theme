@@ -5,13 +5,13 @@ export default {
               url: ajaxurl,
               method: "POST",
               data: {
-                action: "get_events"
+                action: "get_events",
               },
               success: function(data) {
                 $("#calendar").clndr({
-                  events: data
+                  events: data,
                 });
-              }
+              },
             });
         });
     },
