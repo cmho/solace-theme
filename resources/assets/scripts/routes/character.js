@@ -610,17 +610,17 @@ export default {
       var socials = parseInt($('[name="presence"]').val()) + parseInt($('[name="manipulation"]').val()) + parseInt($('[name="composure"]').val()) - 3;
 
       // general error validation
-      if (mentals > 6) {
+      if (mentals > 5) {
         $('#mental-count').text((6 - mentals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#mental-count').addClass('hidden');
       }
-      if (physicals > 6) {
+      if (physicals > 5) {
         $('#physical-count').text((6 - physicals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#physical-count').addClass('hidden');
       }
-      if (socials > 6) {
+      if (socials > 5) {
         $('#social-count').text((6 - socials) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#social-count').addClass('hidden');
@@ -634,7 +634,7 @@ export default {
       var tertiary_val = 0;
 
       // if user has allocated all dots (or has too many)
-      if (mentals + physicals + socials >= 13) {
+      if (mentals + physicals + socials >= 12) {
         if (mentals >= physicals && mentals >= socials) {
           primary_name = "mental";
           primary_val = mentals;
@@ -687,59 +687,24 @@ export default {
             tertiary_val = mentals;
           }
         }
-        if (primary_val >= 6) {
-          // configuration should be 6/4/3
-          if (primary_val > 6) {
-            $('#' + primary_name + "-count").removeClass('hidden').addClass('warn').text((6 - primary_val) + " Remaining");
-          } else {
-            $('#' + primary_name + "-count").addClass('hidden');
-          }
-          if (secondary_val > 4) {
-            $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
-          } else if (secondary_val < 4) {
-            $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + "Remaining");
-          } else {
-            $('#' + secondary_name).addClass('hidden');
-          }
-          if (tertiary_val > 3) {
-            $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
-          } else if (tertiary_val < 3) {
-            $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
-          } else {
-            $('#' + tertiary_name + "-count").addClass('hidden');
-          }
+        if (primary_val > 5) {
+          $('#' + primary_name + "-count").removeClass('hidden').addClass('warn').text((5 - primary_val) + " Remaining");
         } else {
-          if (secondary_val === 5) {
-            // configuration should be 5/5/3
-            if (secondary_val > 5) {
-              $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((5 - secondary_val) + " Remaining");
-            } else if (secondary_val < 5) {
-              $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((5 - secondary_val) + " Remaining");
-            } else {
-              $('#' + secondary_name + "-count").addClass('hidden');
-            }
-            if (tertiary_val > 3) {
-              $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
-            } else if (tertiary_val < 3) {
-              $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
-            } else {
-              $('#' + tertiary_name + "-count").addClass('hidden');
-            }
-          } else {
-            // configuration should be 5/4/4
-            if (secondary_val > 4) {
-              $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
-            } else if (secondary_val < 4) {
-              $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + " Remaining");
-            }
-            if (tertiary_val > 4) {
-              $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((4 - tertiary_val) + " Remaining");
-            } else if (tertiary_val < 4) {
-              $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - tertiary_val) + " Remaining");
-            } else {
-              $('#' + tertiary_name + "-count").addClass('hidden');
-            }
-          }
+          $('#' + primary_name + "-count").addClass('hidden');
+        }
+        if (secondary_val > 4) {
+          $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
+        } else if (secondary_val < 4) {
+          $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + "Remaining");
+        } else {
+          $('#' + secondary_name).addClass('hidden');
+        }
+        if (tertiary_val > 3) {
+          $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
+        } else if (tertiary_val < 3) {
+          $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
+        } else {
+          $('#' + tertiary_name + "-count").addClass('hidden');
         }
       }
       if ($('#attribute-row .warn').length > 0) {
