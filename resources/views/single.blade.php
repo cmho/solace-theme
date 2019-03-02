@@ -7,7 +7,7 @@
       header('Location:'.home_url('/'));
     } else if (get_post_type() == 'character'
       && get_query_var('mode') == 'edit'
-      && (get_field('status') != 'in_progress' || get_field('status') == 'In Progress')
+      && (get_field('status') != 'in_progress' && get_field('status') != 'In Progress')
       && App\Character::sumExperience() <= 0
       && !$is_admin) {
       header('Location:'.get_the_permalink($post));
