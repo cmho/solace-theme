@@ -277,7 +277,7 @@ export default {
         success: function (data) {
           var newNum;
           if ($("ul.merits li").length > 0) {
-            newNum = $("ul.merits li").length;
+            newNum = $("ul.merits > li").length;
           } else {
             newNum = 0;
           }
