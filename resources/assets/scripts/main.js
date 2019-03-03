@@ -17,7 +17,7 @@ import aboutUs from './routes/about';
 import templateCharacterList from './routes/characterList';
 import templateDashboard from './routes/dashboard';
 import singleCharacter from './routes/character';
-import templateNewCharacter from './routes/newCharacter';
+import pageTemplateTemplateCharacterCreation from './routes/character';
 import templateCalendar from './routes/calendar';
 
 /** Populate Router instance with DOM routes */
@@ -31,7 +31,7 @@ const routes = new Router({
   templateDashboard,
   templateCharacterList,
   singleCharacter,
-  templateNewCharacter,
+  pageTemplateTemplateCharacterCreation,
   templateCalendar,
 });
 
