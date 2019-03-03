@@ -3,7 +3,6 @@ import 'jquery';
 import 'datatables.net-dt';
 import 'jquery-accessible-modal-window-aria';
 import 'trumbowyg';
-import * as _ from 'underscore'
 import 'clndr';
 
 // Import everything from autoload

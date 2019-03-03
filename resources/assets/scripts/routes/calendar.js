@@ -1,4 +1,4 @@
-import 'underscore';
+import * as _ from 'underscore'
 
 export default {
     init() {
