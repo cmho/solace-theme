@@ -1,3 +1,5 @@
+import 'underscore';
+
 export default {
     init() {
         $(window).load(function() {
