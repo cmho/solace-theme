@@ -18,7 +18,7 @@ import templateCharacterList from './routes/characterList';
 import templateDashboard from './routes/dashboard';
 import singleCharacter from './routes/character';
 import pageTemplateTemplateCharacterCreation from './routes/character';
-import templateCalendar from './routes/calendar';
+import pageTemplateTemplateCalendar from './routes/calendar';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -32,7 +32,7 @@ const routes = new Router({
   templateCharacterList,
   singleCharacter,
   pageTemplateTemplateCharacterCreation,
-  templateCalendar,
+  pageTemplateTemplateCalendar,
 });
 
 // Load Events
