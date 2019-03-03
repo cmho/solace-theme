@@ -1,5 +1,6 @@
 export default {
   init() {
+    console.log('NEW CHARACTER');
     $("form .dots i.fa-circle").on("click", function () {
       $(this)
         .nextAll("i.fa-circle")
