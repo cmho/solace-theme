@@ -192,6 +192,7 @@ export default {
         currentstr += "0";
       }
       $("#willpower").html(str);
+      $('[name="willpower"]').val(amt);
       $('[name="current_willpower"]').val(currentstr);
     }
 
@@ -204,6 +205,7 @@ export default {
         currentstr += "0";
       }
       $("#health").html(str);
+      $('[name="health"]').val(amt);
       $('[name="current_health"]').val(currentstr);
     }
 
@@ -897,6 +899,7 @@ export default {
     $('#save-submit').on('click', function(e) {
       e.preventDefault();
       // validate first
+      var valid = validateSubmission();
       $('input[name="status"]').val("Submitted");
       $('select[name="status"] option[value="Submitted"]').prop("selected", "selected").siblings().removeProp("selected");
       $(this).parents('form').submit();
