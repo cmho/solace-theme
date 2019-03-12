@@ -505,6 +505,7 @@ export default {
           .parents("li")
           .detach();
         $('[name="merits"]').val($("ul.merits li").length);
+        checkMerits();
       }
     });
 
