@@ -5,7 +5,7 @@
   <a href="{{ App\App::newCharacterLink() }}" class="button">New Character</a>
 </div>
 
-<table id="character-table" class="datatable"{{ !$is_admin ? ' data-searching="false" data-paging="false"' : '' }}>
+<table id="character-table" class="datatable"{{ !$is_admin ? ' data-searching=false data-paging=false' : '' }}>
   <thead>
     <tr>
       <th>Name</th>
