@@ -869,6 +869,12 @@ export default {
     }
 
     $(window).on('load', function() {
+      $('.dots').each(function() {
+        var val = parseInt($(this).find('input').val());
+        if (val > 0) {
+          $(this).find('i:nth-of-type('+val+')').click();
+        }
+      });
       checkAttributes();
       checkSkills();
       checkMerits();
