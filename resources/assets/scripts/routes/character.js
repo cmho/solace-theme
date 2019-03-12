@@ -54,7 +54,7 @@ export default {
         $('#merit-count').removeClass('warn');
       }
       // validate merits
-      $('ul.merits li').each(function() {
+      $('ul.merits > li').each(function() {
         var prereqs = $(this).data('prereqs');
         var errors = [];
         var $item = $(this);
@@ -278,7 +278,7 @@ export default {
         },
         success: function (data) {
           var newNum;
-          if ($("ul.merits li").length > 0) {
+          if ($("ul.merits > li").length > 0) {
             newNum = $("ul.merits > li").length;
           } else {
             newNum = 0;
@@ -504,7 +504,7 @@ export default {
         $(this)
           .parents("li")
           .detach();
-        $('[name="merits"]').val($("ul.merits li").length);
+        $('[name="merits"]').val($("ul.merits > li").length);
         checkMerits();
       }
     });
