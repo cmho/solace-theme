@@ -317,7 +317,7 @@ export default {
             newNum +
             "_description' value='' /></li>";
           $("ul.merits").append(newItem);
-          $('[name="merits"]').val($("ul.merits li").length);
+          $('[name="merits"]').val($("ul.merits > li").length);
           checkMerits();
         },
       });
