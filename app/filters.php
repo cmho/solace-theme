@@ -778,7 +778,7 @@ add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 
 function get_dashboard_characters()
 {
-    $posts = get_posts(array(
+    $posts = \get_posts(array(
         'post_type' => 'character',
         'posts_per_page' => -1,
         'meta_query' => array(
@@ -793,7 +793,6 @@ function get_dashboard_characters()
         $posts->meta_content = get_fields($c->ID);
     }, $posts);
 
-    header('Content-type: application/json');
     echo json_encode($posts);
     die(1);
 }
@@ -813,12 +812,12 @@ function get_dashboard_beats()
 add_action('rest_api_init', function () {
     register_rest_route('solace/v1', 'dashboard/characters', array(
         'methods' => 'GET',
-        'callback' => 'get_dashboard_characters'
+        'callback' => __NAMESPACE__.'\\get_dashboard_characters'
     ));
 
     register_rest_route('solace/v1', 'dashboard/beats', array(
         'methods' => 'GET',
-        'callback' => 'get_dashboard_beats'
+        'callback' => __NAMESPACE__.'\\get_dashboard_beats'
     ));
 });
 
