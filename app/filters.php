@@ -808,10 +808,6 @@ function get_dashboard_characters()
         )
     ));
 
-    $posts = array_map(function ($c) {
-        $posts->meta_content = get_fields($c->ID);
-    }, $posts);
-
     echo json_encode($posts);
     die(1);
 }
