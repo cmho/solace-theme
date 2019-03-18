@@ -776,7 +776,7 @@ function custom_rewrites()
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 
-function get_dashboard_content()
+function get_dashboard_characters()
 {
     $posts = get_posts(array(
         'post_type' => 'character',
@@ -793,6 +793,13 @@ function get_dashboard_content()
         $posts->meta_content = get_fields($c->ID);
     }, $posts);
 
+    header('Content-type: application/json');
+    echo json_encode($posts);
+    die(1);
+}
+
+function get_dashboard_beats()
+{
     $beats = array_sum(array_map(function ($x) {
         return \get_field('value', $x->ID);
     }, get_posts(array(
@@ -800,19 +807,18 @@ function get_dashboard_content()
         'posts_per_page' => -1
     ))));
 
-    $ret = array(
-        'characters' => $posts,
-        'beats' => $beats
-    );
-    header('Content-type: application/json');
-    echo json_encode($ret);
-    die(1);
+    return $beats;
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('dashboard/v1', 'storyteller', array(
+    register_rest_route('solace/v1', 'dashboard/characters', array(
         'methods' => 'GET',
-        'callback' => 'get_dashboard_content'
+        'callback' => 'get_dashboard_characters'
+    ));
+
+    register_rest_route('solace/v1', 'dashboard/beats', array(
+        'methods' => 'GET',
+        'callback' => 'get_dashboard_beats'
     ));
 });
 
