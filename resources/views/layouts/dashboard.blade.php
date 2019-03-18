@@ -5,7 +5,7 @@
     <header>
       @yield('header')
     </header>
-    <main class="main">
+    <main class="main" id="app">
       @yield('content')
     </main>
     @php wp_footer() @endphp

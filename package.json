@@ -103,6 +103,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
+    "axios": "^0.18.0",
     "braces": "^2.3.2",
     "clndr": "^1.4.7",
     "datatables.net-dt": "^1.10.19",
@@ -115,6 +116,7 @@
     "mime": "2.0.3",
     "trumbowyg": "^2.14.0",
     "tunnel-agent": "0.6",
-    "underscore": "^1.9.1"
+    "underscore": "^1.9.1",
+    "vue": "^2.6.9"
   }
 }

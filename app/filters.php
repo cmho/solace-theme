@@ -776,6 +776,42 @@ function custom_rewrites()
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 
+function get_dashboard_content()
+{
+    $posts = get_posts(array(
+        'post_type' => 'character',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'status',
+                'value' => 'Active'
+            )
+        )
+    ));
+
+    $beats = array_sum(array_map(function ($x) {
+        return \get_field('value', $x->ID);
+    }, get_posts(array(
+        'post_type' => 'beat',
+        'posts_per_page' => -1
+    ))));
+
+    $ret = array(
+        'characters' => $posts,
+        'beats' => $beats
+    );
+    header('Content-type: application/json');
+    echo json_encode($ret);
+    die(1);
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route('dashboard/v1', 'storyteller', array(
+        'methods' => 'GET',
+        'callback' => 'get_dashboard_content'
+    ));
+});
+
 function ajax_login_init()
 {
     add_action('wp_ajax_nopriv_ajaxlogin', __NAMESPACE__.'\\ajax_login');

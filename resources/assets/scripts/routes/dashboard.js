@@ -1,6 +1,21 @@
+import Vue from 'vue';
+import axios from 'axios';
+
 export default {
   init() {
     $('#wpadminbar').hide();
+
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null,
+        }
+      },
+      mounted () {
+        axios.get('/wp-json/dashboard/v1/storyteller').then(response => (this.info = response));
+      },
+    });
 
     $(window).on('load', function() {
       jQuery('html').attr("style", "margin-top: 0px !important");
