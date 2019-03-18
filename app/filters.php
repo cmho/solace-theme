@@ -782,9 +782,14 @@ function get_dashboard_characters()
         'post_type' => 'character',
         'posts_per_page' => -1,
         'meta_query' => array(
+            'relation' => 'OR',
             array(
                 'key' => 'status',
                 'value' => 'Active'
+            ),
+            array(
+                'key' => 'status',
+                'value' => 'active'
             )
         )
     ));
