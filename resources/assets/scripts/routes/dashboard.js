@@ -1,15 +1,14 @@
 import Vue from 'vue';
 import axios from 'axios';
+import Characters from "../vue/characters";
+import Character from "../vue/character";
+import Conditions from "../vue/conditions";
+import Condition from "../vue/condition";
 
 export default {
   init() {
     $('#wpadminbar').hide();
 
-    Vue.component('../vue/characters.vue');
-    Vue.component('../vue/character.vue');
-    Vue.component('../vue/conditions.vue');
-    Vue.component('../vue/condition.vue');
-    
     new Vue({
       el: '#app',
       data () {
@@ -19,6 +18,12 @@ export default {
       },
       mounted () {
         axios.get('/wp-json/dashboard/v1/storyteller').then(response => (this.info = response));
+      },
+      components: {
+        Characters,
+        Character,
+        Condition,
+        Condition,
       },
     });
 
