@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import axios from 'axios';
+import Characters from "../vue/characters";
+import Character from "../vue/character";
+import Conditions from "../vue/conditions";
+import Condition from "../vue/condition";
 
 export default {
   init() {
@@ -7,14 +11,6 @@ export default {
 
     new Vue({
       el: '#app',
-      data () {
-        return {
-          info: null,
-        }
-      },
-      mounted () {
-        axios.get('/wp-json/dashboard/v1/storyteller').then(response => (this.info = response));
-      },
       components: {
         Characters,
         Character,

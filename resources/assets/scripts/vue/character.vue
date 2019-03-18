@@ -43,3 +43,31 @@
         </div>
     </li>
 </template>
+
+<script>
+    import Conditions from 'conditions'
+    import Condition from 'condition'
+
+    export default {
+        components: {
+            Character
+        },
+        data () {
+            return {
+                characters: []
+            };
+        },
+        created () {
+            this.getCharacters();
+        },
+        methods: {
+            getCharacters() {
+                this.$http.get('/wp-json/dashboard/v1/storytellers/characters').then(function(res) {
+                    this.characters = res.body;
+                }, function(res) {
+                    console.log('error', res);
+                });
+            }
+        }
+    }
+</script>
