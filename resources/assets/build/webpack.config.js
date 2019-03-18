@@ -112,6 +112,10 @@ let webpackConfig = {
           name: `${config.cacheBusting}.[ext]`,
         },
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue'
+      },
     ],
   },
   resolve: {
@@ -120,6 +124,9 @@ let webpackConfig = {
       'node_modules',
     ],
     enforceExtension: false,
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js', // 'vue/dist/vue.common.js' for webpack 1
+    },
   },
   resolveLoader: {
     moduleExtensions: ['-loader'],

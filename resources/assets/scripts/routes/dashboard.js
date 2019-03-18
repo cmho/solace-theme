@@ -5,6 +5,11 @@ export default {
   init() {
     $('#wpadminbar').hide();
 
+    Vue.component('../vue/characters.vue');
+    Vue.component('../vue/character.vue');
+    Vue.component('../vue/conditions.vue');
+    Vue.component('../vue/condition.vue');
+    
     new Vue({
       el: '#app',
       data () {

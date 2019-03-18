@@ -789,6 +789,10 @@ function get_dashboard_content()
         )
     ));
 
+    $posts = array_map(function ($c) {
+        $posts->meta_content = get_fields($c->ID);
+    }, $posts);
+
     $beats = array_sum(array_map(function ($x) {
         return \get_field('value', $x->ID);
     }, get_posts(array(
