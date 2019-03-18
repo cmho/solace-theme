@@ -1,9 +1,5 @@
 import Vue from 'vue';
 import axios from 'axios';
-import Characters from "../vue/characters";
-import Character from "../vue/character";
-import Conditions from "../vue/conditions";
-import Condition from "../vue/condition";
 
 export default {
   init() {
