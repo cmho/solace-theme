@@ -796,6 +796,11 @@ function get_dashboard_characters()
                 )
             ),
             array(
+                'key' => 'is_npc',
+                'value' => true,
+                'compare' => '!='
+            ),
+            array(
                 'key' => 'status',
                 'value' => 'Active',
                 'compare' => '='
