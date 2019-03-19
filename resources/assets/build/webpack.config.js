@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const config = require('./config');
 
@@ -48,6 +49,10 @@ let webpackConfig = {
         test: /\.(js|s?[ca]ss)$/,
         include: config.paths.assets,
         loader: 'import-glob',
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
@@ -111,10 +116,6 @@ let webpackConfig = {
           outputPath: 'vendor/',
           name: `${config.cacheBusting}.[ext]`,
         },
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue'
       },
     ],
   },
@@ -188,6 +189,7 @@ let webpackConfig = {
       syntax: 'scss',
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new VueLoaderPlugin(),
   ],
 };
 

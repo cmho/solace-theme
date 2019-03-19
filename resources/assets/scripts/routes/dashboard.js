@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import axios from 'axios';
-import Characters from "../vue/characters";
-import Character from "../vue/character";
-import Conditions from "../vue/conditions";
-import Condition from "../vue/condition";
+import Characters from "../vue/characters.vue";
+import Character from "../vue/character.vue";
+import Conditions from "../vue/conditions.vue";
+import Condition from "../vue/condition.vue";
 
 export default {
   init() {
@@ -14,7 +14,7 @@ export default {
       components: {
         Characters,
         Character,
-        Condition,
+        Conditions,
         Condition,
       },
     });

@@ -127,6 +127,7 @@
     "trumbowyg": "^2.14.0",
     "tunnel-agent": "0.6",
     "underscore": "^1.9.1",
-    "vue": "^2.6.9"
+    "vue": "^2.6.9",
+    "vue-resource": "^1.5.1"
   }
 }

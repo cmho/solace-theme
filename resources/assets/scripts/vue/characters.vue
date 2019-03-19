@@ -7,7 +7,7 @@
 <script>
     import Vue from 'vue'
     import VueResource from 'vue-resource'
-    import Character from 'character'
+    import Character from './character.vue'
 
     Vue.use(VueResource)
 
