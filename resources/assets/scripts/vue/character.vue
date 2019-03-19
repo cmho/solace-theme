@@ -8,9 +8,6 @@
     import Conditions from './conditions.vue';
 
     export default {
-        components: {
-            Character
-        },
         data () {
             return {
                 conditions: [],
