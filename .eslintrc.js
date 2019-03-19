@@ -1,5 +1,5 @@
 module.exports = {
-  "root": true,
+  "root": false,
   "globals": {
     "wp": true
   },
@@ -31,16 +31,6 @@ module.exports = {
     ]
   },
   "rules": {
-    "no-console": process.env.NODE_ENV === 'production' ? 2 : 0,
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore"
-      }
-    ]
+    "no-console": process.env.NODE_ENV === 'production' ? 2 : 0
   }
 }
