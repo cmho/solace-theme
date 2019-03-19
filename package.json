@@ -128,6 +128,7 @@
     "tunnel-agent": "0.6",
     "underscore": "^1.9.1",
     "vue": "^2.6.9",
-    "vue-resource": "^1.5.1"
+    "vue-resource": "^1.5.1",
+    "vueify": "^9.4.1"
   }
 }
