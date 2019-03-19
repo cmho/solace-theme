@@ -812,7 +812,7 @@ function get_dashboard_characters()
         $c->meta_content = get_fields($c->ID);
         return $c;
     }, $posts);
-
+    header('Access-Control-Allow-Origin: *');
     echo json_encode($posts);
     die(1);
 }
@@ -825,8 +825,9 @@ function get_dashboard_beats()
         'post_type' => 'beat',
         'posts_per_page' => -1
     ))));
-
-    return $beats;
+    header('Access-Control-Allow-Origin: *');
+    echo($beats);
+    die(1);
 }
 
 add_action('rest_api_init', function () {
