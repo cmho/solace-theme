@@ -907,7 +907,7 @@ export default {
       $('.dots').each(function() {
         var val = parseInt($(this).find('input').val());
         if (val > 0) {
-          $(this).find('i:nth-of-type('+val+')').click();
+          $(this).find('i:nth-of-type('+val+')').addClass('fas').removeClass('far').nextAll().removeClass('fas').addClass('far');
         }
       });
       checkAttributes();
