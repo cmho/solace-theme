@@ -33,7 +33,7 @@
               @if(get_field('public_blurb'))
                 <div class="blurb">
                   {!! get_field('public_blurb') !!}
-                /div>
+                </div>
               @endif
               <dl>
                 <dt>Status</dt>
