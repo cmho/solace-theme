@@ -8,6 +8,7 @@
     header('Location:'.home_url('/'));
   }
   $is_admin = in_array('administrator', $user->roles);
+  $newChar = true;
 @endphp
 
 @extends('layouts.app')
