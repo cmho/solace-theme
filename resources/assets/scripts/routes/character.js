@@ -476,9 +476,11 @@ export default {
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
-      $(
-        ".merits > li:nth-child(" + idx + ") > .label > .specification"
-      ).text("(" + specification + ")");
+      if ($('.modal #specification-row').is(":visible")) {
+        $(
+          ".merits > li:nth-child(" + idx + ") > .label > .specification"
+        ).text("(" + specification + ")");
+      }
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
