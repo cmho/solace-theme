@@ -323,7 +323,7 @@ export default {
       });
     });
 
-    $(".merits").on("click", ".edit", function () {
+    $(".merits").on("click touchend", ".edit", function () {
       var merit = parseInt($(this)
         .parents("li")
         .find(".merit-id")
@@ -458,7 +458,7 @@ export default {
       });
     });
 
-    $("body").on("click", "#save-merit", function () {
+    $("body").on("click touchend", "#save-merit", function () {
       var rating = $(".modal #ratings option:selected").val();
       var specification = $(".modal #specification").val();
       var description = $(".modal #description").val();
