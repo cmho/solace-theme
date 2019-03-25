@@ -912,6 +912,8 @@ export default {
           $(this).find('i:nth-of-type('+val+')').addClass('fas').removeClass('far').nextAll().removeClass('fas').addClass('far');
         }
       });
+      updateWillpower();
+      updateHealth();
       checkAttributes();
       checkSkills();
       checkMerits();
