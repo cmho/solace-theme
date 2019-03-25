@@ -463,8 +463,8 @@ export default {
       var specification = $(".modal #specification").val();
       var description = $(".modal #description").val();
       var idx = $(".modal #modal-content").data("index") + 1;
-      $('[name="merits_' + (idx - 1) + "_rating']").val(rating);
-      $('[name="merits_' + (idx - 1) + "_specification']").val(
+      $('[name="merits_' + (idx - 1) + '_rating"]').val(rating);
+      $('[name="merits_' + (idx - 1) + '_specification"]').val(
         specification
       );
       $('[name="merits_' + (idx - 1) + "_description").val(
