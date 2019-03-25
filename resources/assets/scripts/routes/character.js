@@ -58,7 +58,7 @@ export default {
         var prereqs = $(this).data('prereqs');
         var errors = [];
         var $item = $(this);
-        if (prereqs != null) {
+        if (prereqs != null && prereqs != false) {
           prereqs.forEach(function(item) {
             if (item.type === 'Merit') {
               var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(item.merit.ID ? '[val="'+item.merit.ID+'"]' : '')).parents('li');
