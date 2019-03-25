@@ -211,7 +211,6 @@ export default {
 
     function updateSpeed() {
       var spd =
-        parseInt($('input[name="dexterity"]').val()) +
         parseInt($('input[name="strength"]').val()) +
         5;
       $('input[name="speed"]').val(spd);
