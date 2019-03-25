@@ -185,12 +185,12 @@
         <div class="col-md-4 col-xs-12">
           <h3>Health</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(get_field('stamina')+get_field('size')))
+            @php(App\Character::printSquares(get_field('stamina')+5))
           </div>
 
           <h3>Willpower</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(get_field('composure')+get_field('resolve')))
+            @php(App\Character::printSquares(5+get_field('resolve')))
           </div>
 
           <h3>Integrity</h3>
