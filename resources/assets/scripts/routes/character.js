@@ -467,7 +467,7 @@ export default {
       $('[name="merits_' + (idx - 1) + '_specification"]').val(
         specification
       );
-      $('[name="merits_' + (idx - 1) + "_description").val(
+      $('[name="merits_' + (idx - 1) + '_description"]').val(
         description
       );
       $(".merits > li:nth-child(" + idx + ") > .description").html(
