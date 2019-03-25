@@ -381,9 +381,9 @@ export default {
           } else {
             $("#modal-content #description-row").hide();
           }
+          var $benefits = $('#modal-content #benefits-row');
+          $benefits.html("");
           if (data.additional_benefits) {
-            var $benefits = $('#modal-content #benefits-row');
-            $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
