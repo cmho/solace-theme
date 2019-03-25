@@ -202,7 +202,7 @@
             <dt>Size</dt>
             <dd>{{ get_field('size') }}</dd>
             <dt>Speed</dt>
-            <dd>{{ get_field('strength')+get_field('dexterity')+5 }}</dd>
+            <dd>{{ get_field('strength')+5 }}</dd>
             <dt>Defense</dt>
             <dd>{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</dd>
             <dt>Armor</dt>
