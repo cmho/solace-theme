@@ -46,7 +46,7 @@
       <label>Stamina</label>
       <div class="dots">
         @php(App\Character::printDots(get_field('stamina') ? get_field('stamina') : 1))
-        <input type="hidden" value="{{ get_field('intelligence') ? get_field('intelligence') : 1 }}" name="stamina" />
+        <input type="hidden" value="{{ get_field('stamina') ? get_field('stamina') : 1 }}" name="stamina" />
       </div>
     </div>
   </div>
