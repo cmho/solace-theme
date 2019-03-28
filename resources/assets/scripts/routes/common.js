@@ -3,7 +3,7 @@ export default {
     // JavaScript to be fired on all pages
     $.trumbowyg.svgPath =
       "/wp-content/themes/solace-theme/dist/images/icons.svg";
-    $("textarea").trumbowyg({
+    $("textarea:not(.dont-trumbo)").trumbowyg({
       btns: [["bold", "italic"], ["link"]],
     });
 

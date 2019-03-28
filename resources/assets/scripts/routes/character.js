@@ -354,7 +354,6 @@ export default {
           $(
             "#modal-content input, #modal-content textarea"
           ).val("");
-          $('#modal-content textarea').trumbowyg('destroy');
           $("#modal-content textarea").trumbowyg({
             btns: [["bold", "italic"], ["link"]]
           });
