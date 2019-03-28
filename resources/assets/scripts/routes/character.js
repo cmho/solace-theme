@@ -377,9 +377,10 @@ export default {
           }
           if (data.has_description) {
             $("#modal-content #description-row").show();
-            $("#modal-content #description").val(currentDesc);
+            $("#modal-content [name='description']").val(currentDesc);
           } else {
             $("#modal-content #description-row").hide();
+            $("#modal-content [name='description']").val("");
           }
           if (data.additional_benefits) {
             var $benefits = $('#modal-content #benefits-row');

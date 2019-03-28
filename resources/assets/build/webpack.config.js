@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyGlobsPlugin = require('copy-globs-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 const config = require('./config');
 
@@ -114,7 +115,7 @@ let webpackConfig = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
       },
     ],
   },
@@ -152,7 +153,7 @@ let webpackConfig = {
 		new CopyGlobsPlugin({
 			pattern: "media/**/*",
 			output: `[path]${assetsFilenames}.[ext]`,
-			manifest: config.manifest
+			manifest: config.manifest,
 		}),
     new ExtractTextPlugin({
       filename: `styles/${assetsFilenames}.css`,
@@ -188,6 +189,7 @@ let webpackConfig = {
       syntax: 'scss',
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new VueLoaderPlugin(),
   ],
 };
 
