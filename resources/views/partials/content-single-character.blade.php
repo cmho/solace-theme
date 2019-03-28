@@ -33,7 +33,7 @@
               @if(get_field('public_blurb'))
                 <div class="blurb">
                   {!! get_field('public_blurb') !!}
-                /div>
+                </div>
               @endif
               <dl>
                 <dt>Status</dt>
@@ -185,12 +185,12 @@
         <div class="col-md-4 col-xs-12">
           <h3>Health</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(get_field('stamina')+get_field('size')))
+            @php(App\Character::printSquares(get_field('stamina')+5))
           </div>
 
           <h3>Willpower</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(get_field('composure')+get_field('resolve')))
+            @php(App\Character::printSquares(5+get_field('resolve')))
           </div>
 
           <h3>Integrity</h3>
@@ -202,7 +202,7 @@
             <dt>Size</dt>
             <dd>{{ get_field('size') }}</dd>
             <dt>Speed</dt>
-            <dd>{{ get_field('strength')+get_field('dexterity')+5 }}</dd>
+            <dd>{{ get_field('strength')+5 }}</dd>
             <dt>Defense</dt>
             <dd>{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</dd>
             <dt>Armor</dt>

@@ -776,43 +776,69 @@ function custom_rewrites()
 }
 add_action('init', __NAMESPACE__.'\\custom_rewrites', 10, 0);
 
-function get_dashboard_content()
+function get_dashboard_characters()
 {
-    $posts = get_posts(array(
+    $posts = \get_posts(array(
         'post_type' => 'character',
         'posts_per_page' => -1,
         'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'is_secret',
+                    'value' => true,
+                    'compare' => '!='
+                ),
+                array(
+                    'key' => 'is_secret',
+                    'compare' => 'NOT EXISTS'
+                )
+            ),
+            array(
+                'key' => 'is_npc',
+                'value' => true,
+                'compare' => '!='
+            ),
             array(
                 'key' => 'status',
-                'value' => 'Active'
+                'value' => 'Active',
+                'compare' => '='
             )
         )
     ));
 
     $posts = array_map(function ($c) {
-        $posts->meta_content = get_fields($c->ID);
+        $c->meta_content = get_fields($c->ID);
+        return $c;
     }, $posts);
+    header('Access-Control-Allow-Origin: *');
+    echo json_encode($posts);
+    die(1);
+}
 
+function get_dashboard_beats()
+{
     $beats = array_sum(array_map(function ($x) {
         return \get_field('value', $x->ID);
     }, get_posts(array(
         'post_type' => 'beat',
         'posts_per_page' => -1
     ))));
-
-    $ret = array(
-        'characters' => $posts,
-        'beats' => $beats
-    );
-    header('Content-type: application/json');
-    echo json_encode($ret);
+    header('Access-Control-Allow-Origin: *');
+    echo($beats);
     die(1);
 }
 
 add_action('rest_api_init', function () {
-    register_rest_route('dashboard/v1', 'storyteller', array(
+    register_rest_route('solace/v1', 'dashboard/characters', array(
         'methods' => 'GET',
-        'callback' => 'get_dashboard_content'
+        'callback' => __NAMESPACE__.'\\get_dashboard_characters'
+    ));
+
+    register_rest_route('solace/v1', 'dashboard/beats', array(
+        'methods' => 'GET',
+        'callback' => __NAMESPACE__.'\\get_dashboard_beats'
     ));
 });
 

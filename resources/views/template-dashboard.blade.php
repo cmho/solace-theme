@@ -24,7 +24,6 @@
         <input name="search" type="search" />
         <button class="button" type="submit">Search</button>
       </form>
-      <characters></characters>
       @if(App\Characters::activeList())
         <ol class="characters">
           @foreach(App\Characters::activeList() as $post)

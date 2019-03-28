@@ -2,7 +2,7 @@
 <div class="dots center" id="health">
   @php(App\Character::printSquares((get_field('stamina') || get_field('size') ? get_field('stamina')+get_field('size') : 6)))
 </div>
-<input type="hidden" name="willpower" value="{{ get_field('health') }}" />
+<input type="hidden" name="health" value="{{ get_field('health') }}" />
 <input type="hidden" name="current_health" value="{{ get_field('current_health') }}" />
 
 <h3>Willpower</h3>

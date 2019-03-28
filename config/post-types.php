@@ -15,7 +15,7 @@ use Roots\Sage\Container;
     'label' => 'Character',
     'menu_icon' => 'dashicons-universal-access',
     'public'=> true,
-    'supports' => array('revisions', 'title', 'editor', 'page-attributes')
+    'supports' => array('revisions', 'title', 'editor', 'page-attributes', 'author')
 ));
 
 \register_post_type('downtime', array(

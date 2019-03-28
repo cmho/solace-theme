@@ -116,18 +116,18 @@
     "axios": "^0.18.0",
     "braces": "^2.3.2",
     "clndr": "^1.4.7",
+    "cryptiles": "4.1.2",
     "datatables.net-dt": "^1.10.19",
-    "debug": "3.1",
+    "debug": "2.6.9",
     "flexboxgrid-sass": "^8.0.5",
     "hoek": "5.0.3",
     "jquery": "^3.3.1",
     "jquery-accessible-modal-window-aria": "^1.10.0",
+    "js-yaml": "3.13",
     "lodash": "4.17.11",
     "mime": "2.0.3",
     "trumbowyg": "^2.14.0",
     "tunnel-agent": "0.6",
-    "underscore": "^1.9.1",
-    "vue": "^2.6.9",
-    "vue-resource": "^1.5.1"
+    "underscore": "^1.9.1"
   }
 }

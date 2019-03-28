@@ -1,17 +1,6 @@
-import Vue from 'vue';
-import axios from 'axios';
-import Characters from "../vue/characters.vue";
-
 export default {
   init() {
     $('#wpadminbar').hide();
-
-    new Vue({
-      el: '#app',
-      components: {
-        Characters,
-      },
-    });
 
     $(window).on('load', function() {
       jQuery('html').attr("style", "margin-top: 0px !important");

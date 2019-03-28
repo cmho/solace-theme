@@ -58,7 +58,7 @@ export default {
         var prereqs = $(this).data('prereqs');
         var errors = [];
         var $item = $(this);
-        if (prereqs != null) {
+        if (prereqs != null && prereqs != false) {
           prereqs.forEach(function(item) {
             if (item.type === 'Merit') {
               var $merit = $('ul.merits').find('input[type="hidden"][name$="_merit"]'+(item.merit.ID ? '[val="'+item.merit.ID+'"]' : '')).parents('li');
@@ -211,7 +211,6 @@ export default {
 
     function updateSpeed() {
       var spd =
-        parseInt($('input[name="dexterity"]').val()) +
         parseInt($('input[name="strength"]').val()) +
         5;
       $('input[name="speed"]').val(spd);
@@ -323,7 +322,7 @@ export default {
       });
     });
 
-    $(".merits").on("click", ".edit", function () {
+    $(".merits").on("click touchend", ".edit", function () {
       var merit = parseInt($(this)
         .parents("li")
         .find(".merit-id")
@@ -382,9 +381,9 @@ export default {
             $("#modal-content #description-row").hide();
             $("#modal-content [name='description']").val("");
           }
+          var $benefits = $('#modal-content #benefits-row');
+          $benefits.html("");
           if (data.additional_benefits) {
-            var $benefits = $('#modal-content #benefits-row');
-            $benefits.html("");
             data.additional_benefits.forEach(function(b, i) {
               b.benefits.forEach(function(benefit, j) {
                 if (benefit["player-defined"] === true) {
@@ -459,16 +458,16 @@ export default {
       });
     });
 
-    $("body").on("click", "#save-merit", function () {
+    $("body").on("click touchend", "#save-merit", function () {
       var rating = $(".modal #ratings option:selected").val();
       var specification = $(".modal #specification").val();
       var description = $(".modal #description").val();
       var idx = $(".modal #modal-content").data("index") + 1;
-      $('[name="merits_' + (idx - 1) + "_rating").val(rating);
-      $('[name="merits_' + (idx - 1) + "_specification").val(
+      $('[name="merits_' + (idx - 1) + '_rating"]').val(rating);
+      $('[name="merits_' + (idx - 1) + '_specification"]').val(
         specification
       );
-      $('[name="merits_' + (idx - 1) + "_description").val(
+      $('[name="merits_' + (idx - 1) + '_description"]').val(
         description
       );
       $(".merits > li:nth-child(" + idx + ") > .description").html(
@@ -477,9 +476,11 @@ export default {
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
-      $(
-        ".merits > li:nth-child(" + idx + ") > .label > .specification"
-      ).text("(" + specification + ")");
+      if ($('.modal #specification-row').is(":visible")) {
+        $(
+          ".merits > li:nth-child(" + idx + ") > .label > .specification"
+        ).text("(" + specification + ")");
+      }
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
         var name = $(this).attr('name');
@@ -614,17 +615,17 @@ export default {
       var socials = parseInt($('[name="presence"]').val()) + parseInt($('[name="manipulation"]').val()) + parseInt($('[name="composure"]').val()) - 3;
 
       // general error validation
-      if (mentals > 5) {
+      if (mentals > 6) {
         $('#mental-count').text((6 - mentals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#mental-count').addClass('hidden');
       }
-      if (physicals > 5) {
+      if (physicals > 6) {
         $('#physical-count').text((6 - physicals) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#physical-count').addClass('hidden');
       }
-      if (socials > 5) {
+      if (socials > 6) {
         $('#social-count').text((6 - socials) + " Remaining").addClass('warn').removeClass('hidden');
       } else {
         $('#social-count').addClass('hidden');
@@ -638,7 +639,7 @@ export default {
       var tertiary_val = 0;
 
       // if user has allocated all dots (or has too many)
-      if (mentals + physicals + socials >= 12) {
+      if (mentals + physicals + socials >= 13) {
         if (mentals >= physicals && mentals >= socials) {
           primary_name = "mental";
           primary_val = mentals;
@@ -691,24 +692,59 @@ export default {
             tertiary_val = mentals;
           }
         }
-        if (primary_val > 5) {
-          $('#' + primary_name + "-count").removeClass('hidden').addClass('warn').text((5 - primary_val) + " Remaining");
+        if (primary_val >= 6) {
+          // configuration should be 6/4/3
+          if (primary_val > 6) {
+            $('#' + primary_name + "-count").removeClass('hidden').addClass('warn').text((6 - primary_val) + " Remaining");
+          } else {
+            $('#' + primary_name + "-count").addClass('hidden');
+          }
+          if (secondary_val > 4) {
+            $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
+          } else if (secondary_val < 4) {
+            $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + "Remaining");
+          } else {
+            $('#' + secondary_name).addClass('hidden');
+          }
+          if (tertiary_val > 3) {
+            $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
+          } else if (tertiary_val < 3) {
+            $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
+          } else {
+            $('#' + tertiary_name + "-count").addClass('hidden');
+          }
         } else {
-          $('#' + primary_name + "-count").addClass('hidden');
-        }
-        if (secondary_val > 4) {
-          $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
-        } else if (secondary_val < 4) {
-          $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + "Remaining");
-        } else {
-          $('#' + secondary_name).addClass('hidden');
-        }
-        if (tertiary_val > 3) {
-          $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
-        } else if (tertiary_val < 3) {
-          $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
-        } else {
-          $('#' + tertiary_name + "-count").addClass('hidden');
+          if (secondary_val === 5) {
+            // configuration should be 5/5/3
+            if (secondary_val > 5) {
+              $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((5 - secondary_val) + " Remaining");
+            } else if (secondary_val < 5) {
+              $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((5 - secondary_val) + " Remaining");
+            } else {
+              $('#' + secondary_name + "-count").addClass('hidden');
+            }
+            if (tertiary_val > 3) {
+              $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((3 - tertiary_val) + " Remaining");
+            } else if (tertiary_val < 3) {
+              $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((3 - tertiary_val) + " Remaining");
+            } else {
+              $('#' + tertiary_name + "-count").addClass('hidden');
+            }
+          } else {
+            // configuration should be 5/4/4
+            if (secondary_val > 4) {
+              $('#' + secondary_name + "-count").removeClass('hidden').addClass('warn').text((4 - secondary_val) + " Remaining");
+            } else if (secondary_val < 4) {
+              $('#' + secondary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - secondary_val) + " Remaining");
+            }
+            if (tertiary_val > 4) {
+              $('#' + tertiary_name + "-count").removeClass('hidden').addClass('warn').text((4 - tertiary_val) + " Remaining");
+            } else if (tertiary_val < 4) {
+              $('#' + tertiary_name + "-count").removeClass('hidden').removeClass('warn').text((4 - tertiary_val) + " Remaining");
+            } else {
+              $('#' + tertiary_name + "-count").addClass('hidden');
+            }
+          }
         }
       }
       if ($('#attribute-row .warn').length > 0) {
@@ -873,9 +909,11 @@ export default {
       $('.dots').each(function() {
         var val = parseInt($(this).find('input').val());
         if (val > 0) {
-          $(this).find('i:nth-of-type('+val+')').click();
+          $(this).find('i:nth-of-type('+val+')').addClass('fas').removeClass('far').nextAll().removeClass('fas').addClass('far');
         }
       });
+      updateWillpower();
+      updateHealth();
       checkAttributes();
       checkSkills();
       checkMerits();
