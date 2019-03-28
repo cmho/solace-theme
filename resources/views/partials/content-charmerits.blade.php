@@ -76,7 +76,7 @@
     </div>
     <div class="form-row" id="description-row">
       <label>Description</label>
-      <textarea name="description"></textarea>
+      <textarea name="description" id="description"></textarea>
     </div>
     <div id="benefits-row">
 

@@ -376,11 +376,14 @@ export default {
           }
           if (data.has_description) {
             $("#modal-content #description-row").show();
-            $("#modal-content [name='description']").val(currentDesc);
+            $("#modal-content #description").val(currentDesc);
           } else {
             $("#modal-content #description-row").hide();
-            $("#modal-content [name='description']").val("");
+            $("#modal-content #description").val("");
           }
+          console.log(data.has_description);
+          console.log(currentDesc);
+          console.log($("#modal-content #description").val());
           var $benefits = $('#modal-content #benefits-row');
           $benefits.html("");
           if (data.additional_benefits) {
@@ -461,25 +464,20 @@ export default {
     $("body").on("click touchend", "#save-merit", function () {
       var rating = $(".modal #ratings option:selected").val();
       var specification = $(".modal #specification").val();
-      var description = $(".modal [name='description']").val();
+      var description = $(".modal #description").val();
+      console.log(description);
       var idx = $(".modal #modal-content").data("index") + 1;
-      $('[name="merits_' + (idx - 1) + '_rating"]').val(rating);
-      $('[name="merits_' + (idx - 1) + '_specification"]').val(
-        specification
-      );
-      $('[name="merits_' + (idx - 1) + '_description"]').val(
-        description
-      );
-      $(".merits > li:nth-child(" + idx + ") > .description").html(
-        description
-      );
+      $('.merits li:nth-child("' + idx + '") > .label > .merit-rating').val(rating);
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
       if ($('.modal #specification-row').is(":visible")) {
-        $(
-          ".merits > li:nth-child(" + idx + ") > .label > .specification"
-        ).text("(" + specification + ")");
+        $(".merits > li:nth-child(" + idx + ") > .label > .specification").text("(" + specification + ")");
+        $('.merits li:nth-child("' + idx + '") > .label > .merit-spec').val(specification);
+      }
+      if ($(".modal #description-row").is(":visible")) {
+        $(".merits > li:nth-child(" + idx + ") > .label > .description").text("(" + description + ")");
+        $('.merits li:nth-child("' + idx + '") > .label > .merit-desc').val(description);
       }
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
