@@ -354,6 +354,9 @@ export default {
           $(
             "#modal-content input, #modal-content textarea"
           ).val("");
+          $("#modal-content textarea").trumbowyg({
+            btns: [["bold", "italic"], ["link"]]
+          });
           $("#modal-content select").empty();
           $("#modal-content h4").text(data.name);
           $("#modal-content .description").html(
@@ -465,7 +468,7 @@ export default {
       var rating = $(".modal #ratings option:selected").val();
       var specification = $(".modal #specification").val();
       var description = $(".modal #description").val();
-      console.log(description);
+      console.log($(".modal #description"));
       var idx = $(".modal #modal-content").data("index") + 1;
       $('.merits > li:nth-child(' + idx + ') > .label > .merit-rating').val(rating);
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
