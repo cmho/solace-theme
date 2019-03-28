@@ -361,6 +361,7 @@ export default {
             $("#modal-content #description").val(currentDesc);
           } else {
             $("#modal-content #description-row").hide();
+            $('#modal-content #description').trumbowyg('html', '');
             $("#modal-content #description").val("");
           }
           $("#modal-content select").empty();
@@ -505,6 +506,7 @@ export default {
         $('[name="merits"]').val($("ul.merits > li").length);
         checkMerits();
       }
+      return false;
     });
 
     $("#add-specialty").on("click", function () {
