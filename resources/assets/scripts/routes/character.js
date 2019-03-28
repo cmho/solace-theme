@@ -467,17 +467,17 @@ export default {
       var description = $(".modal #description").val();
       console.log(description);
       var idx = $(".modal #modal-content").data("index") + 1;
-      $('.merits li:nth-child("' + idx + '") > .label > .merit-rating').val(rating);
+      $('.merits > li:nth-child(' + idx + ') > .label > .merit-rating').val(rating);
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
         rating
       );
       if ($('.modal #specification-row').is(":visible")) {
         $(".merits > li:nth-child(" + idx + ") > .label > .specification").text("(" + specification + ")");
-        $('.merits li:nth-child("' + idx + '") > .label > .merit-spec').val(specification);
+        $('.merits > li:nth-child(' + idx + ') > .label > .merit-spec').val(specification);
       }
       if ($(".modal #description-row").is(":visible")) {
         $(".merits > li:nth-child(" + idx + ") > .label > .description").text("(" + description + ")");
-        $('.merits li:nth-child("' + idx + '") > .label > .merit-desc').val(description);
+        $('.merits > li:nth-child(' + idx + ') > .label > .merit-desc').val(description);
       }
       $('.skill-specialties li[data-phantom]').detach();
       $('#modal-content [name^="benefit_definition_"]').each(function() {
