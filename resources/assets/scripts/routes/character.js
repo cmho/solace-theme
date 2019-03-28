@@ -354,8 +354,10 @@ export default {
           $(
             "#modal-content input, #modal-content textarea"
           ).val("");
+          $('#modal-content textarea').trumbowyg('empty');
           if (data.has_description) {
             $("#modal-content #description-row").show();
+            $('#modal-content #description').trumbowyg('html', currentDesc);
             $("#modal-content #description").val(currentDesc);
           } else {
             $("#modal-content #description-row").hide();
