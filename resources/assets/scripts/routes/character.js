@@ -354,10 +354,13 @@ export default {
           $(
             "#modal-content input, #modal-content textarea"
           ).val("");
-          $('#modal-content #description').trumbowyg('destroy');
-          $("#modal-content #description").trumbowyg({
-            btns: [["bold", "italic"], ["link"]]
-          });
+          if (data.has_description) {
+            $("#modal-content #description-row").show();
+            $("#modal-content #description").val(currentDesc);
+          } else {
+            $("#modal-content #description-row").hide();
+            $("#modal-content #description").val("");
+          }
           $("#modal-content select").empty();
           $("#modal-content h4").text(data.name);
           $("#modal-content .description").html(
@@ -377,13 +380,6 @@ export default {
             $("#modal-content #specification").val(currentSpec);
           } else {
             $("#modal-content #specification-row").hide();
-          }
-          if (data.has_description) {
-            $("#modal-content #description-row").show();
-            $("#modal-content #description").val(currentDesc);
-          } else {
-            $("#modal-content #description-row").hide();
-            $("#modal-content #description").val("");
           }
           var $benefits = $('#modal-content #benefits-row');
           $benefits.html("");
