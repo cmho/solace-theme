@@ -181,7 +181,6 @@ let webpackConfig = {
       syntax: 'scss',
     }),
     new FriendlyErrorsWebpackPlugin(),
-    new VueLoaderPlugin(),
   ],
 };
 
