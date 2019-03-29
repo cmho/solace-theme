@@ -464,7 +464,7 @@ export default {
     $("body").on("click touchend", "#save-merit", function () {
       var rating = $(".modal #ratings option:selected").val();
       var specification = $(".modal #specification").val();
-      var description = $(".modal #description").val();
+      var description = $(".modal #description").trumbowyg('html');
       var idx = $(".modal #modal-content").data("index") + 1;
       $('.merits > li:nth-child(' + idx + ') > .label > .merit-rating').val(rating);
       $(".merits > li:nth-child(" + idx + ") > .label > .rating").text(
