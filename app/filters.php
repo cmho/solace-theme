@@ -371,7 +371,7 @@ function sendAcceptanceEmails()
             array(
                 'key' => 'approval_sent',
                 'value' => true,
-                'comparison' => '!='
+                'compare' => '!='
             )
         )
     ));

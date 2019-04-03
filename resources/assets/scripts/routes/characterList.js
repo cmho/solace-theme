@@ -35,7 +35,7 @@ export default {
         },
         success: function(data) {
           $(".flash").append(
-            '<div class="message">Character approval emails sent. <a href="#" class="close"><i class="fa fa-times"></i><span class="sr-only">Close</span></a></div>'
+            '<div class="message">Character approval emails sent. <a href="#" class="close"><i class="fas fa-times"></i><span class="sr-only">Close</span></a></div>'
           );
         }
       });
