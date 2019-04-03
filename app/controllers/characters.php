@@ -99,7 +99,6 @@ class Characters extends Controller
             )
         ));
         $characters = Characters::getActivePCs();
-        print_r($characters);
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
@@ -110,6 +109,7 @@ class Characters extends Controller
                     }
                     return false;
                 });
+                print_r($mer);
                 if (count($mer) > 0) {
                     array_push($chars_by_initiation[$initiation->post_title], array(
                         'character' => $char->ID,
