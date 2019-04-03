@@ -127,7 +127,7 @@ class Characters extends Controller
                     return $a['name'] > $b['name'] ? 1 : -1;
                 }
 
-                return $a['rating'] > $b['rating'] ? -1 : 1;
+                return $a['rating'] > $b['rating'] ? 1 : -1;
             });
         }
         return $chars_by_initiation;
