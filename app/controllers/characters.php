@@ -102,7 +102,6 @@ class Characters extends Controller
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
-            echo "<br /><br />".$initiation->ID."<br /><br />";
             foreach ($characters as $char) {
                 $mer = get_field('merits', $char->ID);
                 $mer = array_filter($mer, function ($m) use ($initiation) {
