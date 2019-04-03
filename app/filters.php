@@ -277,7 +277,7 @@ function update_character()
             $updates = \get_post($post);
             // initiate experience expenditure as draft
             $char = \get_post($_POST['id']);
-            $exp = \wp_insert_post(array(
+            /*$exp = \wp_insert_post(array(
                 'post_type' => 'experience',
                 'post_status' => 'draft',
                 'post_title' => 'Experience for '.$char->post_title.', '.date('m/d/y'),
@@ -300,7 +300,7 @@ function update_character()
                     "<h2>".'New experience expenditure for '.
                     get_post($post)->post_title."</h2>".$message
                 );
-            }
+            }*/
             header('Location:'.\get_the_permalink($char));
             die(1);
         } else {
