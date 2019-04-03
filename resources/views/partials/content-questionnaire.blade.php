@@ -40,3 +40,9 @@
   <label for="anything_else">Is there anything else the Storytellers should know about this character?</label>
   <textarea name="anything_else" rows="6">{!! get_field('anything_else') !!}</textarea>
 </div>
+@if(App\App::isAdmin())
+  <div class="form-row">
+    <label for="st_notes">Storyteller Notes</label>
+    <textarea name="st_notes" rows="6">{!! get_field('st_notes') !!}</textarea>
+  </div>
+@endif
