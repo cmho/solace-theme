@@ -248,14 +248,14 @@ function update_character()
         ));
     }
 
-    for ($j = 0; $j < intval($purifier->purify($_POST['skill_specialties'])); $j++) {
+    for ($j = 0; $j < intval($_POST['skill_specialties']); $j++) {
         array_push($skill_specialties, array(
             'skill' => $purifier->purify($_POST['skill_specialties_'.$j.'_skill']),
             'specialty' => $purifier->purify($_POST['skill_specialties_'.$j.'_specialty'])
         ));
     }
 
-    for ($k = 0; $k < intval($purifier->purify($_POST['conditions'])); $k++) {
+    for ($k = 0; $k < intval($_POST['conditions']); $k++) {
         array_push($conditions, array(
             'condition' => $purifier->purify($_POST['conditions_'.$k.'_condition']),
             'note' => $purifier->purify($_POST['conditions_'.$k.'_note'])
