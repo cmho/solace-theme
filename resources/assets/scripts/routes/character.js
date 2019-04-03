@@ -596,6 +596,10 @@ export default {
         $(this)
           .parents("li")
           .detach();
+        $('ul.conditions li').each(function(i, elt) {
+          $(elt).find('input[name$="_condition"]').attr("name", "conditions_"+i+"_condition");
+          $(elt).find('input[name$="_note"]').attr("name", "conditions_"+i+"_note");
+        });
         $('[name="conditions"]').val(
           $("ul.conditions li").length
         );
