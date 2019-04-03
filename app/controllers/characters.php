@@ -106,6 +106,7 @@ class Characters extends Controller
             foreach ($characters as $char) {
                 //print_r(get_field('merits', $char->ID));
                 $mer = array_filter(get_field('merits', $char->ID), function ($m) {
+                    echo $m['merit']->ID."<br />";
                     if ($m['merit']->ID != $initiation->ID) {
                         return false;
                     }
