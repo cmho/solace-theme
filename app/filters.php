@@ -378,8 +378,7 @@ function sendAcceptanceEmails()
     if ($chars) {
         foreach ($chars as $char) {
             $user = \get_user_by('id', $char->post_author);
-            print_r($user);
-            /*$message = "<p>Hi, ".$user->display_name."! Your character has been approved for play. You can view their sheet <a href='".get_permalink($char)."' rel='external' target='_blank'>here</a>.".
+            $message = "<p>Hi, ".$user->display_name."! Your character has been approved for play. You can view their sheet <a href='".get_permalink($char)."' rel='external' target='_blank'>here</a>.".
             "  If you have any questions, please email us at <a href='mailto:storytellers@solacelarp.com'>storytellers@solacelarp.com</a>.</p>";
             \wp_mail(
                 $user->user_email,
@@ -387,7 +386,7 @@ function sendAcceptanceEmails()
                 "<h2>".'Character Approved: '.
                 get_post($post)->post_title."</h2>".$message
             );
-            \update_field('approval_sent', true, $char);*/
+            \update_field('approval_sent', true, $char);
         }
     }
     die(1);
