@@ -8,7 +8,7 @@
 <label for="condition_note">Note</label>
 <input type="text" name="condition_note" id="condition_note" />
 <button type="button" id="add-condition">Add</button>
-<input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
+<input type="hidden" name="conditions" value="{{ count(get_field('conditions')) }}" />
 <ul class="conditions">
   @if(get_field('conditions'))
     @foreach(get_field('conditions') as $i=>$condition)
