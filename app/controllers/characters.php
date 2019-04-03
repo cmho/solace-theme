@@ -55,4 +55,119 @@ class Characters extends Controller
 
         return \get_posts($args);
     }
+
+    public static function getActivePCs()
+    {
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'character',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'status',
+                    'value' => 'Active',
+                    'compare' => '='
+                ),
+                array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'is_npc',
+                        'value' => true,
+                        'compare' => '!='
+                    ),
+                    array(
+                        'key' => 'is_npc',
+                        'compare' => 'NOT_EXISTS'
+                    )
+                )
+            )
+        );
+        return get_posts($args);
+    }
+
+    public static function getInitiations()
+    {
+        $initiation_merits = get_posts(array(
+            'posts_per_page' => -1,
+            'post_type' => 'merit',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'merit_category',
+                    'field' => 'slug',
+                    'terms' => 'initiations'
+                )
+            )
+        ));
+        $characters = App\Characters::getActivePCs();
+        $chars_by_initiation = array();
+        foreach ($initiation_merits as $initiation) {
+            $chars_by_initiation[$initiation->post_title] = array();
+            foreach ($characters as $char) {
+                $mer = array_filter(get_field('merits', $c), function ($m) {
+                    if ($m['merit']->ID == $initiation->ID) {
+                        return true;
+                    }
+                    return false;
+                });
+                if (count($mer) > 0) {
+                    array_push($chars_by_initiation[$initiation->post_title], array(
+                        'character' => $char->ID,
+                        'link' => get_permalink($char->ID),
+                        'name' => $char->post_title,
+                        'rating' => $m['rating']
+                    ));
+                }
+            }
+            usort($chars_by_initiation[$initiation->post_title], function($a, $b) {
+                if ($a['rating'] == $b['rating']) {
+                    if ($a['name'] == $b['name']) {
+                        return 0;
+                    }
+                    return $a['name'] > $b['name'] ? 1 : -1;
+                }
+
+                return $a['rating'] > $b['rating'] ? -1 : 1;
+            });
+        }
+        return $chars_by_initiation;
+    }
+
+    public static function getSkillSpreads()
+    {
+        $skills = array(
+            'academics',
+            'computer',
+            'crafts',
+            'investigation',
+            'medicine',
+            'occult',
+            'politics',
+            'science',
+            'athletics',
+            'brawl',
+            'drive',
+            'firearms',
+            'larceny',
+            'stealth',
+            'survival',
+            'weaponry',
+            'animal_ken',
+            'empathy',
+            'expression',
+            'intimidation',
+            'leadership',
+            'persuasion',
+            'streetwise',
+            'subterfuge'
+        );
+        $spreads = array();
+        $characters = App\Characters::getActivePCs();
+        foreach ($skills as $sk) {
+            $spreads[$sk] = array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
+            foreach ($characters as $char) {
+                $spreads[$sk][$char[$sk]]++;
+            }
+        }
+        return $spreads;
+    }
 }
