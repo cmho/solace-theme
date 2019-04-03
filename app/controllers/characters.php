@@ -98,7 +98,7 @@ class Characters extends Controller
                 )
             )
         ));
-        $characters = App\Characters::getActivePCs();
+        $characters = Characters::getActivePCs();
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
@@ -161,7 +161,7 @@ class Characters extends Controller
             'subterfuge'
         );
         $spreads = array();
-        $characters = App\Characters::getActivePCs();
+        $characters = Characters::getActivePCs();
         foreach ($skills as $sk) {
             $spreads[$sk] = array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
             foreach ($characters as $char) {
