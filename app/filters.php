@@ -354,7 +354,13 @@ function sendAcceptanceEmails()
 {
     $chars = get_posts(array(
         'post_type' => 'character',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'status',
+                'value' => 'Active'
+            )
+        )
     ));
     print_r($chars);
     /*foreach ($chars as $char) {
