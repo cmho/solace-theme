@@ -382,9 +382,9 @@ function sendAcceptanceEmails()
             "  If you have any questions, please email us at <a href='mailto:storytellers@solacelarp.com'>storytellers@solacelarp.com</a>.</p>";
             \wp_mail(
                 $user->user_email,
-                '[Solace] Character Approved: '.get_post($post)->post_title,
+                '[Solace] Character Approved: '.$char->post_title,
                 "<h2>".'Character Approved: '.
-                get_post($post)->post_title."</h2>".$message
+                $char->post_title."</h2>".$message
             );
             \update_field('approval_sent', true, $char);
         }
