@@ -110,12 +110,6 @@ class Characters extends Controller
                     return false;
                 });
                 print_r($mer);
-                print_r(array(
-                        'character' => $char->ID,
-                        'link' => get_permalink($char->ID),
-                        'name' => $char->post_title,
-                        'rating' => $m['rating']
-                ));
                 if (count($mer) > 0) {
                     array_push($chars_by_initiation[$initiation->post_title], array(
                         'character' => $char->ID,
