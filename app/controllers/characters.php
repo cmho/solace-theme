@@ -104,12 +104,12 @@ class Characters extends Controller
             $chars_by_initiation[$initiation->post_title] = array();
             foreach ($characters as $char) {
                 foreach ($get_field('merits', $char->ID) as $merit) {
-                    if ($m['merit']->ID == $initiation->ID) {
+                    if ($merit['merit']->ID == $initiation->ID) {
                         array_push($chars_by_initiation[$initiation->post_title], array(
                             'character' => $char->ID,
                             'link' => get_permalink($char->ID),
                             'name' => $char->post_title,
-                            'rating' => $m['rating']
+                            'rating' => $merit['rating']
                         ));
                         break;
                     }
