@@ -354,22 +354,10 @@ function sendAcceptanceEmails()
 {
     $chars = get_posts(array(
         'post_type' => 'character',
-        'posts_per_page' => -1,
-        'meta_query' => array(
-            'relation' => 'AND',
-            array(
-                'key' => 'status',
-                'value' => 'Active'
-            ),
-            array(
-                'key' => 'approval_sent',
-                'value' => true,
-                'compare' => '!='
-            )
-        )
+        'posts_per_page' => -1
     ));
     print_r($chars);
-    foreach ($chars as $char) {
+    /*foreach ($chars as $char) {
         $user = get_user('id', $char->post_author);
         print_r($user);
         $message = "<p>Hi, ".$user->display_name."! Your character has been approved for play. You can view their sheet <a href='".get_permalink($char)."' rel='external' target='_blank'>here</a>.  If you have any questions, please email us at <a href='mailto:storytellers@solacelarp.com'>storytellers@solacelarp.com</a>.</p>";
@@ -380,7 +368,7 @@ function sendAcceptanceEmails()
             get_post($post)->post_title."</h2>".$message
         );
         \update_field('approval_sent', true, $char);
-    }
+    }*/
     die(1);
 }
 
