@@ -111,7 +111,8 @@ class Characters extends Controller
                     if ($m['merit']->ID != $initiation->ID) {
                         return false;
                     }
-                    return $m;
+                    echo "!";
+                    return true;
                 });
                 if (count($mer) > 0) {
                     array_push($chars_by_initiation[$initiation->post_title], array(
