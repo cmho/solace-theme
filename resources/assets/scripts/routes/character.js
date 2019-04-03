@@ -503,6 +503,12 @@ export default {
         $(this)
           .parents("li")
           .detach();
+          $('ul.merits > li').each(function(i, elt) {
+            $(elt).find('input[name$="_merit"]').attr("name", "merits_"+i+"_merit");
+            $(elt).find('input[name$="_rating"]').attr("name", "merits_"+i+"_rating");
+            $(elt).find('input[name$="_specification"]').attr("name", "merits_"+i+"_specification");
+            $(elt).find('input[name$="_description"]').attr("name", "merits_"+i+"_description");
+          });
         $('[name="merits"]').val($("ul.merits > li").length);
         checkMerits();
       }
