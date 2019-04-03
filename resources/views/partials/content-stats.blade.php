@@ -9,7 +9,7 @@
                             <h3>{{ $fam }}</h3>
                             <ul>
                                 @foreach($members as $member)
-                                    <li>{{ $member['rating'] > 3 ? '<strong>' : '' }}<a href="{{ $member['link'] }}">{{ $member['name'] }}</a>{{ $member['rating'] > 3 ? '</strong>' : '' }}</li>
+                                    <li>{!! $member['rating'] > 3 ? '<strong>' : '' !!}<a href="{{ $member['link'] }}">{{ $member['name'] }}</a>{!! $member['rating'] > 3 ? '</strong>' : '' !!}</li>
                                 @endforeach
                             </ul>
                         </div>
