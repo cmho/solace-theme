@@ -512,7 +512,7 @@ export default {
     $("#add-specialty").on("click", function () {
       var skill = $("#skills_list option:selected").val();
       var specialty = $("#specialty_name").val();
-      var num = $(".skill-specialties li").length;
+      var num = $(".skill-specialties li:not([data-phantom])").length;
       var item =
         '<li><strong class="skill">' +
         skill +
@@ -543,7 +543,7 @@ export default {
           .parents("li")
           .detach();
         $('[name="skill_specialties"]').val(
-          $("ul.skill-specialties li").length
+          $("ul.skill-specialties li:not([data-phantom])").length
         );
       }
       checkSkillSpecialties();
