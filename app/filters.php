@@ -356,9 +356,22 @@ function sendAcceptanceEmails()
         'post_type' => 'character',
         'posts_per_page' => -1,
         'meta_query' => array(
+            'relation' => 'AND',
             array(
                 'key' => 'status',
                 'value' => 'Active'
+            ),
+            array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'approval_sent',
+                    'value' => true,
+                    'compare' => '!='
+                ),
+                array(
+                    'key' => 'approval_sent',
+                    'compare' => 'NOT EXISTS'
+                )
             )
         )
     ));
