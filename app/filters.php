@@ -358,15 +358,8 @@ function sendAcceptanceEmails()
         'meta_query' => array(
             'relation' => 'AND',
             array(
-                'relation' => 'OR',
-                array(
-                    'key' => 'status',
-                    'value' => 'Active'
-                ),
-                array(
-                    'key' => 'status',
-                    'value' => 'active'
-                )
+                'key' => 'status',
+                'value' => 'Active'
             ),
             array(
                 'key' => 'approval_sent',
