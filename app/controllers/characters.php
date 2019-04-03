@@ -102,24 +102,17 @@ class Characters extends Controller
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
-            echo "<br /><br />".$initiation->ID."<br /><br />";
             foreach ($characters as $char) {
-                $mer = get_field('merits', $char->ID);
-                $mer = array_filter($mer, function ($m) {
-                    if ($m['merit']->ID != $initiation->ID) {
-                        return false;
+                foreach ($get_field('merits', $char->ID) as $merit) {
+                    if ($m['merit']->ID == $initiation->ID) {
+                        array_push($chars_by_initiation[$initiation->post_title], array(
+                            'character' => $char->ID,
+                            'link' => get_permalink($char->ID),
+                            'name' => $char->post_title,
+                            'rating' => $m['rating']
+                        ));
+                        break;
                     }
-                    return true;
-                });
-                print_r($mer);
-                echo "<br />";
-                if (count($mer) > 0) {
-                    array_push($chars_by_initiation[$initiation->post_title], array(
-                        'character' => $char->ID,
-                        'link' => get_permalink($char->ID),
-                        'name' => $char->post_title,
-                        'rating' => $m['rating']
-                    ));
                 }
             }
             usort($chars_by_initiation[$initiation->post_title], function ($a, $b) {
