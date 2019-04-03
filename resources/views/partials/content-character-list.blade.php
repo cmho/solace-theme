@@ -1,8 +1,12 @@
 @php
   global $post;
 @endphp
+<div class="flash"></div>
 <div class="button-row right">
   <a href="{{ App\App::newCharacterLink() }}" class="button">New Character</a>
+  @if($is_admin)
+    <a href="#" class="button" id="send-approvals-button">Send Approvals</a>
+  @endif
 </div>
 
 <table id="character-table" class="datatable"{{ !$is_admin ? ' data-searching=false data-paging=false' : '' }}>

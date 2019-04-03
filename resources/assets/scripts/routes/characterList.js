@@ -23,6 +23,27 @@ export default {
         });
       }
       return;
-    })
+    });
+
+    $('#send-approvals-button').on('click', function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'send_approvals'
+        },
+        success: function(data) {
+          $(".flash").append(
+            '<div class="message">Character approval emails sent. <a href="#" class="close"><i class="fa fa-times"></i><span class="sr-only">Close</span></a></div>'
+          );
+        }
+      });
+    });
+
+    $('.flash').on('click', '.close', function(e) {
+      e.preventDefault();
+      $(this).parent('.message').detach();
+    });
   },
 };

@@ -350,6 +350,47 @@ function save_character_post($post_id)
     }
 }
 
+function sendAcceptanceEmails()
+{
+    $chars = get_posts(array(
+        'post_type' => 'character',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'status',
+                    'value' => 'Active'
+                ),
+                array(
+                    'key' => 'status',
+                    'value' => 'active'
+                )
+            ),
+            array(
+                'key' => 'approval_sent',
+                'value' => true,
+                'comparison' => '!='
+            )
+        )
+    ));
+    foreach ($chars as $char) {
+        $user = get_user('id', $char->post_author);
+        $message = "<p>Hi, ".$user->display_name."! Your character has been approved for play. You can view their sheet <a href='".get_permalink($char)."' rel='external' target='_blank'>here</a>.  If you have any questions, please email us at <a href='mailto:storytellers@solacelarp.com'>storytellers@solacelarp.com</a>.</p>";
+        \wp_mail(
+            $user->user_email,
+            '[Solace] Character Approved: '.get_post($post)->post_title,
+            "<h2>".'Character Approved: '.
+            get_post($post)->post_title."</h2>".$message
+        );
+        \update_field('approval_sent', true, $char);
+    }
+    die(1);
+}
+
+add_action('wp_ajax_send_approvals', __NAMESPACE__.'\\sendAcceptanceEmails');
+
 add_action('wp_restore_post_revision', __NAMESPACE__.'\\save_character_post');
 
 function get_merit_info()

@@ -256,3 +256,20 @@ dl.events {
 .breadcrumb {
   margin-bottom: 1em;
 }
+
+.flash {
+  .message {
+    padding: 5px;
+    background-color: $yellow;
+    color: $grey;
+    position: relative;
+
+    a {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      display: block;
+    }
+  }
+}
