@@ -102,9 +102,9 @@ class Characters extends Controller
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
+            echo "<br /><br />".$initiation->ID."<br /><br />";
             foreach ($characters as $char) {
                 //print_r(get_field('merits', $char->ID));
-                echo "<br /><br />".$initiation->ID."<br /><br />";
                 $mer = array_filter(get_field('merits', $char->ID), function ($m) {
                     if ($m['merit']->ID != $initiation->ID) {
                         return false;
