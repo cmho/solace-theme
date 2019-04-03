@@ -26,7 +26,14 @@
 
     > li {
       margin-bottom: 0;
-      border: 3px white solid;
+      border-width: 3px 3px 0;
+      border-color: white;
+      border-style: solid;
+      transition: 0.3s;
+
+      &:last-child {
+        border-bottom: 3px white solid;
+      }
 
       h3 {
         margin: 0;
@@ -34,7 +41,9 @@
         font-weight: bold;
 
         a {
-          border-bottom: 3px white solid;
+          border-width: 3px 3px 0;
+          border-color: white;
+          border-style: solid;
           padding: 3px 5px;
           color: white;
           display: block;
@@ -57,6 +66,7 @@
 
       &.open {
         a {
+          border-width: 3px;
           &:before {
             transform: rotate(90deg);
           }
