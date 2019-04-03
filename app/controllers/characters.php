@@ -106,10 +106,10 @@ class Characters extends Controller
                 //print_r(get_field('merits', $char->ID));
                 echo "<br /><br />".$initiation->ID."<br /><br />";
                 $mer = array_filter(get_field('merits', $char->ID), function ($m) {
-                    if ($m['merit']->ID == $initiation->ID) {
-                        return true;
+                    if ($m['merit']->ID != $initiation->ID) {
+                        return false;
                     }
-                    return false;
+                    return $m;
                 });
                 print_r($mer);
                 if (count($mer) > 0) {
