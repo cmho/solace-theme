@@ -542,6 +542,10 @@ export default {
         $(this)
           .parents("li")
           .detach();
+        $('ul.skill-specialties li:not([data-phantom])').each(function(i, elt) {
+          $(elt).find('input[name$="_skill"]').attr("name", "skill_specialties_"+i+"_skill");
+          $(elt).find('input[name$="_specialty"]').attr("name", "skill_specialties_"+i+"_specialty");
+        });
         $('[name="skill_specialties"]').val(
           $("ul.skill-specialties li:not([data-phantom])").length
         );
