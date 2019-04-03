@@ -103,7 +103,7 @@ class Characters extends Controller
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
             foreach ($characters as $char) {
-                $mer = array_filter(get_field('merits', $c), function ($m) {
+                $mer = array_filter(get_field('merits', $char), function ($m) {
                     if ($m['merit']->ID == $initiation->ID) {
                         return true;
                     }
@@ -118,7 +118,7 @@ class Characters extends Controller
                     ));
                 }
             }
-            usort($chars_by_initiation[$initiation->post_title], function($a, $b) {
+            usort($chars_by_initiation[$initiation->post_title], function ($a, $b) {
                 if ($a['rating'] == $b['rating']) {
                     if ($a['name'] == $b['name']) {
                         return 0;
