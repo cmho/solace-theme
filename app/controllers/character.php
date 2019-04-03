@@ -151,7 +151,13 @@ class Character extends Controller
         $chars = \get_posts(array(
             'post_type' => 'character',
             'posts_per_page' => 1,
-            'author' => $author->ID
+            'author' => $author->ID,
+            'meta_query' => array(
+                array(
+                    'key' => 'status',
+                    'value' => 'Active'
+                )
+            )
         ));
         if ($chars) {
             return $chars[0];
