@@ -529,7 +529,7 @@ export default {
         '" /></li>';
       $(".skill-specialties").append(item);
       $('[name="skill_specialties"]').val(
-        $("ul.skill-specialties li").length
+        $("ul.skill-specialties li:not([data-phantom])").length
       );
       checkSkillSpecialties();
     });
