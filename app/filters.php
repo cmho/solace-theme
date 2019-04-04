@@ -378,8 +378,7 @@ function sendAcceptanceEmails()
     if ($chars) {
         foreach ($chars as $char) {
             $user = \get_user_by('id', $char->post_author);
-            $message = "<p>Hi, ".$user->display_name."! Your character has been approved for play. You can view their sheet <a href='".get_permalink($char)."' rel='external' target='_blank'>here</a>.".
-            "  If you have any questions, please email us at <a href='mailto:storytellers@solacelarp.com'>storytellers@solacelarp.com</a>.</p>";
+            $message = "Hi, ".$user->display_name."!<br /><br />We are excited to inform you that your character has been approved! Please visit our website to review our code of conduct before game one. If you have any questions please send us an email and we are looking forward to seeing your character’s story unfold.<br /><br />Best,<br />The Solace ST Team<br />storytellers@solacelarp.com";
             \wp_mail(
                 $user->user_email,
                 '[Solace] Character Approved: '.$char->post_title,
