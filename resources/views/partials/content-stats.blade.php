@@ -14,7 +14,6 @@
                             </ul>
                         </div>
                     @endforeach
-                    @php(print_r(App\Characters::getInitiations()))
                 </div>
 
 
