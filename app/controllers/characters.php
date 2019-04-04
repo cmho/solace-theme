@@ -118,7 +118,7 @@ class Characters extends Controller
                         'character' => $char->ID,
                         'link' => get_permalink($char->ID),
                         'name' => $char->post_title,
-                        'rating' => $mer[0]['rating']
+                        'rating' => is_array($mer) ? $mer[0]['rating'] : $mer['rating']
                     ));
                 }
             }
