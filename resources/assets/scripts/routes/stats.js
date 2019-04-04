@@ -3,7 +3,6 @@ import Chart from "chartjs";
 
 export default {
     init () {
-        Chart.defaults.global.defaultFontColor = "white";
         $(window).on('load resize', function() {
             $('canvas').each(function() {
                 $(this).attr('width', $(this).parent().width());
@@ -31,6 +30,9 @@ export default {
                 scales: {
                   yAxes: [
                     {
+                      labels: {
+                        fontColor: "white"
+                      },
                       gridLines: {
                         drawTicks: false,
                         color: "rgba(255,255,255,.5)"
@@ -45,6 +47,9 @@ export default {
                   ],
                   xAxes: [
                     {
+                      labels: {
+                        fontColor: "white"
+                      },
                       gridLines: {
                         color: "rgba(255,255,255,.5)"
                       }
