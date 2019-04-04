@@ -7,8 +7,8 @@ export default {
         var charts = [];
         $(window).on('load resize', function() {
             $('canvas').each(function() {
-                $(this).width($(this).parent().width);
-                $(this).height($(this).parent().width*.75);
+                $(this).attr('width', $(this).parent().width);
+                $(this).attr('height', $(this).parent().width*.75);
             });
         });
         $('#skills-row canvas').each(function(i) {
