@@ -4,6 +4,7 @@ import 'datatables.net-dt';
 import 'jquery-accessible-modal-window-aria';
 import 'trumbowyg';
 import 'clndr';
+import 'chartjs';
 
 // Import everything from autoload
 import "./autoload/**/*"
@@ -18,6 +19,7 @@ import templateDashboard from './routes/dashboard';
 import singleCharacter from './routes/character';
 import pageTemplateTemplateCharacterCreation from './routes/character';
 import pageTemplateTemplateCalendar from './routes/calendar';
+import pageTemplateTemplateStats from './routes/stats';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -32,6 +34,7 @@ const routes = new Router({
   singleCharacter,
   pageTemplateTemplateCharacterCreation,
   pageTemplateTemplateCalendar,
+  pageTemplateTemplateStats,
 });
 
 // Load Events
