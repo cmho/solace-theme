@@ -19,7 +19,9 @@
 
                 <h2>Skill Spread</h2>
                 <div class="row" id="skills-row">
-                    
+                    @foreach(App\Characters::getSkillSpread() as $skill => $spread)
+                        
+                    @endforeach
                 </div>
             </div>
         </div>
