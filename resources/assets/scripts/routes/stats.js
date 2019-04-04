@@ -17,7 +17,7 @@ export default {
             .map(function(x) {
               return parseInt(x);
             });
-          new Chart(document.getElementById(id), {
+          var chart = new Chart(document.getElementById(id), {
             type: "bar",
             data: {
               labels: [0, 1, 2, 3, 4, 5],
@@ -59,6 +59,7 @@ export default {
               }
             }
           });
+          console.log(chart);
         });
     }
 }
