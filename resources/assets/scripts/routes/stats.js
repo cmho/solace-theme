@@ -18,7 +18,6 @@ export default {
                 labels: [0, 1, 2, 3, 4, 5],
                 datasets: [
                   {
-                    label: "My First Dataset",
                     data: data,
                     fill: false,
                     backgroundColor: "yellow",
@@ -30,9 +29,6 @@ export default {
                 scales: {
                   yAxes: [
                     {
-                      labels: {
-                        fontColor: "white"
-                      },
                       gridLines: {
                         drawTicks: false,
                         color: "rgba(255,255,255,.5)"
@@ -47,9 +43,6 @@ export default {
                   ],
                   xAxes: [
                     {
-                      labels: {
-                        fontColor: "white"
-                      },
                       gridLines: {
                         color: "rgba(255,255,255,.5)"
                       }
