@@ -3,8 +3,7 @@ import Chart from "chartjs";
 
 export default {
     init () {
-        var contexts = [];
-        var charts = [];
+        Chart.defaults.global.defaultFontColor = "white";
         $(window).on('load resize', function() {
             $('canvas').each(function() {
                 $(this).attr('width', $(this).parent().width());
@@ -13,14 +12,52 @@ export default {
         });
         $('#skills-row canvas').each(function(i) {
             var id = $(this).attr('id');
-            contexts[i] = document.getElementById(id).getContext('2d');
-            charts[i] = new Chart(contexts[i], {
-                type: 'bar',
+            var data = $(this).data('points').split(",").map(function(x) { return parseInt(x) });
+            new Chart(document.getElementById(id), {
+              type: "bar",
+              data: {
                 labels: [0, 1, 2, 3, 4, 5],
-                data: $(this).data('points').split(",").map(function(x) { return parseInt(x) })
+                datasets: [
+                  {
+                    label: "My First Dataset",
+                    data: data,
+                    fill: false,
+                    backgroundColor: "yellow",
+                    borderWidth: 1
+                  }
+                ]
+              },
+              options: {
+                scales: {
+                  yAxes: [
+                    {
+                      gridLines: {
+                        drawTicks: false,
+                        color: "rgba(255,255,255,.5)"
+                      },
+                      ticks: {
+                        beginAtZero: true
+                      },
+                      labels: {
+                        fontColor: "white"
+                      }
+                    }
+                  ],
+                  xAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(255,255,255,.5)"
+                      }
+                    }
+                  ]
+                },
+                legend: {
+                  labels: {
+                    fontColor: "white"
+                  }
+                }
+              }
             });
         });
-        console.log(contexts);
-        console.log(charts);
     }
 }
