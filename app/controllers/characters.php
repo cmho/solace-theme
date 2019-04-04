@@ -162,6 +162,7 @@ class Characters extends Controller
             'subterfuge'
         );
         $spreads = array();
+        $characters = \App\Characters::getActivePCs();
         
         return $spreads;
     }
