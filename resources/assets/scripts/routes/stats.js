@@ -1,5 +1,5 @@
 
-import "chartjs";
+import Chart from "chartjs";
 
 export default {
     init () {
