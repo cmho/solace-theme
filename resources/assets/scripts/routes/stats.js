@@ -1,3 +1,6 @@
+
+import "chartjs";
+
 export default {
     init () {
         var contexts = [];
