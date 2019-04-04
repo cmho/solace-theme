@@ -1,4 +1,4 @@
-import Chart from 'chartjs';
+import Chart from 'chart.js';
 
 export default {
     init () {
