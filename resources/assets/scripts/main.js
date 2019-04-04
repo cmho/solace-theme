@@ -33,7 +33,7 @@ const routes = new Router({
   singleCharacter,
   pageTemplateTemplateCharacterCreation,
   pageTemplateTemplateCalendar,
-  pageTemplateTemplateStats,
+  //pageTemplateTemplateStats,
 });
 
 // Load Events
