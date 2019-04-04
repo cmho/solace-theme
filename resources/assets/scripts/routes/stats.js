@@ -3,7 +3,7 @@ import Chart from "chartjs";
 
 export default {
     init () {
-        $(document).on('ready', function() {
+        $(window).on('load', function() {
             $("#skills-row canvas").each(function(i, elt) {
               var data = $(this)
                 .data("points")
@@ -53,7 +53,6 @@ export default {
                   }
                 }
               });
-              console.log(chart);
             });
         });
     }
