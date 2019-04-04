@@ -4,7 +4,6 @@ import 'datatables.net-dt';
 import 'jquery-accessible-modal-window-aria';
 import 'trumbowyg';
 import 'clndr';
-import Chart from 'chartjs';
 
 // Import everything from autoload
 import "./autoload/**/*"

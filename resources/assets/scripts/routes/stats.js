@@ -1,4 +1,6 @@
 
+import Chart from 'chartjs';
+
 export default {
     init () {
         $(window).on('load', function() {
