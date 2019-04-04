@@ -3,16 +3,16 @@ import Chart from "chartjs";
 
 export default {
     init () {
-        $(window).on('load resize', function() {
+        /*$(window).on('load resize', function() {
             $('canvas').each(function() {
                 $(this).attr('width', $(this).parent().width());
                 $(this).attr('height', $(this).parent().width()*.75);
             });
-        });
+        });*/
         $('#skills-row canvas').each(function(i) {
             var id = $(this).attr('id');
             var data = $(this).data('points').split(",").map(function(x) { return parseInt(x) });
-            new Chart(document.getElementById(id), {
+            var chart = new Chart(document.getElementById(id), {
               type: "bar",
               data: {
                 labels: [0, 1, 2, 3, 4, 5],
