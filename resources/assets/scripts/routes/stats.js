@@ -17,12 +17,7 @@ export default {
             charts[i] = new Chart(contexts[i], {
                 type: 'bar',
                 labels: [0, 1, 2, 3, 4, 5],
-                datasets: [
-                    {
-                        data: $(this).data('points').split(",").map(function(x) { return parseInt(x) }),
-                        backgroundColor: ['#fff5a3', '#fff5a3', '#fff5a3', '#fff5a3', '#fff5a3', '#fff5a3']
-                    }
-                ]
+                data: $(this).data('points').split(",").map(function(x) { return parseInt(x) })
             });
         });
         console.log(contexts);
