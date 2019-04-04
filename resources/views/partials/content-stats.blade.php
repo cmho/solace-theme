@@ -20,7 +20,7 @@
                 <h2>Skill Spread</h2>
                 <div class="row" id="skills-row">
                     @foreach(App\Characters::getSkillSpreads() as $skill => $spread)
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-xs-12">
                             <h3>{{ $skill }}</h3>
                             <canvas id="{{ $skill }}" data-points="{{ join(",", $spread) }}"></canvas>
                         </div>
