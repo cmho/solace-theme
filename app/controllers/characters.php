@@ -98,7 +98,7 @@ class Characters extends Controller
                 )
             )
         ));
-        $characters = Characters::getActivePCs();
+        $characters = \App\Characters::getActivePCs();
         $chars_by_initiation = array();
         foreach ($initiation_merits as $initiation) {
             $chars_by_initiation[$initiation->post_title] = array();
