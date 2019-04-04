@@ -116,7 +116,6 @@
     "axios": "^0.18.0",
     "braces": "^2.3.2",
     "chart.js": "^2.8.0",
-    "chartjs": "^0.3.24",
     "clndr": "^1.4.7",
     "cryptiles": "4.1.2",
     "datatables.net-dt": "^1.10.19",
