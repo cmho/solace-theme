@@ -110,9 +110,9 @@ class Characters extends Controller
                     }
                     return true;
                 });
-                if (count($mer) > 0) {
+                if ($mer) {
                     print_r($char->post_title);
-                    print_r($mer[0]);
+                    print_r($mer);
                     echo "<br /><br />";
                     array_push($chars_by_initiation[$initiation->post_title], array(
                         'character' => $char->ID,
