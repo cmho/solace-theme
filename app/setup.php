@@ -11,7 +11,7 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script('sage/chart.js', get_theme_file_uri().'/node_modules/chartjs/chart.js', ['jquery'], null, false);
+    //wp_enqueue_script('sage/chart.js', get_theme_file_uri().'/node_modules/chartjs/chart.js', ['jquery'], null, false);
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 }, 100);
