@@ -17,9 +17,7 @@ export default {
             .map(function(x) {
               return parseInt(x);
             });
-          console.log(id);
-          console.log(data);
-          new Chart(document.getElementById("academics"), {
+          new Chart(document.getElementById(id), {
             type: "bar",
             data: {
               labels: [0, 1, 2, 3, 4, 5],
