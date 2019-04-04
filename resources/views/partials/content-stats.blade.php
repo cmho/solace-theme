@@ -31,15 +31,15 @@
     </div>
 </section>
 <script type="text/javascript">
-    $(window).on('load', function() {
-        $("#skills-row canvas").each(function(i, elt) {
-        var data = $(this)
+    jQuery(window).on('load', function() {
+        jQuery("#skills-row canvas").each(function(i, elt) {
+        var data = jQuery(this)
             .data("points")
             .split(",")
             .map(function(x) {
             return parseInt(x);
             });
-        var chart = new Chart($(this), {
+        var chart = new Chart(jQuery(this), {
             type: "bar",
             data: {
             labels: [0, 1, 2, 3, 4, 5],
