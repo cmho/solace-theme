@@ -241,7 +241,7 @@ function update_character()
         }
         array_push($merits, array(
             'merit' => intval($_POST['merits_'.$i.'_merit']),
-            'rating' => $purifier->purify($_POST['merits_'.$i.'_rating']),
+            'rating' => intval($_POST['merits_'.$i.'_rating']),
             'specification' => $purifier->purify($_POST['merits_'.$i.'_specification']),
             'description' => $purifier->purify($_POST['merits_'.$i.'_description']),
             'additional_specifications' => $ab
@@ -257,7 +257,7 @@ function update_character()
 
     for ($k = 0; $k < intval($_POST['conditions']); $k++) {
         array_push($conditions, array(
-            'condition' => $purifier->purify($_POST['conditions_'.$k.'_condition']),
+            'condition' => intval($_POST['conditions_'.$k.'_condition']),
             'note' => $purifier->purify($_POST['conditions_'.$k.'_note'])
         ));
     }

@@ -25,5 +25,7 @@ export default {
                 ]
             });
         });
+        console.log(contexts);
+        console.log(charts);
     }
 }
