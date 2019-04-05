@@ -84,7 +84,7 @@ export default {
               label: characters[i],
               data: points[i]
             }
-            array_push(integrityData, set);
+            integrityData.push(set);
           }
           new Chart($('#integrity'), {
             type: 'line',
