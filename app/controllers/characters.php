@@ -164,10 +164,21 @@ class Characters extends Controller
         $spreads = array();
         $characters = \App\Characters::getActivePCs();
         foreach ($skills as $sk) {
-            $spreads[$sk] = array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);foreach ($characters as $char) {
-                $spreads[$sk][get_field($sk, $char)]++;
+            $spreads[$sk] = array(
+                'counts' => array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0),
+                'characters' => array(0 => array(), 1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array())
+            );
+            $spreads[$sk] = array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
+            foreach ($characters as $char) {
+                $spreads[$sk]['counts'][get_field($sk, $char)]++;
+                array_push($spreads[$sk]['characters'], $char->post_title);
             }
         }
         return $spreads;
+    }
+
+    public static function getMeritSpreads()
+    {
+
     }
 }
