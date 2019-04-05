@@ -170,4 +170,31 @@ class Characters extends Controller
         }
         return $spreads;
     }
+
+    public static function getIntegrityTimeline()
+    {
+        $characters = getActivePCs();
+        $revisions = array();
+        foreach ($characters as $char) {
+            $revisions[$char->post_title] = array_map(function ($r) {
+                return array(
+                    'date' => get_the_date('Y-m-d h:i:s', $r),
+                    'integrity' => get_field('integrity', $r)
+                );
+            }, get_posts(array(
+                'post_type' => 'revision',
+                'post_parent' => $char->ID,
+                'posts_per_page' => -1,
+                'date_query' => array(
+                    'after' => '2019-04-12',
+                    'column' => 'post_modified'
+                )
+            )));
+            array_push($revisions[$char->post_title], array(
+                'date' => date('Y-m-d h:i:s'),
+                'integrity' => get_field('integrity', $char)
+            ));
+        }
+        return $revisions;
+    }
 }
