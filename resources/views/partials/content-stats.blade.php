@@ -22,7 +22,7 @@
                     @foreach(App\Characters::getSkillSpreads() as $skill => $spread)
                         <div class="col-md-4 col-xs-12">
                             <h3>{{ $skill }}</h3>
-                            <canvas id="{{ $skill }}" data-points="{{ join(";", $spread['spread']) }}" data-characters="{{ join(";", array_map(function($c) { return join("\n", $c); }, $spread['characters'])) }}></canvas>
+                            <canvas id="{{ $skill }}" data-points="{{ join(";", $spread['spread']) }}" data-characters="{{ join(";", array_map(function($c) { return join("\n", $c); }, $spread['characters'])) }}""></canvas>
                         </div>
                     @endforeach
                 </div>
