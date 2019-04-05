@@ -178,6 +178,27 @@ class Characters extends Controller
 
     public static function getMeritSpreads()
     {
+        $merits = get_posts(array(
+            'posts_per_page' => -1,
+            'post_type' => 'merit'
+        ));
+        $characters = \App\Characters::getActivePCs();
+        $spreads = array();
+        foreach($merits as $merit) {
+            $spreads[$merit->post_title] = array(
+                'counts' => array(0 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0),
+                'characters' => array(0 => array(), 1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array())
+            );
 
+            foreach ($characters as $char) {
+                foreach (get_field('merits', $char) as $cm) {
+                    if ($cm['merit']->ID == $merit->ID) {
+                        $spreads[$merit->post_title]['counts'][$cm['rating']]++;
+                        array_push($spreads[$merit->post_title]['characters'][$cm['rating']]);
+                    }
+                }
+            }
+        }
+        return $spreads;
     }
 }
