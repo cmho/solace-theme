@@ -194,7 +194,7 @@ class Characters extends Controller
                 foreach (get_field('merits', $char) as $cm) {
                     if ($cm['merit']->ID == $merit->ID) {
                         $spreads[$merit->post_title]['counts'][$cm['rating']]++;
-                        array_push($spreads[$merit->post_title]['characters'][$cm['rating']]);
+                        array_push($spreads[$merit->post_title]['characters'][$cm['rating']], $char->post_title);
                     }
                 }
             }
