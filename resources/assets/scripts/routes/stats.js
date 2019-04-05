@@ -82,7 +82,7 @@ export default {
 
           var integrityData = [];
           var labels = $('#integrity').data('labels').split(";").map(function(i) { return i.split(",")});
-          var points = $('#integrity').data('points').split(";").map(function(i) { return i.split(",")});
+          var points = $('#integrity').data('points').split(";").map(function(i) { return i.split(",").map(parseInt)});
           var characters = $('#integrity').data('characters').split(",");
           var set;
           var color;
