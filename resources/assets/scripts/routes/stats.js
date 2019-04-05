@@ -11,13 +11,10 @@ export default {
               .map(function(x) {
                 return parseInt(x);
               });
-            var tooltips = $(this).data('characters').split(";");
-            console.log(tooltips);
             new Chart($(this), {
               type: "bar",
               data: {
                 labels: [0, 1, 2, 3, 4, 5],
-                tooltips: tooltips,
                 datasets: [
                   {
                     data: data,
