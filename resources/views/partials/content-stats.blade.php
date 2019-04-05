@@ -25,6 +25,7 @@
                             <canvas id="{{ $skill }}" data-points="{{ join(",", $spread['counts']) }}" data-characters="{{ join(";", array_map(function($c) { return join("\n", $c); }, $spread['characters'])) }}"></canvas>
                         </div>
                     @endforeach
+                    @php(print_r(App\Characters::getSkillSpreads()))
                 </div>
             </div>
         </div>
