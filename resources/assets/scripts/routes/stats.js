@@ -12,6 +12,7 @@ export default {
                 return parseInt(x);
               });
             var tooltips = $(this).data('characters').split(";");
+            console.log(tooltips);
             new Chart($(this), {
               type: "bar",
               data: {
