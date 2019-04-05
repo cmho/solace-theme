@@ -17,14 +17,37 @@
                 </div>
 
 
-                <h2>Skill Spread</h2>
+                <h2>Skill Distribution</h2>
                 <div class="row" id="skills-row">
                     @foreach(App\Characters::getSkillSpreads() as $skill => $spread)
                         <div class="col-md-4 col-xs-12">
                             <h3>{{ $skill }}</h3>
-                            <canvas id="{{ $skill }}" data-points="{{ join(",", $spread) }}"></canvas>
+                            <canvas id="{{ $skill }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
+                            <ul class="rankings">
+                              @foreach($spread['characters'] as $i=>$lv)
+                                @if($i != 0 && count($lv) > 0)
+                                  <li><strong>{{ $i }}:</strong> {{ join(", ", $lv) }}</li>
+                                @endif
+                              @endforeach
+                            </ul>
                         </div>
                     @endforeach
+                </div>
+                <h2>Merit Distribution</h2>
+                <div class="row" id="merits-row">
+                  @foreach(App\Characters::getMeritSpreads() as $merit => $spread)
+                    <div class="col-md-4 col-xs-12">
+                      <h3>{{ $merit }}</h3>
+                      <canvas id="{{ str_replace(" ", "-", strtolower($merit)) }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
+                      <ul class="rankings">
+                        @foreach($spread['characters'] as $i=>$lv)
+                          @if($i != 0 && count($lv) > 0)
+                            <li><strong>{{ $i }}:</strong> {{ join(", ", $lv) }}</li>
+                          @endif
+                        @endforeach
+                      </ul>
+                    </div>
+                  @endforeach
                 </div>
             </div>
         </div>
