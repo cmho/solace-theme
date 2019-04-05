@@ -2,30 +2,36 @@ import Chart from 'chart.js';
 
 export default {
     init () {
+      function randomColor() {
+        var one = Math.floor(Math.random()*255);
+        var two = Math.floor(Math.random() * 255);
+        var three = Math.floor(Math.random() * 255);
+        return "rgba("+one+", "+two+", "+three+", 1)";
+      }
       var options = {
-                scales: {
-                  yAxes: [{
-                    gridLines: {
-                      drawTicks: false,
-                      color: "rgba(255,255,255,.5)"
-                    },
-                    ticks: {
-                      beginAtZero: true
-                    },
-                    labels: {
-                      fontColor: "white"
-                    }
-                  }],
-                  xAxes: [{
-                    gridLines: {
-                      color: "rgba(255,255,255,.5)"
-                    }
-                  }]
-                },
-                legend: {
-                  display: false
-                }
-              };
+          scales: {
+            yAxes: [{
+              gridLines: {
+                drawTicks: false,
+                color: "rgba(255,255,255,.5)"
+              },
+              ticks: {
+                beginAtZero: true
+              },
+              labels: {
+                fontColor: "white"
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                color: "rgba(255,255,255,.5)"
+              }
+            }]
+          },
+          legend: {
+            display: false
+          }
+        };
         $(window).on("load", function() {
           $("#skills-row canvas").each(function() {
             var id = $(this).attr("id");
@@ -79,10 +85,14 @@ export default {
           var points = $('#integrity').data('points').split(";").map(function(i) { return i.split(",")});
           var characters = $('#integrity').data('characters').split(",");
           var set;
+          var color;
           for (var i = 0; i < characters.length; i++) {
+            color = randomColor();
             set = {
               label: characters[i],
-              data: points[i]
+              data: points[i],
+              backgroundColor: color,
+              borderColor: color
             };
             integrityData.push(set);
           }
