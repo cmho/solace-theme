@@ -52,7 +52,7 @@
 
                 <h2>Integrity</h2>
                 @php($it = App\Characters::getIntegrityTimeline())
-                <canvas id="integrity" data-points="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['integrity']; }, $i)); }, $it)) }}" data-labels="{{ join(";", array_map(function($i) { return join(",", $i['date']); }, $it)) }}" data-characters="{{ join(",", array_keys($it)) }}"></canvas>
+                <canvas id="integrity" data-points="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['integrity']; }, $i)); }, $it)) }}" data-labels="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['date']; }, $i)); }, $it)) }}" data-characters="{{ join(",", array_keys($it)) }}"></canvas>
             </div>
         </div>
     </div>
