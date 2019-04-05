@@ -25,7 +25,7 @@
                             <canvas id="{{ $skill }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
                             <ul class="rankings">
                               @foreach($spread['characters'] as $i=>$lv)
-                                @if(count($lv) > 0)
+                                @if($i != 0 && count($lv) > 0)
                                   <li><strong>{{ $i }}:</strong> {{ join(", ", $lv) }}</li>
                                 @endif
                               @endforeach
