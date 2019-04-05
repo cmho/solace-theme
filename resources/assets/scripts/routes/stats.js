@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 export default {
     init () {
         $(window).on("load", function() {
-          $("#skills-row canvas").each(function() {
+          $("#skills-row canvas, #merits-row canvas").each(function() {
             var id = $(this).attr("id");
             var data = $(this)
               .data("points")
