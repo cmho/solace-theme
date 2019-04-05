@@ -49,6 +49,10 @@
                     </div>
                   @endforeach
                 </div>
+
+                <h2>Integrity</h2>
+                @php($it = App\Characters::getIntegrityTimeline())
+                <canvas id="integrity" data-points="{{ join(";", array_map(function($i) { return join("," $i['integrity']); }, $it)) }}" data-labels="join(";", array_map(function($i) { return join("," $i['date']); }, $it))" data-characters="{{ join(",", array_keys($it)); }}"></canvas>
             </div>
         </div>
     </div>

@@ -184,7 +184,7 @@ class Characters extends Controller
         ));
         $characters = \App\Characters::getActivePCs();
         $spreads = array();
-        foreach($merits as $merit) {
+        foreach ($merits as $merit) {
             $spreads[$merit->post_title] = array(
                 'counts' => array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0),
                 'characters' => array(1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array())
@@ -216,6 +216,8 @@ class Characters extends Controller
                 'post_type' => 'revision',
                 'post_parent' => $char->ID,
                 'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'modified',
                 'date_query' => array(
                     'after' => '2019-04-12',
                     'column' => 'post_modified'
