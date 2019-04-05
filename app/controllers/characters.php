@@ -204,7 +204,7 @@ class Characters extends Controller
 
     public static function getIntegrityTimeline()
     {
-        $characters = getActivePCs();
+        $characters = \App\Characters::getActivePCs();
         $revisions = array();
         foreach ($characters as $char) {
             $revisions[$char->post_title] = array_map(function ($r) {
