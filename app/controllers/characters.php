@@ -215,7 +215,7 @@ class Characters extends Controller
         ));
         foreach ($snapshots as $snapshot) {
             array_push($labels, get_the_date('Y-m-d', $snapshot));
-            foreach (get_field('levels') as $charInfo) {
+            foreach (get_field('levels', $snapshot) as $charInfo) {
                 if (!array_key_exists($charInfo['character']->post_title, $characters)) {
                     $characters[$charInfo['character']->post_title] = array();
                 }
