@@ -56,6 +56,12 @@
                 </div>
                 @php($it = App\Characters::getIntegrityTimeline())
                 <canvas id="integrity" data-points="{{ join(";", array_map(function($l) { return join(",", $l); }, $it['characters'])) }}" data-labels="{{ join(",", $it['labels']) }}" data-characters="{{ join(",", array_keys($it['characters'])) }}"></canvas>
+                <h3>Averages</h3>
+                <ul>
+                  @for($i = 0; $i < count($it['averages']); $i++)
+                    <li><strong>{{ $it['labels'][$i] }}:</strong> {{ $it['averages'][$i] }}</li>
+                  @endfor
+                </ul>
             </div>
         </div>
     </div>
