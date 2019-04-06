@@ -207,6 +207,7 @@ class Characters extends Controller
         $characters = \App\Characters::getActivePCs();
         $labels = array();
         $characters = array();
+        $averages = array();
         $snapshots = get_posts(array(
             'post_type' => 'integrity_snapshot',
             'posts_per_page' => -1,
@@ -214,16 +215,19 @@ class Characters extends Controller
             'orderby' => 'post_date'
         ));
         foreach ($snapshots as $snapshot) {
+            $total = 0;
             array_push($labels, get_the_date('Y-m-d', $snapshot));
             foreach (get_field('levels', $snapshot) as $charInfo) {
+                $total += $charInfo['integrity'];
                 if (!array_key_exists($charInfo['character']->post_title, $characters)) {
                     $characters[$charInfo['character']->post_title] = array();
                 }
-                array_push($characters[$charInfo['character']->post_title], get_field('integrity', $charInfo['character']->ID));
+                array_push($characters[$charInfo['character']->post_title], $charInfo['integrity']);
             }
+            array_push($averages, $total/count(get_field('levels', $snapshot)));
         }
 
-        $data = array('labels' => $labels, 'characters' => $characters);
+        $data = array('labels' => $labels, 'characters' => $characters, 'averages' => $averages);
 
         return $data;
     }
