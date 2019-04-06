@@ -612,7 +612,7 @@ function snapshotIntegrity()
 {
     $characters = \App\Characters::getActivePCs();
     $integrities = array();
-    foreach($characters as $character) {
+    foreach ($characters as $character) {
         array_push($integrities, array(
             'character' => $character->ID,
             'integrity' => get_field('integrity', $character->ID)
