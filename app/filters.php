@@ -610,7 +610,7 @@ add_action('wp_ajax_breaking_point', __NAMESPACE__.'\\updateIntegrity');
 
 function snapshotIntegrity()
 {
-    $characters = App\Characters::getActivePCs();
+    $characters = \App\Characters::getActivePCs();
     $integrities = array();
     foreach($characters as $character) {
         array_push($integrities, array(
