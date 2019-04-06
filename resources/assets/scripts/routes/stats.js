@@ -81,7 +81,7 @@ export default {
           });
 
           var integrityData = [];
-          var labels = $('#integrity').data('labels').split(";").map(function(i) { return i.split(",")});
+          var labels = $('#integrity').data('labels').split(",");
           var points = $('#integrity').data('points').split(";").map(function(i) { return i.split(",").map(parseInt)});
           var characters = $('#integrity').data('characters').split(",");
           var set;
@@ -96,12 +96,22 @@ export default {
             };
             integrityData.push(set);
           }
-          console.log(integrityData);
           new Chart($('#integrity'), {
             type: 'line',
             datasets: integrityData,
-            labels: labels[0],
+            labels: labels,
             options: options
+          });
+        });
+
+        $('#snapshot').on('click', function(e) {
+          e.preventDefault();
+          $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data: {
+              action: 'snapshot_integrity'
+            }
           });
         });
     }

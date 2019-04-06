@@ -51,8 +51,11 @@
                 </div>
 
                 <h2>Integrity</h2>
+                <div class="button-row right">
+                  <button id="snapshot" class="button">Create Snapshot</button>
+                </div>
                 @php($it = App\Characters::getIntegrityTimeline())
-                <canvas id="integrity" data-points="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['integrity']; }, $i)); }, $it)) }}" data-labels="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['date']; }, $i)); }, $it)) }}" data-characters="{{ join(",", array_keys($it)) }}"></canvas>
+                <canvas id="integrity" data-points="{{ join(";", array_map(function($l) { return join(",", $l); }, $it['characters'])); }}" data-labels="{{ join(",", $it['labels']) }}" data-characters="{{ join(",", array_keys($it['characters'])) }}"></canvas>
             </div>
         </div>
     </div>

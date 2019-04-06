@@ -205,29 +205,26 @@ class Characters extends Controller
     public static function getIntegrityTimeline()
     {
         $characters = \App\Characters::getActivePCs();
-        $revisions = array();
-        foreach ($characters as $char) {
-            $revisions[$char->post_title] = array_map(function ($r) {
-                return array(
-                    'date' => get_the_date('Y-m-d h:i:s', $r),
-                    'integrity' => get_field('integrity', $r)
-                );
-            }, get_posts(array(
-                'post_type' => 'revision',
-                'post_parent' => $char->ID,
-                'posts_per_page' => -1,
-                'order' => 'ASC',
-                'orderby' => 'modified',
-                'date_query' => array(
-                    'after' => '2019-04-12',
-                    'column' => 'post_modified'
-                )
-            )));
-            array_push($revisions[$char->post_title], array(
-                'date' => date('Y-m-d h:i:s'),
-                'integrity' => get_field('integrity', $char)
-            ));
+        $labels = array();
+        $characters = array();
+        $snapshots = get_posts(array(
+            'post_type' => 'integrity_snapshot',
+            'posts_per_page' => -1,
+            'order' => 'ASC',
+            'orderby' => 'post_date'
+        ));
+        foreach ($snapshots as $snapshot) {
+            array_push($labels, get_the_date('Y-m-d', $snapshot));
+            foreach (get_field('levels') as $charInfo) {
+                if (!array_key_exists($charInfo['character']->post_title, $characters)) {
+                    $characters[$charInfo['character']->post_title] = array();
+                }
+                array_push($characters[$charInfo['character']->post_title], get_field('integrity', $charInfo['character']->ID));
+            }
         }
-        return $revisions;
+
+        $data = array('labels' => $labels, 'characters' => $characters);
+
+        return $data;
     }
 }
