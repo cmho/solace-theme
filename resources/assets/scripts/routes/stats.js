@@ -81,8 +81,13 @@ export default {
           });
 
           var integrityData = [];
+          options.legend.display = true;
           var labels = $('#integrity').data('labels').split(",");
-          var points = $('#integrity').data('points').split(";").map(function(i) { return i.split(",").map(parseInt)});
+          var points = $('#integrity').data('points').split(";").map(function (i) {
+            return i.split(",").map(function (n) {
+              return parseInt(n);
+            });
+          });
           var characters = $('#integrity').data('characters').split(",");
           var set;
           var color;
@@ -91,15 +96,16 @@ export default {
             set = {
               label: characters[i],
               data: points[i],
-              backgroundColor: color,
               borderColor: color
             };
             integrityData.push(set);
           }
-          new Chart($('#integrity'), {
+          var c = new Chart($('#integrity'), {
             type: 'line',
-            datasets: integrityData,
-            labels: labels,
+            data: {
+              datasets: integrityData,
+              labels: labels,
+            },
             options: options
           });
         });

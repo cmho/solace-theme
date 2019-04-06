@@ -55,7 +55,6 @@
                   <button id="snapshot" class="button">Create Snapshot</button>
                 </div>
                 @php($it = App\Characters::getIntegrityTimeline())
-                @php(print_r($it))
                 <canvas id="integrity" data-points="{{ join(";", array_map(function($l) { return join(",", $l); }, $it['characters'])) }}" data-labels="{{ join(",", $it['labels']) }}" data-characters="{{ join(",", array_keys($it['characters'])) }}"></canvas>
             </div>
         </div>
