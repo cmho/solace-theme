@@ -76,3 +76,9 @@ use Roots\Sage\Container;
     'supports' => array('title', 'editor', 'page-attributes'),
     'menu_icon' => 'dashicons-testimonial'
 ));
+
+\register_post_type('integrity_snapshot', array(
+    'label' => 'Integrity Snapshot',
+    'public' => true,
+    'supports' => array('title')
+));
