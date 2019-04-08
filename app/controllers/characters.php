@@ -65,6 +65,10 @@ class Characters extends Controller
                 array(
                     'key' => 'status',
                     'value' => 'Active'
+                ),
+                array(
+                    'key' => 'is_npc',
+                    'compare' => 'NOT_EXISTS'
                 )
             )
         );
