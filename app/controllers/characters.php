@@ -62,29 +62,9 @@ class Characters extends Controller
             'posts_per_page' => -1,
             'post_type' => 'character',
             'meta_query' => array(
-                'relation' => 'AND',
                 array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => 'status',
-                        'value' => 'Active'
-                    ),
-                    array(
-                        'key' => 'status',
-                        'value' => 'active'
-                    )
-                ),
-                array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => 'is_npc',
-                        'value' => true,
-                        'compare' => '!='
-                    ),
-                    array(
-                        'key' => 'is_npc',
-                        'compare' => 'NOT_EXISTS'
-                    )
+                    'key' => 'status',
+                    'value' => 'Active'
                 )
             )
         );
