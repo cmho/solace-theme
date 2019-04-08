@@ -3,6 +3,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2>Total Characters: {{ count(App\Characters::getActivePCs())}}</h2>
+                <!--
+                  @php(print_r(App\Characters::getActivePCs()))
+                -->
                 <h2>Characters by Family</h2>
                 <div class="row">
                     @foreach(App\Characters::getInitiations() as $fam => $members)
