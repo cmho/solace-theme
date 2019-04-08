@@ -3,6 +3,14 @@
   color: black !important;
   font-size: 14px;
 
+  h1,h2,h3,h4,h5 {
+    line-height: 1.1;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
   .button-row {
     display: none;
   }
@@ -54,5 +62,11 @@
   #experience,
   #questionnaire {
     display: none;
+  }
+
+  #character-sheet {
+    label {
+      font-size: 14px;
+    }
   }
 }
