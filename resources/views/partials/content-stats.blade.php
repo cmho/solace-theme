@@ -2,11 +2,12 @@
     <div class="wrapper">
         <div class="row">
             <div class="col-xs-12">
+                <h2>Total Characters: {{ count(App\Characters::getActivePCs())}}</h2>
                 <h2>Characters by Family</h2>
                 <div class="row">
                     @foreach(App\Characters::getInitiations() as $fam => $members)
                         <div class="col-md-4 col-xs-12">
-                            <h3>{{ $fam }}</h3>
+                            <h3>{{ $fam }} ({{ count($members) }})</h3>
                             <ul>
                                 @foreach($members as $member)
                                     <li>{!! $member['rating'] > 3 ? '<strong>' : '' !!}<a href="{{ $member['link'] }}">{{ $member['name'] }}</a> ({{ $member['rating'] ? $member['rating'] : 1 }}){!! $member['rating'] > 3 ? '</strong>' : '' !!}</li>
