@@ -68,6 +68,7 @@ class Characters extends Controller
                 ),
                 array(
                     'key' => 'is_npc',
+                    'value' => 'false',
                     'compare' => 'NOT_EXISTS'
                 )
             )
