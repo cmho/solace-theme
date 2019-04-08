@@ -608,6 +608,26 @@ function updateIntegrity()
 }
 add_action('wp_ajax_breaking_point', __NAMESPACE__.'\\updateIntegrity');
 
+function snapshotIntegrity()
+{
+    $characters = \App\Characters::getActivePCs();
+    $integrities = array();
+    foreach ($characters as $character) {
+        array_push($integrities, array(
+            'character' => $character->ID,
+            'integrity' => get_field('integrity', $character->ID)
+        ));
+    }
+    $p = wp_insert_post(array(
+        'post_type' => 'integrity_snapshot',
+        'post_status' => 'publish'
+    ));
+
+    update_field('field_5ca7f5f6617d5', $integrities, $p);
+}
+
+add_action('wp_ajax_snapshot_integrity', __NAMESPACE__.'\\snapshotIntegrity');
+
 function addBeat()
 {
     wp_insert_post(array(

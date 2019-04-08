@@ -2,11 +2,12 @@
     <div class="wrapper">
         <div class="row">
             <div class="col-xs-12">
+                <h2>Total Characters: {{ count(App\Characters::getActivePCs())}}</h2>
                 <h2>Characters by Family</h2>
                 <div class="row">
                     @foreach(App\Characters::getInitiations() as $fam => $members)
                         <div class="col-md-4 col-xs-12">
-                            <h3>{{ $fam }}</h3>
+                            <h3>{{ $fam }} ({{ count($members) }})</h3>
                             <ul>
                                 @foreach($members as $member)
                                     <li>{!! $member['rating'] > 3 ? '<strong>' : '' !!}<a href="{{ $member['link'] }}">{{ $member['name'] }}</a> ({{ $member['rating'] ? $member['rating'] : 1 }}){!! $member['rating'] > 3 ? '</strong>' : '' !!}</li>
@@ -51,8 +52,17 @@
                 </div>
 
                 <h2>Integrity</h2>
+                <div class="button-row right">
+                  <button id="snapshot" class="button">Create Snapshot</button>
+                </div>
                 @php($it = App\Characters::getIntegrityTimeline())
-                <canvas id="integrity" data-points="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['integrity']; }, $i)); }, $it)) }}" data-labels="{{ join(";", array_map(function($i) { return join(",", array_map(function($c) { return $c['date']; }, $i)); }, $it)) }}" data-characters="{{ join(",", array_keys($it)) }}"></canvas>
+                <canvas id="integrity" data-points="{{ join(";", array_map(function($l) { return join(",", $l); }, $it['characters'])) }}" data-labels="{{ join(",", $it['labels']) }}" data-characters="{{ join(",", array_keys($it['characters'])) }}"></canvas>
+                <h3>Averages</h3>
+                <ul>
+                  @for($i = 0; $i < count($it['averages']); $i++)
+                    <li><strong>{{ $it['labels'][$i] }}:</strong> {{ $it['averages'][$i] }}</li>
+                  @endfor
+                </ul>
             </div>
         </div>
     </div>
