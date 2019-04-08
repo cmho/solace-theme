@@ -39,7 +39,7 @@
                   @foreach(App\Characters::getMeritSpreads() as $merit => $spread)
                     <div class="col-md-4 col-xs-12">
                       <h3>{{ $merit }} ({{ $spread['total'] }})</h3>
-                      @if(count($spread['allowed_ratings']) > 0)
+                      @if(count($spread['meritinfo']['allowed_ratings']) > 0)
                         <canvas id="{{ str_replace(" ", "-", strtolower($merit)) }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
                       @endif
                         <ul class="rankings">
