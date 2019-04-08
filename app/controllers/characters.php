@@ -64,9 +64,15 @@ class Characters extends Controller
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
-                    'key' => 'status',
-                    'value' => 'Active',
-                    'compare' => '='
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'status',
+                        'value' => 'Active'
+                    ),
+                    array(
+                        'key' => 'status',
+                        'value' => 'active'
+                    )
                 ),
                 array(
                     'relation' => 'OR',
