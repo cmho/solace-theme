@@ -96,7 +96,7 @@ export default {
             };
             integrityData.push(set);
           }
-          console.log(integrityData);
+          console.log(labels);
           new Chart($('#integrity'), {
             type: 'line',
             datasets: integrityData,

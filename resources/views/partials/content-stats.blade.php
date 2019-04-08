@@ -37,7 +37,7 @@
                 <div class="row" id="merits-row">
                   @foreach(App\Characters::getMeritSpreads() as $merit => $spread)
                     <div class="col-md-4 col-xs-12">
-                      <h3>{{ $merit }}</h3>
+                      <h3>{{ $merit }} ({{ $spread['total'] }})</h3>
                       <canvas id="{{ str_replace(" ", "-", strtolower($merit)) }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
                       <ul class="rankings">
                         @foreach($spread['characters'] as $i=>$lv)
