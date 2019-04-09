@@ -1,7 +1,7 @@
 .print {
   background-color: white;
   color: black !important;
-  font-size: 14px;
+  font-size: 12px;
 
   h1,h2,h3,h4,h5 {
     line-height: 1.1;
@@ -76,7 +76,8 @@
 
   #character-sheet {
     label {
-      font-size: 14px;
+      font-size: 12px;
+      letter-spacing: 0;
     }
   }
 }
