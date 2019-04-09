@@ -10,7 +10,7 @@
   <section id="character-sheet" class="grey">
     <div class="wrapper">
       <div class="row" id="basics-row">
-        <div class="{{ !isset($print) ? 'col-md-4 col-sm-6 col-xs-12 center' : 'col-xs-4' }}">
+        <div class="{{ !isset($print) ? 'col-md-4 col-sm-6 col-xs-12 center' : 'col-xs-6' }}">
           <h2>{!! get_the_title() !!}</h2>
           @if(get_field('family') != "other")
             <p class="family">{{ get_field('family') }}</p>
@@ -24,7 +24,7 @@
             </div>
           @endif
         </div>
-        <div class="{{ !isset($print) ? 'col-md-8 col-sm-6 col-xs-12' : 'col-xs-8' }}">
+        <div class="{{ !isset($print) ? 'col-md-8 col-sm-6 col-xs-12' : 'col-xs-6' }}">
           <div class="box">
             <div class="content">
               @if(get_field('quote'))
