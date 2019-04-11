@@ -31,6 +31,9 @@
             <li class="character" data-character="{{ $post->ID }}">
               <h3><a href="#">@php(the_title())</a></h3>
               <div class="character-content">
+                <p style="text-align: right">
+                  <a href="{{ get_the_permalink() }}" target="_blank">Full Sheet <i class="fas fa-external-link-alt"></i></a>
+                </p>
                 <div class="health" data-health="{{ get_field('current_health') }}">
                   <h4>Health</h4>
                   {{ App\Character::printSquaresInteractable(get_field('current_health')) }}
