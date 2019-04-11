@@ -72,7 +72,7 @@
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
                 </div>
-                <div class="equipment">
+                <div class="char-equipment">
                   <h4>Equipment (<a href="#" class="js-modal" data-modal-content-id="equipment-form">Add</a>)</h4>
                 </div>
                 <div class="notes">
