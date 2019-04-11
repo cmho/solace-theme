@@ -40,10 +40,8 @@
 
     <h3>Vitals</h3>
     <p><strong>Size:</strong> {{ get_field('size', $char->ID) }}</p>
-    <p><strong>Speed:</strong> {{ App\Character::speedFinal($char) }}</p>
-    <p><strong>Defense:</strong> {{ App\Character::defenseFinal($char) }}</p>
-    <p><strong>General Armor:</strong> {{ App\Character::getArmorGeneral($char) }}</p>
-    <p><strong>Ballistic Armor:</strong> {{ App\Character::getArmorBallistic($char) }}</p>
-    <p id="init-mod-wrapper"><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ App\Character::initiativeFinal($char) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
+    <p><strong>Speed:</strong> {{ get_field('strength', $char)+5 }}</p>
+    <p><strong>Defense:</strong> {{ min(get_field('wits', $char), get_field('dexterity', $char))+get_field('athletics', $char) }}</p>
+    <p id="init-mod-wrapper"><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char)+get_field('composure', $char) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
   </div>
 </div>
