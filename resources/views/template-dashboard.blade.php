@@ -45,7 +45,7 @@
                   <span class="current-integrity">{{ get_field('integrity') }}</span> <button type="button" class="button small breaking-point">Breaking Point</button>
                 </div>
                 <div class="conditions">
-                  <h4>Conditions</h4>
+                  <h4>Conditions (<a href="#" class="js-modal" data-modal-content-id="condition-form">Add</a>)</h4>
                   <ul class="char-conditions">
                     @if(get_field('conditions'))
                       @foreach(get_field('conditions') as $condition)
@@ -71,6 +71,9 @@
                     <button type="button" class="button small add-condition">Add</button>
                     <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
                   </form>
+                </div>
+                <div class="equipment">
+                  <h4>Equipment (<a href="#" class="js-modal" data-modal-content-id="equipment-form">Add</a>)</h4>
                 </div>
                 <div class="notes">
                   <h4>Storyteller Notes</h4>
