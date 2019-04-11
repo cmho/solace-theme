@@ -5,7 +5,7 @@
 @php
   global $post;
   $user = wp_get_current_user();
-  if (!$user && !App::isAdmin()) {
+  if (!$user) {
     header('Location:'.home_url('/'));
   }
 @endphp

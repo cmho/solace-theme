@@ -29,7 +29,7 @@
           <div class="controls">
             <a href="{{ get_the_permalink() }}edit">Edit</a>
             @if(get_field('status') == 'Active')
-              <a href="{{ App\App::downtimesLink() }}character/{{ $post->post_name }}">Downtime Actions</a>
+              <a href="{{ App\App::downtimesLink() }}">Downtime Actions</a>
             @endif
             <a href="#" class="delete-link" data-id="{{ get_the_ID() }}">Delete</a>
           </div>
