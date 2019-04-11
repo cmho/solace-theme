@@ -244,6 +244,11 @@
       li {
         margin-bottom: 1em;
         clear: both;
+
+        strong {
+          display: block;
+          border-bottom: 1px white dotted;
+        }
       }
 
       button {
