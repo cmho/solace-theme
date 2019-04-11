@@ -89,7 +89,7 @@
       <div class="equipment tab-content" id="equipment">
         <h2>Equipment</h2>
         @if(get_field('equipment', $char))
-          <ul class="equipment">
+          <ul>
             @foreach(get_field('equipment', $char) as $equipment)
             <li>
               <strong>{{ get_the_title($equipment['item']->ID) }}</strong><br />
