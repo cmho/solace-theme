@@ -236,6 +236,35 @@
     margin: 20px;
   }
 
+  .equipment {
+    .equipment-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1em;
+        clear: both;
+      }
+
+      button {
+        padding: 0;
+        border: none;
+        font-size: 16px;
+        margin-left: 5px;
+      }
+
+      dl {
+        dt {
+          float: left;
+          font-weight: bold;
+          margin-right: 5px;
+          clear: both;
+        }
+      }
+
+    }
+  }
+
 }
 
 nav.dashboard-tabs {
