@@ -92,7 +92,7 @@
           <ul class="equipment-list">
             @foreach(get_field('equipment', $char) as $equipment)
             <li>
-              <strong>{{ get_the_title($equipment['item']->ID) }}</strong><br />
+              <strong>{{ get_the_title($equipment['item']->ID) }}</strong>
               <dl>
                   <dt>Type</dt>
                   <dd>{{ get_field('type', $equipment['item']->ID) }}</dd>

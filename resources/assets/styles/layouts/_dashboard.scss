@@ -249,6 +249,12 @@
           display: block;
           border-bottom: 1px white dotted;
         }
+
+        &:after {
+          content: "";
+          display: block;
+          clear: noth;
+        }
       }
 
       button {
