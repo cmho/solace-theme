@@ -145,6 +145,71 @@ class Character extends Controller
         return $questionnaire;
     }
 
+    public static function initiativeFinal($char)
+    {
+        $base = get_field('dexterity', $char)+get_field('composure', $char);
+        $equip = get_field('equipment', $char);
+        foreach ($equip as $e) {
+            if (get_field('initiative_modifier', $e['item'])) {
+                $base += get_field('initiative_modifier', $e['item']);
+            }
+        }
+
+        return $base;
+    }
+
+    public static function defenseFinal($char)
+    {
+        $base = min(get_field('wits', $char), get_field('dexterity', $char))+get_field('athletics', $char);
+        $equip = get_field('equipment', $char);
+        foreach ($equip as $e) {
+            if (get_field('defense', $e['item'])) {
+                $base += get_field('defense', $e['item']);
+            }
+        }
+
+        return $base;
+    }
+
+    public static function speedFinal($char)
+    {
+        $base = get_field('strength', $char)+5;
+        $equip = get_field('equipment', $char);
+        foreach ($equip as $e) {
+            if (get_field('speed', $e['item'])) {
+                $base += get_field('speed', $e['item']);
+            }
+        }
+
+        return $base;
+    }
+
+    public static function getArmorGeneral($char)
+    {
+        $base = 0;
+        $equip = get_field('equipment', $char);
+        foreach ($equip as $e) {
+            if (get_field('general_armor', $e['item'])) {
+                $base += get_field('general_armor', $e['item']);
+            }
+        }
+
+        return $base;
+    }
+
+    public static function getArmorBallistic($char)
+    {
+        $base = 0;
+        $equip = get_field('equipment', $char);
+        foreach ($equip as $e) {
+            if (get_field('ballistic_armor', $e['item'])) {
+                $base += get_field('ballistic_armor', $e['item']);
+            }
+        }
+
+        return $base;
+    }
+
     public static function currentChar()
     {
         $author = wp_get_current_user();

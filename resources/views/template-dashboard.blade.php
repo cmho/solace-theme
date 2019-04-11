@@ -144,6 +144,14 @@
               </a>
             </div>
             <div class="tab">
+              <a href="#" id="equipment-tab">
+                <div class="icon">
+                  <i class="fas fa-hammer"></i>
+                </div>
+                <span>Equipment</span>
+              </a>
+            </div>
+            <div class="tab">
               <a href="#" id="downtime-tab">
                 <div class="icon">
                   <i class="far fa-list-alt"></i>

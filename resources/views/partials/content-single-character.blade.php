@@ -202,13 +202,15 @@
             <dt>Size</dt>
             <dd>{{ get_field('size') }}</dd>
             <dt>Speed</dt>
-            <dd>{{ get_field('strength')+5 }}</dd>
+            <dd>{{ App\Character::speedFinal($post) }}</dd>
             <dt>Defense</dt>
-            <dd>{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</dd>
-            <dt>Armor</dt>
-            <dd>{{ get_field('armor') }}</dd>
+            <dd>{{ App\Character::defenseFinal($post) }}</dd>
+            <dt>General Armor</dt>
+            <dd>{{ App\Character::getArmorGeneral($post) }}</dd>
+            <dt>Ballistic Armor</dt>
+            <dd>{{ App\Character::getArmorBallistic($post) }}</dd>
             <dt>Initiative Mod</dt>
-            <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
+            <dd>{{ App\Character::initiativeFinal($post) }}</dd>
           </dl>
 
           <h3>Conditions</h3>

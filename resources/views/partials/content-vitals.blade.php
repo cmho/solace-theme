@@ -24,17 +24,21 @@
 </div>
 <div class="form-row">
   <label for="speed">Speed</label>
-  <input type="number" disabled name="speed" value="{{ get_field('strength')+get_field('dexterity')+5 }}" />
+  <input type="number" disabled name="speed" value="{{ App\Character::speedFinal($post) }}" />
 </div>
 <div class="form-row">
   <label for="defense">Defense</label>
-  <input type="number" disabled name="defense" value="{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}" />
+  <input type="number" disabled name="defense" value="{{ App\Character::defenseFinal($post) }}" />
 </div>
 <div class="form-row">
-  <label for="armor">Armor</label>
-  <input type="text" name="armor" value="{{ get_field('armor') }}" />
+  <label for="armor">General Armor</label>
+  <input type="text" name="general_armor" value="{{ App\Character::getArmorGeneral() }}" />
+</div>
+<div class="form-row">
+  <label for="armor">Ballistic Armor</label>
+  <input type="text" name="ballistic_armor" value="{{ App\Character::getArmorBallistic() }}" />
 </div>
 <div class="form-row">
   <label for="initiative_mod">Initiative Modifier</label>
-  <input type="number" disabled name="initiative_mod" value="{{ get_field('dexterity')+get_field('composure') }}" />
+  <input type="number" disabled name="initiative_mod" value="{{ App\Character::initiativeFinal($post) }}" />
 </div>
