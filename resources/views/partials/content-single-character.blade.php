@@ -185,12 +185,12 @@
         <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h3>Health</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(get_field('stamina')+5))
+            @php(App\Character::printSquaresInteractable(get_field('stamina')+5))
           </div>
 
           <h3>Willpower</h3>
           <div class="dots center">
-            @php(App\Character::printSquares(5+get_field('resolve')))
+            @php(App\Character::printSquaresInteractable(5+get_field('resolve')))
           </div>
 
           <h3>Integrity</h3>
