@@ -95,7 +95,7 @@
               <strong>{{ get_the_title($equipment['item']->ID) }}</strong>
               <dl>
                   <dt>Type</dt>
-                  <dd>{{ get_field('type', $equipment['item']->ID) }}</dd>
+                  <dd>{{ ucfirst(get_field('type', $equipment['item']->ID)) }}</dd>
                   @if(get_field('size', $equipment['item']->ID))
                     <dt>Size</dt>
                     <dd>{{ get_field('size', $equipment['item']->ID) }}</dd>
