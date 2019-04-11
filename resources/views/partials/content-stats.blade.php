@@ -38,15 +38,17 @@
                 <div class="row" id="merits-row">
                   @foreach(App\Characters::getMeritSpreads() as $merit => $spread)
                     <div class="col-md-4 col-xs-12">
-                      <h3>{{ $merit }}</h3>
-                      <canvas id="{{ str_replace(" ", "-", strtolower($merit)) }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
-                      <ul class="rankings">
-                        @foreach($spread['characters'] as $i=>$lv)
-                          @if($i != 0 && count($lv) > 0)
-                            <li><strong>{{ $i }}:</strong> {{ join(", ", $lv) }}</li>
-                          @endif
-                        @endforeach
-                      </ul>
+                      <h3>{{ $merit }} ({{ $spread['total'] }})</h3>
+                      @if(count($spread['meritinfo']['allowed_ratings']) > 1 && $spread['total'] > 0)
+                        <canvas id="{{ str_replace(" ", "-", strtolower($merit)) }}" data-points="{{ join(",", $spread['counts']) }}"></canvas>
+                      @endif
+                        <ul class="rankings">
+                            @foreach($spread['characters'] as $i=>$lv)
+                            @if($i != 0 && count($lv) > 0)
+                                <li>@if(count($spread['meritinfo']['allowed_ratings']) > 1)<strong>{{ $i }}:</strong> @endif{{ join(", ", $lv) }}</li>
+                            @endif
+                            @endforeach
+                        </ul>
                     </div>
                   @endforeach
                 </div>

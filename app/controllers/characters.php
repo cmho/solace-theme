@@ -172,8 +172,10 @@ class Characters extends Controller
         $spreads = array();
         foreach ($merits as $merit) {
             $spreads[$merit->post_title] = array(
+                'meritinfo' => array('allowed_ratings' => get_field('allowed_ratings', $merit), 'specification' => get_field('requires_specification', $merit)),
                 'counts' => array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0),
-                'characters' => array(1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array())
+                'characters' => array(1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array()),
+                'total' => 0
             );
 
             foreach ($characters as $char) {
@@ -181,6 +183,7 @@ class Characters extends Controller
                     if ($cm['merit']->ID == $merit->ID) {
                         $spreads[$merit->post_title]['counts'][$cm['rating']]++;
                         array_push($spreads[$merit->post_title]['characters'][$cm['rating']], $char->post_title);
+                        $spreads[$merit->post_title]['total']++;
                     }
                 }
             }

@@ -10,7 +10,7 @@
   <section id="character-sheet" class="grey">
     <div class="wrapper">
       <div class="row" id="basics-row">
-        <div class="col-md-4 col-sm-6 col-xs-12 center">
+        <div class="{{ !isset($print) ? 'col-md-4 col-sm-6 col-xs-12 center' : 'col-xs-6' }}">
           <h2>{!! get_the_title() !!}</h2>
           @if(get_field('family') != "other")
             <p class="family">{{ get_field('family') }}</p>
@@ -24,7 +24,7 @@
             </div>
           @endif
         </div>
-        <div class="col-md-8 col-sm-6 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-8 col-sm-6 col-xs-12' : 'col-xs-6' }}">
           <div class="box">
             <div class="content">
               @if(get_field('quote'))
@@ -51,7 +51,7 @@
         <div class="col-xs-12">
           <h3>Attributes</h3>
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h4>Mental</h4>
           <div class="row between-xs middle-xs">
             <label>Intelligence</label>
@@ -72,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h4>Physical</h4>
           <div class="row between-xs middle-xs">
             <label>Strength</label>
@@ -93,7 +93,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h4>Social</h4>
           <div class="row between-xs middle-xs">
             <label>Presence</label>
@@ -116,7 +116,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h3>Skills</h3>
           @php(App\Character::printSkills($post->ID))
           <h3>Skill Specialties</h3>
@@ -131,7 +131,7 @@
             @endif
           </ul>
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h3>Merits</h3>
           @if(get_field('merits'))
             <ul class="merits">
@@ -182,7 +182,7 @@
             <p><em>None</em></p>
           @endif
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
           <h3>Health</h3>
           <div class="dots center">
             @php(App\Character::printSquares(get_field('stamina')+5))

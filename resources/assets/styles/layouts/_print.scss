@@ -1,6 +1,29 @@
 .print {
   background-color: white;
   color: black !important;
+  font-size: 12px !important;
+
+  h1,h2,h3,h4,h5 {
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 2.5em !important;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 2em !important;
+  }
+
+  h4 {
+    font-size: 1.75em !important;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 
   .button-row {
     display: none;
@@ -13,7 +36,7 @@
   }
 
   section {
-    padding-bottom: 0;
+    padding: 0 !important;
   }
 
   article {
@@ -40,6 +63,9 @@
   }
 
   #basics-row {
+    .box {
+      margin: 0;
+    }
     .quote,
     .blurb {
       display: none;
@@ -53,5 +79,12 @@
   #experience,
   #questionnaire {
     display: none;
+  }
+
+  #character-sheet {
+    label {
+      font-size: 12px !important;
+      letter-spacing: 0;
+    }
   }
 }
