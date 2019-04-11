@@ -215,11 +215,17 @@
     align-items: center;
     justify-content: center;
 
+    .modal__wrapper {
+      width: 100%;
+      text-align: left;
+    }
+
     .initiative-roll {
       font-size: 220px;
     }
 
-    #modal-content {
+    #modal-content,
+    .modal__content {
       text-align: left;
       height: 100%;
     }
