@@ -140,10 +140,14 @@
                     <dt>Cost</dt>
                     <dd>{{ get_field('cost', $equipment['item']->ID) }}</dd>
                   @endif
-                  <dt>Qualities</dt>
-                  <dd>{{ join(", ", get_field('qualities', $equipment['item']->ID)) }}</dd>
-                  <dt>Notes</dt>
-                  <dd>{!! $equipment['note'] !!}</dd>
+                  @if(get_field('qualities', $equipment['item']->ID))
+                    <dt>Qualities</dt>
+                    <dd>{{ join(", ", get_field('qualities', $equipment['item']->ID)) }}</dd>
+                  @endif
+                  @if($equipment['note'])
+                    <dt>Notes</dt>
+                    <dd>{!! $equipment['note'] !!}</dd>
+                  @endif
               </dl>
             </li>
             @endforeach
