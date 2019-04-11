@@ -83,6 +83,44 @@
         </ol>
       @endif
     </section>
+    <div id="condition-form" class="hide">
+      <form class="condition-form">
+        <div class="row">
+          <div class="form-row" id="select-control">
+            <label for="conditions_list">Condition</label>
+            <select class="conditions_list" name="condition">
+              @foreach(App\Conditions::list() as $condition)
+                <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-row" id="note-control">
+            <label for="note">Note</label>
+            <input type="text" name="note" class="condition_note" />
+          </div>
+        </div>
+        <button type="button" class="button small add-condition">Add</button>
+        <input type="hidden" name="conditions" val="" />
+      </form>
+    </div>
+    <div id="equipment-form" class="hide">
+      <form class="equipment-form">
+        <label for="item">Item</label>
+        <select class="equipment_list" name="item">
+          @foreach(App\Equipment::list() as $item)
+            <option value="{{ $item->ID }}">{{ get_the_title($item->ID) }}</option>
+          @endforeach
+        </select>
+        <div class="form-row">
+          <label for="uses">Uses (if applicable)</label>
+          <input type="number" value="" name="uses" />
+        </div>
+        <div class="form-row">
+          <label for="note">Note</label>
+          <textarea name="note" rows="4"></textarea>
+        </div>
+      </form>
+    </div>
   @elseif(App::isLoggedIn())
     @if($char)
       @include('partials.content-dashboard-character')
