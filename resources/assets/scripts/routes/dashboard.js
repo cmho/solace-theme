@@ -212,6 +212,11 @@ export default {
       ding.play();
     });
 
+    $('.conditions h4').on('click', function() {
+      var char = $(this).parents('li').data('character');
+      $('dialog.modal').data('character', char);
+    });
+
     $('body').on("click", ".add-condition", function () {
       var $conditions = $(this).parents('form');
       var condition = $conditions.find(".conditions_list option:selected").val();
