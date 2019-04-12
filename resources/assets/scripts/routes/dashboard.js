@@ -224,6 +224,7 @@ export default {
       var condition = $conditions.find(".conditions_list option:selected").val();
       var note = $conditions.find(".condition_note").val();
       var character = parseInt($conditions.attr('data-character'));
+      $('dialog.modal #js-modal-close').trigger('click');
       $.ajax({
         url: ajaxurl,
         method: 'POST',
