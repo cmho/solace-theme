@@ -104,7 +104,6 @@
           </div>
         </div>
         <button type="button" class="button small add-condition">Add</button>
-        <input type="hidden" name="conditions" val="" />
       </form>
     </div>
     <div id="equipment-form" class="hide">

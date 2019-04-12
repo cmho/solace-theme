@@ -213,10 +213,10 @@ export default {
     });
 
     $(".add-condition").on("click", function () {
-      var $conditions = $(this).parents('.conditions');
+      var $conditions = $(this).parents('form');
       var condition = $conditions.find(".conditions_list option:selected").val();
       var note = $conditions.find(".condition_note").val();
-      var character = $conditions.parents('li').data('character');
+      var character = $conditions.parents('dialog.modal').data('character');
       $.ajax({
         url: ajaxurl,
         method: 'POST',
