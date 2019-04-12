@@ -53,27 +53,16 @@
                       @endforeach
                     @endif
                   </ul>
-                  <form class="condition-form">
-                    <div class="row">
-                      <div class="form-row" id="select-control">
-                        <label for="conditions_list">Condition</label>
-                        <select class="conditions_list" name="condition">
-                          @foreach(App\Conditions::list() as $condition)
-                            <option value="{{ $condition->ID }}">{{ get_the_title($condition->ID)}}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="form-row" id="note-control">
-                        <label for="note">Note</label>
-                        <input type="text" name="note" class="condition_note" />
-                      </div>
-                    </div>
-                    <button type="button" class="button small add-condition">Add</button>
-                    <input type="hidden" name="conditions" val="{{ count(get_field('conditions')) }}" />
-                  </form>
                 </div>
                 <div class="char-equipment">
                   <h4>Equipment (<a href="#" class="js-modal" data-modal-content-id="equipment-form">Add</a>)</h4>
+                  <ul class="equipment-list">
+                    @if(get_field('equipment'))
+                      @foreach(get_field('equipment') as $equipment)
+                        @include('partials.content-equipment-list', ['equipment' => $equipment])
+                      @endforeach
+                    @endif
+                  </ul>
                 </div>
                 <div class="notes">
                   <h4>Storyteller Notes</h4>
@@ -135,65 +124,7 @@
         @if(get_field('equipment', $char))
           <ul class="equipment-list">
             @foreach(get_field('equipment', $char) as $equipment)
-            <li>
-              <strong>{{ get_the_title($equipment['item']->ID) }}</strong>
-              <dl>
-                  <dt>Type</dt>
-                  <dd>{{ ucfirst(get_field('type', $equipment['item']->ID)) }}</dd>
-                  @if(get_field('size', $equipment['item']->ID))
-                    <dt>Size</dt>
-                    <dd>{{ get_field('size', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('durability', $equipment['item']->ID))
-                    <dt>Durability</dt>
-                    <dd>{{ get_field('durability', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('damage', $equipment['item']->ID))
-                    <dt>Damage</dt>
-                    <dd>{{ get_field('damage', $equipment['item']->ID)}}</dd>
-                  @endif
-                  @if(get_field('initiative_modifier', $equipment['item']->ID))
-                    <dt>Initiative Modifier</dt>
-                    <dd>{{ get_field('initiative_modifier', $equipment['item']->ID)}}</dd>
-                  @endif
-                  @if(get_field('required_strength', $equipment['item']->ID))
-                    <dt>Required Strength</dt>
-                    <dd>{{ get_field('required_strength', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('clip_size', $equipment['item']->ID))
-                    <dt>Clip Size</dt>
-                    <dd>@php(\App\Character::printSquares(get_field('clip_size', $equipment['item']->ID)))</dd>
-                  @endif
-                  @if(get_field('general_armor', $equipment['item']->ID))
-                    <dt>General Armor</dt>
-                    <dd>{{ get_field('general_armor', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('ballistic_armor', $equipment['item']->ID))
-                    <dt>Ballistic Armor</dt>
-                    <dd>{{ get_field('ballistic_armor', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('defense', $equipment['item']->ID))
-                    <dt>Defense</dt>
-                    <dd>{{ get_field('defense', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('speed', $equipment['item']->ID))
-                    <dt>Speed</dt>
-                    <dd>{{ get_field('speed', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('cost', $equipment['item']->ID))
-                    <dt>Cost</dt>
-                    <dd>{{ get_field('cost', $equipment['item']->ID) }}</dd>
-                  @endif
-                  @if(get_field('qualities', $equipment['item']->ID))
-                    <dt>Qualities</dt>
-                    <dd>{{ join(", ", get_field('qualities', $equipment['item']->ID)) }}</dd>
-                  @endif
-                  @if($equipment['note'])
-                    <dt>Notes</dt>
-                    <dd>{!! $equipment['note'] !!}</dd>
-                  @endif
-              </dl>
-            </li>
+              @include('partials.content-equipment-list', ['equipment' => $equipment])
             @endforeach
           </ul>
         @else
