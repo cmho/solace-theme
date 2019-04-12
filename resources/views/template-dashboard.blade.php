@@ -58,7 +58,7 @@
                   <h4>Equipment (<a href="#" class="js-modal" data-modal-content-id="equipment-form">Add</a>)</h4>
                   <ul class="equipment-list">
                     @if(get_field('equipment'))
-                      @foreach(get_field('equipment') as $equipment)
+                      @foreach(App\Equipment::sortEquipment(get_field('equipment')) as $equipment)
                         @include('partials.content-equipment-list', ['equipment' => $equipment])
                       @endforeach
                     @endif
@@ -124,7 +124,7 @@
         <h2>Equipment</h2>
         @if(get_field('equipment', $char))
           <ul class="equipment-list">
-            @foreach(get_field('equipment', $char) as $equipment)
+            @foreach(App\Equipment::sortEquipment(get_field('equipment', $char)) as $equipment)
               @include('partials.content-equipment-list', ['equipment' => $equipment])
             @endforeach
           </ul>
