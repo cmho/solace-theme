@@ -66,6 +66,10 @@
     }
   }
 
+  #equipment-print ul.equipment {
+    columns: 2;
+  }
+
   ul.merits {
     li {
       .alert {

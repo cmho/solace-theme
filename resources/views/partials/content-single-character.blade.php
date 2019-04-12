@@ -157,15 +157,17 @@
           @else
             <p><em>None</em></p>
           @endif
-          <h3>Equipment</h3>
-          @if(get_field('equipment'))
-            <ul class="equipment">
-              @foreach(get_field('equipment') as $equipment)
-                @include('partials.content-equipment-list')
-              @endforeach
-            </ul>
-          @else
-            <p><em>None</em></p>
+          @if(!isset($print))
+            <h3>Equipment</h3>
+            @if(get_field('equipment'))
+              <ul class="equipment">
+                @foreach(get_field('equipment') as $equipment)
+                  @include('partials.content-equipment-list')
+                @endforeach
+              </ul>
+            @else
+              <p><em>None</em></p>
+            @endif
           @endif
         </div>
         <div class="{{ !isset($print) ? 'col-md-4 col-xs-12' : 'col-xs-4' }}">
@@ -215,6 +217,26 @@
       </div>
     </div>
   </section>
+  @if(isset($print))
+    <section id="equipment-print">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Equipment</h3>
+            @if(get_field('equipment'))
+              <ul class="equipment">
+                @foreach(get_field('equipment') as $equipment)
+                  @include('partials.content-equipment-list')
+                @endforeach
+              </ul>
+            @else
+              <p><em>None</em></p>
+            @endif
+          </div>
+        </div>
+      </div>
+    </section>
+  @endif
   <section id="questionnaire" class="yellow">
     <div class="wrapper">
       <div class="row">
