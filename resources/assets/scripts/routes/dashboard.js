@@ -235,13 +235,14 @@ export default {
           character: character,
         },
         success: function(data) {
-          $conditions.find('.char-conditions').empty();
+          $c = $('.characters li[data-character="'+character+'"]');
+          $c.find('.char-conditions').empty();
           for (var i = 0; i < data.length; i++) {
             var item =
               "<li>" +
               data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
               '</li>';
-            $conditions.find('.char-conditions').append(item);
+            $c.find('.char-conditions').append(item);
           }
         },
       });
