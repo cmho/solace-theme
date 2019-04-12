@@ -249,6 +249,10 @@ export default {
       });
     });
 
+    $('.equipment-list a').on('click', function() {
+      $(this).next('dl').slideToggle();
+    });
+
     $(".char-conditions").on("click", ".resolve-button", function () {
       var $conditions = $(this).parents('.conditions');
       var condition = $(this).parents('li').index();
