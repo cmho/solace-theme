@@ -25,5 +25,6 @@ class Equipment extends Controller
 
             return ($a['item']->post_title < $b['item']->post_title) ? -1 : 1;
         });
+        return $list;
     }
 }
