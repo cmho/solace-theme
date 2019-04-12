@@ -94,8 +94,25 @@
       }
 
       .equipment-list {
+        margin: 0;
+        list-style-type: none;
+        padding: 0;
+
         dl {
           display: none;
+
+          dt {
+            float: left;
+            clear: both;
+            margin-right: 10px;
+            font-weight: bold;
+          }
+
+          &:after {
+            content: "";
+            display: block;
+            clear: both;
+          }
         }
       }
     }
