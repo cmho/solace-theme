@@ -147,11 +147,16 @@
   margin: 0;
   padding: 0;
   dl {
+    margin-top: 0;
     dt {
       float: left;
       font-weight: bold;
       clear: both;
       margin-right: 5px;
+    }
+    dd {
+      margin: 0;
+      padding: 0;
     }
     &:after {
       content: "";
