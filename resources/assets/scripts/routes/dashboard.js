@@ -236,7 +236,7 @@ export default {
           character: character,
         },
         success: function(data) {
-          $c = $('.characters li[data-character="'+character+'"]');
+          var $c = $('.characters li[data-character="'+character+'"]');
           $c.find('.char-conditions').empty();
           for (var i = 0; i < data.length; i++) {
             var item =
