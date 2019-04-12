@@ -214,7 +214,10 @@ export default {
 
     $('.conditions h4').on('click', function() {
       var char = $(this).parents('li').data('character');
-      $('dialog#js-modal').attr('data-character', char);
+      setTimeout(function() {
+        $('dialog#js-modal').attr('data-character', char);
+      }, 100);
+
     });
 
     $('body').on("click", ".add-condition", function () {
