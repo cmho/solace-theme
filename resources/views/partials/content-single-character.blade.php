@@ -225,7 +225,7 @@
             <h3>Equipment</h3>
             @if(get_field('equipment'))
               <ul class="equipment">
-                @foreach(get_field('equipment') as $equipment)
+                @foreach(App\Equipment::sortEquipment(get_field('equipment')) as $equipment)
                   @include('partials.content-equipment-list')
                 @endforeach
               </ul>

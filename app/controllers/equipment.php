@@ -15,4 +15,15 @@ class Equipment extends Controller
 
         return $equipment;
     }
+
+    public static function sortEquipment($list)
+    {
+        usort($list, function ($a, $b) {
+            if ($a['item']->post_title == $b['item']->post_title) {
+                return 0;
+            }
+
+            return ($a['item']->post_title < $b['item']->post_title) ? -1 : 1;
+        });
+    }
 }
