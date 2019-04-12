@@ -146,6 +146,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  li {
+    break-inside: avoid;
+    margin-bottom: 1em;
+  }
   dl {
     margin-top: 0;
     dt {
