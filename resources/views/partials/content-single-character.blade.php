@@ -217,7 +217,7 @@
       </div>
     </div>
   </section>
-  @if(isset($print))
+  @if(isset($print) && get_field('equipment'))
     <section id="equipment-print">
       <div class="wrapper">
         <div class="row">
