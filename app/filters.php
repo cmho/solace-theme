@@ -756,6 +756,32 @@ function resolveCondition()
 
 add_action('wp_ajax_resolve_condition', __NAMESPACE__.'\\resolveCondition');
 
+function addEquipment()
+{
+    $char = get_post($_POST['character']);
+    $equipment = get_field('equipment', $char->ID);
+    if (!$equipment) {
+        $equipment = array();
+    }
+    array_push($equipment, array(
+        'item' => $_POST['item'],
+        'uses' => $_POST['uses'],
+        'note' => $_POST['note']
+    ));
+    update_field('equipment', $equipment, $char->ID);
+    $c = array_map(function ($x) {
+        return array(
+            'item' => $x['item'],
+            'uses' => $x['uses'],
+            'note' => $x['note']
+        );
+    }, get_field('equipment', $char->ID));
+    echo json_encode($c);
+    die(1);
+}
+
+add_action('wp_ajax_add_equipment', __NAMESPACE__.'\\addEquipment');
+
 function skillSpData()
 {
     $id = intval($_POST['id']);

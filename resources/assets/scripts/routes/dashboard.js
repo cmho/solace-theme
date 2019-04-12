@@ -317,6 +317,38 @@ export default {
       }
     });
 
+    $('body').on("click", ".add-equipment", function () {
+      var $equipment = $(this).parents('form');
+      var equipment = $equipment.find(".equipment_list option:selected").val();
+      var note = $equipment.find(".equipment_note").val();
+      var character = parseInt($equipment.attr('data-character'));
+      var uses = $equipment.find(".equipment-uses").val();
+      $('dialog.modal #js-modal-close').trigger('click');
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          action: 'add_equipment',
+          item: equipment,
+          note: note,
+          uses: uses,
+          character: character,
+        },
+        success: function (data) {
+          var $c = $('.characters li[data-character="' + character + '"]');
+          $c.find('.char-conditions').empty();
+          for (var i = 0; i < data.length; i++) {
+            var item =
+              "<li>" +
+              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
+              '</li>';
+            $c.find('.char-conditions').append(item);
+          }
+        },
+      });
+    });
+
     $('#character-search').on('submit', function(e) {
       e.preventDefault();
       var search = $(this).find('[name="search"]').val().toLowerCase();

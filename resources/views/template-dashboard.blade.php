@@ -114,6 +114,7 @@
           <label for="note">Note</label>
           <textarea name="note" rows="4"></textarea>
         </div>
+        <button type="button" class="button small add-equipment">Add</button>
       </form>
     </div>
   @elseif(App::isLoggedIn())
