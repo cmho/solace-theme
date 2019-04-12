@@ -88,6 +88,7 @@
     </section>
     <div id="condition-form" class="hide">
       <form class="condition-form">
+        <h2>Add Condition</h2>
         <div class="row">
           <div class="form-row" id="select-control">
             <label for="conditions_list">Condition</label>
@@ -108,12 +109,15 @@
     </div>
     <div id="equipment-form" class="hide">
       <form class="equipment-form">
-        <label for="item">Item</label>
-        <select class="equipment_list" name="item">
-          @foreach(App\Equipment::list() as $item)
-            <option value="{{ $item->ID }}">{{ get_the_title($item->ID) }}</option>
-          @endforeach
-        </select>
+        <h2>Add Equipment</h2>
+        <div class="form-row">
+          <label for="item">Item</label>
+          <select class="equipment_list" name="item">
+            @foreach(App\Equipment::list() as $item)
+              <option value="{{ $item->ID }}">{{ get_the_title($item->ID) }}</option>
+            @endforeach
+          </select>
+        </div>
         <div class="form-row">
           <label for="uses">Uses (if applicable)</label>
           <input type="number" value="" name="uses" />
