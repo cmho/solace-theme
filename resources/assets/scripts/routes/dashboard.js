@@ -212,7 +212,7 @@ export default {
       ding.play();
     });
 
-    $(".add-condition").on("click", function () {
+    $('body').on("click", ".add-condition", function () {
       var $conditions = $(this).parents('form');
       var condition = $conditions.find(".conditions_list option:selected").val();
       var note = $conditions.find(".condition_note").val();
