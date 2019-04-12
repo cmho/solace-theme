@@ -209,28 +209,6 @@
     display: none;
   }
 
-  dialog.modal {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .modal__wrapper {
-      width: 100%;
-      text-align: left;
-    }
-
-    .initiative-roll {
-      font-size: 220px;
-    }
-
-    #modal-content,
-    .modal__content {
-      text-align: left;
-      height: 100%;
-    }
-  }
-
   #login {
     padding: 0 20px;
   }
@@ -312,6 +290,30 @@ nav.dashboard-tabs {
 
     span {
       font-size: 11px;
+    }
+  }
+}
+
+.template-dashboard-data {
+  dialog.modal {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal__wrapper {
+      width: 100%;
+      text-align: left;
+    }
+
+    .initiative-roll {
+      font-size: 220px;
+    }
+
+    #modal-content,
+    .modal__content {
+      text-align: left;
+      height: 100%;
     }
   }
 }
