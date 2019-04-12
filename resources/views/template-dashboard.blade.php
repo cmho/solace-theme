@@ -160,7 +160,7 @@
       <div class="rumors tab-content" id="rumor">
         <h2>Rumors</h2>
         <dl>
-          @foreach(App\Games::listGames() as $game)
+          @foreach(App\Games::listAllGames() as $game)
             <dt><a href="#">{{ $game->post_title }}</a></dt>
             <dd>
               <ul>

@@ -25,4 +25,16 @@ class Games extends Controller
         );
         return get_posts($args);
     }
+
+    public static function listAllGames()
+    {
+        $args = array(
+            'post_type' => 'game',
+            'posts_per_page' => -1,
+            'meta_key' => 'downtimes_open',
+            'orderby' => 'meta_key',
+            'order' => 'DESC'
+        );
+        return get_posts($args);
+    }
 }
