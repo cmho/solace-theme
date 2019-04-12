@@ -98,8 +98,15 @@
         list-style-type: none;
         padding: 0;
 
+        li:last-child {
+          dl {
+            padding-bottom: 0;
+          }
+        }
+
         dl {
           display: none;
+          padding-bottom: 1em;
 
           dt {
             float: left;
