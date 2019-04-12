@@ -214,14 +214,14 @@ export default {
 
     $('.conditions h4').on('click', function() {
       var char = $(this).parents('li').data('character');
-      $('dialog.modal').data('character', char);
+      $('dialog#js-modal').attr('data-character', char);
     });
 
     $('body').on("click", ".add-condition", function () {
       var $conditions = $(this).parents('form');
       var condition = $conditions.find(".conditions_list option:selected").val();
       var note = $conditions.find(".condition_note").val();
-      var character = $conditions.parents('dialog.modal').data('character');
+      var character = parseInt($conditions.parents('dialog.modal').attr('data-character'));
       $.ajax({
         url: ajaxurl,
         method: 'POST',
