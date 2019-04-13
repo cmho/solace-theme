@@ -19,6 +19,9 @@
 @section('content')
   @if(App::isAdmin())
     <section>
+      <div class="button-row right roll-row">
+        <button class="js-modal button small" data-modal-content-id="whatever-roller">Generate Card</button>
+      </div>
       <form id="character-search">
         <label for="search">Filter Characters</label>
         <input name="search" type="search" />
@@ -171,6 +174,9 @@
         <button type="button" class="button small add-equipment">Add</button>
       </form>
     </div>
+    <div id="whatever-roller" class="hide">
+        <span class="whatever-roll"></span>
+      </div>
   @elseif(App::isLoggedIn())
     @if($char)
       @include('partials.content-dashboard-character')

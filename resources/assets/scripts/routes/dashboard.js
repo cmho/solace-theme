@@ -395,6 +395,11 @@ export default {
       $('.initiative-roll').text(roll+mod);
     });
 
+    $('.roll-row').on('click', function () {
+      var roll = Math.floor(Math.random() * 10) + 1;
+      $('.whatever-roll').text(roll);
+    });
+
     function pollBeats() {
       $.ajax({
         url: ajaxurl,
