@@ -22,6 +22,9 @@
     <p><strong>Physical Skills:</strong> {{ App\Character::physicalSkillsSimple($char->ID) }}</p>
     <p><strong>Social Skills:</strong> {{ App\Character::socialSkillsSimple($char->ID) }}</p>
 
+    <h3>Skill Specialties</h3>
+    <p>{{ App\Character::skillSpecialtiesSimple($char->ID) }}</p>
+
     <h3>Merits</h3>
     <p class="merits">{!! App\Character::meritsSimple($char->ID) !!}</p>
 

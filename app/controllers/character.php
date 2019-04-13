@@ -298,6 +298,16 @@ class Character extends Controller
         return join(", ", $skills);
     }
 
+    public static function skillSpecialtiesSimple($id)
+    {
+        $sksps = get_field('skill_specialties', $id);
+        $sksps = array_merge($sksps, getSubSkillSpecialties($id));
+        $sksps = array_map(function ($ss) {
+            return $ss['skill'].": ".$ss['specialty'];
+        }, $sksps);
+        return join(", ", $merits);
+    }
+
     public static function meritsSimple($id)
     {
         $merits = get_field('merits', $id);
