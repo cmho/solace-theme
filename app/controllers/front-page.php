@@ -16,6 +16,8 @@ class FrontPage extends Controller
 
     public static function events()
     {
+        $tz = new \DateTimeZone('America/Chicago');
+        $date = new \DateTime('now', $tz);
         return \get_posts(array(
             'post_type' => 'event',
             'posts_per_page' => 3,
@@ -25,8 +27,8 @@ class FrontPage extends Controller
             'meta_query' => array(
                 array(
                     'key' => 'date',
-                    'value' => date('Y-m-d h:i:s'),
-                    'compare' => '>='
+                    'value' => $date->format('Y-m-d 23:59:59'),
+                    'compare' => '>'
                 ),
             ),
         ));
