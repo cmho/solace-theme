@@ -345,13 +345,13 @@ export default {
         success: function (data) {
           var $c = $('.characters li[data-character="' + character + '"]');
           $c.find('.equipment-list').empty();
-          data.forEach(function(item) {
+          data.forEach(function(i) {
             var e =
               "<li>" +
-              "<strong><a href='#'>"+i.item.post_title+"</a></strong>"+
+              "<strong><a href='#'>"+i.post_title+"</a></strong>"+
               "<dl>" +
               "<dt>Type</dt>"+
-              "<dd>"+i.item+"</dd>" +
+              "<dd>"+i.type+"</dd>" +
               (i.durability ? "<dt>Durability</dt><dd>"+i.durability+"</dd>" : '') +
               (i.damage ? "<dt>Damage</dt><dd>" + i.damage + "</dd>" : '') +
               (i.initiative_modifier ? "<dt>Initiative Modifier</dt><dd>" + i.initative_modifier + "</dd>" : '') +
