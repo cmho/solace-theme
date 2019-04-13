@@ -100,7 +100,11 @@
         <li>Have all players generate initiative (either by drawing a card or app)</li>
         <li>Starting from the top initiative, each player takes an action:
           <ol>
-            <li>Attack (usually str + brawl - defense, or dex + firearms (- defense if they're close-range)). Damage is successes + weapon damage - defender's applicable armor</li>
+            <li>Attack (usually str + brawl - defense, or dex + firearms (- defense if they're close-range)). Damage is successes + weapon damage - defender's applicable armor
+              <ol>
+                <li>If there are multiple people attacking the same person in a round, the defender's Defense decreases by one each round.</li>
+              </ol>
+            </li>
             <li>Move (equal to your speed). Can make an athletics draw to move faster.</li>
             <li>Retrieve an item/draw a weapon (unless quick draw)</li>
             <li>Take cover: barely concealed (-1), partially concealed (-1), substantially concealed (-3). If durability is greater than the weapon's damage, it can't break through the cover, though it subtracts from the durability with damage. Human shields have durability of stamina + armor and using them constitutes a breaking point.</li>
