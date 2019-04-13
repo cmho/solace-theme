@@ -348,7 +348,7 @@ export default {
           data.forEach(function(i) {
             var e =
               "<li>" +
-              "<strong><a href='#'>"+i.post_title+"</a></strong>"+
+              "<strong><a href='#'>"+i.item+"</a></strong>"+
               "<dl>" +
               "<dt>Type</dt>"+
               "<dd>"+i.type+"</dd>" +
