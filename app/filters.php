@@ -787,7 +787,7 @@ function addEquipment()
             'uses' => $x['uses'],
             'note' => $x['note']
         );
-    }, get_field('equipment', $char->ID));
+    }, \App\Equipment::sortEquipment(get_field('equipment', $char->ID)));
     echo json_encode($c);
     die(1);
 }

@@ -249,7 +249,7 @@ export default {
       });
     });
 
-    $('.char-equipment').on('click', '.equipment-list a', function (e) {
+    $('body').on('click', '.equipment-list a', function (e) {
       e.preventDefault();
       $(this).next('dl').slideToggle();
     });
