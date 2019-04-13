@@ -27,7 +27,7 @@ class FrontPage extends Controller
             'meta_query' => array(
                 array(
                     'key' => 'date',
-                    'value' => $date->format('Y-m-d 23:59:59'),
+                    'value' => $date->format('Y-m-d'),
                     'compare' => '>'
                 ),
             ),
