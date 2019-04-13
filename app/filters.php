@@ -771,7 +771,7 @@ function addEquipment()
     update_field('equipment', $equipment, $char->ID);
     $c = array_map(function ($x) {
         return array(
-            'item' => $x['item']->post_title,
+            'item' => get_post($x['item'])->post_title,
             'type' => get_field('type', $x['item']),
             'initiative_modifier' => get_field('initiative_modifier', $x['item']),
             'durability' => get_field('durability', $x['item']),
