@@ -247,8 +247,8 @@ class Character extends Controller
             }
             return 0;
         }, ARRAY_FILTER_USE_BOTH);
+        print_r($skills);
         $skills = array_map(function ($k, $v) {
-            print_r(Character::hasAssetSkill($id, $k));
             return (Character::hasAssetSkill($id, $k) ? '*' : '').$k." ".$v;
         }, array_keys($skills), $skills);
         return join(", ", $skills);
