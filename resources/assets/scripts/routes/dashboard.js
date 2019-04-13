@@ -351,7 +351,7 @@ export default {
               "<strong><a href='#'>"+i.item+"</a></strong>"+
               "<dl>" +
               "<dt>Type</dt>"+
-              "<dd>"+i.type+"</dd>" +
+              "<dd>" + i.type.charAt(0).toUpperCase() + i.type.slice(1); + "</dd>" +
               (i.durability ? "<dt>Durability</dt><dd>"+i.durability+"</dd>" : '') +
               (i.damage ? "<dt>Damage</dt><dd>" + i.damage + "</dd>" : '') +
               (i.initiative_modifier ? "<dt>Initiative Modifier</dt><dd>" + i.initative_modifier + "</dd>" : '') +
