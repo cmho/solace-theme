@@ -320,7 +320,7 @@ export default {
     $('.equipment h4').on('click', function () {
       var char = $(this).parents('li').data('character');
       setTimeout(function () {
-        $('dialog.modal .condition-form').attr('data-character', char);
+        $('dialog.modal .equipment-form').attr('data-character', char);
       }, 50);
     });
 
