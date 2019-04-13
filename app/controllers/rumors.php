@@ -12,7 +12,7 @@ class Rumors extends Controller
             'post_type' => 'rumor',
             'posts_per_page' => -1,
             'meta_query' => array(
-
+                'relation' => 'AND'
             )
         );
 
@@ -20,14 +20,6 @@ class Rumors extends Controller
             array_push($args['meta_query'], array(
                 'key' => 'game',
                 'value' => $game
-            ));
-        }
-
-        if ($char) {
-            array_push($args['meta_query'], array(
-                'key' => 'characters',
-                'value' => serialize(intval($char)),
-                'compare' => 'LIKE'
             ));
         }
 
