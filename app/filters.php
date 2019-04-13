@@ -771,7 +771,19 @@ function addEquipment()
     update_field('equipment', $equipment, $char->ID);
     $c = array_map(function ($x) {
         return array(
-            'item' => $x['item'],
+            'item' => $x['item']->post_title,
+            'type' => get_field('type', $x['item']),
+            'initiative_modifier' => get_field('initiative_modifier', $x['item']),
+            'durability' => get_field('durability', $x['item']),
+            'damage' => get_field('damage', $x['item']),
+            'required_strength' => get_field('required_strength', $x['item']),
+            'clip_size' => get_field('clip_size', $x['item']),
+            'general_armor' => get_field('general_armor', $x['item']),
+            'ballistic_armor' => get_field('ballistic_armor', $x['item']),
+            'defense' => get_field('defense', $x['item']),
+            'speed' => get_field('speed', $x['item']),
+            'cost' => get_field('cost', $x['item']),
+            'qualities' => get_field('qualities', $x['item']),
             'uses' => $x['uses'],
             'note' => $x['note']
         );

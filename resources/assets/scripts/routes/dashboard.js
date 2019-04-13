@@ -344,14 +344,29 @@ export default {
         },
         success: function (data) {
           var $c = $('.characters li[data-character="' + character + '"]');
-          $c.find('.char-conditions').empty();
-          for (var i = 0; i < data.length; i++) {
-            var item =
+          $c.find('.equipment-list').empty();
+          data.forEach(function(item) {
+            var e =
               "<li>" +
-              data[i].condition + (data[i].note ? ' (' + data[i].note + ')' : '') + ' <button class="resolve-button" type="button">Resolve</button> <button class="delete-button" type="button"><i class="fas fa-trash"></i><span class="sr-only">Delete</span></button>' +
-              '</li>';
-            $c.find('.char-conditions').append(item);
-          }
+              "<strong><a href='#'>"+i.item.post_title+"</a></strong>"+
+              "<dl>" +
+              "<dt>Type</dt>"+
+              "<dd>"+i.item+"</dd>" +
+              (i.durability ? "<dt>Durability</dt><dd>"+i.durability+"</dd>" : '') +
+              (i.damage ? "<dt>Damage</dt><dd>" + i.damage + "</dd>" : '') +
+              (i.initiative_modifier ? "<dt>Initiative Modifier</dt><dd>" + i.initative_modifier + "</dd>" : '') +
+              (i.required_strength ? "<dt>Required Strength</dt><dd>" + i.required_strength + "</dd>" : '') +
+              (i.clip_size ? "<dt>Clip Size</dt><dd>" + i.clip_size + "</dd>" : '') +
+              (i.general_armor ? "<dt>General Armor</dt><dd>" + i.general_armor + "</dd>" : '') +
+              (i.ballistic_armor ? "<dt>Ballistic Armor</dt><dd>" + i.ballistic_armor + "</dd>" : '') +
+              (i.defense ? "<dt>Defense</dt><dd>" + i.defense + "</dd>" : '') +
+              (i.speed ? "<dt>Speed</dt><dd>" + i.speed + "</dd>" : '') +
+              (i.cost ? "<dt>Damage</dt><dd>" + i.cost + "</dd>" : '') +
+              (i.qualities ? "<dt>Damage</dt><dd>" + i.qualities.join(", ") + "</dd>" : '') +
+              (i.note ? "<dt>Notes</dt><dd>" + i.note + "</dd>" : '') +
+              "</dl></li>";
+            $c.find('.equipment-list').append(e);
+          });
         },
       });
     });
