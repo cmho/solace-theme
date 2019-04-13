@@ -301,7 +301,7 @@ class Character extends Controller
     public static function skillSpecialtiesSimple($id)
     {
         $sksps = get_field('skill_specialties', $id);
-        $sksps = array_merge($sksps, getSubSkillSpecialties($id));
+        $sksps = array_merge($sksps, \App\Character::getSubSkillSpecialties($id));
         $sksps = array_map(function ($ss) {
             return $ss['skill'].": ".$ss['specialty'];
         }, $sksps);
