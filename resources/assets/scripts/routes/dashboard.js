@@ -317,7 +317,7 @@ export default {
       }
     });
 
-    $('.equipment h4').on('click', function () {
+    $('.char-equipment h4').on('click', function () {
       var char = $(this).parents('li').data('character');
       setTimeout(function () {
         $('dialog.modal .equipment-form').attr('data-character', char);
