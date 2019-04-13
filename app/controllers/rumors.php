@@ -26,8 +26,8 @@ class Rumors extends Controller
         if ($char) {
             array_push($args['meta_query'], array(
                 'key' => 'characters',
-                'value' => $char,
-                'compare' => 'IN'
+                'value' => serialize(strval($char)),
+                'compare' => 'LIKE'
             ));
         }
 
