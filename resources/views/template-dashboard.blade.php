@@ -56,8 +56,8 @@
                     <dt>Initiative Mod</dt>
                     <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
                   </dl>
+                  <p><a href="#" class="js-modal button small" data-modal-content-id="combat-pls-help">combat cheat sheet</a></p>
                 </div>
-                <p><a href="#" class="js-modal button small" data-modal-content-id="combat-pls-help">combat cheat sheet</a></p>
                 <div class="conditions">
                   <h4>Conditions (<a href="#" class="js-modal" data-modal-content-id="condition-form">Add</a>)</h4>
                   <ul class="char-conditions">
