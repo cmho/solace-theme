@@ -15,6 +15,7 @@ class Rumors extends Controller
 
             )
         );
+
         if ($game) {
             array_push($args['meta_query'], array(
                 'key' => 'game',
@@ -24,7 +25,7 @@ class Rumors extends Controller
 
         if ($char) {
             array_push($args['meta_query'], array(
-                'key' => 'character',
+                'key' => 'characters',
                 'value' => serialize(intval($char)),
                 'compare' => 'LIKE'
             ));
