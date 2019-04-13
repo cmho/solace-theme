@@ -348,7 +348,7 @@ export default {
           data.forEach(function(i) {
             var e =
               "<li>" +
-              "<strong><a href='#'>"+i.item+"</a></strong>"+
+              "<a href='#'><strong>" + i.item + "</strong></a>" +
               "<dl>" +
               "<dt>Type</dt>"+
               "<dd>" + i.type.charAt(0).toUpperCase() + i.type.slice(1); + "</dd>" +
