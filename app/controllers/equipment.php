@@ -10,7 +10,9 @@ class Equipment extends Controller
     {
         $equipment = get_posts(array(
             'post_type' => 'equipment',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'order' => 'ASC',
+            'orderby' => 'title'
         ));
 
         return $equipment;
