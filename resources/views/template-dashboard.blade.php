@@ -44,6 +44,19 @@
                   <h4>Integrity</h4>
                   <span class="current-integrity">{{ get_field('integrity') }}</span> <button type="button" class="button small breaking-point">Breaking Point</button>
                 </div>
+                <div class="vitals">
+                  <h4>Vitals</h4>
+                  <dl>
+                    <dt>Size</dt>
+                    <dd>{{ get_field('size') }}</dd>
+                    <dt>Speed</dt>
+                    <dd>{{ get_field('strength')+5 }}</dd>
+                    <dt>Defense</dt>
+                    <dd>{{ min(get_field('wits'), get_field('dexterity'))+get_field('athletics') }}</dd>
+                    <dt>Initiative Mod</dt>
+                    <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
+                  </dl>
+                </div>
                 <div class="conditions">
                   <h4>Conditions (<a href="#" class="js-modal" data-modal-content-id="condition-form">Add</a>)</h4>
                   <ul class="char-conditions">
