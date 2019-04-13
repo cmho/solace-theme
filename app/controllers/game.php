@@ -26,6 +26,24 @@ class Games extends Controller
         return get_posts($args);
     }
 
+    public static function listGamesForRumors()
+    {
+        $args = array(
+            'post_type' => 'game',
+            'posts_per_page' => -1,
+            'meta_key' => 'downtimes_open',
+            'orderby' => 'meta_key',
+            'order' => 'DESC',
+            'meta_query' => array(
+                array(
+                    'key' => 'rumors_visible',
+                    'value' => true
+                )
+            )
+        );
+        return get_posts($args);
+    }
+
     public static function listAllGames()
     {
         $args = array(
