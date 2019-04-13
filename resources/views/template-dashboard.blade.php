@@ -165,7 +165,7 @@
             <dd>
               <ul>
                 @foreach(App\Rumors::listRumors($game->ID, $char->ID) as $rumor)
-                  <li>{!! apply_filter('the_content', $rumor->post_content) !!}</li>
+                  <li>{!! apply_filters('the_content', $rumor->post_content) !!}</li>
                 @endforeach
               </ul>
             </dd>
