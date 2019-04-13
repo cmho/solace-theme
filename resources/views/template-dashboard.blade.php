@@ -57,6 +57,7 @@
                     <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
                   </dl>
                 </div>
+                <p><a href="#" class="js-modal button small" data-modal-content-id="combat-pls-help">combat cheat sheet</a></p>
                 <div class="conditions">
                   <h4>Conditions (<a href="#" class="js-modal" data-modal-content-id="condition-form">Add</a>)</h4>
                   <ul class="char-conditions">
@@ -88,6 +89,46 @@
         </ol>
       @endif
     </section>
+    <div id="combat-pls-help" class="hide">
+      <h2>OH GOD WE'RE IN COMBAT HELP</h2>
+      <ol>
+        <li>Have players declare intent: can this be resolved without getting into rounds?</li>
+        <li>If not, start down and dirty combat.</li>
+        <li>Have all players generate initiative (either by drawing a card or app)</li>
+        <li>Starting from the top initiative, each player takes an action:
+          <ol>
+            <li>Attack (usually str + brawl - defense, or dex + firearms (- defense if they're close-range)). Damage is successes + weapon damage - defender's applicable armor</li>
+            <li>Move (equal to your speed). Can make an athletics draw to move faster.</li>
+            <li>Retrieve an item/draw a weapon (unless quick draw)</li>
+            <li>Take cover: barely concealed (-1), partially concealed (-1), substantially concealed (-3). If durability is greater than the weapon's damage, it can't break through the cover, though it subtracts from the durability with damage. Human shields have durability of stamina + armor and using them constitutes a breaking point.</li>
+            <li>Misc: use an advantage, activate a Relic, look around at the environment, say a short phrase, etc.</li>
+          </ol>
+        </li>
+        <li>Specific combat maneuvers:
+          <ol>
+            <li>Dodge: Add dex to their defense against all attacks this round, but forefeit other actions.</li>
+            <li>Disarm: Dex + brawl - defense</li>
+            <li>Grapple: str + brawl - defense. On exceptional success, pick a move from below list. Both characters in a grapple make a str+brawl on the lower initiative every turn. The winner picks a move. Either can also do dex+athletics to Break Free or Take Cover if they win.
+              <ol>
+                <li>Break Free from the grapple. You throw off your opponent; you’re both no longer grappling. Succeeding at this move is a reflexive action; you can take another action immediately afterwards.</li>
+                <li>Control Weapon, either by drawing a weapon that you have holstered or turning your opponent’s weapon against him. You keep control until your opponent makes a Control Weapon move.</li>
+                <li>Damage your opponent by dealing bruising damage equal to your drawn successes. If you previously succeeded at a Control Weapon action, add the weapon bonus to your successes and it becomes lethal damage.</li>
+                <li>Disarm your opponent, removing a weapon from the grapple entirely. You must first have succeeded at a Control Weapon move.</li>
+                <li>Drop Prone, throwing both of you to the ground (see Going Prone below). You must Break Free before rising.</li>
+                <li>Clench your opponent in place. Both of you sacrifice your Defense against incoming attacks.</li>
+                <li>Restrain your opponent with duct tape, zip ties, or a painful joint lock. Your opponent is immobilized. You can only use this move if you’ve already succeeded in a Hold move. If you use equipment to Restrain your opponent, you can leave the grapple.</li>
+                <li>Shift you and your opponent up to your Speed. The path must be relatively clear of obstructions. At the end of the movement you may optionally Drop Prone as well.</li>
+                <li>Take Cover using your opponent’s body. Any ranged attacks made until the end of the turn automatically hit him (see Human Shields above).</li>
+              </ol>
+            </li>
+            <li>Feint: Dex+subterfuge, on a success opponent loses defense for the next turn. Successive attempts take an additional -2 every time.</li>
+            <li>Covering Fire: Dex + firearms - 3, sacrifice defense, declare firing area. Characters in field either take the weapon's damage, or sacrifice their turn to find cover or drop prone.</li>
+            <li>Killing Blow: Deal damage equal to their full pool + weapon damage while sacrificing defense. Defender must be restrained. Almost always a breaking point.</li>
+            <li>Go Prone: Drop to ground. Ranged attacks take a -2, brawl/weaponry takes a +2. Getting up takes an action.</li>
+            <li>Hold: wait until end of turn. Ask holding players at end of round if they want to act; if not, continue with next round as normal.</li>
+          </ol>
+        </li>
+    </div>
     <div id="condition-form" class="hide">
       <form class="condition-form">
         <h2>Add Condition</h2>
