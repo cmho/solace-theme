@@ -167,7 +167,7 @@
   }
 
   .conditions {
-    margin-bottom: 1em;
+    margin: 0;
   }
 
   .char-conditions {
@@ -224,6 +224,12 @@
 
     .character-content {
       padding: 10px;
+
+      .conditions {
+        margin-bottom: 1em;
+        padding: 0;
+        list-style: none;
+      }
     }
 
     h3 {
