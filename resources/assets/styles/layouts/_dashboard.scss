@@ -257,6 +257,20 @@
     padding-bottom: 90px;
   }
 
+  .rumors {
+    ul {
+      dl {
+        dd {
+          margin: 0;
+
+          ul {
+            padding: 0 0 0 1em;
+          }
+        }
+      }
+    }
+  }
+
   .equipment {
     .equipment-list {
       list-style: none;
