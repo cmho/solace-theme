@@ -37,7 +37,8 @@ class Games extends Controller
             'meta_query' => array(
                 array(
                     'key' => 'rumors_visible',
-                    'value' => true
+                    'value' => true,
+                    'compare' => '='
                 )
             )
         );
