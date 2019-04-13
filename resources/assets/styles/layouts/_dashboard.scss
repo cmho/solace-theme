@@ -385,6 +385,13 @@ nav.dashboard-tabs {
     .initiative-roll,
     .whatever-roll {
       font-size: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #js-modal-content {
+      height: 100%;
     }
 
     #modal-content,
