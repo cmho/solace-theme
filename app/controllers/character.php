@@ -301,11 +301,11 @@ class Character extends Controller
     public static function skillSpecialtiesSimple($id)
     {
         $sksps = get_field('skill_specialties', $id);
-        $sksps = array_merge($sksps, \App\Character::getSubSkillSpecialties($id));
+        $sksps = array_merge($sksps, Character::getSubSkillSpecialties($id));
         $sksps = array_map(function ($ss) {
             return $ss['skill'].": ".$ss['specialty'];
         }, $sksps);
-        return join(", ", $merits);
+        return join(", ", $sksps);
     }
 
     public static function meritsSimple($id)
@@ -415,7 +415,7 @@ class Character extends Controller
 
     public static function hasAssetSkill($id, $skill)
     {
-        return in_array(ucwords(str_replace("_", " ", $skill)), get_field('asset_skills', $id));
+        return in_array($skill, get_field('asset_skills', $id));
     }
 
     public static function getSubMerits($id)
