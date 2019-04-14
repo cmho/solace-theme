@@ -23,24 +23,7 @@
           </select>
         </div>
       @else
-        @php
-          $char = get_posts(array(
-            'post_type' => 'character',
-            'posts_per_page' => 1,
-            'post_author' => wp_get_current_user()->ID,
-            'orderby' => 'date_modified',
-            'order' => 'DESC',
-            'meta_input' => array(
-              array(
-                'key' => 'status',
-                'value' => 'Active'
-              )
-            )
-          ));
-          print_r(wp_get_current_user());
-          $character = $char[0];
-        @endphp
-        <input type="hidden" name="character" value="{{ $character->ID }}" />
+        <input type="hidden" name="character" value="{{ App\Character::currentChar()->ID }}" />
       @endif
       <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod()->ID }}" />
       <div class="form-row">
