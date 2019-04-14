@@ -8,6 +8,11 @@ body {
   color: $yellow;
   margin: 0;
   line-height: 1.4;
+
+  &.no-scroll {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
 
 a {
