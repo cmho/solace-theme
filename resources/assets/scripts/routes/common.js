@@ -48,6 +48,15 @@ export default {
     } else {
       // Show offline message
     }
+
+    $('#menu-main-navigation li.menu-item-has-children').on('touchstart', function(e) {
+      if ($(this).hasClass('hover')) {
+        $(this).trigger('click');
+      } else {
+        e.preventDefault();
+        $(this).addClass('hover');
+      }
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
