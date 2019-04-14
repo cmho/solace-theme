@@ -23,15 +23,14 @@ dialog {
   position: fixed;
   left: 25%;
   right: auto;
-  top: 10%;
-  bottom: 10%;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50%;
   background: $yellow;
   color: $grey;
   border: 3px $grey solid;
   z-index: 667;
   overflow: auto;
-  height: 80%;
   max-width: 80%;
 
   a {
@@ -88,8 +87,6 @@ dialog {
   @media only screen and (max-width: 768px) {
     left: 10px;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
     width: calc(100% - 20px);
     height: auto;
     max-width: none;
