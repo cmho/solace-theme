@@ -483,17 +483,16 @@ function update_downtime()
     $config->set('HTML.Allowed', 'p,br,b,a[href],i,em,strong,hr');
     $config->set('URI.MakeAbsolute', true);
     $purifier = new \HTMLPurifier($config);
-    print_r($purifier);
     $args = array(
         'post_type' => 'downtime',
-        'ID' => intval($purifier->purify($_POST['id'])),
+        'ID' => intval($_POST['id']),
         'post_status' => 'publish',
         'post_author' => $purifier->purify($_POST['author']),
         'post_title' => $purifier->purify($_POST['post_title']),
         'post_content' => $purifier->purify($_POST['post_content']),
         'meta_input' => array(
-            'character' => intval($purifier->purify($_POST['character'])),
-            'game' => intval($purifier->purify($_POST['game'])),
+            'character' => intval($_POST['character']),
+            'game' => intval($_POST['game']),
             'goal' => $purifier->purify($_POST['goal']),
             'assets' => $purifier->purify($_POST['assets']),
             'action_type' => $purifier->purify($_POST['action_type'])
