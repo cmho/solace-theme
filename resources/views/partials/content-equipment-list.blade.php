@@ -51,9 +51,9 @@
         <dt>Qualities</dt>
         <dd>{{ join(", ", get_field('qualities', $equipment['item']->ID)) }}</dd>
       @endif
-      @if($equipment['note'])
+      @if($equipment['notes'])
         <dt>Notes</dt>
-        <dd>{!! $equipment['note'] !!}</dd>
+        <dd>{!! $equipment['notes'] !!}</dd>
       @endif
   </dl>
 </li>
