@@ -31,6 +31,7 @@ dialog {
   border: 3px $grey solid;
   z-index: 667;
   overflow: auto;
+  max-height: 80%;
   max-width: 80%;
 
   a {
