@@ -284,6 +284,68 @@
       <div id="initiative-roller">
         <span class="initiative-roll"></span>
       </div>
+      <div id="virtues" class="hide">
+        @php($virtue = get_field('virtue', $char))
+        <h2>Virtue: {{ $virtue }}</h2>
+        @if($virtue == 'Hopeful')
+          <p>Somehow, your character doesn’t despair at the World of Darkness but remains optimistic, believing that everything will work out eventually. Regain Willpower when your character refuses to abandon hope, putting herself at risk in expectation of a better tomorrow.</p>
+        @elseif($virtue == 'Loving')
+          <p>Your character is defined by a great love, perhaps for an ideal or an institution, but usually for a person or group of people. Regain Willpower when your character puts themselves in danger for the object of their love.</p>
+        @elseif($virtue == 'Honest')
+          <p>Your character’s defining duty is to the truth. Although the World of Darkness puts every pressure on her to dissemble or tell white lies to protect others, her sense of self is built on fundamental honesty. Regain Willpower when your character puts herself in danger by refusing to lie.</p>
+        @elseif($virtue == 'Humble')
+          <p>Your character doesn’t want power or status. Even if he earns a position of authority, he sees himself as one of the guys. Putting himself above others would deny the importance of their lives. Regain Willpower when your character turns down the opportunity for power that would solve his problems.</p>
+        @elseif($virtue == 'Trustworthy')
+          <p>When your character makes a promise, she keeps it. Her sense of self relies on others being able to trust and believe in her. Regain Willpower when she keeps a promise, even only an implied one, despite keeping it putting her at risk.</p>
+        @elseif($virtue == 'Loyal')
+          <p>Your character is loyal to a group, possibly the other player’s characters. His loyalty isn’t blind—he’s capable of seeing the flaws in whatever cause he’s signed up to—but once given it’s unshakable. Regain Willpower when he puts himself in danger by refusing to act against the group’s interests.</p>
+        @elseif($virtue == 'Ambitious')
+          <p>Your character is going places. She has goals she wants to accomplish, and the drive to achieve them. In some people who don’t deserve the accolades they seek, ambition is a Vice—for her it’s a guiding mission. Regain Willpower when your character puts herself at risk for the sake of following her long-term goal.</p>
+        @elseif($virtue == 'Just')
+          <p>Your character is driven by a sense of fair play and justice—the desire to see everyone get what they deserve. They’ll stick their neck out to make sure everyone is treated fairly, even if that acts against their own interests. That includes punishing those who deserve it and owning up to their own wrongdoing. Regain Willpower when your character’s drive for Justice leaves their own goals half-done.</p>
+        @elseif($virtue == 'Peaceful')
+          <p>Your character is a pacifist in a dirty, dangerous world. Whether it’s because of deeply-held religious beliefs, philosophical decision or simple lack of stomach for violence, he can’t bring himself to hurt another human being. Regain Willpower when your character resolves a conflict that puts him at risk without the use of bloodshed.</p>
+        @elseif($virtue == 'Generous')
+          <p>Your character gains comfort from giving to others. They might be especially charitable or just be willing to lend possessions and aid to her friends, no questions asked. They’re often taken for granted, but they know they make a difference. Regain Willpower when your character has deprived themselves of a vital resource through their generosity, putting themselves at risk.</p>
+        @elseif($virtue == 'Righteous')
+          <p>Your character knows he walks in a corrupt world and he’s angry about it. He’s willing to confront hypocrisy and evil where he sees it, no matter who it pisses off, and to Hell with the consequences. At best, he’s a defender of those the system grinds down. At worst, he’s a stone-faced, uncompromising obstacle to the powerful, just waiting to be taken out. Regain Willpower when your character’s refusal to let injustice go unopposed puts him in danger.</p>
+        @elseif($virtue == 'Courageous')
+          <p>Your character is simply straight-up brave. She gets a thrill from meeting and overcoming challenges, whether they’re physical or social. She’s not necessarily stubborn or even especially confident—true bravery is the willingness to carry on despite being afraid, not the absence of fear. Regain Willpower when your character’s bravery causes or prolongs risk or danger to her.</p>
+        @elseif($virtue == 'Patient')
+          <p>Your character doesn’t believe in rushing in half-cocked or unaware. She wants to plan every course of action and bides her time when investigating, waiting for situations to develop and play out for a while before she intervenes. The World of Darkness doesn’t wait anyone, however, and her preparations are often overtaken by events. Regain Willpower when your character is caught wrong-footed because she was too busy planning to properly react to events.</p>
+        @endif
+      </div>
+      <div id="vices" class="hide">
+        @php($vice = get_field('vice', $char))
+        <h2>Vice: {{ $vice }}</h2>
+        @if($vice == 'Pessimistic')
+          <p>Your character has a tendency to wallow in bad situations, vocally bemoaning his lot and believing that everything is hopeless. Regain a Willpower point when he refuses to act in  a scene because he believes anything he does will be fruitless.</p>
+        @elseif($vice == 'Hateful')
+          <p>Your character is blinded by hatred for something—a person, a group or belief. His antipathy is so strong it prevents him from seeing clearly and leads him into fruitless attacks on the source of his hatred. Regain a Willpower point when he spends time in a scene persecuting the object of his hate.</p>
+        @elseif($vice == 'Deceitful')
+          <p>Your character can’t tell the truth to save her life. She might be in the habit of telling little white lies or be covering up one major secret, but deception is the cornerstone of her personality. Regain a Willpower point when she successfully maintains a lie despite others having the opportunity to see through it.</p>
+        @elseif($vice == 'Arrogant')
+          <p>For your character, self-image becomes self-aggrandizement. They define themself by being “better” than other people, whether that’s by lording their superiority in an Attribute or Skill, expressing dominance in a social situation, or basking in other characters looking up to them. Regain a Willpower point when they take an opportunity to express their greater worth relative to someone else.</p>
+        @elseif($vice == 'Untrustworthy')
+          <p>Your character can’t be relied on. She might mean well and even keep promises when it costs her nothing, but when the stakes are raised and there’s a choice between her own self-interest and keeping her word, her word loses. Regain a Willpower point when your character breaks a promise for her own sake.</p>
+        @elseif($vice == 'Treacherous')
+          <p>Your character’s loyalties are defined by what’s convenient, not for any sentiment towards loyalty itself. He will turn on allies if given a better offer or simply walk away from responsibilities if he finds them too difficult. Regain a Willpower point when your character betrays a person or group, but be very careful about using this Vice against other players’ characters.</p>
+        @elseif($vice == 'Ambitious')
+          <p>Your character wants to get ahead, above and beyond the respect that she receives for her actions. She craves advancement—not necessarily to lead, but in some measure of rank. Regain a Willpower point when your character attempts to increase her social standing instead of pursuing more useful activity.</p>
+        @elseif($vice == 'Cruel')
+          <p>Your character has a mean streak, an instinct to twist the knife and inflict pain once he has someone at his mercy. He might habitually refuse surrender in combat or be the bastard boss who humiliates employees just because it makes him feel better. Regain a Willpower point when your character needlessly victimizes someone in his power.</p>
+        @elseif($vice == 'Violent')
+          <p>Your character loves getting their way by means of physical force. They frequently go for blood to settle conflict. Regain a Willpower point when your character resolves a scene by using needless violence.</p>
+        @elseif($vice == 'Greedy')
+          <p>It’s not that he wants it more than anyone else, it’s more that he needs it. Your character likes to hoard resources that might come in useful one day, rather than allowing others to use them now, minimizing his future risk at their expense. Regain a Willpower point when you deny another character an advantage by taking it yourself.</p>
+        @elseif($vice == 'Corrupt')
+          <p>Your character is an expert at getting what she wants out of systems. A habitual abuser of institutions, once she’s in a position of authority she turns that office to furthering either her own ends or those of the highest bidder. Regain a Willpower point when your character misuses status or influence over a group on behalf of herself or another interested party.</p>
+        @elseif($vice == 'Cowardly')
+          <p>Your character shies away from danger, going beyond simple caution to true cowardice. If danger must be faced, he would much rather someone else face it—regain a point of Willpower when your character persuades or tricks another character into a risky situation instead of doing it himself.</p>
+        @elseif($vice == 'Hasty')
+          <p>Your character doesn’t have the patience for long, convoluted plans, but prefers to improvise as she goes. She frequently enters situations she doesn’t fully understand—but this Vice isn’t the measure of how well she copes when rushing in, only that she acts before thinking. Being able to quickly adapt, as many Hasty characters are, is determined by the Wits Attribute. Regain a point of Willpower when your character forces a scene to start by taking decisive action.</p>
+        @endif
+      </div>
     @endif
   @else
     <form id="login" action="login" method="post">

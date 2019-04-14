@@ -9,8 +9,8 @@
       <h3>Willpower</h3>
       {{ App\Character::printSquaresInteractable(get_field('current_willpower', $char->ID)) }}
     </div>
-    <p><strong>Virtue:</strong> {{ get_field('virtue', $char->ID) }}</p>
-    <p><strong>Vice:</strong> {{ get_field('vice', $char->ID) }}</p>
+    <p><strong><a href="#" class="js-modal" data-modal-content-id="virtues">Virtue</a>:</strong> {{ get_field('virtue', $char->ID) }}</p>
+    <p><strong><a href="#" class="js-modal" data-modal-content-id="vices">Vice</a>:</strong> {{ get_field('vice', $char->ID) }}</p>
     <p><strong>Integrity:</strong> <span class="current-integrity">{{ get_field('integrity', $char->ID) }}</span></p>
     <h3>Attributes</h3>
     <p><strong>Mental Attributes:</strong> Intelligence {{ get_field('intelligence', $char->ID) }}, Wits {{ get_field('wits', $char->ID) }}, Resolve {{ get_field('resolve', $char->ID) }}</p>
