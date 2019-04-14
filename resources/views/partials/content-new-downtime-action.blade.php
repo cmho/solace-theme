@@ -26,7 +26,7 @@
         @php
           $char = get_posts(array(
             'post_type' => 'character',
-            'posts_per_page' => -1,
+            'posts_per_page' => 1,
             'post_author' => wp_get_current_user()->ID,
             'orderby' => 'date_modified',
             'order' => 'DESC',
@@ -37,7 +37,7 @@
               )
             )
           ));
-          print_r($char);
+          print_r(wp_get_current_user());
           $character = $char[0];
         @endphp
         <input type="hidden" name="character" value="{{ $character->ID }}" />
