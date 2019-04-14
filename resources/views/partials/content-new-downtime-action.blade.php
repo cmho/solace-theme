@@ -27,6 +27,7 @@
           $char = get_posts(array(
             'post_type' => 'character',
             'posts_per_page' => 1,
+            'post_author' => wp_get_current_user()->ID,
             'orderby' => 'date_modified',
             'order' => 'DESC',
             'meta_input' => array(
