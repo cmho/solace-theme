@@ -45,12 +45,31 @@ dialog {
     letter-spacing: 1px;
   }
 
+  .modal__wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
   button#js-modal-close {
     font-size: 14px;
     padding: 3px 10px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+  }
+
+  .modal__content {
+    margin-top: 50px;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   button {

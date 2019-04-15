@@ -377,8 +377,6 @@ nav.dashboard-tabs {
     justify-content: center;
 
     .modal__wrapper {
-      width: 100%;
-      height: 100%;
       text-align: left;
     }
 
@@ -391,15 +389,9 @@ nav.dashboard-tabs {
       height: 100%;
     }
 
-    #js-modal-content {
-      height: 100%;
-      padding-top: 50px;
-    }
-
     #modal-content,
     .modal__content {
       text-align: left;
-      height: 100%;
     }
   }
 }
