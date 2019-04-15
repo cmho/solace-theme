@@ -197,6 +197,20 @@ export default {
       });
     });
 
+    $('textarea[name="st_notes"]').on('change', function() {
+      var character = parseInt($(this).parents('.character').data('character'));
+      var content = $(this).val();
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'update_notes',
+          character: character,
+          notes: content
+        }
+      });
+    });
+
     $('#beat-button').on('click', function() {
       $.ajax({
         url: ajaxurl,
@@ -475,6 +489,9 @@ export default {
               }
               if (parseInt($current.find('.current-integrity').text()) != item.integrity) {
                 $current.find('.current-integrity').text(item.integrity);
+              }
+              if ($current.find('textarea[name="st_notes"]').val() !== item.st_notes) {
+                $current.find('textarea[name="st_notes"]').val(item.st_notes);
               }
             }
           });

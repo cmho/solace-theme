@@ -809,6 +809,14 @@ function skillSpData()
 }
 add_action('wp_ajax_get_skill_specialties', __NAMESPACE__.'\\skillSpData');
 
+function updateNotes()
+{
+    global $post;
+    $post = get_post($_POST['character']);
+    update_field('st_notes', $_POST['notes'], $post->ID);
+    die(1);
+}
+
 function characterData()
 {
     global $post;

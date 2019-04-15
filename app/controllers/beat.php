@@ -17,4 +17,15 @@ class Beat extends Controller
             return get_field('value', $n);
         }, $beats));
     }
+
+    public static function getBeatTimeline()
+    {
+        $beats = get_posts(array(
+            'post_type' => 'beat',
+            'posts_per_page' => -1,
+            'orderby' => 'date',
+            'order' => 'ASC'
+        ));
+        
+    }
 }
