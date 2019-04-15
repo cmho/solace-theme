@@ -302,7 +302,12 @@
       }
 
       dd {
-        margin-bottom: 1em;
+        padding-left: 0;
+
+        .action {
+          margin-bottom: 1em;
+        }
+
         h3 {
           font-size: 1em;
         }
