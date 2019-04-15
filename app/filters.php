@@ -948,7 +948,9 @@ function doHealing()
         $weekcount = $weeks;
         $lethalcount = 0;
         setup_postdata($post);
-        update_field('current_willpower', join("", array_fill(0, get_field('willpower'), '0')), $post);
+        $wp = join("", array_fill(0, get_field('willpower'), '0'));
+        print_r($wp);
+        update_field('current_willpower', $wp, $post->ID);
         $health = array_map(intval, array_reverse(str_split(get_field('current_health'))));
         for ($i = 0; $i < count($health); $i++) {
             if ($health[$i] == 1) {
@@ -969,7 +971,8 @@ function doHealing()
                 break;
             }
         }
-        update_field('current_health', join("", array_reverse($health)), $post);
+        print_r($health);
+        update_field('current_health', join("", array_reverse($health)), $post->ID);
     }
     wp_reset_postdata();
     die(1);
