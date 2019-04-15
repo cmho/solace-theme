@@ -227,15 +227,7 @@
               <div class="icon">
                 <i class="fas fa-hammer"></i>
               </div>
-              <span>Add Equipment</span>
-            </a>
-          </div>
-          <div class="tab">
-            <a href="#" id="rumors-downtimes-tab">
-              <div class="icon">
-                <i class="far fa-list-alt"></i>
-              </div>
-              <span>Rumors/Downtimes</span>
+              <span>Equipment</span>
             </a>
           </div>
           <div class="tab">
@@ -251,7 +243,7 @@
               <div class="icon">
                 <i class="fas fa-tools"></i>
               </div>
-              <span>Misc. Tools</span>
+              <span>Tools</span>
             </a>
           </div>
         </div>
