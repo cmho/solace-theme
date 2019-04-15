@@ -213,9 +213,11 @@
                     <div class="description">
                       {!! apply_filters('the_content', '<strong>Description:</strong> '.$action->post_content) !!}
                     </div>
-                    <div class="response">
-                      <strong>Response:</strong> {!! get_field('response', $action->ID) !!}
-                    </div>
+                    @if(get_field('response', $action->ID))
+                      <div class="response">
+                        <strong>Response:</strong> {!! get_field('response', $action->ID) !!}
+                      </div>
+                    @endif
                   </div>
                 @endforeach
               @endif
