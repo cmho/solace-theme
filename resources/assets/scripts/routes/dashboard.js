@@ -412,6 +412,21 @@ export default {
       $('.whatever-roll').text(roll);
     });
 
+    $('.heal-button').on('click', function(e) {
+      e.preventDefault();
+      var yn = confirm('Are you sure you want to heal all active characters?');
+      if (yn) {
+        $.ajax({
+          url: ajaxurl,
+          data: {
+            weeks: $('.weeks-field'),
+            action: 'do_healing'
+          }
+        });
+      }
+      return false;
+    });
+
     function pollBeats() {
       $.ajax({
         url: ajaxurl,

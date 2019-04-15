@@ -939,6 +939,44 @@ function get_dashboard_beats()
     die(1);
 }
 
+function doHealing()
+{
+    $weeks = intval($_POST['weeks']);
+    //$characters = \App\Characters::getActivePCs();
+    $characters = array(get_post(146));
+    foreach ($characters as $post) {
+        $weekcount = $weeks;
+        $lethalcount = 0;
+        setup_postdata($post);
+        update_field('current_willpower', join("", array_fill(0, get_field('willpower'), '0')), $post);
+        $health = array_map(intval, array_reverse(str_split(get_field('current_health'))));
+        for ($i = 0; $i < count($health); $i++) {
+            if ($health[$i] == 1) {
+                $health[$i] = "0";
+            }
+            if ($weekcount > 0) {
+                if ($health[$i] == 2) {
+                    $lethalcount++;
+                    $health[$i] = "0";
+                    if ($lethalcount > 3) {
+                        $weekcount--;
+                    }
+                } elseif ($health[$i] == 3) {
+                    $health[$i] = "0";
+                    $weekcount--;
+                }
+            } else {
+                break;
+            }
+        }
+        update_field('current_health', join("", array_reverse($health)), $post);
+    }
+    wp_reset_postdata();
+    die(1);
+}
+
+add_action('wp_ajax_do_healing', __NAMESPACE__.'\\doHealing');
+
 add_action('rest_api_init', function () {
     register_rest_route('solace/v1', 'dashboard/characters', array(
         'methods' => 'GET',
