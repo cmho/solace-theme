@@ -418,6 +418,7 @@ export default {
       if (yn) {
         $.ajax({
           url: ajaxurl,
+          method: 'POST',
           data: {
             weeks: parseInt($('.weeks-field').val()),
             action: 'do_healing'
