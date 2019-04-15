@@ -848,7 +848,8 @@ function characterData()
             'current_health' => get_field('current_health'),
             'current_willpower' => get_field('current_willpower'),
             'integrity' => get_field('integrity'),
-            'conditions' => get_field('conditions')
+            'conditions' => get_field('conditions'),
+            'st_notes' => get_field('st_notes')
         ));
     }
     wp_reset_postdata();
