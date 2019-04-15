@@ -19,7 +19,7 @@
 @section('content')
   @if(App::isAdmin())
     <section>
-      <div id="characters-tab" class="tab-content">
+      <div id="characters" class="tab-content">
         <form id="character-search">
           <label for="search">Filter Characters</label>
           <input name="search" type="search" />
@@ -90,13 +90,13 @@
           </ol>
         @endif
       </div>
-      <div id="roll-tab" class="tab-content">
+      <div id="roll" class="tab-content">
         <div class="button-row right roll-row">
           <button class="js-modal button small" data-modal-content-id="whatever-roller">Generate Card</button>
           <span class="whatever-roll"></span>
         </div>
       </div>
-      <div id="references-tab" class="tab-content">
+      <div id="references" class="tab-content">
         <h2>References</h2>
         <div class="combat">
           <h2>OH GOD WE'RE IN COMBAT HELP</h2>
@@ -146,13 +146,10 @@
           </div>
         </div>
       </div>
-      <div id="equipment-tab" class="tab-content">
+      <div id="equipment" class="tab-content">
         
       </div>
-      <div id="rumors-downtimes-tab" class="tab-content">
-
-      </div>
-      <div id="tools-tab" class="tab-content">
+      <div id="tools" class="tab-content">
         <form>
           <input type="number" class="weeks-field" name="weeks_field" /> <button class="button small heal-button" type="button">Heal</button>
         </form>
