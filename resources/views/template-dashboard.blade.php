@@ -19,7 +19,7 @@
 @section('content')
   @if(App::isAdmin())
     <section>
-      <div class="characters-tab">
+      <div id="characters-tab" class="tab-content">
         <form id="character-search">
           <label for="search">Filter Characters</label>
           <input name="search" type="search" />
