@@ -419,7 +419,7 @@ export default {
         $.ajax({
           url: ajaxurl,
           data: {
-            weeks: $('.weeks-field'),
+            weeks: parseInt($('.weeks-field').val()),
             action: 'do_healing'
           }
         });
