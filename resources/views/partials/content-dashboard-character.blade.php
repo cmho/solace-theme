@@ -45,8 +45,10 @@
     <p><strong>Size:</strong> {{ get_field('size', $char->ID) }}</p>
     <p><strong>Speed:</strong> {{ get_field('strength', $char)+5 }}</p>
     <p><strong>Defense:</strong> {{ min(get_field('wits', $char), get_field('dexterity', $char))+get_field('athletics', $char) }}</p>
-    @if(App\Character::hasDefensiveCombat($char))
-      <p class="indent"><em>With Defensive Combat:</em> {{ App\Character::getDefensiveCombatCalc($char) }}</p>
+    @if(count(App\Character::hasDefensiveCombat($char)) > 0)
+      @foreach(App\Character::hasDefensiveCombat($char) as $instance)
+        <p class="indent"><em>With Defensive Combat ({{ $instance['specification'] }}):</em> {{ App\Character::getDefensiveCombatCalc($instance) }}</p>
+      @endforeach
     @endif
     <p id="init-mod-wrapper"><strong>Initiative Mod:</strong> <span id="initiative-mod">{{ get_field('dexterity', $char)+get_field('composure', $char) }}</span> <button class='js-modal' id="roll-initiative" data-modal-content-id='initiative-roller'>Get Initiative</button></p>
   </div>

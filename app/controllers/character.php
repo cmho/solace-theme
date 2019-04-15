@@ -147,28 +147,17 @@ class Character extends Controller
 
     public static function hasDefensiveCombat($char)
     {
-        return count(array_filter(get_field('merits', $char), function ($m) {
-            if ($m['merit']->post_title == "Defensive Combat") {
-                return true;
-            }
-            return false;
-        })) > 0 ? true : false;
-    }
-
-    public static function getDefensiveCombatCalc($char)
-    {
-        $merits = array_values(array_filter(get_field('merits', $char), function ($m) {
+        return array_values(array_filter(get_field('merits', $char), function ($m) {
             if ($m['merit']->post_title == "Defensive Combat") {
                 return true;
             }
             return false;
         }));
+    }
 
-        if (count($merits) == 0) {
-            return false;
-        }
-
-        $type = strtolower($merits[0]['specification']);
+    public static function getDefensiveCombatCalc($instance)
+    {
+        $type = strtolower($instance['specification']);
 
         return min(get_field('wits', $char), get_field('dexterity', $char))+get_field($type, $char);
     }
