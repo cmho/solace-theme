@@ -155,7 +155,7 @@
       <div id="downtimes-tab" class="tab-content">
 
       </div>
-      <div class="tools-tab" class="tab-content">
+      <div id="tools-tab" class="tab-content">
         <form>
           <input type="number" class="weeks-field" name="weeks_field" /> <button class="button small heal-button" type="button">Heal</button>
         </form>
