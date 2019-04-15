@@ -291,6 +291,29 @@
     padding-bottom: 90px;
   }
 
+  .downtime-actions {
+    dl {
+      margin: 0;
+
+      dt {
+        font-weight: bold;
+        font-size: 1.2em;
+        border-bottom: 1px white dotted;
+      }
+
+      dd {
+        margin-bottom: 1em;
+        h3 {
+          font-size: 1em;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
   .rumors {
     dl {
       dd {
