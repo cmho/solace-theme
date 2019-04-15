@@ -204,7 +204,7 @@
       <div class="wrapper">
         <div class="row center-xs middle-xs">
           <div class="tab">
-            <a href="#" id="character-tab">
+            <a href="#" id="characters-tab">
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
