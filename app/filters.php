@@ -4,6 +4,8 @@ namespace App;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
+global $post;
+
 function set_html_mail_content_type()
 {
     return 'text/html';
@@ -941,6 +943,7 @@ function get_dashboard_beats()
 
 function doHealing()
 {
+    global $post;
     $weeks = intval($_POST['weeks']);
     //$characters = \App\Characters::getActivePCs();
     $characters = array(get_post(146));
