@@ -949,6 +949,7 @@ function doHealing()
     $characters = array(get_post(146));
     foreach ($characters as $post) {
         $weekcount = $weeks;
+        print_r($weekcount);
         $lethalcount = 0;
         setup_postdata($post);
         $wp = join("", array_fill(0, get_field('willpower'), '0'));
@@ -958,8 +959,7 @@ function doHealing()
             print_r($health);
             if ($health[$i] == 1) {
                 $health[$i] = "0";
-            }
-            if ($weekcount > 0) {
+            } elseif ($weekcount > 0) {
                 if ($health[$i] == 2) {
                     $lethalcount++;
                     $health[$i] = "0";
