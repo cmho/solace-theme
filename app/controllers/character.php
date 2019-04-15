@@ -167,6 +167,7 @@ class Character extends Controller
         if (count($merits) == 0) {
             return false;
         }
+        print_r($merits);
 
         $type = strtolower($merits[0]['specification']);
         print_r($type);
