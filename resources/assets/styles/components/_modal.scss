@@ -73,6 +73,10 @@ dialog {
     bottom: 0;
   }
 
+  #js-modal-content {
+    height: 100%;
+  }
+
   button {
     color: $grey;
     background-color: $yellow;
