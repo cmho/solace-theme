@@ -206,7 +206,9 @@
               @if($actions)
                 @foreach($actions as $action)
                   <div class="action">
-                    
+                    <h3>{{ get_the_title($action->ID) }}</h3>
+                    <p class="action-type"><strong>Action Type:</strong> {{ get_field('action_type', $action->ID) }}</p>
+                   x
                   </div>
                 @endforeach
               @endif
