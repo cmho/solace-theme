@@ -155,10 +155,9 @@ class Character extends Controller
         }));
     }
 
-    public static function getDefensiveCombatCalc($instance)
+    public static function getDefensiveCombatCalc($instance, $char)
     {
         $type = strtolower($instance['specification']);
-
         return min(get_field('wits', $char), get_field('dexterity', $char))+get_field($type, $char);
     }
 
