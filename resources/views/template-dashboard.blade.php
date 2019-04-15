@@ -207,8 +207,15 @@
                 @foreach($actions as $action)
                   <div class="action">
                     <h3>{{ get_the_title($action->ID) }}</h3>
-                    <p class="action-type"><strong>Action Type:</strong> {{ get_field('action_type', $action->ID) }}</p>
-                   x
+                    <p class="action-type"><strong>Action Type:</strong> {{ ucwords(get_field('action_type', $action->ID)) }}</p>
+                    <p class="assets"><strong>Assets:</strong> {{ get_field('assets', $action->ID) }}</p>
+                    <p class="goal"><strong>Goal:</strong> {{ get_field('goal', $action->ID) }}</p>
+                    <div class="description">
+                      {!! apply_filters('the_content', '<strong>Description:</strong> '.$action->post_content) !!}
+                    </div>
+                    <div class="response">
+                      <strong>Response:</strong> {!! get_field('response', $action->ID) !!}
+                    </div>
                   </div>
                 @endforeach
               @endif
