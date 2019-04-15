@@ -945,8 +945,7 @@ function doHealing()
 {
     global $post;
     $weeks = intval($_POST['weeks']);
-    //$characters = \App\Characters::getActivePCs();
-    $characters = array(get_post(146));
+    $characters = \App\Characters::getActivePCs();
     foreach ($characters as $post) {
         $weekcount = $weeks;
         $lethalcount = 0;
