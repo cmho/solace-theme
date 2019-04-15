@@ -149,10 +149,7 @@
       <div id="equipment-tab" class="tab-content">
         
       </div>
-      <div id="rumor-tab" class="tab-content">
-
-      </div>
-      <div id="downtimes-tab" class="tab-content">
+      <div id="rumors-downtimes-tab" class="tab-content">
 
       </div>
       <div id="tools-tab" class="tab-content">
@@ -234,19 +231,11 @@
             </a>
           </div>
           <div class="tab">
-            <a href="#" id="downtimes-tab">
+            <a href="#" id="rumors-downtimes-tab">
               <div class="icon">
                 <i class="far fa-list-alt"></i>
               </div>
-              <span>Downtimes</span>
-            </a>
-          </div>
-          <div class="tab">
-            <a href="#" id="rumor-tab">
-              <div class="icon">
-                <i class="far fa-comments"></i>
-              </div>
-              <span>Rumors</span>
+              <span>Rumors/Downtimes</span>
             </a>
           </div>
           <div class="tab">
