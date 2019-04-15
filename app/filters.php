@@ -952,10 +952,10 @@ function doHealing()
         $lethalcount = 0;
         setup_postdata($post);
         $wp = join("", array_fill(0, get_field('willpower'), '0'));
-        print_r($wp);
         update_field('current_willpower', $wp, $post->ID);
         $health = array_map(intval, array_reverse(str_split(get_field('current_health'))));
         for ($i = 0; $i < count($health); $i++) {
+            print_r($health);
             if ($health[$i] == 1) {
                 $health[$i] = "0";
             }
