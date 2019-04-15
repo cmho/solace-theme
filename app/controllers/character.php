@@ -169,6 +169,7 @@ class Character extends Controller
         }
 
         $type = strtolower($merits[0]['specification']);
+        print_r($type);
 
         return min(get_field('wits', $char), get_field('dexterity', $char))+get_field($type, $char);
     }
