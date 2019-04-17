@@ -19,7 +19,7 @@ class Downtimes extends Controller
             'meta_query' => array(
                 array(
                     'key' => 'downtimes_open',
-                    'value' => $date->format('Y-m-d'),
+                    'value' => $date->format('Ymd'),
                     'compare' => '<=',
                     'type' => 'DATE'
                 )

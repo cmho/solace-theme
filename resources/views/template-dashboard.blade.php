@@ -57,7 +57,7 @@
                       <dt>Initiative Mod</dt>
                       <dd>{{ get_field('dexterity')+get_field('composure') }}</dd>
                     </dl>
-                    <p><a href="#" class="js-modal button small" data-modal-content-id="combat-pls-help">combat cheat sheet</a></p>
+                    <p><a href="#" class="tab-link button small" data-id="reference-tab">combat cheat sheet</a></p>
                   </div>
                   <div class="conditions">
                     <h4>Conditions (<a href="#" class="js-modal" data-modal-content-id="condition-form">Add</a>)</h4>
@@ -204,7 +204,7 @@
       <div class="wrapper">
         <div class="row center-xs middle-xs">
           <div class="tab">
-            <a href="#" id="characters-tab">
+            <a href="#" data-id="characters-tab">
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
@@ -212,7 +212,7 @@
             </a>
           </div>
           <div class="tab">
-            <a href="#" id="roll-tab">
+            <a href="#" data-id="roll-tab">
               <div class="icon">
                 <i class="fas fa-dice"></i>
               </div>
@@ -220,7 +220,7 @@
             </a>
           </div>
           <div class="tab">
-            <a href="#" id="equipment-tab">
+            <a href="#" data-id="equipment-tab">
               <div class="icon">
                 <i class="fas fa-hammer"></i>
               </div>
@@ -228,7 +228,7 @@
             </a>
           </div>
           <div class="tab">
-            <a href="#" id="references-tab">
+            <a href="#" data-id="references-tab">
               <div class="icon">
                 <i class="fas fa-book"></i>
               </div>
@@ -236,7 +236,7 @@
             </a>
           </div>
           <div class="tab">
-            <a href="#" id="tools-tab">
+            <a href="#" data-id="tools-tab">
               <div class="icon">
                 <i class="fas fa-tools"></i>
               </div>
@@ -316,7 +316,7 @@
         <div class="wrapper">
           <div class="row center-xs middle-xs">
             <div class="tab">
-              <a href="#" id="character-tab">
+              <a href="#" data-id="character-tab">
                 <div class="icon">
                   <i class="fas fa-user"></i>
                 </div>
@@ -324,7 +324,7 @@
               </a>
             </div>
             <div class="tab">
-              <a href="#" id="equipment-tab">
+              <a href="#" data-id="equipment-tab">
                 <div class="icon">
                   <i class="fas fa-hammer"></i>
                 </div>
@@ -332,7 +332,7 @@
               </a>
             </div>
             <div class="tab">
-              <a href="#" id="downtime-tab">
+              <a href="#" data-id="downtime-tab">
                 <div class="icon">
                   <i class="far fa-list-alt"></i>
                 </div>
@@ -340,7 +340,7 @@
               </a>
             </div>
             <div class="tab">
-              <a href="#" id="rumor-tab">
+              <a href="#" data-id="rumor-tab">
                 <div class="icon">
                   <i class="far fa-comments"></i>
                 </div>
