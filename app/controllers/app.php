@@ -115,19 +115,19 @@ class App extends Controller
                 'relation' => 'AND',
                 array(
                     'key' => 'downtimes_open',
-                    'value' => $date->format('Y-m-d'),
+                    'value' => $date->format('Ymd'),
                     'compare' => '<=',
                     'type' => 'DATE'
                 ),
                 array(
                     'key' => 'downtimes_close',
-                    'value' => $date->format('Y-m-d'),
+                    'value' => $date->format('Ymd'),
                     'compare' => '>=',
                     'type' => 'DATE'
                 )
             )
         ));
-        if ($posts) {
+        if (count($posts) > 0) {
             return $posts[0]->ID;
         }
 

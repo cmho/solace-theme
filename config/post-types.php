@@ -22,7 +22,7 @@ use Roots\Sage\Container;
     'label' => 'Downtime Action',
     'menu_icon' => 'dashicons-edit',
     'public' => true,
-    'supports' => array('revisions', 'title', 'editor', 'page-attributes')
+    'supports' => array('revisions', 'title', 'editor', 'page-attributes', 'author')
 ));
 
 \register_post_type('merit', array(

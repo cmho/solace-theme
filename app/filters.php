@@ -489,7 +489,7 @@ function update_downtime()
         'post_type' => 'downtime',
         'ID' => intval($_POST['id']),
         'post_status' => 'publish',
-        'post_author' => $purifier->purify($_POST['author']),
+        'post_author' => intval($_POST['author']),
         'post_title' => $purifier->purify($_POST['post_title']),
         'post_content' => $purifier->purify($_POST['post_content']),
         'meta_input' => array(
