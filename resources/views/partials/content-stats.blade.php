@@ -65,6 +65,9 @@
                     <li><strong>{{ $it['labels'][$i] }}:</strong> {{ $it['averages'][$i] }}</li>
                   @endfor
                 </ul>
+
+                <h2>Beats</h2>
+                <canvas id="beats" data-points=""  data-labels=""></canvas>
             </div>
         </div>
     </div>

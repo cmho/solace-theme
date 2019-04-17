@@ -10,7 +10,7 @@ class Downtimes extends Controller
     {
         $tz = new \DateTimeZone('America/Chicago');
         $date = new \DateTime('now', $tz);
-        $games = \get_posts(array(
+        $args = array(
             'post_type' => 'game',
             'posts_per_page' => -1,
             'meta_key' => 'downtimes_open',
@@ -24,7 +24,12 @@ class Downtimes extends Controller
                     'type' => 'DATE'
                 )
             )
-        ));
+                );
+
+        if (!\App\App::isAdmin()) {
+            $args['author'] = wp_get_current_user()->ID;
+        }
+        $games = \get_posts($args);
 
         $actions = array();
 

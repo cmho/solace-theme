@@ -129,7 +129,7 @@ class App extends Controller
         ));
         print_r($posts);
         if ($posts) {
-            return $posts[0];
+            return $posts[0]->ID;
         }
 
         return null;

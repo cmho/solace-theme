@@ -29,8 +29,6 @@ export default {
 
     $('.tab a').on('click', function(e) {
       e.preventDefault();
-      $(this).find('i').removeClass('far').addClass('fas');
-      $(this).parent('.tab').siblings('.tab-content').find('i').removeClass('fas').addClass('far');
       var tabid = $(this).attr('id').replace('-tab', '');
       $('#'+tabid).show().siblings('.tab-content').hide();
       var d = new Date();
@@ -194,6 +192,20 @@ export default {
         success: function(data) {
           $num.text(data);
         },
+      });
+    });
+
+    $('textarea[name="st_notes"]').on('change', function() {
+      var character = parseInt($(this).parents('.character').data('character'));
+      var content = $(this).val();
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'update_notes',
+          character: character,
+          notes: content
+        }
       });
     });
 
@@ -400,6 +412,22 @@ export default {
       $('.whatever-roll').text(roll);
     });
 
+    $('.heal-button').on('click', function(e) {
+      e.preventDefault();
+      var yn = confirm('Are you sure you want to heal all active characters?');
+      if (yn) {
+        $.ajax({
+          url: ajaxurl,
+          method: 'POST',
+          data: {
+            weeks: parseInt($('.weeks-field').val()),
+            action: 'do_healing'
+          }
+        });
+      }
+      return false;
+    });
+
     function pollBeats() {
       $.ajax({
         url: ajaxurl,
@@ -475,6 +503,9 @@ export default {
               }
               if (parseInt($current.find('.current-integrity').text()) != item.integrity) {
                 $current.find('.current-integrity').text(item.integrity);
+              }
+              if ($current.find('textarea[name="st_notes"]').val() !== item.st_notes) {
+                $current.find('textarea[name="st_notes"]').val(item.st_notes);
               }
             }
           });

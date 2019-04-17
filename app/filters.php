@@ -4,6 +4,8 @@ namespace App;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
+global $post;
+
 function set_html_mail_content_type()
 {
     return 'text/html';
@@ -809,6 +811,14 @@ function skillSpData()
 }
 add_action('wp_ajax_get_skill_specialties', __NAMESPACE__.'\\skillSpData');
 
+function updateNotes()
+{
+    global $post;
+    $post = get_post($_POST['character']);
+    update_field('st_notes', $_POST['notes'], $post->ID);
+    die(1);
+}
+
 function characterData()
 {
     global $post;
@@ -848,7 +858,8 @@ function characterData()
             'current_health' => get_field('current_health'),
             'current_willpower' => get_field('current_willpower'),
             'integrity' => get_field('integrity'),
-            'conditions' => get_field('conditions')
+            'conditions' => get_field('conditions'),
+            'st_notes' => get_field('st_notes')
         ));
     }
     wp_reset_postdata();
@@ -929,6 +940,44 @@ function get_dashboard_beats()
     echo($beats);
     die(1);
 }
+
+function doHealing()
+{
+    global $post;
+    $weeks = intval($_POST['weeks']);
+    $characters = \App\Characters::getActivePCs();
+    foreach ($characters as $post) {
+        $weekcount = $weeks;
+        $lethalcount = 0;
+        setup_postdata($post);
+        $wp = join("", array_fill(0, get_field('willpower'), '0'));
+        update_field('current_willpower', $wp, $post->ID);
+        $health = array_map(intval, array_reverse(str_split(get_field('current_health'))));
+        for ($i = 0; $i < count($health); $i++) {
+            if ($health[$i] == 1) {
+                $health[$i] = "0";
+            } elseif ($weekcount > 0) {
+                if ($health[$i] == 2) {
+                    $lethalcount++;
+                    $health[$i] = "0";
+                    if ($lethalcount > 3) {
+                        $weekcount--;
+                    }
+                } elseif ($health[$i] == 3) {
+                    $health[$i] = "0";
+                    $weekcount--;
+                }
+            } else {
+                break;
+            }
+        }
+        update_field('current_health', join("", array_map(strval, array_reverse($health))), $post->ID);
+    }
+    wp_reset_postdata();
+    die(1);
+}
+
+add_action('wp_ajax_do_healing', __NAMESPACE__.'\\doHealing');
 
 add_action('rest_api_init', function () {
     register_rest_route('solace/v1', 'dashboard/characters', array(

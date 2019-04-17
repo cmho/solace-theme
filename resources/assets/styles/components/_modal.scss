@@ -33,6 +33,7 @@ dialog {
   overflow: auto;
   max-height: 80%;
   max-width: 80%;
+  height: 600px;
 
   a {
     color: $grey !important;
@@ -70,6 +71,10 @@ dialog {
     left: 0;
     right: 0;
     bottom: 0;
+  }
+
+  #js-modal-content {
+    height: 100%;
   }
 
   button {
