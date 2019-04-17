@@ -26,7 +26,6 @@ class Downtimes extends Controller
             )
         );
         $games = \get_posts($args);
-        print_r($games);
 
         $actions = array();
 
