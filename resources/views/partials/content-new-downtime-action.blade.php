@@ -48,6 +48,7 @@
         <textarea name="post_content" rows="8"></textarea>
       </div>
       <div class="form-row">
+        <input type="hidden" name="author" value="{{ wp_get_current_user()->ID }}" />
         <input type="hidden" name="action" value="update_downtime" />
         <input type="submit" value="Save" />
       </div>
