@@ -127,7 +127,7 @@ class App extends Controller
                 )
             )
         ));
-        print_r($posts[0]);
+        print_r($posts[0]->ID);
         if (count($posts) > 0) {
             return $posts[0]->ID;
         }
