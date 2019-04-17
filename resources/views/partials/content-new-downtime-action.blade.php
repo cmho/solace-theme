@@ -25,7 +25,7 @@
       @else
         <input type="hidden" name="character" value="{{ App\Character::currentChar()->ID }}" />
       @endif
-      <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod()->ID }}" />
+      <input type="hidden" name="game" value="{{ App\App::currentDowntimePeriod() }}" />
       <div class="form-row">
         <label for="action_type">Action Type</label>
         <select name="action_type">
@@ -48,28 +48,6 @@
         <textarea name="post_content" rows="8"></textarea>
       </div>
       <div class="form-row">
-        @php
-          $games = get_posts(array(
-            'post_type' => 'game',
-            'posts_per_page' => 1,
-            'meta_query' => array(
-              'relation' => 'AND',
-              array(
-                'key' => 'downtimes_open',
-                'value' => date('Ymd'),
-                'compare' => '<=',
-                'type' => 'DATE'
-              ),
-              array(
-                'key' => 'downtimes_close',
-                'value' => date('Ymd'),
-                'compare' => '>=',
-                'type' => 'DATE'
-              )
-            )
-          ));
-        @endphp
-        <input type="hidden" name="game"{{ $games ? 'value="'.$games[0]->ID.'"' : '' }} />
         <input type="hidden" name="action" value="update_downtime" />
         <input type="submit" value="Save" />
       </div>
