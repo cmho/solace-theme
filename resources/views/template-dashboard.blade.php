@@ -92,7 +92,7 @@
       </div>
       <div id="roll" class="tab-content">
         <div class="button-row right roll-row">
-          <button class="js-modal button small" data-modal-content-id="whatever-roller">Generate Card</button>
+          <button class="button small">Generate Card</button>
           <span class="whatever-roll"></span>
         </div>
       </div>

@@ -421,18 +421,18 @@ nav.dashboard-tabs {
       text-align: left;
     }
 
-    .initiative-roll,
-    .whatever-roll {
-      font-size: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
     #modal-content,
     .modal__content {
       text-align: left;
     }
   }
+}
+
+.initiative-roll,
+.whatever-roll {
+  font-size: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
