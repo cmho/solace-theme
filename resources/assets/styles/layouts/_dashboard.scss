@@ -431,8 +431,14 @@ nav.dashboard-tabs {
 .initiative-roll,
 .whatever-roll {
   font-size: 220px;
+  height: 100%;
+}
+.initiative-roll {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+}
+.whatever-roll {
+  display: block;
+  width: 100%;
 }

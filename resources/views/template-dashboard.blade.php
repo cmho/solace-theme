@@ -93,8 +93,8 @@
       <div id="roll" class="tab-content">
         <div class="button-row right roll-row">
           <button class="button small">Generate Card</button>
-          <span class="whatever-roll"></span>
         </div>
+        <span class="whatever-roll"></span>
       </div>
       <div id="references" class="tab-content">
         <h2>References</h2>
