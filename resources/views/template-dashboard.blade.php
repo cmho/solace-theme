@@ -91,8 +91,8 @@
         @endif
       </div>
       <div id="roll" class="tab-content">
-        <div class="button-row right roll-row">
-          <button class="button small">Generate Card</button>
+        <div class="button-row center roll-row">
+          <button class="button">Generate Card</button>
         </div>
         <span class="whatever-roll"></span>
       </div>
