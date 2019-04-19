@@ -42,7 +42,7 @@
             </div>
           @elseif(App\Downtimes::isOpen($game))
             <div class="button-row">
-              <a href="{{ get_the_permalink($game) }}" class="button small">Edit</a>
+              <a href="{{ get_the_permalink() }}edit" class="button small">Edit</a>
             </div>
           @endif
         </div>
