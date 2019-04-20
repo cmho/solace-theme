@@ -454,8 +454,19 @@ nav.dashboard-tabs {
   form {
     display: flex;
     align-items: flex-end;
-    button {
-      margin-left: 10px;
+    flex-wrap: wrap;
+    
+    > * {
+      margin-right: 10px;
+      flex-shrink: 1;
+
+      input, select {
+        min-width: 200px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
