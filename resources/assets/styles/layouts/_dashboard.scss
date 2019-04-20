@@ -451,8 +451,9 @@ nav.dashboard-tabs {
 }
 
 #tools {
-  form.heal-form {
+  form {
     display: flex;
+    align-items: flex-end;
     button {
       margin-left: 10px;
     }
