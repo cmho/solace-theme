@@ -449,3 +449,12 @@ nav.dashboard-tabs {
     padding: 10px;
   }
 }
+
+#tools {
+  form.heal-form {
+    display: flex;
+    button {
+      margin-left: 10px;
+    }
+  }
+}

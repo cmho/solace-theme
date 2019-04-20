@@ -150,7 +150,8 @@
         
       </div>
       <div id="tools" class="tab-content">
-        <form>
+        <h2>Heal All Characters</h2>
+        <form class="heal-form">
           <input type="number" class="weeks-field" name="weeks_field" /> <button class="button small heal-button" type="button">Heal</button>
         </form>
       </div>
