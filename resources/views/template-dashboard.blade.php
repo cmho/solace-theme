@@ -152,7 +152,28 @@
       <div id="tools" class="tab-content">
         <h2>Heal All Characters</h2>
         <form class="heal-form">
-          <input type="number" class="weeks-field" name="weeks_field" /> <button class="button small heal-button" type="button">Heal</button>
+          <div>
+            <label for="weeks_field">Weeks of Healing</label>
+            <input type="number" class="weeks-field" name="weeks_field" />
+          </div>
+          <button class="button small heal-button" type="button">Heal</button>
+        </form>
+        <h2>Grant XP</h2>
+        <form class="xp-form">
+          <div>
+            <label for="character">Character</label>
+            <select name="character">
+              <option value="all">All</option>
+              @foreach(\App\Characters::getActivePCs() as $char)
+                <option value="{{$char->ID}}">{{$char->post_title}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div>
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" />
+          </div>
+          <button class="button small xp-button" type="button">Grant</button>
         </form>
       </div>
     </section>
