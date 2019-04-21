@@ -61,6 +61,8 @@ class Characters extends Controller
         $args = array(
             'posts_per_page' => -1,
             'post_type' => 'character',
+            'order' => 'ASC',
+            'orderby' => 'title',
             'meta_query' => array(
                 array(
                     'key' => 'status',

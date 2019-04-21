@@ -421,18 +421,52 @@ nav.dashboard-tabs {
       text-align: left;
     }
 
-    .initiative-roll,
-    .whatever-roll {
-      font-size: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
     #modal-content,
     .modal__content {
       text-align: left;
+    }
+  }
+}
+
+.initiative-roll,
+.whatever-roll {
+  font-size: 220px;
+  height: 100%;
+}
+.initiative-roll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whatever-roll {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+#roll.tab-content {
+  .button {
+    padding: 10px;
+  }
+}
+
+#tools {
+  form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    
+    > * {
+      margin-right: 10px;
+      flex-shrink: 1;
+
+      input, select {
+        min-width: 200px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

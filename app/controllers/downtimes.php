@@ -19,16 +19,12 @@ class Downtimes extends Controller
             'meta_query' => array(
                 array(
                     'key' => 'downtimes_open',
-                    'value' => $date->format('Y-m-d'),
+                    'value' => $date->format('Ymd'),
                     'compare' => '<=',
                     'type' => 'DATE'
                 )
             )
-                );
-
-        if (!\App\App::isAdmin()) {
-            $args['author'] = wp_get_current_user()->ID;
-        }
+        );
         $games = \get_posts($args);
 
         $actions = array();
@@ -46,6 +42,10 @@ class Downtimes extends Controller
                     )
                 )
             );
+
+            if (!\App\App::isAdmin()) {
+                $args['author'] = wp_get_current_user()->ID;
+            }
             if ($char) {
                 array_push($args['meta_query'], array(
                     'key' => 'character',

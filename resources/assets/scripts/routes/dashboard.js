@@ -27,10 +27,13 @@ export default {
       }
     });
 
-    $('.tab a').on('click', function(e) {
+    $('.tab a, .tab-link').on('click', function(e) {
       e.preventDefault();
-      var tabid = $(this).attr('id').replace('-tab', '');
+      var tabid = $(this).attr('data-id').replace('-tab', '');
       $('#'+tabid).show().siblings('.tab-content').hide();
+      if ($(this).attr("href").replace("#", "") !== "") {
+        $(window).scrollTop($($(this).attr('href')).offset().top);
+      }
       var d = new Date();
       d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
       var expires = "expires=" + d.toUTCString();
