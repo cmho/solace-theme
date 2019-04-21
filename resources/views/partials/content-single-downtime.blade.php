@@ -60,7 +60,7 @@
               </div>
               <div class="form-row">
                 <label for="post_content">Description</label>
-                <textarea name="post_content" rows="8">{{ get_field('description') }}</textarea>
+                <textarea name="post_content" rows="8">{{ get_the_content() }}</textarea>
               </div>
               <div class="form-row">
                 <input type="submit" value="Save" />
