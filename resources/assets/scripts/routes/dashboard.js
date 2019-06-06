@@ -232,21 +232,16 @@ export default {
       console.log('form submitted');
       var char = $(this).find('input[name="character"]');
       var amt = parseInt($(this).find('input[name="amount"]'));
+      var reason = $(this).find('input[name="reason"]');
       var data = {
         action: char == "all" ? "mass_add_experience" : "add_experience",
-        amount: amt
+        amount: amt,
+        reason: reason
       };
       if (char != 'all') {
         data.character = parseInt(char);
       }
-      $.ajax({
-        url: ajaxurl,
-        method: 'POST',
-        data: data,
-        success: function(data) {
-          return;
-        }
-      });
+      console.log(data);
     });
 
     $('.conditions h4').on('click', function() {
