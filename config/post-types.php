@@ -88,5 +88,5 @@ use Roots\Sage\Container;
     'public' => true,
     'exclude_from_search' => true,
     'menu_icon' => 'dashicons-buddicons-friends',
-    'supports' => array('title', 'editor', 'page-attributes')
+    'supports' => array('title', 'page-attributes')
 ));
