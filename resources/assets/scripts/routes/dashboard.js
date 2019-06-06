@@ -227,6 +227,27 @@ export default {
       ding.play();
     });
 
+    $('.xp-form').on('submit', function(e) {
+      e.preventDefault();
+      var char = $(this).find('input[name="character"]');
+      var amt = parseInt($(this).find('input[name="amount"]'));
+      var data = {
+        action: char == "all" ? "mass_add_experience" : "add_experience",
+        amount: amt
+      };
+      if (char != 'all') {
+        data.character = parseInt(char);
+      }
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: data,
+        success: function(data) {
+          return;
+        }
+      });
+    });
+
     $('.conditions h4').on('click', function() {
       var char = $(this).parents('li').data('character');
       setTimeout(function() {
