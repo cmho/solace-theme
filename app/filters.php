@@ -457,7 +457,7 @@ function mass_add_experience()
     die(1);
 }
 
-add_action('admin_post_mass_add_experience', __NAMESPACE__.'\\mass_add_experience');
+add_action('wp_ajax_mass_add_experience', __NAMESPACE__.'\\mass_add_experience');
 
 function add_experience()
 {
@@ -476,7 +476,7 @@ function add_experience()
     die(1);
 }
 
-add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
+add_action('wp_ajax_add_experience', __NAMESPACE__.'\\add_experience');
 
 function update_downtime()
 {
