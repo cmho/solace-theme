@@ -473,7 +473,6 @@ function add_experience()
             'amount' => intval($purifier->purify($_POST['amount']))
         )
     ));
-
     die(1);
 }
 

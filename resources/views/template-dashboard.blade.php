@@ -170,6 +170,10 @@
             </select>
           </div>
           <div>
+            <label for="reason">Reason</label>
+            <input type="text" name="reason" />
+          </div>
+          <div>
             <label for="amount">Amount</label>
             <input type="number" name="amount" />
           </div>
