@@ -230,7 +230,7 @@ export default {
     $('.xp-form').on('submit', function(e) {
       e.preventDefault();
       console.log('form submitted');
-      var char = $(this).find('input[name="character"]').val();
+      var char = $(this).find('select[name="character"] option:selected').val();
       var amt = parseInt($(this).find('input[name="amount"]').val());
       var reason = $(this).find('input[name="reason"]').val();
       var data = {
