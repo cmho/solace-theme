@@ -229,6 +229,7 @@ export default {
 
     $('.xp-form').on('submit', function(e) {
       e.preventDefault();
+      console.log('form submitted');
       var char = $(this).find('input[name="character"]');
       var amt = parseInt($(this).find('input[name="amount"]'));
       var data = {
