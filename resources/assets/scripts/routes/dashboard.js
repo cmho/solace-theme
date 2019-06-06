@@ -230,9 +230,9 @@ export default {
     $('.xp-form').on('submit', function(e) {
       e.preventDefault();
       console.log('form submitted');
-      var char = $(this).find('input[name="character"]');
-      var amt = parseInt($(this).find('input[name="amount"]'));
-      var reason = $(this).find('input[name="reason"]');
+      var char = $(this).find('input[name="character"]').val();
+      var amt = parseInt($(this).find('input[name="amount"]').val());
+      var reason = $(this).find('input[name="reason"]').val();
       var data = {
         action: char == "all" ? "mass_add_experience" : "add_experience",
         amount: amt,
@@ -241,7 +241,14 @@ export default {
       if (char != 'all') {
         data.character = parseInt(char);
       }
-      console.log(data);
+      $.ajax({
+        url: ajaxurl,
+        method: "POST",
+        data: data,
+        success: function(data) {
+          return;
+        }
+      });
     });
 
     $('.conditions h4').on('click', function() {
