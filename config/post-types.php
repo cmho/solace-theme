@@ -82,3 +82,11 @@ use Roots\Sage\Container;
     'public' => true,
     'supports' => array('title')
 ));
+
+\register_post_type('ritual', array(
+    'label' => 'Ritual',
+    'public' => true,
+    'exclude_from_search' => true,
+    'menu_icon' => 'dashicons-buddicons-friends',
+    'supports' => array('title', 'page-attributes')
+));

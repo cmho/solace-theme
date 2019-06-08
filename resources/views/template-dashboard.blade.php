@@ -170,10 +170,14 @@
             </select>
           </div>
           <div>
+            <label for="reason">Reason</label>
+            <input type="text" name="reason" />
+          </div>
+          <div>
             <label for="amount">Amount</label>
             <input type="number" name="amount" />
           </div>
-          <button class="button small xp-button" type="button">Grant</button>
+          <button class="button small xp-button" type="submit">Grant</button>
         </form>
       </div>
     </section>

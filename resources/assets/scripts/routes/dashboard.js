@@ -227,6 +227,30 @@ export default {
       ding.play();
     });
 
+    $('.xp-form').on('submit', function(e) {
+      e.preventDefault();
+      console.log('form submitted');
+      var char = $(this).find('select[name="character"] option:selected').val();
+      var amt = parseInt($(this).find('input[name="amount"]').val());
+      var reason = $(this).find('input[name="reason"]').val();
+      var data = {
+        action: char == "all" ? "mass_add_experience" : "add_experience",
+        amount: amt,
+        reason: reason
+      };
+      if (char != 'all') {
+        data.character = parseInt(char);
+      }
+      $.ajax({
+        url: ajaxurl,
+        method: "POST",
+        data: data,
+        success: function(data) {
+          return;
+        }
+      });
+    });
+
     $('.conditions h4').on('click', function() {
       var char = $(this).parents('li').data('character');
       setTimeout(function() {

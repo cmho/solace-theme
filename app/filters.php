@@ -431,11 +431,6 @@ function mass_add_experience()
         'posts_per_page' => -1,
         'post_type' => 'character',
         'meta_query' => array(
-            'relation' => 'AND',
-            array(
-                'key' => 'is_npc',
-                'compare' => 'NOT EXISTS'
-            ),
             array(
                 'key' => 'status',
                 'value' => 'Active',
@@ -448,6 +443,7 @@ function mass_add_experience()
         wp_insert_post(array(
             'post_type' => 'experience',
             'post_title' => $purifier->purify($_POST['reason']),
+            'post_status' => 'publish',
             'meta_input' => array(
                 'character' => $character->ID,
                 'amount' => intval($purifier->purify($_POST['amount']))
@@ -457,7 +453,7 @@ function mass_add_experience()
     die(1);
 }
 
-add_action('admin_post_mass_add_experience', __NAMESPACE__.'\\mass_add_experience');
+add_action('wp_ajax_mass_add_experience', __NAMESPACE__.'\\mass_add_experience');
 
 function add_experience()
 {
@@ -468,16 +464,16 @@ function add_experience()
     wp_insert_post(array(
         'post_type' => 'experience',
         'post_title' => $purifier->purify($_POST['reason']),
+        'post_status' => 'publish',
         'meta_input' => array(
             'character' => intval($purifier->purify($_POST['character'])),
             'amount' => intval($purifier->purify($_POST['amount']))
         )
     ));
-
     die(1);
 }
 
-add_action('admin_post_add_experience', __NAMESPACE__.'\\add_experience');
+add_action('wp_ajax_add_experience', __NAMESPACE__.'\\add_experience');
 
 function update_downtime()
 {
