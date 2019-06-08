@@ -86,9 +86,16 @@
   }
 
   #character-sheet {
+    page-break-inside: avoid;
+
     label {
       font-size: 12px !important;
       letter-spacing: 0;
     }
+  }
+
+  #equipment-print {
+    page-break-inside: avoid;
+    page-break-before: always;
   }
 }
