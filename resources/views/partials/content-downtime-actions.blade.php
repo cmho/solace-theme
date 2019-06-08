@@ -1,13 +1,14 @@
 @php
   global $post;
   $user = wp_get_current_user();
+  $char = App::isAdmin() ? null : App\Character::currentChar()->ID;
 @endphp
 @if(App\App::currentDowntimePeriod())
   <div class="button-row right">
     <a href="{{ App\App::newDowntimeLink() }}" class="button">New Action</a>
   </div>
 @endif
-@foreach(App\Downtimes::listDowntimes() as $game=>$downtimes)
+@foreach(App\Downtimes::listDowntimes($char) as $game=>$downtimes)
   @php
       $gamepost = get_post($game);
   @endphp
