@@ -115,6 +115,19 @@ dialog {
     width: calc(100% - 20px);
     height: auto;
     max-width: none;
+    padding: 20px;
+
+    button#js-modal-close {
+      top: 20px;
+      right: 20px;
+    }
+
+    .modal__content {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      overflow: auto;
+    }
   }
 }
 
