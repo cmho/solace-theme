@@ -57,6 +57,7 @@
               <dd>{{ get_field('date', $event->ID) }}</dd>
             @endforeach
           </dl>
+          <a href="/calendar/" class="button">See All</a>
         @else
           <p class="center">No upcoming events.</p>
         @endif
