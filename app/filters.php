@@ -559,7 +559,7 @@ function getEvents()
             'url' => get_the_permalink($c->ID)
         );
     }, $posts);
-    return json_encode($posts);
+    echo json_encode($posts);
     die(1);
 }
 
