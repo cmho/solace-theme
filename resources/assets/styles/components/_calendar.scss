@@ -1,0 +1,23 @@
+.fc-unthemed {
+  .fc-list-view {
+    border-color: $yellow;
+  }
+
+  .fc-button-primary {
+    background-color: white;
+    color: $grey;
+    border-color: white;
+  }
+
+  .fc-list-empty {
+    background-color: $grey;
+    color: $yellow;
+  }
+
+  .fc-divider,
+  .fc-popover .fc-header,
+  .fc-list-heading td {
+    background-color: $yellow;
+    color: $grey;
+  }
+}
