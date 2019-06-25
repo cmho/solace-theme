@@ -8,5 +8,7 @@ export default {
         events: ajaxurl+"?action=get_events",
         defaultView: 'listMonth'
       });
+
+      cal.render();
     },
 }
