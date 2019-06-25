@@ -1,4 +1,4 @@
-import 'underscore';
+import 'underscore/underscore-min';
 
 export default {
     init() {
