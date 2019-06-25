@@ -113,6 +113,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
+    "@fullcalendar/core": "^4.2.0",
+    "@fullcalendar/list": "^4.2.0",
     "axios": "^0.18.0",
     "braces": "^2.3.2",
     "chart.js": "^2.8.0",
@@ -121,6 +123,7 @@
     "datatables.net-dt": "^1.10.19",
     "debug": "2.6.9",
     "flexboxgrid-sass": "^8.0.5",
+    "fullcalendar": "^3.10.0",
     "hoek": "5.0.3",
     "jquery": "^3.3.1",
     "jquery-accessible-modal-window-aria": "^1.10.0",

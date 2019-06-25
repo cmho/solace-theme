@@ -1,21 +1,12 @@
-import 'underscore/underscore-min';
+import { Calendar } from '@fullcalendar/core';
+import listPlugin from '@fullcalendar/list';
 
 export default {
     init() {
-        $(window).load(function() {
-            $.ajax({
-              url: ajaxurl,
-              method: "POST",
-              data: {
-                action: "get_events",
-              },
-              dataType: 'JSON',
-              success: function(data) {
-                $("#calendar").clndr({
-                  events: data,
-                });
-              },
-            });
-        });
+      var cal = new FullCalendar.Calendar(document.getElementById('calendar'), {
+        plugins: [listPlugin],
+        events: ajaxurl+"?action=get_events",
+        defaultView: 'listMonth'
+      });
     },
 }
