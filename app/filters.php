@@ -975,6 +975,16 @@ function doHealing()
 
 add_action('wp_ajax_do_healing', __NAMESPACE__.'\\doHealing');
 
+function redirect_restricted_zones()
+{
+    if (is_page('character-dashboard') && !is_user_logged_in()) {
+        wp_redirect(home_url('/log-in'));
+        die;
+    }
+}
+
+add_action('template_redirect', __NAMESPACE__.'\\redirect_restricted_zones');
+
 add_action('rest_api_init', function () {
     register_rest_route('solace/v1', 'dashboard/characters', array(
         'methods' => 'GET',
