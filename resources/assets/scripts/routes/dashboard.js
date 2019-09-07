@@ -290,7 +290,7 @@ export default {
 
     $('body').on('click', '.equipment-list a', function (e) {
       e.preventDefault();
-      $(this).next('dl').slideToggle();
+      $(this).next('dl').slideDown().parents('li').siblings().find('dl').slideUp();
     });
 
     $(".char-conditions").on("click", ".resolve-button", function () {

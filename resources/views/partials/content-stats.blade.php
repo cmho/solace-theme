@@ -53,6 +53,13 @@
                   @endforeach
                 </div>
 
+                <h2>Contacts</h2>
+                <div class="row" id="contacts-row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+
                 <h2>Integrity</h2>
                 <div class="button-row right">
                   <button id="snapshot" class="button">Create Snapshot</button>
