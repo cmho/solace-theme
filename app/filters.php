@@ -939,20 +939,55 @@ function get_dashboard_beats()
 
 function get_downtimes()
 {
-    $downtimes = \App\Downtimes::listDowntimes(intval($_POST['char_id']));
-    echo json_encode($downtimes);
+    foreach (App\Downtimes::listDowntimes(intval($_POST['char_id'])) as $g => $actions) {
+        $game = get_post($g);
+        echo '<dt><a href="#">'.$game->post_title.'</a></dt>';
+        echo '<dd>';
+        if ($actions) {
+            foreach ($actions as $action) {
+                echo '<div class="action">';
+                echo '<h3>'.get_the_title($action->ID).'</h3>';
+                echo '<p class="action-type"><strong>Action Type:</strong> '.ucwords(get_field('action_type', $action->ID)).'</p>';
+                echo '<p class="assets"><strong>Assets:</strong> '.get_field('assets', $action->ID).'</p>';
+                echo '<p class="goal"><strong>Goal:</strong> '.get_field('goal', $action->ID).'</p>';
+                echo '<div class="description">';
+                echo apply_filters('the_content', '<strong>Description:</strong> '.$action->post_content);
+                echo '</div>';
+                if (get_field('response', $action->ID)) {
+                    echo '<div class="response">';
+                    echo '<strong>Response:</strong> '.get_field('response', $action->ID);
+                    echo '</div>';
+                }
+                echo '</div>';
+            }
+        }
+        echo '</dd>';
+    }
     die(1);
 }
 
+add_action('wp_ajax_get_downtimes', __NAMESPACE__.'\\get_downtimes');
+
 function get_rumors()
 {
+    
     $rumors = array();
     foreach (\App\Games::listGamesForRumors() as $game) {
         $rumors[$game->ID] = \App\Rumors::listRumors($game->ID, intval($_POST['char_id']));
+        echo '<dt><a href="#">'.$game->post_title.'</a></dt>';
+        echo '<dd>';
+        echo '<ul>';
+        foreach (App\Rumors::listRumors($game->ID, intval($_POST['char_id'])) as $rumor) {
+            echo '<li>'.apply_filters('the_content', $rumor->post_content).'</li>';
+        }
+        echo "</ul>";
+        echo "</dd>";
     }
-    echo json_encode($rumors);
+    echo $rumors;
     die(1);
 }
+
+add_action('wp_ajax_get_rumors', __NAMESPACE__.'\\get_rumors');
 
 function doHealing()
 {

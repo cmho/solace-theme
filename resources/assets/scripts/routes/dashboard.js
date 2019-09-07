@@ -540,8 +540,43 @@ export default {
       });
     }
 
+    function pollRumors() {
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'get_rumors',
+          char_id: parseInt($('.character-sheet').data('character'))
+        },
+        success: function(data) {
+          $('#rumors').html(data);
+        }
+      });
+    }
+
+    function pollDowntimes() {
+      $.ajax({
+        url: ajaxurl,
+        method: 'POST',
+        data: {
+          action: 'get_downtimes',
+          char_id: parseInt($('.character-sheet').data('character'))
+        },
+        success: function (data) {
+          $('#downtimes').html(data);
+        }
+      });
+    }
+
+
     setInterval(pollCharacters, 5000);
     setInterval(pollBeats, 5000);
+    if ($('#rumors').length > 0) {
+      setInterval(pollRumors, 18000);
+    }
+    if ($('#downtimes').length > 0) {
+      setInterval(pollDowntimes, 18000);
+    }
   },
   finalize() {
   },
