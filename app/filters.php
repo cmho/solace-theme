@@ -937,6 +937,23 @@ function get_dashboard_beats()
     die(1);
 }
 
+function get_downtimes()
+{
+    $downtimes = \App\Downtimes::listDowntimes(intval($_POST['char_id']));
+    echo json_encode($downtimes);
+    die(1);
+}
+
+function get_rumors()
+{
+    $rumors = array();
+    foreach (\App\Games::listGamesForRumors() as $game) {
+        $rumors[$game->ID] = \App\Rumors::listRumors($game->ID, intval($_POST['char_id']));
+    }
+    echo json_encode($rumors);
+    die(1);
+}
+
 function doHealing()
 {
     global $post;

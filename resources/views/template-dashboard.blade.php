@@ -289,7 +289,7 @@
       </div>
       <div class="downtime-actions tab-content" id="downtime">
         <h2>Downtime Actions</h2>
-        <dl>
+        <dl id="downtimes">
           @foreach(App\Downtimes::listDowntimes($char->ID) as $g => $actions)
             @php($game = get_post($g))
             <dt><a href="#">{{ $game->post_title }}</a></dt>
@@ -318,7 +318,7 @@
       </div>
       <div class="rumors tab-content" id="rumor">
         <h2>Rumors</h2>
-        <dl>
+        <dl id="rumors">
           @foreach(App\Games::listGamesForRumors() as $game)
             <dt><a href="#">{{ $game->post_title }}</a></dt>
             <dd>
