@@ -132,6 +132,6 @@
     "mime": "2.0.3",
     "trumbowyg": "^2.14.0",
     "tunnel-agent": "0.6",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
